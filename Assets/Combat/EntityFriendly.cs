@@ -13,6 +13,10 @@ namespace Combat {
 		}
 		static void StaticUpdate() {
 
+			float originalLeftest = leftestX;
+			float originalRightest = rightestX;
+			bool friendlyLeft = false;
+
 			leftestX=float.MaxValue;
 			rightestX=float.MinValue;
 
@@ -21,12 +25,17 @@ namespace Combat {
 
 					leftestX=Mathf.Min(i.transform.position.x,leftestX);
 					rightestX=Mathf.Min(i.transform.position.x,leftestX);
+					friendlyLeft=true;
 
 				}
 			}
 
-		}
+			if(!friendlyLeft){
+				leftestX=originalLeftest;
+				rightestX=originalRightest;
+			}
 
+		}
 
 		public static float leftestX { get; private set; }
 		public static float rightestX { get; private set; }
@@ -36,7 +45,7 @@ namespace Combat {
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
 
-		const float distancePerCharacter = 1.4f;
+		const float distancePerCharacter = 1;
 		const float distanceTolerence = 0.3f;
 
 		protected override void Start() {
@@ -65,7 +74,7 @@ namespace Combat {
 
 			} else {
 
-				float targetPosition = 0;// playerControlled.transform.position.x-positionInTeam*distancePerCharacter;
+				float targetPosition = 0;
 				for(int comparisonIndex = positionInTeam-1;comparisonIndex>=0;comparisonIndex--) {
 					if(friendlyList[comparisonIndex]) {
 						targetPosition=friendlyList[comparisonIndex].transform.position.x-(positionInTeam-comparisonIndex)*distancePerCharacter;
@@ -98,6 +107,16 @@ namespace Combat {
 			transform.position=position;
 			previousPosition=position;
 
+			UpdateAttack();
+
+		}
+
+		protected override void OnDeath() {
+			base.OnDeath();
+
+			FriendlyCorpseController.Create(transform,spriteRenderer.sprite);
+
+			Destroy(gameObject);
 		}
 
 	}

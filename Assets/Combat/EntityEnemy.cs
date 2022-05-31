@@ -13,6 +13,25 @@ namespace Combat {
 			StartIdle();
 		}
 
+		protected override void FixedUpdate() {
+			base.FixedUpdate();
+			
+			//Åö×²ÉËº¦
+			int cnt = collider.Cast(Vector2.left,Utility.raycastBuffer,Mathf.Abs(velocity.x)*Time.deltaTime);
+
+			for(int i = 0;i<cnt;i++) {
+
+				RaycastHit2D hit = Utility.raycastBuffer[i];
+				EntityFriendly other = hit.collider.GetComponent<EntityFriendly>();
+				if(other) {
+					DamageModel damage = GetDamage();
+					damage.direction=Direction.left;
+					other.Damage(damage);
+				}
+			}
+
+		}
+
 		protected virtual void StartIdle(){
 			currensState=StateIdle;
 		}
@@ -20,8 +39,7 @@ namespace Combat {
 		protected virtual void StateIdle(){
 			float x = transform.position.x;
 			bool toActive=false;
-			if(x<=EntityFriendly.rightestX+wakeUpDistance) toActive=true;
-			if(x>=EntityFriendly.leftestX-wakeUpDistance) toActive=true;
+			if(x<=EntityFriendly.rightestX+wakeUpDistance&&x>=EntityFriendly.leftestX-wakeUpDistance) toActive=true;
 			if(toActive) StartMove();
 		}
 

@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void EventHandler(object sender);
-public delegate void Void();
-
 namespace Combat {
 
-	public struct DamageModel{
+	public struct DamageModel {
 		public int amount;
 		public float knockback;
 		public EntityBase dealer;
@@ -16,9 +13,12 @@ namespace Combat {
 
 	public class EntityBase:MonoBehaviour {
 
-		[SerializeField] bool debug;
-		public static LinkedList<EntityBase> entities=new LinkedList<EntityBase>();
+		public static LinkedList<EntityBase> entities = new LinkedList<EntityBase>();
 		LinkedListNode<EntityBase> positionInList;
+
+		//component reference
+		protected new Collider2D collider;
+		protected SpriteRenderer spriteRenderer;
 
 		//属性
 		[field: SerializeField] public float acceleration { get; protected set; }
@@ -27,12 +27,25 @@ namespace Combat {
 		[field: SerializeField] public float attackCd { get; protected set; }
 		[field: SerializeField] public float knockbackPower { get; protected set; }
 		[field: SerializeField] public int maxHp { get; protected set; }
+		[field: SerializeField] public GameObject projectile { get; protected set; }
+		[field: SerializeField] public float attackRangeMin { get; protected set; }
+		[field: SerializeField] public float attackRangeMax { get; protected set; }
+		[field: SerializeField] public float projectileVelocityY { get; protected set; }
+		[field: SerializeField] public bool useSword { get; protected set; }
+
+		protected virtual DamageModel GetDamage() {
+			DamageModel result = new DamageModel();
+			result.amount=Mathf.RoundToInt(attackBasePower*powerBuff);
+			result.knockback=knockbackPower*powerBuff;
+			result.dealer=this;
+			return result;
+		}
 
 		//当前状态
 		public int hp { get; protected set; }
-		public float powerBuff;
-		public float cdSpeed;
-		public float speedBuff;
+		[HideInInspector] public float powerBuff;
+		[HideInInspector] public float cdSpeed;
+		[HideInInspector] public float speedBuff;
 
 		int direction = Direction.right;
 
@@ -46,7 +59,7 @@ namespace Combat {
 
 		public virtual void Damage(DamageModel e) {
 			hp-=e.amount;
-			StartKnockback(e.knockback);
+			StartKnockback(e.knockback,e.direction);
 			if(hp<=0) OnDeath();
 		}
 
@@ -56,9 +69,13 @@ namespace Combat {
 		}
 
 		protected virtual void Start() {
+			hp=maxHp;
 			previousPosition=transform.position;
 			StartMove();
 			positionInList=entities.AddLast(this);
+
+			collider=GetComponent<Collider2D>();
+			spriteRenderer=GetComponent<SpriteRenderer>();
 		}
 
 		protected virtual void OnDestroy() {
@@ -66,8 +83,8 @@ namespace Combat {
 		}
 
 		private void Update() {
-			if(debug&&Input.GetKeyDown(KeyCode.W)) StartKnockback(1);
 			UpdateMove();
+			spriteRenderer.flipX=direction==Direction.left;
 		}
 
 		protected virtual void FixedUpdate() {
@@ -95,10 +112,10 @@ namespace Combat {
 
 		}
 
-		protected virtual void StartKnockback(float knockback) {
+		protected virtual void StartKnockback(float knockback,int direction) {
 			timeSinceKnockback=0;
 			currentKnockback=knockback;
-			knockbackDirection=Direction.Reverse(direction);
+			knockbackDirection=direction;
 			currensState=StateKnockback;
 		}
 
@@ -129,6 +146,76 @@ namespace Combat {
 			if(timeSinceKnockback>=knockbackTime) StartMove();
 		}
 
+		//攻击
+
+		protected float timeAfterAttack;
+		protected virtual void UpdateAttack() {
+
+			timeAfterAttack+=Time.deltaTime;
+
+			//找到敌人
+			EntityBase target = null;
+			float targetDistance = float.MaxValue;
+
+			foreach(var i in entities) {
+
+				if((i is EntityFriendly)==(this is EntityFriendly)) continue;
+				float x = i.transform.position.x;
+				float dist = Mathf.Abs(x-transform.position.x);
+				if(dist<attackRangeMin||dist>attackRangeMax) continue;
+
+				if(dist<targetDistance) {
+					targetDistance=dist;
+					target=i;
+				}
+
+				if(target) {
+					direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
+					if(timeAfterAttack>attackCd) {
+						Attack(target);
+					}
+				} else {
+					direction=(this is EntityFriendly) ? Direction.right : Direction.left;
+				}
+
+			}
+
+		}
+
+		protected virtual ProjectileBase Attack(EntityBase target) {
+
+			timeAfterAttack=0;
+			return ProjectilePool.Create(
+				projectile,
+				transform.position,
+				ProjectileVelocity(target.transform.position,target.velocity),
+				target,
+				this is EntityFriendly,
+				GetDamage()
+			);
+
+		}
+
+		protected bool projectileParametersGet;
+		protected float projectileGravity;
+		protected float travelTime;
+		protected virtual Vector2 ProjectileVelocity(Vector2 target,Vector2 velocity) {
+			if(!projectileParametersGet) {
+				projectileGravity=projectile.GetComponent<ProjectileBase>().gravity;
+				travelTime=2*projectileVelocityY/projectileGravity;
+				projectileParametersGet=true;
+			}
+
+			float arriveX = target.x+velocity.x*travelTime;
+
+			if(useSword) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*0.5f;
+			float velocityX = (arriveX-transform.position.x)/travelTime;
+			return new Vector2(velocityX,projectileVelocityY);
+
+		}
+
 	}
+
+
 
 }

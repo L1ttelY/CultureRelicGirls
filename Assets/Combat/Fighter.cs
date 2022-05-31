@@ -17,8 +17,8 @@ namespace Combat {
 			transform.position=position;
 			previousPosition=position;
 
-		}
 
+		}
 
 
 	}
