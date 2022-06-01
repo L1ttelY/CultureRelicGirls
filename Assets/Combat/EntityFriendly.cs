@@ -68,20 +68,25 @@ namespace Combat {
 			float targetVelocity;
 			float deltaSpeed = buffedAcceleration*Time.deltaTime;
 
-			if(positionInTeam==0) {
+			int previousIndex=-1;
+			EntityFriendly previousEntity=null;
+			for(int comparisonIndex = positionInTeam-1;comparisonIndex>=0;comparisonIndex--) {
+				if(friendlyList[comparisonIndex]) {
+					previousEntity=friendlyList[comparisonIndex];
+					previousIndex=comparisonIndex;
+					break;
+				}
+			}
+
+
+			if(!previousEntity) {
 
 				targetVelocity=buffedSpeed*Player.instance.targetVelocity;
 
 			} else {
 
 				float targetPosition = 0;
-				for(int comparisonIndex = positionInTeam-1;comparisonIndex>=0;comparisonIndex--) {
-					if(friendlyList[comparisonIndex]) {
-						targetPosition=friendlyList[comparisonIndex].transform.position.x-(positionInTeam-comparisonIndex)*distancePerCharacter;
-						break;
-					}
-				}
-
+				targetPosition=previousEntity.transform.position.x-(positionInTeam-previousIndex)*distancePerCharacter;
 
 				float decelerateDistance = 0.5f*velocity.x*velocity.x/buffedAcceleration;
 				if(decelerateDistance<distanceTolerence) decelerateDistance=distanceTolerence;

@@ -19,6 +19,7 @@ namespace Combat {
 		//component reference
 		protected new Collider2D collider;
 		protected SpriteRenderer spriteRenderer;
+		protected Animator animator;
 
 		// Ù–‘
 		[field: SerializeField] public float acceleration { get; protected set; }
@@ -27,7 +28,7 @@ namespace Combat {
 		[field: SerializeField] public float attackCd { get; protected set; }
 		[field: SerializeField] public float knockbackPower { get; protected set; }
 		[field: SerializeField] public int maxHp { get; protected set; }
-		[field: SerializeField] public GameObject projectile { get; protected set; }
+		[field: SerializeField] public GameObject[] projectiles { get; protected set; }
 		[field: SerializeField] public float attackRangeMin { get; protected set; }
 		[field: SerializeField] public float attackRangeMax { get; protected set; }
 		[field: SerializeField] public float projectileVelocityY { get; protected set; }
@@ -75,7 +76,8 @@ namespace Combat {
 			positionInList=entities.AddLast(this);
 
 			collider=GetComponent<Collider2D>();
-			spriteRenderer=GetComponent<SpriteRenderer>();
+			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
+			animator=GetComponent<Animator>();
 		}
 
 		protected virtual void OnDestroy() {
@@ -84,7 +86,9 @@ namespace Combat {
 
 		private void Update() {
 			UpdateMove();
-			spriteRenderer.flipX=direction==Direction.left;
+			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
+			animator.SetFloat("speed",Mathf.Abs(velocity.x));
+			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
 		}
 
 		protected virtual void FixedUpdate() {
@@ -117,6 +121,7 @@ namespace Combat {
 			currentKnockback=knockback;
 			knockbackDirection=direction;
 			currensState=StateKnockback;
+			animator.SetBool("inKnockback",true);
 		}
 
 		const float knockbackTime = 0.1f;
@@ -184,11 +189,14 @@ namespace Combat {
 
 		protected virtual ProjectileBase Attack(EntityBase target) {
 
+			int projectileType = Random.Range(0,projectiles.Length);
+
+			animator.SetTrigger("attack");
 			timeAfterAttack=0;
 			return ProjectilePool.Create(
-				projectile,
+				projectiles[projectileType],
 				transform.position,
-				ProjectileVelocity(target.transform.position,target.velocity),
+				ProjectileVelocity(target.transform.position,target.velocity,projectileType),
 				target,
 				this is EntityFriendly,
 				GetDamage()
@@ -197,19 +205,27 @@ namespace Combat {
 		}
 
 		protected bool projectileParametersGet;
-		protected float projectileGravity;
-		protected float travelTime;
-		protected virtual Vector2 ProjectileVelocity(Vector2 target,Vector2 velocity) {
+		protected float[] projectileGravity;
+		protected float[] travelTime;
+		protected virtual Vector2 ProjectileVelocity(Vector2 target,Vector2 velocity,int projectileType) {
 			if(!projectileParametersGet) {
-				projectileGravity=projectile.GetComponent<ProjectileBase>().gravity;
-				travelTime=2*projectileVelocityY/projectileGravity;
 				projectileParametersGet=true;
+
+				int cnt = projectiles.Length;
+				projectileGravity=new float[cnt];
+				travelTime=new float[cnt];
+
+				for(int i = 0;i<cnt;i++) {
+					projectileGravity[i]=projectiles[i].GetComponent<ProjectileBase>().gravity;
+					travelTime[i]=2*projectileVelocityY/projectileGravity[i];
+				}
+
 			}
 
-			float arriveX = target.x+velocity.x*travelTime;
+			float arriveX = target.x+velocity.x*travelTime[projectileType];
 
 			if(useSword) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*0.5f;
-			float velocityX = (arriveX-transform.position.x)/travelTime;
+			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
 			return new Vector2(velocityX,projectileVelocityY);
 
 		}
