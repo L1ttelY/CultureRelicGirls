@@ -153,7 +153,7 @@ namespace Combat {
 
 		//¹¥»÷
 
-		protected float timeAfterAttack;
+		public float timeAfterAttack { get; protected set; }
 		protected virtual void UpdateAttack() {
 
 			timeAfterAttack+=Time.deltaTime;
