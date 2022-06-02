@@ -94,6 +94,7 @@ namespace Combat {
 
 		protected virtual void Hit(EntityBase target) {
 
+			if(penetratePower>timePenetrated) return;
 			if(hit.Contains(target)) return;
 			hit.Add(target);
 

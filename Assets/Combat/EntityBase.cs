@@ -32,7 +32,9 @@ namespace Combat {
 		[field: SerializeField] public float attackRangeMin { get; protected set; }
 		[field: SerializeField] public float attackRangeMax { get; protected set; }
 		[field: SerializeField] public float projectileVelocityY { get; protected set; }
+		[field: SerializeField] public float maxPredictSpeed { get; protected set; }
 		[field: SerializeField] public bool useSword { get; protected set; }
+		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }
 
 		protected virtual DamageModel GetDamage() {
 			DamageModel result = new DamageModel();
@@ -48,7 +50,7 @@ namespace Combat {
 		[HideInInspector] public float cdSpeed;
 		[HideInInspector] public float speedBuff;
 
-		int direction = Direction.right;
+		protected int direction = Direction.right;
 
 		public static event EventHandler UpdateStats;
 		void OnUpdateStats() {
@@ -61,6 +63,10 @@ namespace Combat {
 		public virtual void Damage(DamageModel e) {
 			hp-=e.amount;
 			StartKnockback(e.knockback,e.direction);
+
+			int vfxIndex = Random.Range(0,damageVfx.Length);
+			VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
+
 			if(hp<=0) OnDeath();
 		}
 
@@ -222,11 +228,12 @@ namespace Combat {
 
 			}
 
-			float arriveX = target.x+velocity.x*travelTime[projectileType];
+			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*travelTime[projectileType];
 
 			if(useSword) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*0.5f;
 			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
 			return new Vector2(velocityX,projectileVelocityY);
+
 
 		}
 

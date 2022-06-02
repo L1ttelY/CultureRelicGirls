@@ -7,6 +7,7 @@ namespace Combat {
 	public class EntityEnemy:EntityBase {
 
 		[SerializeField] protected float wakeUpDistance;
+		[SerializeField] Sprite corpseSprite;
 
 		protected override void Start() {
 			base.Start();
@@ -43,7 +44,6 @@ namespace Combat {
 			if(toActive) StartMove();
 		}
 
-
 		protected override void StateMove() {
 
 			Vector2 position = previousPosition;
@@ -66,6 +66,7 @@ namespace Combat {
 
 		protected override void OnDeath() {
 			base.OnDeath();
+			EnemyCorpse.Create(corpseSprite,transform.position,direction);
 			Destroy(gameObject);
 		}
 
