@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 namespace Combat {
 
@@ -14,8 +13,8 @@ namespace Combat {
 		[SerializeField] Image hpBase;
 		[SerializeField] Image avatarImage;
 		[SerializeField] Image redCrossImage;
-		[SerializeField] TextMeshProUGUI hpText;
-		[SerializeField] TextMeshProUGUI powerText;
+		[SerializeField] Text hpText;
+		[SerializeField] Text powerText;
 		[SerializeField] int targetIndex;
 
 		bool inited;
