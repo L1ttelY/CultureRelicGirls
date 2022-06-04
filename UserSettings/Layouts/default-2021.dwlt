@@ -15,42 +15,16 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 42.285717
-    width: 2194.286
-    height: 1192
+    y: 43
+    width: 1920
+    height: 997
   m_ShowMode: 4
-  m_Title: Scene
-  m_RootView: {fileID: 3}
+  m_Title: "\u5C42\u7EA7"
+  m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 468
-    y: 0
-    width: 433.14288
-    height: 745.1429
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 14}
-  m_Panes:
-  - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 0
---- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,8 +44,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1586
-    height: 1021
+    width: 1920
+    height: 997
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -95,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1586
+    width: 1920
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -116,8 +90,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 1001
-    width: 1586
+    y: 977
+    width: 1920
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -140,12 +114,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1586
-    height: 971
+    width: 1920
+    height: 947
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 129
+  controlID: 34
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,12 +139,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1283
-    height: 971
+    width: 1431
+    height: 947
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 130
+  controlID: 20
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,12 +164,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1283
-    height: 634
+    width: 1431
+    height: 575
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 131
+  controlID: 21
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,13 +187,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 373
-    height: 634
+    width: 279
+    height: 575
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 13}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 13}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &9
@@ -237,18 +211,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 373
+    x: 279
     y: 0
-    width: 910
-    height: 634
+    width: 1152
+    height: 575
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 15}
-  - {fileID: 13}
+  - {fileID: 14}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -265,17 +238,17 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 634
-    width: 1283
-    height: 337
+    y: 575
+    width: 1431
+    height: 372
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 15}
   m_Panes:
+  - {fileID: 15}
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
-  - {fileID: 19}
   - {fileID: 12}
   m_Selected: 0
   m_LastSelected: 1
@@ -294,15 +267,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1283
+    x: 1431
     y: 0
-    width: 303
-    height: 971
+    width: 489
+    height: 947
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 20}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 20}
+  - {fileID: 19}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &12
@@ -320,7 +293,7 @@ MonoBehaviour:
   m_MinSize: {x: 880, y: 216}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Profiler
+    m_Text: "\u5206\u6790\u5668"
     m_Image: {fileID: -1089619856830078684, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -504,13 +477,9 @@ MonoBehaviour:
                 - width: 150
                   sortedAscending: 1
                   headerContent:
-                    m_Text: Called From
+                    m_Text: "\u8C03\u7528\u4E8E"
                     m_Image: {fileID: 0}
-                    m_Tooltip: 'Parents the selected function is called from
-
-
-                      (Press
-                      ''F'' for frame selection)'
+                    m_Tooltip: "\u9009\u62E9\u7684\u5BB6\u957F\u51FD\u6570\u8C03\u7528\u81EA\n\n\uFF08\u6309\u201CF\u201D\u9009\u62E9\u6846\u67B6\uFF09"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -523,9 +492,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Calls
+                    m_Text: "\u8C03\u7528"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total number of calls in a selected frame
+                    m_Tooltip: "\u6240\u9009\u5E27\u4E2D\u7684\u8C03\u7528\u603B\u6570"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -538,7 +507,7 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: GC Alloc
+                    m_Text: "GC \u5206\u914D"
                     m_Image: {fileID: 0}
                     m_Tooltip: 
                   contextMenuText: 
@@ -553,9 +522,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time ms
+                    m_Text: "\u65F6\u95F4\u6BEB\u79D2"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total time the selected function spends within a parent
+                    m_Tooltip: "\u9009\u5B9A\u51FD\u6570\u5728\u7236\u7EA7\u4E2D\u82B1\u8D39\u7684\u603B\u65F6\u95F4"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -568,10 +537,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time %
+                    m_Text: "\u65F6\u95F4 \uFF05"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Shows how often the selected function was called from
-                      the parent call
+                    m_Tooltip: "\u663E\u793A\u7236\u8C03\u7528\u8C03\u7528\u6240\u9009\u51FD\u6570\u7684\u9891\u7387"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -611,13 +579,9 @@ MonoBehaviour:
                 - width: 150
                   sortedAscending: 1
                   headerContent:
-                    m_Text: Called From
+                    m_Text: "\u8C03\u7528\u4E8E"
                     m_Image: {fileID: 0}
-                    m_Tooltip: 'Parents the selected function is called from
-
-
-                      (Press
-                      ''F'' for frame selection)'
+                    m_Tooltip: "\u9009\u62E9\u7684\u5BB6\u957F\u51FD\u6570\u8C03\u7528\u81EA\n\n\uFF08\u6309\u201CF\u201D\u9009\u62E9\u6846\u67B6\uFF09"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -630,9 +594,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Calls
+                    m_Text: "\u8C03\u7528"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total number of calls in a selected frame
+                    m_Tooltip: "\u6240\u9009\u5E27\u4E2D\u7684\u8C03\u7528\u603B\u6570"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -645,7 +609,7 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: GC Alloc
+                    m_Text: "GC \u5206\u914D"
                     m_Image: {fileID: 0}
                     m_Tooltip: 
                   contextMenuText: 
@@ -660,9 +624,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time ms
+                    m_Text: "\u65F6\u95F4\u6BEB\u79D2"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total time the selected function spends within a parent
+                    m_Tooltip: "\u9009\u5B9A\u51FD\u6570\u5728\u7236\u7EA7\u4E2D\u82B1\u8D39\u7684\u603B\u65F6\u95F4"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -675,10 +639,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time %
+                    m_Text: "\u65F6\u95F4 \uFF05"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Shows how often the selected function was called from
-                      the parent call
+                    m_Tooltip: "\u663E\u793A\u7236\u8C03\u7528\u8C03\u7528\u6240\u9009\u51FD\u6570\u7684\u9891\u7387"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -842,13 +805,9 @@ MonoBehaviour:
                 - width: 150
                   sortedAscending: 1
                   headerContent:
-                    m_Text: Called From
+                    m_Text: "\u8C03\u7528\u4E8E"
                     m_Image: {fileID: 0}
-                    m_Tooltip: 'Parents the selected function is called from
-
-
-                      (Press
-                      ''F'' for frame selection)'
+                    m_Tooltip: "\u9009\u62E9\u7684\u5BB6\u957F\u51FD\u6570\u8C03\u7528\u81EA\n\n\uFF08\u6309\u201CF\u201D\u9009\u62E9\u6846\u67B6\uFF09"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -861,9 +820,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Calls
+                    m_Text: "\u8C03\u7528"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total number of calls in a selected frame
+                    m_Tooltip: "\u6240\u9009\u5E27\u4E2D\u7684\u8C03\u7528\u603B\u6570"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -876,7 +835,7 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: GC Alloc
+                    m_Text: "GC \u5206\u914D"
                     m_Image: {fileID: 0}
                     m_Tooltip: 
                   contextMenuText: 
@@ -891,9 +850,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time ms
+                    m_Text: "\u65F6\u95F4\u6BEB\u79D2"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total time the selected function spends within a parent
+                    m_Tooltip: "\u9009\u5B9A\u51FD\u6570\u5728\u7236\u7EA7\u4E2D\u82B1\u8D39\u7684\u603B\u65F6\u95F4"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -906,10 +865,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time %
+                    m_Text: "\u65F6\u95F4 \uFF05"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Shows how often the selected function was called from
-                      the parent call
+                    m_Tooltip: "\u663E\u793A\u7236\u8C03\u7528\u8C03\u7528\u6240\u9009\u51FD\u6570\u7684\u9891\u7387"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -949,13 +907,9 @@ MonoBehaviour:
                 - width: 150
                   sortedAscending: 1
                   headerContent:
-                    m_Text: Called From
+                    m_Text: "\u8C03\u7528\u4E8E"
                     m_Image: {fileID: 0}
-                    m_Tooltip: 'Parents the selected function is called from
-
-
-                      (Press
-                      ''F'' for frame selection)'
+                    m_Tooltip: "\u9009\u62E9\u7684\u5BB6\u957F\u51FD\u6570\u8C03\u7528\u81EA\n\n\uFF08\u6309\u201CF\u201D\u9009\u62E9\u6846\u67B6\uFF09"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -968,9 +922,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Calls
+                    m_Text: "\u8C03\u7528"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total number of calls in a selected frame
+                    m_Tooltip: "\u6240\u9009\u5E27\u4E2D\u7684\u8C03\u7528\u603B\u6570"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -983,7 +937,7 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: GC Alloc
+                    m_Text: "GC \u5206\u914D"
                     m_Image: {fileID: 0}
                     m_Tooltip: 
                   contextMenuText: 
@@ -998,9 +952,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time ms
+                    m_Text: "\u65F6\u95F4\u6BEB\u79D2"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Total time the selected function spends within a parent
+                    m_Tooltip: "\u9009\u5B9A\u51FD\u6570\u5728\u7236\u7EA7\u4E2D\u82B1\u8D39\u7684\u603B\u65F6\u95F4"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -1013,10 +967,9 @@ MonoBehaviour:
                 - width: 60
                   sortedAscending: 0
                   headerContent:
-                    m_Text: Time %
+                    m_Text: "\u65F6\u95F4 \uFF05"
                     m_Image: {fileID: 0}
-                    m_Tooltip: Shows how often the selected function was called from
-                      the parent call
+                    m_Tooltip: "\u663E\u793A\u7236\u8C03\u7528\u8C03\u7528\u6240\u9009\u51FD\u6570\u7684\u9891\u7387"
                   contextMenuText: 
                   headerTextAlignment: 0
                   sortingArrowAlignment: 2
@@ -1201,123 +1154,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 451
-    y: 73
-    width: 1100
-    height: 623
-  m_ViewDataDictionary: {fileID: 0}
-  m_OverlayCanvas:
-    m_LastAppliedPresetName: Default
-    m_SaveData: []
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1080, y: 2340}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 07000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -540
-    m_HBaseRangeMax: 540
-    m_VBaseRangeMin: -1170
-    m_VBaseRangeMax: 1170
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 1
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 1100
-      height: 602
-    m_Scale: {x: 0.28112033, y: 0.28112033}
-    m_Translation: {x: 550, y: 308.2308}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -1956.4575
-      y: -1096.4373
-      width: 3912.915
-      height: 2141.4316
-    m_MinimalGUI: 1
-  m_defaultScale: 0.25726497
-  m_LastWindowPixelSize: {x: 1100, y: 623}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
---- !u!114 &14
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
   m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Hierarchy
+    m_Text: "\u5C42\u7EA7"
     m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -151
-    y: 367
-    width: 372
-    height: 613
+    x: 0
+    y: 73
+    width: 278
+    height: 554
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 608.8571}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f03cffff983dfffff63effff7646fffff45affffe45cffffb460ffff5861ffffb662ffff366affff1e6cffffc26cffff246effffa875ffff6079ffff6c7bffff107cffff9e83ffffb485ffff3486ffff448fffffeaa8ffffeaabffff6e280200
+      m_ExpandedIDs: 96e5fefff244ffffb0b5ffff5aedffff28fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1341,7 +1202,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &15
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1356,15 +1217,15 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Scene
+    m_Text: "\u573A\u666F"
     m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 222
-    y: 367
-    width: 908
-    height: 613
+    x: 279
+    y: 73
+    width: 1150
+    height: 554
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1588,9 +1449,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 471.42935, y: 26.28858, z: 109.149895}
+    m_Target: {x: -2.0558457, y: 2.6574476, z: -0.10627046}
     speed: 2
-    m_Value: {x: 472.2913, y: 25.975557, z: 109.17698}
+    m_Value: {x: -2.825809, y: 2.9690049, z: -0.1115094}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1621,7 +1482,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -1632,18 +1493,18 @@ MonoBehaviour:
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0.0009765625, y: 0.0009765625}
+      m_Size: {x: 1, y: 1}
     m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0.027273675, y: -0.19899379, z: 0.0039779046, w: 0.97961307}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 62.89337
+    m_Target: 11.118166
     speed: 2
-    m_Value: 60.185043
+    m_Value: 11.642058
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1668,7 +1529,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1683,15 +1544,15 @@ MonoBehaviour:
   m_MinSize: {x: 230, y: 250}
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
-    m_Text: Project
+    m_Text: "\u9879\u76EE"
     m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -151
-    y: 1001
-    width: 1282
-    height: 316
+    x: 0
+    y: 648
+    width: 1430
+    height: 351
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1709,22 +1570,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Museum
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Museum
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: D:\Codes\Unity\School\oth\CultureRelicGirls1\CultureRelicGirls
+  m_LastProjectPath: E:\GameMaker\Final Work\Github\CultureRelicGirls
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 66}
-    m_SelectedIDs: aeca0000
-    m_LastClickedID: 51886
-    m_ExpandedIDs: 00000000a6ca0000b6ca0000c2f7000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 44}
+    m_SelectedIDs: 568c0000
+    m_LastClickedID: 35926
+    m_ExpandedIDs: 00000000b28a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1752,7 +1613,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000b28a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1804,11 +1665,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 284}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &17
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1823,20 +1684,20 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Console
+    m_Text: "\u63A7\u5236\u53F0"
     m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 717
-    width: 1552
-    height: 322
+    y: 691
+    width: 1690
+    height: 308
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &18
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1851,7 +1712,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Animator
+    m_Text: "\u52A8\u753B\u5668"
     m_Image: {fileID: -1673928668082335149, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -1917,7 +1778,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &19
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1932,7 +1793,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Animation
+    m_Text: "\u52A8\u753B"
     m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -1948,7 +1809,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID: -322052
---- !u!114 &20
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1963,15 +1824,15 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Inspector
+    m_Text: "\u68C0\u67E5\u5668"
     m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1132
-    y: 367
-    width: 302
-    height: 950
+    x: 1431
+    y: 73
+    width: 488
+    height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
