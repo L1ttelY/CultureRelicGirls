@@ -13,6 +13,32 @@ public struct LoadTextEventArgs {
 }
 
 public static class Utility {
+
+	public static Rect GetWorldRect(this RectTransform rectTransform) {
+		Vector3[] corners = new Vector3[4];
+		rectTransform.GetWorldCorners(corners);
+		// Get the bottom left corner.
+		Vector3 position = corners[0];
+
+		Vector2 size = new Vector2(
+				rectTransform.lossyScale.x*rectTransform.rect.size.x,
+				rectTransform.lossyScale.y*rectTransform.rect.size.y);
+
+		return new Rect(position,size);
+	}
+	public static Rect GetLocalRect(this RectTransform rectTransform) {
+		Vector3[] corners = new Vector3[4];
+		rectTransform.GetLocalCorners(corners);
+		// Get the bottom left corner.
+		Vector3 position = corners[0];
+
+		Vector2 size = new Vector2(
+				rectTransform.lossyScale.x*rectTransform.rect.size.x,
+				rectTransform.lossyScale.y*rectTransform.rect.size.y);
+
+		return new Rect(position,size);
+	}
+
 	//调用NonAlloc函数时使用的缓存
 	public static RaycastHit2D[] raycastBuffer = new RaycastHit2D[100];
 	public static Collider2D[] colliderBuffer = new Collider2D[100];
