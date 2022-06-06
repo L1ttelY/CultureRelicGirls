@@ -94,6 +94,12 @@ namespace Combat {
 
 			}
 
+			if(Utility.debug){
+				targetVelocity=0;
+				if(Input.GetKey(KeyCode.A)) targetVelocity-=1;
+				if(Input.GetKey(KeyCode.D)) targetVelocity+=1;
+			}
+
 		}
 
 		Vector2 TouchToPosition(Touch touch) {
