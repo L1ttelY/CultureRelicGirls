@@ -8,7 +8,7 @@ namespace PlayerData {
 	/// 存档的角色信息节点
 	/// </summary>
 	public static class CharacterData {
-
+		
 	}
 
 }

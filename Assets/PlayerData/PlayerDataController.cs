@@ -9,25 +9,36 @@ namespace PlayerData {
 	/// </summary>
 	public static class PlayerDataController {
 
+		static string filePath = "/save";
+
 		public static WXFileSystemManager fileSystem;
 		[RuntimeInitializeOnLoadMethod]
 		static void Init() {
-			WX.InitSDK(SDKInited);
+
+			if(Utility.debug) {
+				//直接读取存档
+				
+			} else {
+				//初始化微信SDK
+				WX.InitSDK(SDKInited);
+			}
 
 		}
+
 
 		static void SDKInited(int _) {
 
-			AccessParam accessParam = new AccessParam();
-			accessParam.path="/save";
-
 			fileSystem=WX.GetFileSystemManager();
-			fileSystem.Access(accessParam);
+
+			fileSystem.AccessSync(filePath);
+
 
 		}
 
 
-		static
+		static void LoadFile(){
+
+		}
 
 	}
 
