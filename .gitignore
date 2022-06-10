@@ -10,6 +10,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -43,6 +44,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.lnk
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -59,3 +61,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+UserSettings/Layouts/default-2021.dwlt
+*.dwlt
+UserSettings/EditorUserSettings.asset
