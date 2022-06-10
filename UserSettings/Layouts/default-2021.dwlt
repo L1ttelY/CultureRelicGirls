@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 540
     height: 764.5714
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 155
+  controlID: 35
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 156
+  controlID: 86
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 157
+  controlID: 87
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -216,8 +216,8 @@ MonoBehaviour:
     y: 0
     width: 344
     height: 764.5714
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -242,8 +242,8 @@ MonoBehaviour:
     y: 0
     width: 919.4286
     height: 764.5714
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -298,8 +298,8 @@ MonoBehaviour:
     y: 0
     width: 390.85706
     height: 1142
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -390,7 +390,7 @@ MonoBehaviour:
       width: 816.89215
       height: 1097.143
     m_MinimalGUI: 1
-  m_defaultScale: 0.65859365
+  m_defaultScale: 0.6777343
   m_LastWindowPixelSize: {x: 941.5, y: 1301.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -1314,24 +1314,24 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 2429.4287}
-      m_SelectedIDs: f46e0000
-      m_LastClickedID: 28404
-      m_ExpandedIDs: 2cfbffff166c0000d46c0000886d0000be6e0000406f000026710000207200002a74000058740000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 4e7d0000
+      m_LastClickedID: 32078
+      m_ExpandedIDs: 4cdfffff2efbffff507c0000547c00005c7c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: BridgeMoss_01 (10)
-        m_OriginalName: BridgeMoss_01 (10)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -21204
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -1588,9 +1588,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 218.58354, y: 7.511735, z: -44.15566}
+    m_Target: {x: 1.0027227, y: 0.0012380342, z: 6.2655697}
     speed: 2
-    m_Value: {x: 218.58354, y: 7.511735, z: -44.15566}
+    m_Value: {x: 1.0027227, y: 0.0012380342, z: 6.2655697}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1637,20 +1637,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.03127926, y: -0.099465705, z: -0.0043605645, w: 0.9931808}
+    m_Target: {x: 0.029207611, y: -0.0022977001, z: -0.0071014245, w: 0.99818313}
     speed: 2
-    m_Value: {x: 0.031315003, y: -0.0981084, z: -0.0044134427, w: 0.9946731}
+    m_Value: {x: 0.030746724, y: -0.0023114395, z: -0.007107668, w: 0.9994993}
   m_Size:
-    m_Target: 8.923586
+    m_Target: 8.089192
     speed: 2
-    m_Value: 8.923586
+    m_Value: 8.470359
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 2
-    m_SpeedNormalized: 1
+    m_Speed: 1.9400301
+    m_SpeedNormalized: 0.97
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1709,22 +1709,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Combat/Maps/City
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Combat/Maps/City
+  - Assets/Scenes
   m_LastFoldersGridSize: 96
   m_LastProjectPath: W:\GitHUB_FileEdition\CultureRelicGirls
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 32790000
-    m_LastClickedID: 31026
-    m_ExpandedIDs: 00000000a4770000a6770000a8770000aa770000ac770000ae770000b07700003e7900007a7900009e790000a0790000bc790000e279000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 300}
+    m_SelectedIDs: 7a7a0000
+    m_LastClickedID: 31354
+    m_ExpandedIDs: 00000000b4780000b6780000b8780000ba780000bc780000be780000c0780000c2780000c4780000c6780000c8780000ca780000cc780000767a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1752,7 +1752,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a4770000a6770000a8770000aa770000ac770000ae770000b0770000
+    m_ExpandedIDs: 00000000b4780000b6780000b8780000ba780000bc780000be780000c0780000c2780000c4780000c6780000c8780000ca780000cc780000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
