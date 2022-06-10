@@ -1138,4 +1138,68 @@ namespace WeChatWASM
         /// </summary>
         releaseSuccess,
     }
+    /// <summary>
+    /// 启动数据
+    /// </summary>
+    public class LaunchEvent
+    {
+        public LaunchEventType type;
+        /// <summary>
+        /// 当前阶段耗时
+        /// </summary>
+        public int costTimeMs;
+        /// <summary>
+        /// 自插件启动后总运行时间
+        /// </summary>
+        public int runTimeMs;
+        /// <summary>
+        /// 是否需要下载资源包
+        /// </summary>
+        public bool needDownloadDataPackage;
+        /// <summary>
+        /// 首包资源是否作为小游戏代码分包下载
+        /// </summary>
+        public bool loadDataPackageFromSubpackage;
+        /// <summary>
+        /// 当前阶段完成时是否处于前台
+        /// </summary>
+        public bool isVisible;
+        /// <summary>
+        /// 是否开启了代码分包
+        /// </summary>
+        public bool useCodeSplit;
+        /// <summary>
+        /// 是否iOS高性能模式
+        /// </summary>
+        public bool isHighPerformance;
+    }
+    /// <summary>
+    /// 启动阶段类型定义
+    /// </summary>
+    public enum LaunchEventType {
+        /// <summary>
+        /// 插件启动
+        /// </summary>
+        launchPlugin,
+        /// <summary>
+        /// 下载wasm代码
+        /// </summary>
+        loadWasm,
+        /// <summary>
+        /// 编译wasm
+        /// </summary>
+        compileWasm,
+        /// <summary>
+        /// 下载首包资源
+        /// </summary>
+        loadAssets,
+        /// <summary>
+        /// 读取首包资源
+        /// </summary>
+        readAssets = 5,
+        /// <summary>
+        /// 引擎初始化(callmain)
+        /// </summary>
+        prepareGame,
+    }
 }

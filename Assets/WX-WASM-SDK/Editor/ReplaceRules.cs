@@ -46,7 +46,24 @@ namespace WeChatWASM
            old="var FS *=",
            newStr="var FS = GameGlobal.unityNamespace.FS="
        },
-#if !Unity_2021
+       // ----MemoryProfiler Begin-----//
+       new Rule()
+       {
+           old="(new Error).stack.toString()",
+           newStr="\"\""
+       },
+       new Rule()
+       {
+           old="if *\\(location.search.toLowerCase",
+           newStr="return; if(location.search.toLowerCase"
+       },
+       new Rule()
+       {
+           old="if *\\(this.hookStackAlloc",
+           newStr="return;if(this.hookStackAlloc"
+       },
+       // ----MemoryProfiler End-----//
+#if !UNITY_2021
        new Rule()
        {
            old=@"t\.clientX *- *canvasRect\.left",
@@ -373,12 +390,17 @@ namespace WeChatWASM
         new Rule()
         {
             old="new AbortController(\\(\\)|\\b);?",
-            newStr="new GameGlobal.unityNamespace.UnityLoader.UnityCache.XMLHttpRequest();if(GameGlobal.TEXTURE_PARALLEL_BUNDLE){var filename=_url.substring(_url.lastIndexOf('/')+1);GameGlobal.ParalleLDownloadTexture(filename)}"
+            newStr="new GameGlobal.unityNamespace.UnityLoader.UnityCache.XMLHttpRequest();if(GameGlobal.TEXTURE_PARALLEL_BUNDLE){GameGlobal.ParalleLDownloadTexture(_url)}"
         },
         new Rule()
         {
             old="fetchImpl\\(",
             newStr="fetchImpl = abortController.openAndSend;fetchImpl("
+        },
+        new Rule()
+        {
+            old="requestOptions.init.body *= *new Blob\\(\\[ *postData *\\]\\)",
+            newStr="requestOptions.init.body = postData"
         },
         new Rule(){
             old = "function HandleError\\(err, *code\\) *{",
@@ -406,7 +428,7 @@ namespace WeChatWASM
         new Rule()
         {
             old="http\\.open\\( *_method *, *_url *, *true *\\);",
-            newStr="if(GameGlobal.TEXTURE_PARALLEL_BUNDLE){var filename=_url.substring(_url.lastIndexOf('/')+1);GameGlobal.ParalleLDownloadTexture(filename)}var http = new GameGlobal.unityNamespace.UnityLoader.UnityCache.XMLHttpRequest();http.open(_method, _url, true);"
+            newStr="if(GameGlobal.TEXTURE_PARALLEL_BUNDLE){GameGlobal.ParalleLDownloadTexture(_url)}var http = new GameGlobal.unityNamespace.UnityLoader.UnityCache.XMLHttpRequest();http.open(_method, _url, true);"
         }
 #endif
     };

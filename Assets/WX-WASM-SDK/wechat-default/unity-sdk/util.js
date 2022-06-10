@@ -1,4 +1,5 @@
 import moduleHelper from "./module-helper";
+import { launchEventType } from "../plugin-config";
 
 export default {
   WXReportGameStart() {
@@ -108,6 +109,30 @@ export default {
           result: res
         }))
       })
+      return key;
+    }
+    return '';
+  },
+  WXOnLaunchProgress() {
+    if (GameGlobal.manager && GameGlobal.manager.onLaunchProgress) {
+      const key = new Date().getTime().toString(32)+Math.random().toString(32);
+      // 异步执行，保证C#已经记录这个回调ID
+      setTimeout(() => {
+        GameGlobal.manager.onLaunchProgress((e) => {
+          moduleHelper.send('OnLaunchProgressCallback', JSON.stringify({
+            callbackId: key,
+            res: JSON.stringify(Object.assign({}, e.data, {
+              type: e.type
+            }))
+          }))
+          // 最后一个事件完成，结束监听
+          if (e.type === launchEventType.prepareGame) {
+            moduleHelper.send('RemoveLaunchProgressCallback', JSON.stringify({
+              callbackId: key
+            }))
+          }
+        })
+      }, 0);
       return key;
     }
     return '';

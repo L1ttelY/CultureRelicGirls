@@ -78,7 +78,7 @@ checkVersion().then(enable => {
 
     const gameManager = new UnityManager(managerConfig);
 
-    gameManager.onLaunchProgress = (e) => {
+    gameManager.onLaunchProgress((e) => {
       // e: LaunchEvent
       // interface LaunchEvent {
       //   type: LaunchEventType;
@@ -89,6 +89,7 @@ checkVersion().then(enable => {
       //     isVisible: boolean; // 当前是否处于前台，onShow/onHide
       //     useCodeSplit: boolean; // 是否使用代码分包
       //     isHighPerformance: boolean; // 是否iOS高性能模式
+      //     needDownloadDataPackage: boolean; // 本次启动是否需要下载资源包
       //   };
       // }
       if (e.type === launchEventType.launchPlugin) {
@@ -109,9 +110,7 @@ checkVersion().then(enable => {
       if (e.type === launchEventType.prepareGame) {
 
       }
-    }
-
-    gameManager.initReporter();
+    })
 
     gameManager.assetPath = (managerConfig.DATA_CDN|| '').replace(/\/$/,'') + '/Assets';
 

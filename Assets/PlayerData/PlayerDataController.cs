@@ -17,7 +17,7 @@ namespace PlayerData {
 
 			if(Utility.debug) {
 				//直接读取存档
-				
+
 			} else {
 				//初始化微信SDK
 				WX.InitSDK(SDKInited);
@@ -36,8 +36,12 @@ namespace PlayerData {
 		}
 
 
-		static void LoadFile(){
+		static void LoadSave() {
 
+		}
+
+		public static void SaveSave(){
+			
 		}
 
 	}

@@ -108,7 +108,7 @@ namespace WeChatWASM
         /// <summary>
         /// 是否缓存纹理
         /// </summary>
-        public bool needCacheTextures = false;
+        public bool needCacheTextures = true;
 
         /// <summary>
         /// 加载进度条的宽度，默认240
@@ -189,6 +189,10 @@ namespace WeChatWASM
         /// DeleteStreamingAssets
         /// </summary>
         public bool DeleteStreamingAssets = true;
+        /// <summary>
+        /// ProfilingMemory
+        /// </summary>
+        public bool ProfilingMemory = false;
     }
 
 

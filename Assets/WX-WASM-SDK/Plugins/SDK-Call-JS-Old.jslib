@@ -648,10 +648,26 @@ mergeInto(LibraryManager.library, {
     },
     WXGetDynamicMemorySize: function() {
         if (typeof DYNAMIC_BASE !== "undefined") {
-          return HEAP32[DYNAMICTOP_PTR >> 2] - DYNAMIC_BASE;
-        } else {
-          return 0
+          return HEAP32[DYNAMICTOP_PTR >> 2] - DYNAMIC_BASE
+        } 
+        if (typeof emscriptenMemoryProfiler !== "undefined" && typeof Module["___heap_base"] !== "undefined") {
+          var heap_base = Module["___heap_base"];
+          var heap_end = _sbrk();
+          return heap_end - heap_base
         }
+        return 0
+    },
+    WXGetUsedMemorySize: function() {
+         if (typeof emscriptenMemoryProfiler !== "undefined")  {
+            return  emscriptenMemoryProfiler.totalMemoryAllocated;
+        }
+    },
+    WXGetUnAllocatedMemorySize: function() {
+        if (typeof emscriptenMemoryProfiler !== "undefined")  {
+            var heap_end = _sbrk()
+            return HEAP8.length - heap_end
+        }
+        return 0
     },
     WXLogManagerDebug:function(str){
         window.WXWASMSDK.WXLogManagerDebug(
@@ -692,6 +708,13 @@ mergeInto(LibraryManager.library, {
     },
     WXRemoveFile: function(path) {
         var returnStr = window.WXWASMSDK.WXRemoveFile(path);
+        var bufferSize = lengthBytesUTF8(returnStr) + 1;
+        var buffer = _malloc(bufferSize);
+        stringToUTF8(returnStr, buffer, bufferSize);
+        return buffer;
+    },
+    WXOnLaunchProgress: function() {
+        var returnStr = window.WXWASMSDK.WXOnLaunchProgress();
         var bufferSize = lengthBytesUTF8(returnStr) + 1;
         var buffer = _malloc(bufferSize);
         stringToUTF8(returnStr, buffer, bufferSize);

@@ -6,6 +6,20 @@ Removed - 删除功能/接口
 Fixed - 修复问题
 Others - 其他 
 -->
+## 2022-6-8
+### Added
+* 提供Loader启动数据
+
+### Fixed
+* 修复是否需要下载代码包上报
+* 21.3版本Unity webrequest设置请求头
+## 2022-6-7
+### Added
+* 增加MemoryProfiler，开发阶段分析内存
+ 
+## 2022-6-1
+### Added
+* 使用worker做文件写入临时绕过安卓文件写入多时造成卡顿
 ## 2022-5-31
 ### Added
 * 暴露插件进度事件
