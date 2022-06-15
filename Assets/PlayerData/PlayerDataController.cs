@@ -12,7 +12,7 @@ namespace PlayerData {
 	/// </summary>
 	public static class PlayerDataController {
 
-		static string fileName = "save";
+		static string fileName = "save.xml";
 
 		public static WXFileSystemManager fileSystem;
 		[RuntimeInitializeOnLoadMethod]
@@ -23,6 +23,7 @@ namespace PlayerData {
 				string serialized = "";
 				if(File.Exists(EditorPath)) serialized=File.ReadAllText(EditorPath);
 				SerializedToMemory(serialized);
+				SaveGame();
 			} else {
 				//³õÊ¼»¯Î¢ÐÅSDK
 				WX.InitSDK(SDKInited);
@@ -36,7 +37,6 @@ namespace PlayerData {
 			fileSystem=WX.GetFileSystemManager();
 			string serialized = WX.StorageGetStringSync(fileName,"");
 			SerializedToMemory(serialized);
-			PlayerData.printingMaterial++;
 			SaveGame();
 		}
 
@@ -47,7 +47,6 @@ namespace PlayerData {
 				File.WriteAllText(EditorPath,MemoryToSerialized());
 			} else {
 				WX.StorageSetStringSync(fileName,MemoryToSerialized());
-				Debug.Log("stored : "+PlayerData.printingMaterial);
 			}
 		}
 
@@ -55,15 +54,15 @@ namespace PlayerData {
 		static void SerializedToMemory(string data) {
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);
-			PlayerData.Load(xml);
+			PlayerData.LoadDocument(xml);
 		}
 
 		static string MemoryToSerialized() {
 			XmlDocument xml = new XmlDocument();
-			PlayerData.Save(xml);
+			PlayerData.SaveDocument(xml);
 			return xml.InnerXml;
 		}
-
+			
 		static string EditorPath { get { return Application.dataPath+"\\"+fileName; } }
 
 	}
