@@ -148,13 +148,14 @@ public class WXProfileStatsScript : MonoBehaviour
 
         sb.AppendLine($"-------------Profiler------------");
 
-        UpdateValue("GetMonoUsedSize", Profiler.GetMonoUsedSizeLong() / toMB, sb);
-        UpdateValue("Graphics", Profiler.GetAllocatedMemoryForGraphicsDriver() / toMB, sb);
-        UpdateValue("MonoHeap", Profiler.GetMonoHeapSizeLong() / toMB, sb);
-        UpdateValue("TempAllocator", Profiler.GetTempAllocatorSize() / toMB, sb);
-        UpdateValue("TotalReservedMemory", Profiler.GetTotalReservedMemoryLong() / toMB, sb);
-        UpdateValue("TotalUnusedReservedMemory", Profiler.GetTotalUnusedReservedMemoryLong() / toMB, sb);
-        UpdateValue("TotalAllocatedMemory", Profiler.GetTotalAllocatedMemoryLong() / toMB, sb);
+        UpdateValue("MonoHeapReserved", Profiler.GetMonoHeapSizeLong() / toMB, sb);
+        UpdateValue("MonoHeapUsed", Profiler.GetMonoUsedSizeLong() / toMB, sb);
+        // UpdateValue("Graphics", Profiler.GetAllocatedMemoryForGraphicsDriver() / toMB, sb);
+       
+        // UpdateValue("TempAllocator", Profiler.GetTempAllocatorSize() / toMB, sb);
+        UpdateValue("NativeReserved", Profiler.GetTotalReservedMemoryLong() / toMB, sb);
+        UpdateValue("NativeUnused", Profiler.GetTotalUnusedReservedMemoryLong() / toMB, sb);
+        UpdateValue("NativeAllocated", Profiler.GetTotalAllocatedMemoryLong() / toMB, sb);
 
 
 #if UNITY_2021_2_OR_NEWER
@@ -164,8 +165,11 @@ public class WXProfileStatsScript : MonoBehaviour
         UpdateValue("Vertices", m_verticesRecorder.LastValue, sb);
 #endif
         sb.AppendLine("-------------WebAssembly----------");
-        UpdateValue("TotalMemorySize", WeChatWASM.WX.GetTotalMemorySize() / toMB, sb);
-        UpdateValue("DynamicMemorySize", WeChatWASM.WX.GetDynamicMemorySize() / toMB, sb);
+        UpdateValue("TotalHeapMemory", WeChatWASM.WX.GetTotalMemorySize() / toMB, sb);
+        UpdateValue("DynamicMemory", WeChatWASM.WX.GetDynamicMemorySize() / toMB, sb);
+        UpdateValue("UsedHeapMemory", WeChatWASM.WX.GetUsedMemorySize() / toMB, sb);
+        UpdateValue("UnAllocatedMemory", WeChatWASM.WX.GetUnAllocatedMemorySize() / toMB, sb);
+        
 
 
 #if UNITY_2021_2_OR_NEWER

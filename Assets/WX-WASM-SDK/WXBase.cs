@@ -532,6 +532,22 @@ namespace WeChatWASM
             return WXSDKManagerHandler.Instance.GetDynamicMemorySize();
         }
         /// <summary>
+        /// 获取当前UnityHeap动态内存
+        /// </summary>
+        public static uint GetUsedMemorySize()
+        {
+            return WXSDKManagerHandler.Instance.GetUsedMemorySize();
+        }
+        /// <summary>
+        /// 获取当前UnityHeap动态内存
+        /// </summary>
+        public static uint GetUnAllocatedMemorySize()
+        {
+            return WXSDKManagerHandler.Instance.GetUnAllocatedMemorySize();
+        }
+        
+
+        /// <summary>
         /// 打印UnityHeap内存
         /// </summary>
         public static void LogUnityHeapMem()
@@ -627,6 +643,14 @@ namespace WeChatWASM
         }
 
         #endregion
+        /// <summary>
+        /// 获取启动loader的启动数据
+        /// </summary>
+        /// <param name="action"></param>
+        public static void OnLaunchProgress(Action<LaunchEvent> action = null)
+        {
+            WXSDKManagerHandler.Instance.OnLaunchProgress(action);
+        }
 
         public static void UncaughtException()
         {

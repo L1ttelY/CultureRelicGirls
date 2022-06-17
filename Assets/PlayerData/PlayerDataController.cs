@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using WeChatWASM;
+using System.Xml;
+using System.IO;
+using System.Text;
 
 namespace PlayerData {
 	/// <summary>
@@ -9,7 +12,7 @@ namespace PlayerData {
 	/// </summary>
 	public static class PlayerDataController {
 
-		static string filePath = "/save";
+		static string fileName = "save.xml";
 
 		public static WXFileSystemManager fileSystem;
 		[RuntimeInitializeOnLoadMethod]
@@ -17,28 +20,50 @@ namespace PlayerData {
 
 			if(Utility.debug) {
 				//直接读取存档
-				
+				string serialized = "";
+				if(File.Exists(EditorPath)) serialized=File.ReadAllText(EditorPath);
+				SerializedToMemory(serialized);
+				SaveGame();
 			} else {
 				//初始化微信SDK
 				WX.InitSDK(SDKInited);
+
 			}
 
 		}
 
 
 		static void SDKInited(int _) {
-
 			fileSystem=WX.GetFileSystemManager();
+			string serialized = WX.StorageGetStringSync(fileName,"");
+			SerializedToMemory(serialized);
+			SaveGame();
+		}
 
-			fileSystem.AccessSync(filePath);
-
-
+		public static void SaveGame() {
+			string save = MemoryToSerialized();
+			if(Utility.debug) {
+				if(!File.Exists(EditorPath)) File.Create(EditorPath);
+				File.WriteAllText(EditorPath,MemoryToSerialized());
+			} else {
+				WX.StorageSetStringSync(fileName,MemoryToSerialized());
+			}
 		}
 
 
-		static void LoadFile(){
-
+		static void SerializedToMemory(string data) {
+			XmlDocument xml = new XmlDocument();
+			if(data.Length!=0) xml.LoadXml(data);
+			PlayerData.LoadDocument(xml);
 		}
+
+		static string MemoryToSerialized() {
+			XmlDocument xml = new XmlDocument();
+			PlayerData.SaveDocument(xml);
+			return xml.InnerXml;
+		}
+			
+		static string EditorPath { get { return Application.dataPath+"\\"+fileName; } }
 
 	}
 

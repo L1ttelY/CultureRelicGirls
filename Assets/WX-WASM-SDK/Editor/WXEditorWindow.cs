@@ -34,6 +34,7 @@ namespace WeChatWASM
         bool autoProfile = false;
         bool scriptOnly = false;
         bool profilingFuncs = false;
+        bool profilingMemory = false;
         bool deleteStreamingAssets = true;
         int assetLoadType = 0; // 首包资源加载方式
         bool webgl2 = false;
@@ -199,6 +200,7 @@ namespace WeChatWASM
             autoProfile = config.CompileOptions.AutoProfile;
             scriptOnly = config.CompileOptions.ScriptOnly;
             profilingFuncs = config.CompileOptions.profilingFuncs;
+            profilingMemory = config.CompileOptions.ProfilingMemory;
             deleteStreamingAssets = config.CompileOptions.DeleteStreamingAssets;
             webgl2 = config.CompileOptions.Webgl2;
             useAudioApi = config.SDKOptions.UseAudioApi;
@@ -247,6 +249,7 @@ namespace WeChatWASM
             config.CompileOptions.AutoProfile = autoProfile;
             config.CompileOptions.ScriptOnly = scriptOnly;
             config.CompileOptions.profilingFuncs = profilingFuncs;
+            config.CompileOptions.ProfilingMemory = profilingMemory;
             config.CompileOptions.DeleteStreamingAssets = deleteStreamingAssets;
             config.CompileOptions.Webgl2 = webgl2;
             config.SDKOptions.UseAudioApi = useAudioApi;
@@ -291,6 +294,10 @@ namespace WeChatWASM
             if (memorySize != 0)
             {
                 PlayerSettings.WebGL.emscriptenArgs += $" -s TOTAL_MEMORY={memorySize}MB";
+            }
+            if (profilingMemory)
+            {
+                PlayerSettings.WebGL.emscriptenArgs += " --memoryprofiler ";
             }
             if (profilingFuncs)
             {
@@ -1239,16 +1246,22 @@ namespace WeChatWASM
             developBuild = GUILayout.Toggle(developBuild, "Development Build",toggleStyle);
             autoProfile = GUILayout.Toggle(autoProfile, "Autoconnect Profiler", toggleStyle);
             scriptOnly = GUILayout.Toggle(scriptOnly, "Scripts Only Build", toggleStyle);
-            profilingFuncs = GUILayout.Toggle(profilingFuncs, "Profiling Funcs", toggleStyle);
-          
+
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
+
+            profilingFuncs = GUILayout.Toggle(profilingFuncs, "Profiling Funcs       ", toggleStyle);
+            profilingMemory = GUILayout.Toggle(profilingMemory, "Profiling Memory     ", toggleStyle);
+
+       
             var oldwebgl2 = webgl2;
-            webgl2 = GUILayout.Toggle(webgl2, "WebGL2.0(beta) Build", toggleStyle);
+            webgl2 = GUILayout.Toggle(webgl2, "WebGL2.0(beta)", toggleStyle);
             if (oldwebgl2 != webgl2) UpdateGraphicAPI();
-            deleteStreamingAssets = GUILayout.Toggle(deleteStreamingAssets, "ClearStreamingAssets", toggleStyle);
             GUILayout.EndHorizontal();
             EditorGUILayout.Space();
+
+            deleteStreamingAssets = GUILayout.Toggle(deleteStreamingAssets, "ClearStreamingAssets", toggleStyle);
+        
 
             GUIStyle exportButtonStyle = new GUIStyle(GUI.skin.button);
             exportButtonStyle.fontSize = 14;

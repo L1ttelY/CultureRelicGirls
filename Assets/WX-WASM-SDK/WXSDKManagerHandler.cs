@@ -395,6 +395,12 @@ namespace WeChatWASM
         private static extern uint WXGetDynamicMemorySize();
 
         [DllImport("__Internal")]
+        private static extern uint WXGetUsedMemorySize();
+
+        [DllImport("__Internal")]
+        private static extern uint WXGetUnAllocatedMemorySize();
+
+        [DllImport("__Internal")]
         private static extern void WXLogManagerDebug(string str);
 
         [DllImport("__Internal")]
@@ -416,7 +422,9 @@ namespace WeChatWASM
         private static uint WXGetTotalStackSize() { return 0; }
         private static uint WXGetStaticMemorySize() { return 0; }
         private static uint WXGetDynamicMemorySize() { return 0; }
-
+        private static uint WXGetUsedMemorySize() { return 0; }
+        private static uint WXGetUnAllocatedMemorySize() { return 0; }
+        
         private static void WXLogManagerDebug(string str) {
             Debug.Log(str);
         }
@@ -1022,7 +1030,14 @@ namespace WeChatWASM
         {
             return WXGetDynamicMemorySize();
         }
-
+        public uint GetUsedMemorySize()
+        {
+            return WXGetUsedMemorySize();
+        }
+        public uint GetUnAllocatedMemorySize()
+        {
+            return WXGetUnAllocatedMemorySize();
+        }
         public void LogUnityHeapMem()
         {
             const uint sizeInMB = 1024 * 1024;
@@ -1156,6 +1171,32 @@ namespace WeChatWASM
 			}
 		}
         #endregion
+
+        public void OnLaunchProgress(Action<LaunchEvent> action)
+        {
+            new WXLaunchEventListener(action);
+        }
+
+        public void OnLaunchProgressCallback(string msg) {
+            if (!string.IsNullOrEmpty(msg)) {
+				var result = JsonUtility.FromJson<LaunchProgressParams>(msg);
+				var id = result.callbackId;
+				var res = result.res;
+				if (WXLaunchEventListener.Dict.ContainsKey(id)) {
+					WXLaunchEventListener.Dict[id].OnLaunchProgressAction?.Invoke(JsonMapper.ToObject<LaunchEvent>(res));
+				}
+			}
+        }
+
+        public void RemoveLaunchProgressCallback(string msg) {
+            if (!string.IsNullOrEmpty(msg)) {
+				var result = JsonUtility.FromJson<WXBaseResponse>(msg);
+				var id = result.callbackId;
+				if (WXLaunchEventListener.Dict.ContainsKey(id)) {
+					WXLaunchEventListener.Dict.Remove(id);
+				}
+			}
+        }
 
 
 
