@@ -9,19 +9,29 @@ namespace PlayerData {
 	/// <summary>
 	/// 存档的根节点
 	/// </summary>
-	public class PlayerData:DataBase {
+	public class PlayerDataRoot:DataBase {
 
-		public static PlayerData instance { get; private set; }
+		public static PlayerDataRoot instance { get; private set; }
 
-		public PlayerData(string name,DataBase parent) : base(name,parent) {
-			testProgression=new Progression("testProgression",this);
+		public PlayerDataRoot(string name,DataBase parent) : base(name,parent) {
 			sentienceMatter=new DataInt("sentienceMatter",this);
 			printingMaterial=new DataInt("printingMaterial",this);
+
+			characterDatas=new CharacterData[20];
+			for(int i = 0;i<20;i++) characterDatas[i]=new CharacterData("character"+i,this);
+
+			buildingDatas=new BuildingData[20];
+			for(int i = 0;i<20;i++) buildingDatas[i]=new BuildingData("building"+i,this);
+
+			floorLevel=new DataInt("floorLevel",this);
+			floorUnlockProgression=new Progression("floorUnlockProgression",this);
+			floorUnlockStatus=new DataInt("floorUnlockStatus",this);
+
 		}
 
 		public static void LoadDocument(XmlDocument xml) {
 
-			instance=new PlayerData("playerData",null);
+			instance=new PlayerDataRoot("playerData",null);
 
 			if(xml.DocumentElement==null) {
 				//空
@@ -32,7 +42,6 @@ namespace PlayerData {
 				Debug.Log(root.Name);
 				instance.Load(root);
 			}
-			Debug.Log(instance.testProgression.timeStart);
 		}
 
 		public static void SaveDocument(XmlDocument xml) {
@@ -49,7 +58,12 @@ namespace PlayerData {
 		public DataInt sentienceMatter;
 		public DataInt printingMaterial;
 
-		Progression testProgression;
+		public CharacterData[] characterDatas;
+		public BuildingData[] buildingDatas;
+
+		public DataInt floorLevel;
+		public Progression floorUnlockProgression;
+		public DataInt floorUnlockStatus;
 
 	}
 

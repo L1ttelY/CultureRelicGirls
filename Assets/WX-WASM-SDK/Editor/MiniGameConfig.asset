@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MiniGameConfig
   m_EditorClassIdentifier: 
   ProjectConf:
-    projectName: "\u6587\u7269\u5A18\u535A\u7269\u9986"
-    Appid: wxe0ddcdabf5de2733
+    projectName: 
+    Appid: 
     CDN: 
-    assetLoadType: 1
+    assetLoadType: 0
     VideoUrl: 
-    DST: D:/Codes/Unity/School/oth/CultureRelicGirls1/CultureRelicGirls/Release
+    DST: 
     StreamCDN: 
     bundleHashLength: 32
     bundlePathIdentifier: StreamingAssets;
@@ -34,7 +34,7 @@ MonoBehaviour:
     defaultReleaseSize: 31457280
     texturesHashLength: 8
     texturesPath: Assets/Textures
-    needCacheTextures: 0
+    needCacheTextures: 1
     loadingBarWidth: 240
   SDKOptions:
     UseAudioApi: 0

@@ -5,18 +5,18 @@ using WeChatWASM;
 using System.Xml;
 using System.IO;
 using System.Text;
+using UnityEngine.SceneManagement;
 
 namespace PlayerData {
 	/// <summary>
 	/// 负责存档的读取和保存的管理
 	/// </summary>
-	public static class PlayerDataController {
+	public class PlayerDataController:MonoBehaviour {
 
-		static string fileName = "save.xml";
+		const string fileName = "save.xml";
 
 		public static WXFileSystemManager fileSystem;
-		[RuntimeInitializeOnLoadMethod]
-		static void Init() {
+		void Awake() {
 
 			if(Utility.debug) {
 				//直接读取存档
@@ -33,14 +33,14 @@ namespace PlayerData {
 		}
 
 
-		static void SDKInited(int _) {
+		void SDKInited(int _) {
 			fileSystem=WX.GetFileSystemManager();
 			string serialized = WX.StorageGetStringSync(fileName,"");
 			SerializedToMemory(serialized);
 			SaveGame();
 		}
 
-		public static void SaveGame() {
+		public void SaveGame() {
 			string save = MemoryToSerialized();
 			if(Utility.debug) {
 				if(!File.Exists(EditorPath)) File.Create(EditorPath);
@@ -50,20 +50,20 @@ namespace PlayerData {
 			}
 		}
 
-
-		static void SerializedToMemory(string data) {
+		void SerializedToMemory(string data) {
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);
-			PlayerData.LoadDocument(xml);
+			PlayerDataRoot.LoadDocument(xml);
+			SceneManager.LoadScene("Museum");
 		}
 
-		static string MemoryToSerialized() {
+		string MemoryToSerialized() {
 			XmlDocument xml = new XmlDocument();
-			PlayerData.SaveDocument(xml);
+			PlayerDataRoot.SaveDocument(xml);
 			return xml.InnerXml;
 		}
-			
-		static string EditorPath { get { return Application.dataPath+"\\"+fileName; } }
+
+		string EditorPath { get { return Application.dataPath+"/"+fileName; } }
 
 	}
 
