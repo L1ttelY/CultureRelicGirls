@@ -32,5 +32,21 @@ namespace PlayerData {
 			xml.AppendChild(timeStartElement);
 			xml.AppendChild(timeEndElement);
 		}
+
+		public float progressionAmount {
+			get {
+				System.TimeSpan spanTotal = timeEnd-timeStart;
+				System.TimeSpan spanNow = System.DateTime.Now-timeStart;
+				float progressionAmount = (float)(spanNow/spanTotal);
+				return progressionAmount;
+			}
+		}
+
+		public void SetProgression(System.TimeSpan timeTotal,float progressionNow) {
+			System.DateTime now = System.DateTime.Now;
+			timeStart=now-timeTotal*progressionNow;
+			timeStart=now+timeTotal*(1-progressionNow);
+		}
+
 	}
 }
