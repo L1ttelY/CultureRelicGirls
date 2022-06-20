@@ -32905,7 +32905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 0, z: -10}
+  m_LocalPosition: {x: -8.14, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40006,6 +40006,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7189738652749299581, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 050841f603574d1408f46ca6fd731e19, type: 2}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: positionInTeam
       value: 1
@@ -40020,11 +40024,11 @@ PrefabInstance:
       objectReference: {fileID: 7842778750022487663, guid: aa1fdd4e37800a9459d91e757c1ce31e, type: 3}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attackRangeMax>k__BackingField
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attackRangeMin>k__BackingField
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <projectileVelocityY>k__BackingField
@@ -40036,7 +40040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <projectiles>k__BackingField.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <damageVfx>k__BackingField.Array.data[0]
@@ -40045,7 +40049,11 @@ PrefabInstance:
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <projectiles>k__BackingField.Array.data[0]
       value: 
-      objectReference: {fileID: 7842778750022487663, guid: aa1fdd4e37800a9459d91e757c1ce31e, type: 3}
+      objectReference: {fileID: 7842778750022487663, guid: a80a33ff3e8ec2641b7116e29889d0b3, type: 3}
+    - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <projectiles>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 7842778750022487663, guid: eb6bbd93e2fb43341bccdd06e6cd901e, type: 3}
     - target: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Name
       value: FriendlyBase
@@ -135455,14 +135463,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7189738652749299581, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 24a1ed66d100df641868ef4d02973a2f, type: 2}
+    - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attackRangeMax>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <projectileVelocityY>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <damageVfx>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <projectiles>k__BackingField.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <damageVfx>k__BackingField.Array.data[0]
       value: 
       objectReference: {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
+    - target: {fileID: 8447825321245819297, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <projectiles>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 7842778750022487663, guid: cb0152dd5ef7b514fa187acc155c6a63, type: 3}
     - target: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Name
       value: Square
