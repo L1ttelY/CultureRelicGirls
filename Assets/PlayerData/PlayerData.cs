@@ -39,7 +39,6 @@ namespace PlayerData {
 			} else {
 				//¶ÁÈ¡Êý¾Ý
 				XmlElement root = xml.DocumentElement;
-				Debug.Log(root.Name);
 				instance.Load(root);
 			}
 		}

@@ -42,11 +42,18 @@ namespace PlayerData {
 			}
 		}
 
+		public bool completion {
+			get {
+				return System.DateTime.Now>=timeEnd;
+			}
+		}
+
 		public void SetProgression(System.TimeSpan timeTotal,float progressionNow) {
 			System.DateTime now = System.DateTime.Now;
 			timeStart=now-timeTotal*progressionNow;
 			timeStart=now+timeTotal*(1-progressionNow);
 		}
+
 
 	}
 }

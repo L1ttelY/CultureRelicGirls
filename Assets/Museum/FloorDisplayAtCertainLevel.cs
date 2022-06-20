@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 namespace Museum {
 
+
+	/// <summary>
+	/// 在楼层等级满足一定条件时显示
+	/// </summary>
+	[AddComponentMenu("博物馆/在特定楼层等级显示")]
 	public class FloorDisplayAtCertainLevel:MonoBehaviour {
 
 		public enum Compar {

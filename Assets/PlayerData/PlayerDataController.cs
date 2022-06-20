@@ -54,7 +54,7 @@ namespace PlayerData {
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);
 			PlayerDataRoot.LoadDocument(xml);
-			SceneManager.LoadScene("Museum");
+			transform.GetChild(0).gameObject.SetActive(true);
 		}
 
 		string MemoryToSerialized() {
