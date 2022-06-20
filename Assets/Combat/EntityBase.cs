@@ -32,9 +32,8 @@ namespace Combat {
 		[field: SerializeField] public GameObject[] projectiles { get; protected set; }     //射弹种类 在数组中随机选取
 		[field: SerializeField] public float attackRangeMin { get; protected set; }         //最小攻击距离
 		[field: SerializeField] public float attackRangeMax { get; protected set; }         //最大攻击距离
-		[field: SerializeField] public float projectileVelocityY { get; protected set; }    //投射物的纵向速率 越大则横向速率越慢越难以命中
+		[field: SerializeField] public float projectileVelocityY { get; protected set; }    //投射物的纵向速率 越大则横向速率越慢越难以命中 若投射物重力为0则为投射物的水平速率
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
-		[field: SerializeField] public bool useSword { get; protected set; }                //是否使用近战攻击 若使用则射弹会固定像前方发射 与重力为0的射弹一同使用
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
 
 		//获取当前角色正常攻击的参数
@@ -237,13 +236,14 @@ namespace Combat {
 				for(int i = 0;i<cnt;i++) {
 					projectileGravity[i]=projectiles[i].GetComponent<ProjectileBase>().gravity;
 					travelTime[i]=2*projectileVelocityY/projectileGravity[i];
+					if(projectileGravity[i]==0) travelTime[i]=0;
 				}
 
 			}
 
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*travelTime[projectileType];
 
-			if(useSword) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*0.5f;
+			if(travelTime[projectileType]==0) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY;
 			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
 			return new Vector2(velocityX,projectileVelocityY);
 
