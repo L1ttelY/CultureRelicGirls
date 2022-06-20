@@ -140,15 +140,15 @@ MonoBehaviour:
   <knockbackPower>k__BackingField: 0.7
   <maxHp>k__BackingField: 20
   <projectiles>k__BackingField:
-  - {fileID: 7842778750022487663, guid: aa1fdd4e37800a9459d91e757c1ce31e, type: 3}
+  - {fileID: 7842778750022487663, guid: e1a2467de8dc7364bad2f0fa79e6efc0, type: 3}
   <attackRangeMin>k__BackingField: 4
   <attackRangeMax>k__BackingField: 8
   <projectileVelocityY>k__BackingField: 12
   <maxPredictSpeed>k__BackingField: 4
-  <useSword>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
   powerBuff: 0
+  knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
   wakeUpDistance: 12

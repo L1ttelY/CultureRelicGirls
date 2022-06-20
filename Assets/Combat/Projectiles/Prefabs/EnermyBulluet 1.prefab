@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7842778750022487649}
   - component: {fileID: -4592678012357767987}
   m_Layer: 0
-  m_Name: Blade2
+  m_Name: EnermyBulluet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7842778750022487663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.194, y: 0.492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: bc09a007282b38044b18511b084b1894, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 456299bfa96fe344687d621527bd15e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.32, y: 1.12}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.26, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0.5}
-    oldSize: {x: 4.32, y: 1.12}
-    newSize: {x: 4.32, y: 1.12}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.5, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &-4592678012357767987
 MonoBehaviour:
@@ -124,11 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9a52c1bcfa24e4a84424c0c2e6ab01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <gravity>k__BackingField: 0
-  penetratePower: -1
-  timePerFrame: 0.04
-  lifeTime: 0.12
-  sprites:
-  - {fileID: 21300000, guid: bc09a007282b38044b18511b084b1894, type: 3}
-  - {fileID: 21300000, guid: cfd0a76ae8cd4cf459361722e62b6fc6, type: 3}
-  - {fileID: 21300000, guid: cfc2ca0af70787d41b9e3f231ee2e947, type: 3}
+  <gravity>k__BackingField: 18
+  penetratePower: 0
+  timePerFrame: 0
+  lifeTime: 2
+  sprites: []

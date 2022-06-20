@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1674207602}
   - component: {fileID: 7189738652749299581}
   m_Layer: 0
-  m_Name: FriendlyBase
+  m_Name: 03_ranged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,17 +140,18 @@ MonoBehaviour:
   <knockbackPower>k__BackingField: 1
   <maxHp>k__BackingField: 100
   <projectiles>k__BackingField:
-  - {fileID: 7842778750022487663, guid: a80a33ff3e8ec2641b7116e29889d0b3, type: 3}
-  - {fileID: 7842778750022487663, guid: eb6bbd93e2fb43341bccdd06e6cd901e, type: 3}
-  <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 4
-  <projectileVelocityY>k__BackingField: 0
+  - {fileID: 7842778750022487663, guid: 9fe2f3d918ab5c344b5f674b2c2e6999, type: 3}
+  <attackRangeMin>k__BackingField: 4
+  <attackRangeMax>k__BackingField: 12
+  <projectileVelocityY>k__BackingField: 10
   <maxPredictSpeed>k__BackingField: 6
-  <useSword>k__BackingField: 1
+  <damageVfx>k__BackingField:
+  - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
   powerBuff: 0
+  knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  positionInTeam: 0
+  positionInTeam: 2
 --- !u!61 &8447825321245819296
 BoxCollider2D:
   m_ObjectHideFlags: 0
