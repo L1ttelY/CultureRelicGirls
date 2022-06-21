@@ -58,6 +58,9 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 783ba3d237c6ba243a028155cf6ef5e9, type: 3}
+    - {fileID: 2800000, guid: f4f059ab01ba95747b7126688836cd54, type: 3}
+    - {fileID: 2800000, guid: f2839dc07304bf1438ee7ad227c2acd2, type: 3}
+    - {fileID: 2800000, guid: 29e7c79561637c34e8befa71e7b27e07, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -65,6 +68,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 7e5b8f60ef2fec641ad705a4c131b369, type: 3}
   - {fileID: 21300000, guid: daf35d80d7877c14dad1d8179a87d459, type: 3}
+  - {fileID: 21300000, guid: f2839dc07304bf1438ee7ad227c2acd2, type: 3}
   - {fileID: 21300000, guid: 4dd17cf045b557e409f9954529e233d9, type: 3}
   - {fileID: 21300000, guid: 6f79df61bffebb044bcfc4a29f04e9f9, type: 3}
   - {fileID: 21300000, guid: f4067b81bd63dab40af9aa0df8854629, type: 3}
@@ -83,6 +87,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3d7daf543158b0b4cb3d40a936e14727, type: 3}
   - {fileID: 21300000, guid: 84d89f64e5ae34a4d9db7bc5a03fbe57, type: 3}
   - {fileID: 21300000, guid: 0321ead48b9bc9947b3441d4c535f872, type: 3}
+  - {fileID: 21300000, guid: 29e7c79561637c34e8befa71e7b27e07, type: 3}
   - {fileID: 21300000, guid: 5081f3d5aa0bd624ba56f8de872f3243, type: 3}
   - {fileID: 21300000, guid: 7c4245e597954b94db44732bdaeccd1d, type: 3}
   - {fileID: 21300000, guid: 889529e6882cafb499981e978f0b5d7b, type: 3}
@@ -101,6 +106,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 342efbba32824cb46b668d023f92376e, type: 3}
   - {fileID: 21300000, guid: 9ef6c4fa10cbcb0429a4cc53041c6575, type: 3}
   - {fileID: 21300000, guid: 145bb73bdd56faf4c8c347c40a53fee2, type: 3}
+  - {fileID: 21300000, guid: f4f059ab01ba95747b7126688836cd54, type: 3}
   - {fileID: 21300000, guid: 48b71ddb2cdf45c42951ca3487fd8ad1, type: 3}
   - {fileID: 21300000, guid: bce87d0c7f0234a4796f02eac7b82447, type: 3}
   - {fileID: 21300000, guid: 7115b12cb50973e4ebedcd158832b2e0, type: 3}
@@ -120,6 +126,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - machine_L1
   - picture_frame_L1
+  - 3_buildman_L2_m
   - machine_L0
   - desk_L2
   - underground_Top
@@ -138,6 +145,7 @@ SpriteAtlas:
   - desk_L1
   - F2_background
   - tree_Plant_L2
+  - 3_buildman_L3_m
   - f3_railing
   - workbench_L3
   - underground_Left
@@ -156,6 +164,7 @@ SpriteAtlas:
   - MuseumFrame
   - picture frame_L3
   - f1_gate_frame
+  - 3_buildman_m
   - research_L1
   - f3_wall
   - tree_crystal_L2
