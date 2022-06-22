@@ -37,7 +37,7 @@ namespace WeChatWASM
 
     public class WXUserInfoResponse : WXBaseResponse
     {
-        // 具提说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/open-api/user-info/wx.getUserInfo.html
+        // 具体说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/open-api/user-info/wx.getUserInfo.html
         public int errCode; // 0为成功，非零为失败
         public string signature; //使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息，详见 https://developers.weixin.qq.com/minigame/dev/guide/open-ability/signature.html
         public string encryptedData; //包括敏感数据在内的完整用户信息的加密数据，详见 https://developers.weixin.qq.com/minigame/dev/guide/open-ability/signature.html#%E5%8A%A0%E5%AF%86%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95
@@ -50,7 +50,7 @@ namespace WeChatWASM
 
     public class WXShareInfoResponse : WXBaseResponse
     {
-        // 具提说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/share/wx.getShareInfo.html
+        // 具体说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/share/wx.getShareInfo.html
         public string encryptedData;
         public string iv;
         public string cloudID;
@@ -65,12 +65,20 @@ namespace WeChatWASM
     }
 
     public class WXADErrorResponse : WXBaseResponse
-    { // 具提说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/ad/BannerAd.onError.html
+    {
+        // 具体说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/ad/BannerAd.onError.html
         public int errCode;
+    }
+    public class WXADLoadResponse : WXBaseResponse
+    {
+        // 具体说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/ad/BannerAd.onLoad.html
+        public int rewardValue;
+        public int shareValue;
     }
 
     public class WXADResizeResponse : WXBaseResponse
-    { // 具提说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/ad/BannerAd.onResize.html
+    {
+        // 具体说明可以参考 https://developers.weixin.qq.com/minigame/dev/api/ad/BannerAd.onResize.html
         public int width;
         public int height;
     }
@@ -81,6 +89,22 @@ namespace WeChatWASM
         /// 视频是否是在用户完整观看的情况下被关闭的,详见 https://developers.weixin.qq.com/minigame/dev/api/ad/RewardedVideoAd.onClose.html
         /// </summary>
         public bool isEnded;
+    }
+
+    public class RequestAdReportShareBehaviorParam
+    {
+        public int operation; // 1-曝光 2-点击 3-关闭 4-操作成功 5-操作失败 6-分享拉起
+        public int currentShow; // 0-广告 1-分享，当 operation 为 1-5 时必填
+        public int strategy; // 0-业务 1-微信策略
+        public string inviteUser; // 当 operation 为 6 时必填，填写分享人的 openId
+        public string inviteUserAdunit; // 当 operation 为 6 时必填，填写分享人分享时的广告单元
+        public int shareValue; // 分享推荐值，必填
+        public int rewardValue; // 激励广告推荐值，必填
+    }
+
+    public class WXRewardedVideoAdReportShareBehaviorResponse : WXBaseResponse {
+        public string success;
+        public string message;
     }
 
     /// <summary>

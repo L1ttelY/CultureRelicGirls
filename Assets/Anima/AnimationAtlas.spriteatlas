@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AnimationAtlas
+  serializedVersion: 2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 12
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 2c703e6014934bb4183704352c7bbf24, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 979be53074bcf98408eb4791735bdfdb, type: 3}
+  - {fileID: 21300000, guid: f018f6504d52a8d4ca1af48047a41420, type: 3}
+  - {fileID: 21300000, guid: ea3504d0fb245a1429ba1932c4ce5bd4, type: 3}
+  - {fileID: 21300000, guid: 1367d1f041974524eae6c84659f95b98, type: 3}
+  - {fileID: 21300000, guid: 82ff83e1be4937642a43379419baa6f9, type: 3}
+  - {fileID: 21300000, guid: a03d90f1e85dd844fa06133cd1d4f3e5, type: 3}
+  - {fileID: 21300000, guid: a242904294538de46a4354ad1de3de18, type: 3}
+  - {fileID: 21300000, guid: 0420f4e252898094895ab9be4354b5c3, type: 3}
+  - {fileID: 21300000, guid: 7df2fc53d5802fa45a6e5430d3d0d6a4, type: 3}
+  - {fileID: 21300000, guid: 62c36e73980e0774f864df38e29be6db, type: 3}
+  - {fileID: 21300000, guid: 599031c303a07f840867c6ec41724350, type: 3}
+  - {fileID: 21300000, guid: a5c290f31ce5b37459b1ba7e766897b2, type: 3}
+  - {fileID: 21300000, guid: 2bea01846892a844e96ad0ad29260725, type: 3}
+  - {fileID: 21300000, guid: dbd5a005bbdb80a45b1c7b371a082e71, type: 3}
+  - {fileID: 21300000, guid: 742dd905d7c2d554a8b75c2299ab8acb, type: 3}
+  - {fileID: 21300000, guid: ac01a125340c78144aaba81f0dd21d55, type: 3}
+  - {fileID: 21300000, guid: 76ba252561bb5b543ab2c8e2178fb64c, type: 3}
+  - {fileID: 21300000, guid: 3652d38520c26ff4e8446c00d3a149a1, type: 3}
+  - {fileID: 21300000, guid: f2ab64d51735fb14aa49428493b59206, type: 3}
+  - {fileID: 21300000, guid: effc0d4637b00b942b15635aadaefe87, type: 3}
+  - {fileID: 21300000, guid: 33331686a3a53084792629cda4354ee5, type: 3}
+  - {fileID: 21300000, guid: bc09a007282b38044b18511b084b1894, type: 3}
+  - {fileID: 21300000, guid: 9791fa277ab16e14f81409191b0483d3, type: 3}
+  - {fileID: 21300000, guid: dc878b87da4a2a34696e9b88f32d979f, type: 3}
+  - {fileID: 21300000, guid: 0c062d877ac999541b880a78c2ad4402, type: 3}
+  - {fileID: 21300000, guid: 639f4978a6a17af449bcf7ef8eeef1be, type: 3}
+  - {fileID: 21300000, guid: 66c1772940dca07418aedf66ace7b223, type: 3}
+  - {fileID: 21300000, guid: f12b1c89b99af66428d124b7878693ef, type: 3}
+  - {fileID: 21300000, guid: ca52ccc91070f324c8124f8b0467fd03, type: 3}
+  - {fileID: 21300000, guid: 142502e95aec84849918f9d2672c3551, type: 3}
+  - {fileID: 21300000, guid: cfc2ca0af70787d41b9e3f231ee2e947, type: 3}
+  - {fileID: 21300000, guid: cfd0a76ae8cd4cf459361722e62b6fc6, type: 3}
+  - {fileID: 21300000, guid: cdac45cae9da0f0439c2b6ebeb08f483, type: 3}
+  - {fileID: 21300000, guid: e9e1b50b22a39d34ea426c05fd888d32, type: 3}
+  - {fileID: 21300000, guid: c043582b5c834e44d8cb0042b0da8754, type: 3}
+  - {fileID: 21300000, guid: 0f40ba4b9048ff1478e111a427d948af, type: 3}
+  - {fileID: 21300000, guid: 8f7ccc7bf6f9ffb42956c2f74c5f94f0, type: 3}
+  - {fileID: 21300000, guid: a56e82eb781b5c14c85f6200cf5612f4, type: 3}
+  - {fileID: 21300000, guid: 91dd400de639d6a4d8e4b42b2e3528af, type: 3}
+  - {fileID: 21300000, guid: 5f89353defd853546bc6c28ddaf38544, type: 3}
+  - {fileID: 21300000, guid: d5b7ed9d21762a74187accf8ce2dc2c2, type: 3}
+  - {fileID: 21300000, guid: a3867a1e045de2d4c86915bd4fca470e, type: 3}
+  - {fileID: 21300000, guid: 9a26f8be4477b114dbd8bcadbda09dea, type: 3}
+  - {fileID: 21300000, guid: 62ff15ee525a5a347906307a2022b543, type: 3}
+  - {fileID: 21300000, guid: 952b8c1fe532bc44dba8a7ec6b3f5daf, type: 3}
+  - {fileID: 21300000, guid: 1718a06f216062d4f890e19a3e651d73, type: 3}
+  - {fileID: 21300000, guid: 71aa2b8ff22cd3540b6fcca688edf6d1, type: 3}
+  - {fileID: 21300000, guid: 456299bfa96fe344687d621527bd15e5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Skill_YueWang03
+  - Skill_RainCloud04
+  - Skill_Start04
+  - s1_3
+  - blood_1
+  - Skill_Egypt03
+  - Skill_RainCloud05
+  - Skill_YueWang01
+  - Skill_RainCloud02
+  - Skill_Egypt02
+  - Skill_Start02
+  - s1_1
+  - Skill_StarNight01
+  - spark_2
+  - Skill_Start03
+  - Skill_ChessMan03
+  - Skill_Egypt01
+  - blood_2
+  - Skill_YueWang02
+  - AID
+  - s1_2
+  - s2_1
+  - Skill_StarNight03
+  - Skill_RainCloud03
+  - Skill_StarNight02
+  - punch_1
+  - punch_2
+  - blood_3
+  - Skill_DoubleSnake01
+  - punch_3
+  - s2_3
+  - s2_2
+  - Skill_ChessMan01
+  - Skill_RainCloud06
+  - Arrow
+  - Bullet_star
+  - spark_1
+  - Skill_ChessMan02
+  - Skill_RainCloud01
+  - Bullut_Monster
+  - spark_3
+  - Skill_StarNight04
+  - Bullet_pan
+  - Skill_Start01
+  - Skill_DoubleSnake02
+  - Bullut_Egypt
+  - Skill_Egypt04
+  - Bullet_goldenship
+  m_RenderDataMap: {}
+  m_Tag: AnimationAtlas
+  m_IsVariant: 0
+  m_IsPlaceholder: 0
