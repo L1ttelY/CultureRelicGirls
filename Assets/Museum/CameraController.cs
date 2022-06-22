@@ -6,8 +6,6 @@ namespace Museum {
 
 	public class CameraController:MonoBehaviour {
 
-		const float positionZ = -10;
-
 		new public Camera camera { get; private set; }
 		[SerializeField] float minSize;
 		[SerializeField] float maxSize;
@@ -42,7 +40,7 @@ namespace Museum {
 
 
 		//用于在聚焦中保留摄像头的位置和大小
-		float cameraSize;
+		float cameraSize = 5;
 		Vector2 cameraPosition;
 
 		bool focusChanged;
@@ -52,7 +50,7 @@ namespace Museum {
 
 				//摄像头聚焦
 				if(focusChanged) {
-					if(MoveTowards(focus.transform.position,focus.focusSize)) focusChanged=false;
+					if(MoveTowards(focus.focusPoint,focus.focusSize)) focusChanged=false;
 				}
 				resizing=false;
 
@@ -68,11 +66,14 @@ namespace Museum {
 				UpdateDrag();
 				ConstrainTransform();
 
+				camera.orthographicSize=cameraSize;
+				transform.position=cameraPosition;
+
 			}
 		}
 
 		bool dragging;
-		Vector2 previousPosition;
+		Vector2 originalPosition;
 		void UpdateDrag() {
 			if(Input.touchCount!=1) {
 				dragging=false;
@@ -81,18 +82,16 @@ namespace Museum {
 				Vector2 touchPosition = camera.ScreenToWorldPoint(Input.touches[0].position);
 
 				if(!dragging) {
-					previousPosition=touchPosition;
+					dragging=true;
+					originalPosition=touchPosition;
 				} else {
-					transform.position-=(Vector3)(touchPosition-previousPosition);
-					previousPosition=touchPosition;
+					cameraPosition-=touchPosition-originalPosition;
 				}
 
 			}
 		}
 
 		bool resizing;
-		Vector2 point1;
-		Vector2 point2;
 		Vector2 originalCenter;
 		Vector2 originalOffset;
 		float originalDistance;
@@ -103,28 +102,26 @@ namespace Museum {
 				resizing=false;
 			} else {
 
-				if(!resizing) {
-					resizing=true;
-					point1=camera.ScreenToWorldPoint(Input.touches[0].position);
-					point2=camera.ScreenToWorldPoint(Input.touches[1].position);
-					originalCenter=(point1+point2)*0.5f;
-					originalDistance=(point1-point2).magnitude;
-					originalSize=camera.orthographicSize;
-					originalOffset=originalCenter-(Vector2)transform.position;
-				} else {
+				Vector2 point1 = camera.ScreenToWorldPoint(Input.touches[0].position);
+				Vector2 point2 = camera.ScreenToWorldPoint(Input.touches[1].position);
 
-					Vector2 newPoint1 = camera.ScreenToWorldPoint(Input.touches[0].position);
-					Vector2 newPoint2 = camera.ScreenToWorldPoint(Input.touches[1].position);
-					Vector2 newCenter = (newPoint1+newPoint2)*0.5f;
-					float newDistance = (newPoint1-newPoint2).magnitude;
+				if(resizing) {
+
+					float newDistance = (point1-point2).magnitude;
 
 					float scaleFactor = originalDistance/newDistance;
 					Vector2 newOffset = originalOffset*scaleFactor;
 					Vector2 newPosition = originalCenter-newOffset;
-					transform.position=new Vector3(newPosition.x,newPosition.y,positionZ);
+					cameraPosition=newPosition;
 
-					camera.orthographicSize=originalSize*scaleFactor;
+					cameraSize=originalSize*scaleFactor;
 				}
+
+				resizing=true;
+				originalCenter=(point1+point2)*0.5f;
+				originalDistance=(point1-point2).magnitude;
+				originalSize=cameraSize;
+				originalOffset=originalCenter-cameraPosition;
 
 			}
 		}
@@ -133,37 +130,43 @@ namespace Museum {
 		const float positionConstrainSpeed = 20;
 		void ConstrainTransform() {
 
-			camera.orthographicSize=SoftConstrain(camera.orthographicSize,minSize,maxSize,Time.deltaTime*sizeConstrainSpeed);
-			Bounds bound = constraint.bounds;
-			Vector2 position = transform.position;
-			position.x=SoftConstrain(position.x,bound.min.x,bound.max.x,Time.deltaTime*positionConstrainSpeed);
-			position.y=SoftConstrain(position.y,bound.min.y,bound.max.y,Time.deltaTime*positionConstrainSpeed);
-			transform.position=new Vector3();
+			if(!resizing) {
+				cameraSize=SoftConstrain(cameraSize,minSize,maxSize,Time.deltaTime*sizeConstrainSpeed);
+			}
 
+			if(!dragging) {
+				Bounds bound = constraint.bounds;
+				Vector2 position = cameraPosition;
+				position.x=SoftConstrain(position.x,bound.min.x,bound.max.x,Time.deltaTime*positionConstrainSpeed);
+				position.y=SoftConstrain(position.y,bound.min.y,bound.max.y,Time.deltaTime*positionConstrainSpeed);
+				cameraPosition=new Vector3(position.x,position.y,-10);
+			}
 		}
 
 		float SoftConstrain(float current,float min,float max,float deltaMultiplier) {
 
 			if(current<min) {
-				float delta = sizeConstrainSpeed*(min-current)*deltaMultiplier;
+				float delta = (min-current)*deltaMultiplier;
 				current+=delta;
+				if(current>min) current=min;
 			} else if(current>max) {
-				float delta = sizeConstrainSpeed*(current-max)*deltaMultiplier;
+				float delta = (current-max)*deltaMultiplier;
 				current-=delta;
+				if(current<max) current=max;
 			}
 			return current;
 
 		}
 
-		const float moveSpeed = 1;
-		const float scaleSpeed = 1;
+		const float moveSpeed = 7;
+		const float scaleSpeed = 7;
 		//返回是否移动到位
 		bool MoveTowards(Vector2 position,float size) {
 
 			Vector2 positionNow = transform.position;
 			float speed = (position-positionNow).magnitude*moveSpeed;
-			Vector2.MoveTowards(positionNow,position,speed*Time.deltaTime);
-			transform.position=new Vector3(positionNow.x,positionNow.y,positionZ);
+			positionNow=Vector2.MoveTowards(positionNow,position,speed*Time.deltaTime);
+			transform.position=new Vector3(positionNow.x,positionNow.y);
 
 			float sizeNow = camera.orthographicSize;
 			float sizeSpeed = Mathf.Abs(size-sizeNow)*scaleSpeed;

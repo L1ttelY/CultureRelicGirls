@@ -20,7 +20,6 @@ namespace Museum {
 			if(PlayerDataRoot.instance.buildingDatas[buildingId].level.value==targetLevel) spriteRenderer.color=Color.white;
 			else spriteRenderer.color=Color.clear;
 
-			Debug.Log(PlayerDataRoot.instance.buildingDatas[buildingId].level.value);
 
 		}
 

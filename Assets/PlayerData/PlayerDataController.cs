@@ -18,17 +18,11 @@ namespace PlayerData {
 		public static WXFileSystemManager fileSystem;
 		void Awake() {
 
-			if(Utility.debug) {
-				//直接读取存档
-				string serialized = "";
-				if(File.Exists(EditorPath)) serialized=File.ReadAllText(EditorPath);
-				SerializedToMemory(serialized);
-				SaveGame();
-			} else {
-				//初始化微信SDK
-				WX.InitSDK(SDKInited);
-
-			}
+			//直接读取存档
+			string serialized = "";
+			if(File.Exists(EditorPath)) serialized=File.ReadAllText(EditorPath);
+			SerializedToMemory(serialized);
+			SaveGame();
 
 		}
 
@@ -42,12 +36,8 @@ namespace PlayerData {
 
 		public void SaveGame() {
 			string save = MemoryToSerialized();
-			if(Utility.debug) {
-				if(!File.Exists(EditorPath)) File.Create(EditorPath);
-				File.WriteAllText(EditorPath,MemoryToSerialized());
-			} else {
-				WX.StorageSetStringSync(fileName,MemoryToSerialized());
-			}
+			if(!File.Exists(EditorPath)) File.Create(EditorPath);
+			File.WriteAllText(EditorPath,MemoryToSerialized());
 		}
 
 		void SerializedToMemory(string data) {
