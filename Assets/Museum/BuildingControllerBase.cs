@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace Museum {
 
-	public class BuildingController:MonoBehaviour {
+	public class BuildingControllerBase:MonoBehaviour {
+
+		static public Dictionary<int,BuildingControllerBase> instances = new Dictionary<int,BuildingControllerBase>();
 
 		[field: SerializeField] public int id { get; private set; }
 		[field: SerializeField] public BuildingData buildingData { get; private set; }
@@ -12,6 +14,9 @@ namespace Museum {
 
 		private void Start() {
 			saveData=PlayerData.PlayerDataRoot.instance.buildingDatas[id];
+			if(!instances.ContainsKey(id)) instances.Add(id,this);
+			else if(instances[id]) Debug.LogError("Duplicate");
+			else instances[id]=this;
 		}
 
 		private void FixedUpdate() {
@@ -25,26 +30,37 @@ namespace Museum {
 
 		}
 
-		public bool LevelUp() {
+		public bool CanLevelUp() {
 
 			//判断是否升级
 			int currentLevel = saveData.level.value;
 			PlayerData.PlayerDataRoot playerData = PlayerData.PlayerDataRoot.instance;
 			if(saveData.level.value>=buildingData.maxLevel) return false;
 			if(playerData.printingMaterial.value<buildingData.levels[currentLevel].levelUpCostMaterial) return false;
-			if(playerData.sentienceMatter.value<buildingData.levels[currentLevel].levelUpCostSentienceMatter) return false;
-			if(levelUpCount>=MenderController.instance.levelUpMax) return false;
+			if(levelUpCount>=BuilderController.instance.levelUpMax) return false;
+			if(saveData.levelUpStatus.value!=0) return false;
+			return true;
+
+		}
+
+		public bool LevelUp() {
+			if(!CanLevelUp()) return false;
 
 			//可以升级
+			int currentLevel = saveData.level.value;
+			PlayerData.PlayerDataRoot playerData = PlayerData.PlayerDataRoot.instance;
 			saveData.levelUpStatus.value=1;
 			saveData.levelUpProgression.SetProgression(buildingData.levels[currentLevel].levelUpTime,0);
-			playerData.sentienceMatter.value-=buildingData.levels[currentLevel].levelUpCostSentienceMatter;
 			playerData.printingMaterial.value-=buildingData.levels[currentLevel].levelUpCostMaterial;
 
 			return true;
 		}
 
+		public void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
+			BuildingLevelUpMode.EnterMode(id,null);
+
+		}
 
 		public static int levelUpCount {
 			get {

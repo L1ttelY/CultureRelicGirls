@@ -4,10 +4,10 @@ using UnityEngine;
 using PlayerData;
 
 namespace Museum {
-	[AddComponentMenu("博物馆/在特定等级显示")]
+	[AddComponentMenu("博物馆/建筑物显示控制器")]
 	public class BuildingDisplayAtCertainLevel:MonoBehaviour {
 
-		[SerializeField] int targetLevel;
+		[SerializeField] Sprite[] sprites;
 		[SerializeField] int buildingId;
 
 		SpriteRenderer spriteRenderer;
@@ -17,9 +17,13 @@ namespace Museum {
 		}
 
 		private void Update() {
-			if(PlayerDataRoot.instance.buildingDatas[buildingId].level.value==targetLevel) spriteRenderer.color=Color.white;
-			else spriteRenderer.color=Color.clear;
+			int currentLevel = PlayerDataRoot.instance.buildingDatas[buildingId].level.value;
 
+			if(currentLevel==-1) spriteRenderer.color=Color.clear;
+			else {
+				spriteRenderer.color=Color.white;
+				spriteRenderer.sprite=sprites[currentLevel];
+			}
 
 		}
 

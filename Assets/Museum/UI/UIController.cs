@@ -7,6 +7,7 @@ namespace Museum {
 
 		public static UIController instance;
 		Dictionary<string,UIModeBase> UIModes = new Dictionary<string,UIModeBase>();
+		public static UIModeBase currentMode{ get; private set; }
 
 		public void Start() {
 			if(instance) Debug.LogError("Duplicate");
@@ -15,8 +16,8 @@ namespace Museum {
 			UIModeBase[] modes = GetComponentsInChildren<UIModeBase>(true);
 			foreach(var i in modes) {
 				i.Init();
-				Debug.Log(i.gameObject.name);
 			}
+			EmptyMode.EnterMode();
 
 		}
 
@@ -25,6 +26,8 @@ namespace Museum {
 		}
 
 		public void SwitchUIMode(UIModeBase targetMode) {
+
+			currentMode=targetMode;
 
 			foreach(var i in UIModes) {
 				UIModeBase mode = i.Value;
