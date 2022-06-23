@@ -5,10 +5,13 @@ using PlayerData;
 
 namespace Museum {
 	[AddComponentMenu("博物馆/建筑物显示控制器")]
+	[ExecuteInEditMode]
 	public class BuildingDisplayAtCertainLevel:MonoBehaviour {
 
 		[SerializeField] Sprite[] sprites;
 		[SerializeField] int buildingId;
+
+		[SerializeField] int overrideLevel;
 
 		SpriteRenderer spriteRenderer;
 
@@ -17,12 +20,19 @@ namespace Museum {
 		}
 
 		private void Update() {
-			int currentLevel = PlayerDataRoot.instance.buildingDatas[buildingId].level.value;
 
-			if(currentLevel==-1) spriteRenderer.color=Color.clear;
-			else {
+			try {
+				int currentLevel = PlayerDataRoot.instance.buildingDatas[buildingId].level.value;
+
+				if(currentLevel==-1) spriteRenderer.color=Color.clear;
+				else {
+					spriteRenderer.color=Color.white;
+					spriteRenderer.sprite=sprites[currentLevel];
+				}
+			} catch(System.Exception e) {
+				if(!spriteRenderer) spriteRenderer=GetComponent<SpriteRenderer>();
+				spriteRenderer.sprite=sprites[overrideLevel];
 				spriteRenderer.color=Color.white;
-				spriteRenderer.sprite=sprites[currentLevel];
 			}
 
 		}

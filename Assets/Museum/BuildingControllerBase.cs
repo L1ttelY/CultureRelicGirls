@@ -6,13 +6,19 @@ namespace Museum {
 
 	public class BuildingControllerBase:MonoBehaviour {
 
+		SpriteRenderer spriteRenderer;
 		static public Dictionary<int,BuildingControllerBase> instances = new Dictionary<int,BuildingControllerBase>();
 
 		[field: SerializeField] public int id { get; private set; }
 		[field: SerializeField] public BuildingData buildingData { get; private set; }
+		Material normalMaterial;
+		[SerializeField] Material highlightMaterial;
+
 		public PlayerData.BuildingData saveData { get; private set; }
 
 		private void Start() {
+			spriteRenderer=GetComponent<SpriteRenderer>();
+			normalMaterial=spriteRenderer.material;
 			saveData=PlayerData.PlayerDataRoot.instance.buildingDatas[id];
 			if(!instances.ContainsKey(id)) instances.Add(id,this);
 			else if(instances[id]) Debug.LogError("Duplicate");
@@ -24,6 +30,7 @@ namespace Museum {
 			//更新升级情况
 			if(saveData.levelUpStatus.value!=0&&saveData.levelUpProgression.completion) {
 				//升级完毕
+				spriteRenderer.material=highlightMaterial;
 				saveData.levelUpStatus.value=0;
 				saveData.level.value++;
 			}
@@ -59,6 +66,7 @@ namespace Museum {
 		public void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
 			BuildingLevelUpMode.EnterMode(id,null);
+			spriteRenderer.material=normalMaterial;
 
 		}
 

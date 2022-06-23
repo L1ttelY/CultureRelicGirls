@@ -46,6 +46,7 @@ namespace PlayerData {
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);
 			PlayerDataRoot.LoadDocument(xml);
+			loaded=true;
 		}
 
 		static string MemoryToSerialized() {
