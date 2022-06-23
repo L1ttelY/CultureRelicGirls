@@ -49,10 +49,9 @@ namespace Museum {
 			if(focus) {
 
 				//…„œÒÕ∑æ€Ωπ
-				if(focusChanged) {
-					if(MoveTowards(focus.focusPoint,focus.focusSize)) focusChanged=false;
-				}
+				MoveTowards(focus.focusPoint,focus.focusSize);
 				resizing=false;
+				dragging=false;
 
 			} else if(focusChanged) {
 

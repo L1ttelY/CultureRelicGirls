@@ -10,9 +10,14 @@ namespace Museum {
 	[CreateAssetMenu(menuName = "自定/建筑数值")]
 	public class BuildingData:ScriptableObject {
 
+		public static Dictionary<int,BuildingData> datas;
+		private void OnEnable() {
+			datas.Add(id,this);
+		}
+
 		public BuildingLevelData[] levels;
-		public int maxLevel;
-		public int id;
+		[field: SerializeField] public int maxLevel { get; private set; }
+		[field: SerializeField] public int id { get; private set; }
 
 	}
 
