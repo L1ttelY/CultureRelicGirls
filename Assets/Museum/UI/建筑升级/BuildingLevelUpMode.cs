@@ -42,9 +42,9 @@ namespace Museum {
 
 			System.Text.StringBuilder @string = new System.Text.StringBuilder();
 			@string.Append("是否要花费");
-			@string.Append(BuildingData.datas[targetId].levels[targetLevel].levelUpCostMaterial);
+			@string.Append(BuildingControllerBase.instances[targetId].buildingData.levels[targetLevel].levelUpCostMaterial);
 			@string.Append("单位碳材料来将\n");
-			@string.Append(BuildingData.datas[targetId].name);
+			@string.Append(BuildingControllerBase.instances[targetId].buildingData.name);
 			@string.Append("从");
 			@string.Append(targetLevel);
 			@string.Append("级升级到");
@@ -67,7 +67,7 @@ namespace Museum {
 		private void Update() {
 
 			targetLevel=PlayerData.PlayerDataRoot.instance.buildingDatas[targetId].level.value;
-			descriptionDisplay.text=BuildingData.datas[targetId].levels[targetLevel].description;
+			descriptionDisplay.text=BuildingControllerBase.instances[targetId].buildingData.levels[targetLevel].description;
 			levelDisplay.level=targetLevel;
 			levelUpButtonImage.color=(BuildingControllerBase.instances[targetId].CanLevelUp()) ? Color.white : new Color(.4f,.4f,.4f,1);
 
