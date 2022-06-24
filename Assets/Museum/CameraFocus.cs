@@ -6,8 +6,13 @@ using UnityEngine.Events;
 namespace Museum {
 	[AddComponentMenu("博物馆/摄像头聚焦对象")]
 	public class CameraFocus:MonoBehaviour {
+
+		public class CancelFocus {
+			public bool doCancel;
+		}
+
 		[SerializeField] float focusMargin = 0.5f;
-		[SerializeField] UnityEvent onClick;
+		[SerializeField] UnityEvent<CancelFocus> onClick;
 		Collider2D clickArea;
 
 		private void Start() {
@@ -27,8 +32,9 @@ namespace Museum {
 				Vector2 releasePosition = Input.mousePosition;
 				float dist = (releasePosition-pressPosition).sqrMagnitude;
 				if(dist<400) {
-					onClick?.Invoke();
-					CameraController.instance.SetFocus(this);
+					CancelFocus doCancel = new CancelFocus();
+					onClick?.Invoke(doCancel);
+					if(!doCancel.doCancel) CameraController.instance.SetFocus(this);
 				}
 
 			}

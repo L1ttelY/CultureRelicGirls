@@ -11,7 +11,7 @@ namespace Museum {
 	/// </summary>
 	public class UIModeBase:MonoBehaviour {
 
-		public void Init() {
+		virtual public void Init() {
 			UIController.instance.AddMode(gameObject.name,this);
 		}
 

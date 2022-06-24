@@ -43,7 +43,7 @@ namespace Museum {
 		float cameraSize = 5;
 		Vector2 cameraPosition;
 
-		bool focusChanged;
+		bool focusChanged; 
 		private void Update() {
 
 			if(focus) {
@@ -54,7 +54,6 @@ namespace Museum {
 				dragging=false;
 
 			} else if(focusChanged) {
-
 				//ÉãÏñÍ·È¡Ïû¾Û½¹
 				if(MoveTowards(cameraPosition,cameraSize)) focusChanged=false;
 

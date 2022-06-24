@@ -32,14 +32,11 @@ namespace Museum {
 			targetX=transform.position.x;
 		}
 
+		public bool moving { get; private set; }
+
 		float previousX;
 		float stairTimeCurrent;
 		private void Update() {
-
-			if(Input.GetMouseButtonDown(0)) {
-				SetTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-			}
-
 
 			bool visible = true;
 			float deltaX = Time.deltaTime*moveSpeed;
@@ -75,6 +72,7 @@ namespace Museum {
 
 			if(currentX>previousX) transform.localScale=new Vector3(1,1,1);
 			else if(currentX<previousX) transform.localScale=new Vector3(-1,1,1);
+			moving=currentX!=previousX;
 			previousX=currentX;
 
 		}

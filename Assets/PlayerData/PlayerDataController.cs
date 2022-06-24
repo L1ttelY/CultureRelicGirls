@@ -11,12 +11,14 @@ namespace PlayerData {
 	/// <summary>
 	/// 负责存档的读取和保存的管理
 	/// </summary>
-	public class PlayerDataController:MonoBehaviour {
+	public static class PlayerDataController{
 
 		const string fileName = "save.xml";
+		public static bool loaded { get; private set; }
 
 		public static WXFileSystemManager fileSystem;
-		void Awake() {
+		[RuntimeInitializeOnLoadMethod]
+		static void Init() {
 
 			//直接读取存档
 			string serialized = "";
@@ -27,33 +29,33 @@ namespace PlayerData {
 		}
 
 
-		void SDKInited(int _) {
+		static void SDKInited(int _) {
 			fileSystem=WX.GetFileSystemManager();
 			string serialized = WX.StorageGetStringSync(fileName,"");
 			SerializedToMemory(serialized);
 			SaveGame();
 		}
 
-		public void SaveGame() {
+		static public void SaveGame() {
 			string save = MemoryToSerialized();
 			if(!File.Exists(EditorPath)) File.Create(EditorPath);
 			File.WriteAllText(EditorPath,MemoryToSerialized());
 		}
 
-		void SerializedToMemory(string data) {
+		static void SerializedToMemory(string data) {
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);
 			PlayerDataRoot.LoadDocument(xml);
-			transform.GetChild(0).gameObject.SetActive(true);
+			loaded=true;
 		}
 
-		string MemoryToSerialized() {
+		static string MemoryToSerialized() {
 			XmlDocument xml = new XmlDocument();
 			PlayerDataRoot.SaveDocument(xml);
 			return xml.InnerXml;
 		}
 
-		string EditorPath { get { return Application.dataPath+"/"+fileName; } }
+		static string EditorPath { get { return Application.dataPath+"/"+fileName; } }
 
 	}
 

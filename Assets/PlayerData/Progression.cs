@@ -51,7 +51,8 @@ namespace PlayerData {
 		public void SetProgression(System.TimeSpan timeTotal,float progressionNow) {
 			System.DateTime now = System.DateTime.Now;
 			timeStart=now-timeTotal*progressionNow;
-			timeStart=now+timeTotal*(1-progressionNow);
+			timeEnd=now+timeTotal*(1-progressionNow);
+
 		}
 
 

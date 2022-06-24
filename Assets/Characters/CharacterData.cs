@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "自定/角色数值")]
 public class CharacterData:ScriptableObject {
 
-	public static Dictionary<int,CharacterData> datas;
+	public static Dictionary<int,CharacterData> datas=new Dictionary<int, CharacterData>();
 	private void OnEnable() {
 		datas.Add(id,this);
 	}
