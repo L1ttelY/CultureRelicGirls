@@ -5,31 +5,24 @@ using UnityEngine;
 namespace Combat
 {
 
+	/*
+	 *血量低于50% 攻击+75%
+	 *血量低于25% 攻击+100%
+	 *血量低于
+	 */
+
 	public class SiMuWuDing : EntityFriendly
 	{
-		public int antiDamge = 10;
-		
 		protected override void FixedUpdate()
         {
 			base.FixedUpdate();
-			
-			base.Start();
-			EntityBase.UpdateStats += EntityBase_UpdateStats;
-			DamageModel returnDamage;
-			returnDamage.amount = antiDamge;
-			returnDamage.knockback = 0;
-			returnDamage.dealer = result.dealer;
-			returnDamage.direction = result.direction;
-			
-			if (isBeenAttacked)
-            {
-				WhoIsAttackMe.Damage(returnDamage);
-			}
+
 
 		}
 		protected override void Start()
 		{
 			base.Start();
+			EntityBase.UpdateStats += EntityBase_UpdateStats;
 		}
 		protected override void OnDestroy()
 		{
