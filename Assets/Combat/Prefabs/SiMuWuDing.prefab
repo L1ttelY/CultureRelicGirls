@@ -180,22 +180,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fd210ede59a24ebdec18232486396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBeenAttacked: 0
-  WhoIsAttackMe: {fileID: 0}
-  <acceleration>k__BackingField: 40
-  <maxSpeed>k__BackingField: 6
+  <acceleration>k__BackingField: 400
+  <maxSpeed>k__BackingField: 60
   <attackBasePower>k__BackingField: 10
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1
   <maxHp>k__BackingField: 100
   <projectiles>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 7842778750022487663, guid: cb0152dd5ef7b514fa187acc155c6a63, type: 3}
   <attackRangeMin>k__BackingField: 4
   <attackRangeMax>k__BackingField: 12
   <projectileVelocityY>k__BackingField: 10
   <maxPredictSpeed>k__BackingField: 6
   <damageVfx>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
