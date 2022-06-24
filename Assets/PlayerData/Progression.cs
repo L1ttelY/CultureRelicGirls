@@ -38,6 +38,8 @@ namespace PlayerData {
 				System.TimeSpan spanTotal = timeEnd-timeStart;
 				System.TimeSpan spanNow = System.DateTime.Now-timeStart;
 				float progressionAmount = (float)(spanNow/spanTotal);
+				if(progressionAmount<0) progressionAmount=0;
+				if(progressionAmount>1) progressionAmount=1;
 				return progressionAmount;
 			}
 		}
