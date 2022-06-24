@@ -10,6 +10,8 @@ public class CharacterData:ScriptableObject {
 		datas.Add(id,this);
 	}
 
+	[field: TextArea] public string descriptionShort { get; private set; }
+
 	[field: SerializeField] public int id { get; private set; }
 	[field: SerializeField] public int maxLevel { get; private set; }
 	[field: SerializeField] public GameObject combatPrefab { get; private set; }
@@ -30,14 +32,13 @@ public struct CharacterLevelData {
 	/// <summary>
 	/// 升级消耗的时间
 	/// </summary>
-	public System.TimeSpan levelUpCostTime { get { return new System.TimeSpan(levelUpHour,levelUpMinute,0); } }
-	public int levelUpHour;
-	public int levelUpMinute;
+	public System.TimeSpan levelUpCostTime { get { return new System.TimeSpan(levelUpCostHour,levelUpCostMinute,0); } }
+	public int levelUpCostHour;
+	public int levelUpCostMinute;
 	public System.TimeSpan levelUpTimeTime { get { return new System.TimeSpan(levelUpTimeHour,levelUpTimeMinute,0); } }
 	public int levelUpTimeHour;
 	public int levelUpTimeMinute;
 
 	public int hpMax;
 	public int power;
-
 }
