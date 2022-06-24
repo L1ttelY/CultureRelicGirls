@@ -17,10 +17,11 @@ namespace Museum {
 		public static FloorPath[] floorPaths = new FloorPath[3];
 		public static FloorPath FloorFromY(float y) {
 
-			int maxIndex = 0;
+			int maxIndex = -1;
 			foreach(var i in floorPaths) {
 				if(i.y<=y) maxIndex=Mathf.Max(i.floorIndex,maxIndex);
 			}
+			if(maxIndex==-1) return null;
 			return floorPaths[maxIndex];
 		}
 

@@ -78,6 +78,12 @@ namespace Combat {
 
 		}
 
+		//恢复血量
+		public virtual void Heal(int amount) {
+			hp+=amount;
+			if(hp>maxHp) hp=maxHp;
+		}
+
 		//在死亡时触发的事件 想要在其他角色死亡时执行代码请关注这个事件
 		public static event EventHandler Death;
 		//死亡时触发的代码

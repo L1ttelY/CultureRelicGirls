@@ -16,7 +16,7 @@ namespace Museum {
 
 		public PlayerData.BuildingData saveData { get; private set; }
 
-		private void Start() {
+		protected virtual void Start() {
 			spriteRenderer=GetComponent<SpriteRenderer>();
 			normalMaterial=spriteRenderer.material;
 			saveData=PlayerData.PlayerDataRoot.instance.buildingDatas[id];
@@ -25,7 +25,7 @@ namespace Museum {
 			else instances[id]=this;
 		}
 
-		private void FixedUpdate() {
+		protected virtual void FixedUpdate() {
 
 			//更新升级情况
 			if(saveData.levelUpStatus.value!=0&&saveData.levelUpProgression.completion) {
@@ -37,7 +37,7 @@ namespace Museum {
 
 		}
 
-		public bool CanLevelUp() {
+		public virtual bool CanLevelUp() {
 
 			//判断是否升级
 			int currentLevel = saveData.level.value;
@@ -50,7 +50,7 @@ namespace Museum {
 
 		}
 
-		public bool LevelUp() {
+		public virtual bool LevelUp() {
 			if(!CanLevelUp()) return false;
 
 			//可以升级
@@ -63,7 +63,7 @@ namespace Museum {
 			return true;
 		}
 
-		public void OnClick(CameraFocus.CancelFocus cancelFocus) {
+		protected virtual void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
 			BuildingLevelUpMode.EnterMode(id,null);
 			spriteRenderer.material=normalMaterial;

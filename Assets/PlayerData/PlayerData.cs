@@ -11,6 +11,9 @@ namespace PlayerData {
 	/// </summary>
 	public class PlayerDataRoot:DataBase {
 
+		public static int smCount { get { return instance.sentienceMatter.value; } set { instance.sentienceMatter.value=value; } }
+		public static int pmCount { get { return instance.printingMaterial.value; } set { instance.printingMaterial.value=value; } }
+
 		public static PlayerDataRoot instance { get; private set; }
 
 		public PlayerDataRoot(string name,DataBase parent) : base(name,parent) {
