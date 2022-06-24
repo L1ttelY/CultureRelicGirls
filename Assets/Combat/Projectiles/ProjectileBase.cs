@@ -6,6 +6,8 @@ namespace Combat {
 
 	public class ProjectileBase:MonoBehaviour {
 
+		public EntityBase Attacter;
+
 		[field: SerializeField] public float gravity { get; protected set; }
 		[SerializeField] int penetratePower;
 		[SerializeField] float timePerFrame;
@@ -41,7 +43,6 @@ namespace Combat {
 			this.target=target;
 			this.friendly=friendly;
 			this.damage=damage;
-
 			nextPosition=position;
 
 			time=0;

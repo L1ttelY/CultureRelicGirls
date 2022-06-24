@@ -8,22 +8,22 @@ namespace Combat {
 
 		//static update
 		[RuntimeInitializeOnLoadMethod]
-		static void SubscribeStaticEvents() {
+		static void SubscribeStaticEvents() { //订阅开始消息
 			EventManager.staticUpdate+=StaticUpdate;
 		}
 		static void StaticUpdate() { //攻击距离？
 
-			float originalLeftest = leftestX;
+			float originalLeftest = leftestX; //记录初始攻击距离
 			float originalRightest = rightestX;
 			bool friendlyLeft = false;
 
 			leftestX=float.MaxValue;
 			rightestX=float.MinValue;
 
-			foreach(var i in entities) {
+			foreach(var i in entities) { //遍历数组，相当于getcomponent
 				if(i is EntityFriendly) {
 
-					leftestX=Mathf.Min(i.transform.position.x,leftestX);
+					leftestX=Mathf.Min(i.transform.position.x,leftestX);//取二者的最小值，保证左边界最靠左
 					rightestX=Mathf.Min(i.transform.position.x,leftestX);
 					friendlyLeft=true;
 
@@ -40,22 +40,22 @@ namespace Combat {
 		public static float leftestX { get; private set; }
 		public static float rightestX { get; private set; }
 
-		[SerializeField] int positionInTeam;
+		[SerializeField] int positionInTeam; //序列化
 
 		public static EntityFriendly playerControlled;
-		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
+		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>(); //声明list属性
 
 		const float distancePerCharacter = 1;
 		const float distanceTolerence = 0.3f;
 
-		protected override void Start() {
+		protected override void Start() { //排序分配脚本？
 			base.Start();
 			if(positionInTeam==0) playerControlled=this;
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 		}
 
-		protected override void StateMove() {
+		protected override void StateMove() { //移动脚本
 			base.StateMove();
 
 			velocity.y=0;

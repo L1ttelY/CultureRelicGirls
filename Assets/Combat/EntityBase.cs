@@ -13,6 +13,8 @@ namespace Combat {
 
 	public class EntityBase:MonoBehaviour {
 
+		public bool isBeenAttacked = false; //是否被攻击
+		[HideInInspector] public EntityBase WhoIsAttackMe; //谁在攻击我
 
 		public static LinkedList<EntityBase> entities = new LinkedList<EntityBase>();
 		LinkedListNode<EntityBase> positionInList;
@@ -37,8 +39,8 @@ namespace Combat {
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
 
 		//获取当前角色正常攻击的参数
-		protected virtual DamageModel GetDamage() {
-			DamageModel result = new DamageModel();
+		public DamageModel result = new DamageModel();
+		protected virtual DamageModel GetDamage() { 
 			result.amount=Mathf.RoundToInt(attackBasePower*powerBuff);
 			result.knockback=knockbackPower*knockbackBuff;
 			result.dealer=this;
@@ -66,10 +68,12 @@ namespace Combat {
 		}
 
 		//对角色造成伤害
-		public virtual void Damage(DamageModel e) {
 
+		public virtual void Damage(DamageModel e) { //收到伤害
+			isBeenAttacked = true;
 			hp-=e.amount;
-			StartKnockback(e.knockback,e.direction);
+			WhoIsAttackMe = e.dealer;
+			StartKnockback(e.knockback,e.direction); //击退
 
 			int vfxIndex = Random.Range(0,damageVfx.Length);
 			VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
@@ -105,6 +109,7 @@ namespace Combat {
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
+			isBeenAttacked = false;
 		}
 
 		protected virtual void FixedUpdate() {
@@ -170,7 +175,7 @@ namespace Combat {
 		//攻击
 		public float timeAfterAttack { get; protected set; }
 		//让角色自行判断是否攻击
-		protected virtual void UpdateAttack() {
+		protected virtual void UpdateAttack() {  //攻击在这里
 
 			timeAfterAttack+=Time.deltaTime;
 
