@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7842778750022487648}
   - component: {fileID: 7842778750022487649}
   - component: {fileID: -4592678012357767987}
+  - component: {fileID: -4990567084491741592}
   m_Layer: 0
   m_Name: SkillStart
   m_TagString: Untagged
@@ -129,3 +130,16 @@ MonoBehaviour:
   timePerFrame: 0
   lifeTime: 2
   sprites: []
+--- !u!114 &-4990567084491741592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842778750022487663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53852272f2c8bca4ea3634dcc96c6654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1763441829856274810, guid: 343bfa75c2e02614488d03ce21ec0446, type: 3}
