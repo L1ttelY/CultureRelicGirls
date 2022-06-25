@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5110401504228846533}
   m_Layer: 0
   m_Name: TianChongYunJian
-  m_TagString: Untagged
+  m_TagString: Asia
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,19 +207,22 @@ MonoBehaviour:
   <knockbackPower>k__BackingField: 1
   <maxHp>k__BackingField: 120
   <projectiles>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 7842778750022487663, guid: a80a33ff3e8ec2641b7116e29889d0b3, type: 3}
   <attackRangeMin>k__BackingField: 0
   <attackRangeMax>k__BackingField: 2
   <projectileVelocityY>k__BackingField: 10
   <maxPredictSpeed>k__BackingField: 6
   <damageVfx>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 7842778750022487663, guid: cb0152dd5ef7b514fa187acc155c6a63, type: 3}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 1
-  SkillDamage: 0.05
+  <Thunder>k__BackingField: {fileID: 7842778750022487663, guid: 5d1085a60e2cd6c44846f9aa597ea250, type: 3}
+  SkillDamage: 50
+  skillTime: 1.2
+  Height: 20
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0
