@@ -38,7 +38,11 @@ namespace Museum {
 		}
 
 		public void LevelUpButtonClick() {
-			if(!BuildingControllerBase.instances[targetId].CanLevelUp()) return;
+			if(!BuildingControllerBase.instances[targetId].CanLevelUp()) {
+				string message = BuildingControllerBase.messageBuffer+"\n点击是或否按键以继续游戏";
+				ConfirmationMode.EnterMode(message,BackToThisMode,BackToThisMode);
+				return;
+			}
 
 			System.Text.StringBuilder @string = new System.Text.StringBuilder();
 			@string.Append("是否要花费");
@@ -51,7 +55,7 @@ namespace Museum {
 			@string.Append(targetLevel+1);
 			@string.Append("级?");
 
-			ConfirmationMode.EnterMode(@string.ToString(),OnLevelUpConfirm,OnLevelUpCancel);
+			ConfirmationMode.EnterMode(@string.ToString(),OnLevelUpConfirm,BackToThisMode);
 
 		}
 
@@ -59,7 +63,7 @@ namespace Museum {
 			BuildingControllerBase.instances[targetId].LevelUp();
 			CameraController.instance.SetFocus(null);
 		}
-		void OnLevelUpCancel() {
+		void BackToThisMode() {
 			_EnterMode(targetId,onExtraButtonClick);
 		}
 

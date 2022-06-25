@@ -13,6 +13,8 @@ namespace Museum {
 		PlayerData.CharacterData saveData;
 		PathFinder pathFinder;
 		BuildingWithCharacterInteractionBase.SlotToken slotToken;
+		CountDownController.CountDownToken countDownToken;
+		SpriteRenderer spriteRenderer;
 
 		private void Start() {
 			saveData=PlayerData.PlayerDataRoot.instance.characterDatas[characterIndex];
@@ -21,6 +23,7 @@ namespace Museum {
 			UpdateWorkEnd();
 			pathFinder.SetTarget(GetTargetPosition());
 			pathFinder.TeleportToTarget();
+			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
 		}
 
 		private void Update() {
@@ -28,6 +31,7 @@ namespace Museum {
 			UpdateWorkEnd();
 			UpdateStateChange();
 			pathFinder.SetTarget(GetTargetPosition());
+			UpdateCountDown();
 		}
 
 		int previousHealStatus;
@@ -119,6 +123,24 @@ namespace Museum {
 			}
 			if(currentHealStatus==PlayerData.CharacterData.healTime&&saveData.healProgression.completion) StopHealTime();
 			if(currentHealStatus==PlayerData.CharacterData.healCost&&pathFinder.arrived) FinishHealCost();
+		}
+
+		void UpdateCountDown() {
+			bool displayCountDown = currentLevelUpStatus!=0||currentHealStatus==PlayerData.CharacterData.healTime;
+			if(displayCountDown) {
+				if(countDownToken==null) countDownToken=CountDownController.instance.CreateCountDown();
+				countDownToken.boundObject.transform.position=spriteRenderer.transform.position+Vector3.up*0.7f;
+				PlayerData.Progression targetProgression;
+				if(currentHealStatus!=0) targetProgression=saveData.healProgression;
+				else targetProgression=saveData.levelUpProgression;
+				countDownToken.textField.text=targetProgression.TimeLeftText();
+				countDownToken.progressionImage.fillAmount=targetProgression.progressionAmount;
+			} else {
+				if(countDownToken!=null) {
+					CountDownController.instance.FreeCountDown(countDownToken);
+					countDownToken=null;
+				}
+			}
 		}
 
 		public void OnClick() {

@@ -27,7 +27,7 @@ namespace Museum {
 				Vector2 physicalPosition = Camera.main.ScreenToWorldPoint(pressPosition);
 				pressed=clickArea.OverlapPoint(physicalPosition);
 			}
-			if(Input.GetMouseButtonUp(0)&&pressed) {
+			if(Input.GetMouseButtonUp(0)&&pressed&&CameraController.instance.focus==null) {
 
 				Vector2 releasePosition = Input.mousePosition;
 				float dist = (releasePosition-pressPosition).sqrMagnitude;

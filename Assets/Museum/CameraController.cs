@@ -17,7 +17,7 @@ namespace Museum {
 			camera=GetComponent<Camera>();
 		}
 
-		CameraFocus focus;
+		public CameraFocus focus{ get; private set; }
 		public bool SetFocus(CameraFocus newFocus) {
 
 			if(newFocus) {

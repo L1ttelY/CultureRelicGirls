@@ -65,6 +65,10 @@ namespace Combat {
 			UpdateStats?.Invoke(this);
 		}
 
+		public DamageModel lastDamage { get; protected set; }            //最后一次受到的伤害
+		public static event System.EventHandler<DamageModel> DamageEvent;//受到伤害时触发的事件
+
+
 		//对角色造成伤害
 		public virtual void Damage(DamageModel e) {
 
@@ -73,6 +77,9 @@ namespace Combat {
 
 			int vfxIndex = Random.Range(0,damageVfx.Length);
 			VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
+
+			DamageEvent?.Invoke(this,e);
+			lastDamage=e;
 
 			if(hp<=0) OnDeath();
 

@@ -57,6 +57,10 @@ namespace PlayerData {
 
 		}
 
+		public string TimeLeftText() {
+			System.TimeSpan timeLeft = timeEnd-System.DateTime.Now;
+			return $"{((int)timeLeft.TotalHours).ToString("00")}:{timeLeft.Minutes.ToString("00")}:{timeLeft.Seconds.ToString("00")}";
+		}
 
 	}
 }

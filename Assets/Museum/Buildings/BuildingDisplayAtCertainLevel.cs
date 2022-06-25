@@ -29,7 +29,11 @@ namespace Museum {
 					spriteRenderer.color=Color.white;
 					spriteRenderer.sprite=sprites[currentLevel];
 				}
+
+				if(!Application.isPlaying) throw new System.Exception();
+
 			} catch(System.Exception e) {
+				Debug.Log("override");
 				if(!spriteRenderer) spriteRenderer=GetComponent<SpriteRenderer>();
 				spriteRenderer.sprite=sprites[overrideLevel];
 				spriteRenderer.color=Color.white;
