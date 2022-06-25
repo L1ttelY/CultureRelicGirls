@@ -31,6 +31,13 @@ namespace Museum {
 		}
 
 		public void TeleportToTarget() {
+			if(!targetFloor) {
+				currentFloor=targetFloor;
+				transform.position=new Vector3(targetX,-10000);
+				previousX=targetX;
+				previousInactive=true;
+				return;
+			}
 			currentFloor=targetFloor;
 			transform.position=new Vector3(targetX,targetFloor.y);
 			previousX=targetX;
@@ -43,11 +50,11 @@ namespace Museum {
 		float stairTimeCurrent;
 		bool previousInactive;
 		private void Update() {
-
-			if(Input.GetMouseButtonDown(0)) {
-				SetTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-			}
-
+			/*
+				if(Input.GetMouseButtonDown(0)) {
+					SetTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+				}
+				*/
 			if(targetFloor==null) {
 
 				//不在场内

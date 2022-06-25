@@ -80,7 +80,6 @@ namespace Combat {
 
 
 			if(!previousEntity) {
-
 				targetVelocity=buffedSpeed*Player.instance.targetVelocity;
 
 			} else {

@@ -8,8 +8,8 @@ namespace Museum {
 
 		static readonly Vector2 inactivePosition = new Vector2(0,-10000);
 
-		[SerializeField] int characterIndex;
-		[SerializeField] CharacterData staticData;
+		[field: SerializeField] public int characterIndex { get; private set; }
+		[field: SerializeField] public CharacterData staticData { get; private set; }
 		PlayerData.CharacterData saveData;
 		PathFinder pathFinder;
 		BuildingWithCharacterInteractionBase.SlotToken slotToken;
@@ -25,6 +25,9 @@ namespace Museum {
 
 		private void Update() {
 			UpdateWanderPosition();
+			UpdateWorkEnd();
+			UpdateStateChange();
+			pathFinder.SetTarget(GetTargetPosition());
 		}
 
 		int previousHealStatus;
@@ -76,6 +79,7 @@ namespace Museum {
 				case 0:
 					WorkBenchController.instance.FreeSlot(slotToken);
 					slotToken=null;
+					Debug.Log(slotToken);
 					break;
 				case PlayerData.CharacterData.healTime:
 					slotToken=WorkBenchController.instance.GetSlot();
@@ -92,6 +96,7 @@ namespace Museum {
 					LibraryController.instance.FreeSlot(slotToken);
 					ResearchStationController.instance.FreeSlot(slotToken);
 					slotToken=null;
+					Debug.Log(slotToken);
 					break;
 				case PlayerData.CharacterData.levelUpTime:
 					slotToken=LibraryController.instance.GetSlot();
@@ -103,7 +108,7 @@ namespace Museum {
 			}
 
 			previousHealStatus=currentHealStatus;
-			currentLevelUpStatus=currentLevelUpStatus;
+			previousLevelUpStatus=currentLevelUpStatus;
 
 		}
 
@@ -112,15 +117,23 @@ namespace Museum {
 				currentLevelUpStatus=0;
 				currentLevel++;
 			}
-			if(currentLevelUpStatus==PlayerData.CharacterData.healTime&&saveData.healProgression.completion) StopHealTime();
-			if(currentLevelUpStatus==PlayerData.CharacterData.healCost&&pathFinder.arrived) FinishHealCost();
+			if(currentHealStatus==PlayerData.CharacterData.healTime&&saveData.healProgression.completion) StopHealTime();
+			if(currentHealStatus==PlayerData.CharacterData.healCost&&pathFinder.arrived) FinishHealCost();
 		}
 
 		public void OnClick() {
-
+			CharacterShowMode.EnterMode(this);
 		}
 
 		public static string messageBuffer;
+
+		public System.TimeSpan HealTime() {
+			System.TimeSpan totalTime = new System.TimeSpan((long)(System.TimeSpan.TicksPerSecond*staticData.levels[currentLevel].hpMax*staticData.healTimPerHpInSecond));
+			return totalTime*saveData.healthAmount;
+		}
+		public int HealCost() {
+			return Mathf.CeilToInt(staticData.healCostPerHp*staticData.levels[currentLevel].hpMax);
+		}
 
 		bool InWork() {
 			if(currentLevelUpStatus!=0) {
@@ -175,11 +188,15 @@ namespace Museum {
 		}
 		public bool CanHealCost() {
 			if(InWork()) return false;
+			if(saveData.healthAmount>=1) {
+				messageBuffer="血量已满";
+				return false;
+			}
 			if(!WorkBenchController.instance.HasSlotLeft()) {
 				messageBuffer="维修台已满或不可用";
 				return false;
 			}
-			if(PlayerData.PlayerDataRoot.smCount<staticData.levels[saveData.level.value].levelUpCost) {
+			if(PlayerData.PlayerDataRoot.smCount<HealCost()) {
 				messageBuffer="意识晶体不足";
 				return false;
 			}
@@ -193,7 +210,7 @@ namespace Museum {
 			return true;
 		}
 		public bool GoLevelUpCost() {
-			if(!CanLevelUpTime()) return false;
+			if(!CanLevelUpCost()) return false;
 			currentLevelUpStatus=PlayerData.CharacterData.levelUpCost;
 			saveData.levelUpProgression.SetProgression(staticData.levels[currentLevel].levelUpCostTime,0);
 			PlayerData.PlayerDataRoot.smCount-=staticData.levels[currentLevel].levelUpCost;
@@ -203,8 +220,8 @@ namespace Museum {
 		public bool GoHealTime() {
 			if(!CanHealTime()) return false;
 			currentHealStatus=PlayerData.CharacterData.healTime;
-			System.TimeSpan healtime = new System.TimeSpan((long)(System.TimeSpan.TicksPerSecond*staticData.levels[currentLevel].hpMax*staticData.healTimPerHpInSecond));
-			saveData.healProgression.SetProgression(healtime,saveData.healthAmount);
+			System.TimeSpan healtime = HealTime();
+			saveData.healProgression.SetProgression(healtime,0);
 			return true;
 		}
 		public bool GoHealCost() {
@@ -220,7 +237,7 @@ namespace Museum {
 		}
 
 		void FinishHealCost() {
-			PlayerData.PlayerDataRoot.smCount-=Mathf.CeilToInt(staticData.healCostPerHp*staticData.levels[currentLevel].hpMax);
+			PlayerData.PlayerDataRoot.smCount-=HealCost();
 			saveData.healthAmount=1;
 			currentHealStatus=0;
 		}

@@ -9,7 +9,8 @@ public class ResetAllZ {
 	static void Work() {
 
 		Object[] transforms = Resources.FindObjectsOfTypeAll(typeof(Transform));
-		foreach(Object i in transforms){
+		foreach(Object i in transforms) {
+			if(i is RectTransform) continue;
 			Vector3 position = (i as Transform).position;
 			position.z=0;
 			(i as Transform).position=position;
