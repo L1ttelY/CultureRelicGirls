@@ -180,12 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8fd210ede59a24ebdec18232486396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 400
-  <maxSpeed>k__BackingField: 60
-  <attackBasePower>k__BackingField: 10
+  <acceleration>k__BackingField: 40
+  <maxSpeed>k__BackingField: 6
+  <attackBasePower>k__BackingField: 38
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1
-  <maxHp>k__BackingField: 100
+  <maxHp>k__BackingField: 250
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: cb0152dd5ef7b514fa187acc155c6a63, type: 3}
   <attackRangeMin>k__BackingField: 4
@@ -199,7 +199,7 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 0
-  antiDamge: 10
+  antiDamage: 10
 --- !u!95 &7189738652749299581
 Animator:
   serializedVersion: 4

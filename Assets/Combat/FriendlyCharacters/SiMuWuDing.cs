@@ -5,20 +5,20 @@ using UnityEngine;
 namespace Combat
 {
 
-	/*
-	 *血量低于50% 攻击+75%
-	 *血量低于25% 攻击+100%
-	 *血量低于
-	 */
-
 	public class SiMuWuDing : EntityFriendly
 	{
-		protected override void FixedUpdate()
+		public int antiDamage;
+      
+		public override void Damage(DamageModel e) //Damage函数被调用时，触发此函数
         {
-			base.FixedUpdate();
-
-
-		}
+            base.Damage(e);
+			//设置返回伤害模型
+			DamageModel returnDamage = GetDamage();
+			returnDamage.amount = antiDamage;
+			returnDamage.knockback = GetDamage().knockback/3;
+			//对敌人照成伤害
+			e.dealer.Damage(returnDamage);
+        }
 		protected override void Start()
 		{
 			base.Start();
