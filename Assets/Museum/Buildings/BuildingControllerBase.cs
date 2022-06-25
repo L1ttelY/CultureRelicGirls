@@ -12,15 +12,15 @@ namespace Museum {
 
 		public static string messageBuffer;
 
-		SpriteRenderer spriteRenderer;
+		protected SpriteRenderer spriteRenderer;
 		static public Dictionary<int,BuildingControllerBase> instances = new Dictionary<int,BuildingControllerBase>();
 		CountDownController.CountDownToken countDownToken;
 		new Collider2D collider;
 
 		[field: SerializeField] public int id { get; private set; }
 		[field: SerializeField] public BuildingData buildingData { get; private set; }
-		Material normalMaterial;
-		[SerializeField] Material highlightMaterial;
+		protected Material normalMaterial;
+		[SerializeField] protected Material highlightMaterial;
 
 		public PlayerData.BuildingData saveData { get; private set; }
 

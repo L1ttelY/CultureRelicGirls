@@ -12,7 +12,7 @@ namespace Museum {
 		[SerializeField] BuildingLevelDisplay levelDisplay;
 		[SerializeField] Image levelUpButtonImage;
 
-		static BuildingLevelUpMode instance;
+		public static BuildingLevelUpMode instance { get; private set; }
 		public override void Init() {
 			base.Init();
 			if(instance) Debug.Log("Duplicate");
@@ -63,7 +63,7 @@ namespace Museum {
 			BuildingControllerBase.instances[targetId].LevelUp();
 			CameraController.instance.SetFocus(null);
 		}
-		void BackToThisMode() {
+		public void BackToThisMode() {
 			_EnterMode(targetId,onExtraButtonClick);
 		}
 

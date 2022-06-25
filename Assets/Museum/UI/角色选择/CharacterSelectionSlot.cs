@@ -19,11 +19,11 @@ namespace Museum {
 			if(owner.characters[id]==-1) image.color=Color.clear;
 			else {
 				image.color=Color.white;
-				image.sprite=owner.filter.usePicture ? CharacterData.datas[owner.characters[id]].picture : CharacterData.datas[owner.characters[id]].sprite;
+				image.sprite=owner.usePicture ? CharacterData.datas[owner.characters[id]].picture : CharacterData.datas[owner.characters[id]].sprite;
 			}
 		}
 
-		public void OnClick(){
+		public void OnClick() {
 			owner.Choose(id);
 		}
 

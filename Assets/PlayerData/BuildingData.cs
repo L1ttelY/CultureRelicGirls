@@ -16,11 +16,15 @@ namespace PlayerData {
 			level=new DataInt("level",this);
 			levelUpStatus=new DataInt("levelUpStatus",this);
 			levelUpProgression=new Progression("levelUpProgression",this);
+			extraStatus=new DataInt("extraStatus",this);
+			extraProgression=new Progression("extraProgression",this);
 		}
 
 		public DataInt level;
 		public DataInt levelUpStatus;
 		public Progression levelUpProgression;
+		public DataInt extraStatus;
+		public Progression extraProgression;
 
 	}
 
