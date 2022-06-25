@@ -15,7 +15,7 @@ namespace WeChatWASM
 
         public Action<WXADErrorResponse> onErrorAction;
 
-        public Action onLoadActon;
+        public Action<WXADLoadResponse> onLoadActon;
 
 
 
@@ -62,7 +62,7 @@ namespace WeChatWASM
         /// 监听 banner 广告加载事件。
         /// </summary>
         /// <param name="action">广告加载事件的回调函数</param>
-        public void OnLoad(Action action)
+        public void OnLoad(Action<WXADLoadResponse> action)
         {
             onLoadActon += action;
         }
@@ -81,7 +81,7 @@ namespace WeChatWASM
         /// 取消监听广告加载事件
         /// </summary>
         /// <param name="action">广告加载事件的回调函数</param>
-        public void OffLoad(Action action)
+        public void OffLoad(Action<WXADLoadResponse> action)
         {
             onLoadActon -= action;
         }

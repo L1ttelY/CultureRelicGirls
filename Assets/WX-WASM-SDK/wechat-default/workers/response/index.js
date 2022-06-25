@@ -7,6 +7,19 @@ const messageType = {
 const fs = worker.getFileSystemManager ? worker.getFileSystemManager() : null;
 const createSharedArrayBuffer = worker.createSharedArrayBuffer;
 
+function compareVersion(_v1, _v2) {
+  return (
+    _v1
+      .split('.')
+      .map((v) => v.padStart(2, '0'))
+      .join('') >=
+    _v2
+      .split('.')
+      .map((v) => v.padStart(2, '0'))
+      .join('')
+  );
+}
+
 worker.onMessage((res) => {
   const {type, payload} = res;
   if (type === messageType.writeFile) {
@@ -40,12 +53,18 @@ worker.onMessage((res) => {
     })
   }
   if (type === messageType.config) {
-    const {isAndroid} = payload
+    const {systemInfo} = payload
+    const {platform, version} = systemInfo
+
+    // 安卓才需要使用worker写文件
+    const isAndroid = platform.toLocaleLowerCase() === 'android'
+    // 8.0.18以下版本出现写文件报错
+    const isClientValid = compareVersion(version, '8.0.18')
 
     worker.postMessage({
       type: messageType.config,
       payload: {
-        supportWorkerFs: isAndroid && !!fs,
+        supportWorkerFs: isAndroid && !!fs && isClientValid,
         supportSharedBuffer: isAndroid && !!createSharedArrayBuffer,
       }
     })

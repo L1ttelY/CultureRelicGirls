@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7294599480571948453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7294599480571948474}
+  - component: {fileID: 7294599481122470989}
+  - component: {fileID: 7294599481122470988}
+  m_Layer: 0
+  m_Name: EntityRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7294599480571948474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294599480571948453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5534472, y: 2.39606, z: 100.130486}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7294599481122470989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294599480571948453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cec6ab206a9d93468700f069c7cd10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
+  "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
+  - prefab: {fileID: 5322067514333351160, guid: 01b7dbcecbde2ea4cac3de26947cf8e7, type: 3}
+    hp: 400
+    power: 5
+    id: 1
+  - prefab: {fileID: 5322067514333351160, guid: d031b62ca7ab251448903607aca222cb, type: 3}
+    hp: 400
+    power: 5
+    id: 1
+  - prefab: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+    hp: 400
+    power: 5
+    id: 1
+  "\u6587\u4EF6\u540D": LevelTest1
+  "\u5F00\u59CB\u4F4D\u7F6E": -25.84
+  "\u7ED3\u675F\u4F4D\u7F6E": 44.32
+  "\u610F\u8BC6\u6676\u4F53\u5956\u52B1\u91CF": 10
+  "\u78B3\u6750\u6599\u5956\u52B1\u91CF": 10
+  "\u5956\u52B1\u89D2\u8272ID": 1
+  "\u53F3\u952E\u6211\u6765\u8FDB\u884C\u5176\u4ED6\u64CD\u4F5C": 0
+--- !u!114 &7294599481122470988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294599480571948453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511159334d17a0941be510707f6e6ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 7471668723036389886, guid: 189c151e299f69c45a34d44171dae313, type: 3}

@@ -300,6 +300,13 @@ mergeInto(LibraryManager.library, {
         stringToUTF8(returnStr, buffer, bufferSize);
         return buffer;
     },
+    WXRewardedVideoAdReportShareBehavior: function (id, conf) {
+        var returnStr = window.WXWASMSDK.WXReportShareBehavior(_WXPointer_stringify_adaptor(id), _WXPointer_stringify_adaptor(conf));
+        var bufferSize = lengthBytesUTF8(returnStr) + 1;
+        var buffer = _malloc(bufferSize);
+        stringToUTF8(returnStr, buffer, bufferSize);
+        return buffer;
+    },
     WXCreateInterstitialAd: function (conf) {
         var returnStr = window.WXWASMSDK.WXCreateInterstitialAd(_WXPointer_stringify_adaptor(conf));
         var bufferSize = lengthBytesUTF8(returnStr) + 1;
@@ -342,7 +349,6 @@ mergeInto(LibraryManager.library, {
     WXADLoad: function (id, succ, fail) {
         window.WXWASMSDK.WXADLoad(_WXPointer_stringify_adaptor(id), _WXPointer_stringify_adaptor(succ), _WXPointer_stringify_adaptor(fail));
     },
-
     WXToTempFilePathSync: function (conf) {
         var returnStr = window.WXWASMSDK.WXToTempFilePathSync(_WXPointer_stringify_adaptor(conf));
         var bufferSize = lengthBytesUTF8(returnStr) + 1;
@@ -707,7 +713,7 @@ mergeInto(LibraryManager.library, {
         return buffer;
     },
     WXRemoveFile: function(path) {
-        var returnStr = window.WXWASMSDK.WXRemoveFile(path);
+        var returnStr = window.WXWASMSDK.WXRemoveFile(_WXPointer_stringify_adaptor(path));
         var bufferSize = lengthBytesUTF8(returnStr) + 1;
         var buffer = _malloc(bufferSize);
         stringToUTF8(returnStr, buffer, bufferSize);

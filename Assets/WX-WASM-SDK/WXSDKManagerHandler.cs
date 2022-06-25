@@ -517,10 +517,10 @@ namespace WeChatWASM
 
         public void ADOnLoadCallback(string msg)
         {
-            var res = JsonUtility.FromJson<WXBaseResponse>(msg);
+            var res = JsonUtility.FromJson<WXADLoadResponse>(msg);
             if (WXBaseAd.Dict.ContainsKey(res.callbackId))
             {
-                WXBaseAd.Dict[res.callbackId].onLoadActon?.Invoke();
+                WXBaseAd.Dict[res.callbackId].onLoadActon?.Invoke(res);
             }
         }
 

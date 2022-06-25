@@ -11,7 +11,7 @@ namespace Combat {
 		static void SubscribeStaticEvents() {
 			EventManager.staticUpdate+=StaticUpdate;
 		}
-		static void StaticUpdate() {
+		static void StaticUpdate() { //¹¥»÷¾àÀë£¿
 
 			float originalLeftest = leftestX;
 			float originalRightest = rightestX;
@@ -80,7 +80,6 @@ namespace Combat {
 
 
 			if(!previousEntity) {
-
 				targetVelocity=buffedSpeed*Player.instance.targetVelocity;
 
 			} else {

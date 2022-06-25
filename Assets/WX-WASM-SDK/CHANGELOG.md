@@ -6,13 +6,24 @@ Removed - 删除功能/接口
 Fixed - 修复问题
 Others - 其他 
 -->
+## 2022-6-16
+### Added
+* 支持自定义可缓存文件及可清理文件
+* 优化缓存目录统计
+
+### Fixed
+* 21.3unity在iOS上网络报错
+## 2022-6-13
+### Fixed
+* `RemoveFile`参数转字符串
+* 8.0.16安卓worker写文件报错
 ## 2022-6-8
 ### Added
 * 提供Loader启动数据
 
 ### Fixed
 * 修复是否需要下载代码包上报
-* 21.3版本Unity webrequest设置请求头
+* 21.3版本Unity webrequest设置请求头；注册进度事件
 ## 2022-6-7
 ### Added
 * 增加MemoryProfiler，开发阶段分析内存
