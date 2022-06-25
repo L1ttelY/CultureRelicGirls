@@ -38,7 +38,7 @@ namespace PlayerData {
 
 		static public void SaveGame() {
 			string save = MemoryToSerialized();
-			if(!File.Exists(EditorPath)) File.Create(EditorPath);
+			if(!File.Exists(EditorPath)) File.Create(EditorPath).Dispose();
 			File.WriteAllText(EditorPath,MemoryToSerialized());
 		}
 

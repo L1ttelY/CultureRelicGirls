@@ -31,7 +31,7 @@ namespace PlayerData {
 			floorUnlockStatus=new DataInt("floorUnlockStatus",this);
 
 		}
-
+		
 		public static void LoadDocument(XmlDocument xml) {
 
 			instance=new PlayerDataRoot("playerData",null);

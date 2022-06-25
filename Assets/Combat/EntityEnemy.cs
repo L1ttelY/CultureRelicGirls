@@ -6,8 +6,10 @@ namespace Combat {
 
 	public class EntityEnemy:EntityBase {
 
+		[field: SerializeField] public int enemyId { get; private set; }
 		[SerializeField] protected float wakeUpDistance;
 		[SerializeField] Sprite corpseSprite;
+		[SerializeField] int sentienceMatterReward;
 
 		protected override void Start() {
 			base.Start();
@@ -67,6 +69,7 @@ namespace Combat {
 		protected override void OnDeath() {
 			base.OnDeath();
 			EnemyCorpse.Create(corpseSprite,transform.position,direction);
+			CombatController.instance.rewardSm+=sentienceMatterReward;
 			Destroy(gameObject);
 		}
 
