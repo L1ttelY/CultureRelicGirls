@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7842778750022487649}
   - component: {fileID: -4592678012357767987}
   m_Layer: 0
-  m_Name: BulletStar
+  m_Name: Skill_StarryNight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7842778750022487663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0f40ba4b9048ff1478e111a427d948af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c062d877ac999541b880a78c2ad4402, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.09, y: -0.41}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.625}
+    oldSize: {x: 4, y: 1.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47, y: 0.47}
+  m_Size: {x: 2.56, y: 1.05}
   m_EdgeRadius: 0
 --- !u!114 &-4592678012357767987
 MonoBehaviour:
@@ -124,8 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9a52c1bcfa24e4a84424c0c2e6ab01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <gravity>k__BackingField: 18
-  penetratePower: 0
-  timePerFrame: 0
-  lifeTime: 2
-  sprites: []
+  <gravity>k__BackingField: 0
+  penetratePower: -1
+  timePerFrame: 0.33
+  lifeTime: 1
+  sprites:
+  - {fileID: 21300000, guid: 0c062d877ac999541b880a78c2ad4402, type: 3}
+  - {fileID: 21300000, guid: 9791fa277ab16e14f81409191b0483d3, type: 3}
+  - {fileID: 21300000, guid: a3867a1e045de2d4c86915bd4fca470e, type: 3}
