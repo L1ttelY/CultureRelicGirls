@@ -11,6 +11,7 @@ namespace Combat {
 		[SerializeField] float timePerFrame;
 		[SerializeField] float lifeTime;
 		[SerializeField] Sprite[] sprites;
+		[SerializeField] bool doNotRotate;
 
 		new Collider2D collider;
 		SpriteRenderer spriteRenderer;
@@ -88,7 +89,8 @@ namespace Combat {
 				if(other) Hit(other);
 			}
 
-			transform.rotation=((Angle)velocity).quaternion;
+			if(doNotRotate) transform.rotation=Quaternion.identity;
+			else transform.rotation=((Angle)velocity).quaternion;
 
 		}
 
@@ -101,7 +103,7 @@ namespace Combat {
 			damage.direction=friendly ? Direction.right : Direction.left;
 			target.Damage(damage);
 
-			if(penetratePower==timePenetrated)ProjectilePool.Store(this);
+			if(penetratePower==timePenetrated) ProjectilePool.Store(this);
 			timePenetrated++;
 
 		}
