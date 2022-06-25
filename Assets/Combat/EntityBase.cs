@@ -70,7 +70,7 @@ namespace Combat {
 
 
 		//对角色造成伤害
-		public virtual void Damage(DamageModel e) {
+		public virtual void Damage(DamageModel e) { //受到伤害
 
 			hp-=e.amount;
 			StartKnockback(e.knockback,e.direction);
