@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Combat
 {
 
-	public class Model : EntityFriendly
+	public class GuoJiXiangQi : EntityFriendly
 	{
       
 		protected override void Start()
