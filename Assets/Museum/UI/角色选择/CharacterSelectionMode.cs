@@ -5,14 +5,8 @@ using UnityEngine;
 namespace Museum {
 	public class CharacterSelectionMode:UIModeBase {
 
-		public struct CharacterFilter {
-			public bool usePicture;
-			public int minLevel;
-			public int maxLevel;
-			public bool cantBeMaxLevel;
-			public bool cantBeHealing;
-			public bool cantBeUpgrading;
-		}
+		public delegate void SelectionCallback(int id);
+		public delegate bool Filter(int id);
 
 		public static CharacterSelectionMode instance { get; private set; }
 		public override void Init() {
@@ -27,25 +21,24 @@ namespace Museum {
 			characters=new int[slots.Length];
 		}
 
-		public CharacterFilter filter { get; private set; }
+		public Filter filter { get; private set; }
+		public bool usePicture;
+		SelectionCallback callback;
 
 		CharacterSelectionSlot[] slots;
-		public int[] characters;
+		[HideInInspector] public int[] characters;
 
-		public static void EnterMode(CharacterFilter filter) => instance._EnterMode(filter);
-		void _EnterMode(CharacterFilter filter) {
+		public static void EnterMode(Filter filter,bool usePicture,SelectionCallback callback) => instance._EnterMode(filter,usePicture,callback);
+		void _EnterMode(Filter filter,bool usePicture,SelectionCallback callback) {
 			this.filter=filter;
+			this.callback=callback;
 			for(int i = 0;i<characters.Length;i++) characters[i]=-1;
 
 			int cnt = 0;
 			PlayerData.PlayerDataRoot playerData = PlayerData.PlayerDataRoot.instance;
 			for(int i = 0;i<playerData.characterDatas.Length;i++) {
 				if(!CharacterData.datas.ContainsKey(i)) continue;
-				if(playerData.characterDatas[i].level.value<filter.minLevel) continue;
-				if(playerData.characterDatas[i].level.value>filter.maxLevel) continue;
-				if(filter.cantBeMaxLevel&&playerData.characterDatas[i].level.value>=CharacterData.datas[i].maxLevel) continue;
-				if(filter.cantBeHealing&&playerData.characterDatas[i].healStatus.value!=0) continue;
-				if(filter.cantBeUpgrading&&playerData.characterDatas[i].levelUpStatus.value!=0) continue;
+				if(!filter(i)) continue;
 
 				characters[cnt]=i;
 				cnt++;
@@ -56,7 +49,9 @@ namespace Museum {
 		}
 
 		public void Choose(int id) {
-			
+			if(characters[id]==-1) return;
+			EmptyMode.EnterMode();
+			callback?.Invoke(characters[id]);
 		}
 
 	}

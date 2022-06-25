@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	levels[0].levelUpCostTime为孵化时间
+	levels[0].levelUpCost为孵化消耗素材量
+ */
+
 [CreateAssetMenu(menuName = "自定/角色数值")]
 public class CharacterData:ScriptableObject {
 
