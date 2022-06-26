@@ -13,25 +13,32 @@ namespace Combat {
 	public class YuewangSword:EntityFriendly {
 
 		float desiredPowerBuff;
-
-		Color stage1 = new Color(1,.7f,.7f);
-		Color stage2 = new Color(1,0,0);
-
+		
 		protected override void FixedUpdate() {
-			base.FixedUpdate();
 
+			base.FixedUpdate();
 			//判断增幅量备用
 			desiredPowerBuff=0;
 			float hpPerentage = (float)hp/(float)maxHp;
-			if(hpPerentage>0.5f) spriteRenderer.color=Color.white;
-			if(hpPerentage<=0.5f) { desiredPowerBuff+=0.75f; spriteRenderer.color=stage1; }
-			if(hpPerentage<=0.25f) { desiredPowerBuff+=0.25f; spriteRenderer.color=stage2; }
+			if (hpPerentage > 0.5f)
+			{
+				this.GetComponentInChildren<YueWangSkill>().skillStates = 0;
+			}
+			if(hpPerentage<=0.5f) { 
+				desiredPowerBuff+=0.75f; 
+				this.GetComponentInChildren<YueWangSkill>().skillStates = 1;
+			}
 
+			if (hpPerentage<=0.25f) { 
+				desiredPowerBuff+=0.25f; 
+				this.GetComponentInChildren<YueWangSkill>().skillStates = 2;
+			}
 		}
 
 		protected override void Start() {
 			base.Start();
 			EntityBase.UpdateStats+=EntityBase_UpdateStats;
+			
 		}
 		protected override void OnDestroy() {
 			base.OnDestroy();
@@ -47,7 +54,6 @@ namespace Combat {
 			//准备相应
 			//注意用+= 不要用*=或=
 			powerBuff+=desiredPowerBuff;
-
 		}
 
 

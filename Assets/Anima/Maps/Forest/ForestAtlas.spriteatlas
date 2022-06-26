@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ForestAtlas
+  serializedVersion: 2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 12
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: ad01a2954ffa933419b55fec60316d0e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 095e1571e57f46e40b52cb3206740d2f, type: 3}
+  - {fileID: 21300000, guid: 88edb78110ce14d4f905769c6358608d, type: 3}
+  - {fileID: 21300000, guid: 16141dc10542fa548aee4a7fcabb7233, type: 3}
+  - {fileID: 21300000, guid: 45cc37f2c0b426a43be3ab05633a6b28, type: 3}
+  - {fileID: 21300000, guid: a2bb27f33abc8ed48815e4c55028042c, type: 3}
+  - {fileID: 21300000, guid: 2a1d57f3d6afe8640acd169508cbfc3b, type: 3}
+  - {fileID: 21300000, guid: 3985a7f31006806479a6fae139133bc6, type: 3}
+  - {fileID: 21300000, guid: dd60f2049b48c5b4285c85a4452b4806, type: 3}
+  - {fileID: 21300000, guid: 8eeabc44edd91f54aa6084c29f2bbffb, type: 3}
+  - {fileID: 21300000, guid: 4118c974030ea4f41a053010dcb05076, type: 3}
+  - {fileID: 21300000, guid: 0ee3a285ddf262e458f5e29867485d44, type: 3}
+  - {fileID: 21300000, guid: d5ec4095314ca704899943765b544c78, type: 3}
+  - {fileID: 21300000, guid: 7aec6ad59fde3474aba0e4a934a05a99, type: 3}
+  - {fileID: 21300000, guid: d8966d367b03cbf4da813ed0af05e1a8, type: 3}
+  - {fileID: 21300000, guid: 3b022197bd875c549acdf25e554e3c62, type: 3}
+  - {fileID: 21300000, guid: 80e5d9e7c484cdb42a4a32f1c57be30c, type: 3}
+  - {fileID: 21300000, guid: a14f86b8206a3e84fbd6eeaf1ff54ed2, type: 3}
+  - {fileID: 21300000, guid: dda92f497d137fc4eadc55a58131f99a, type: 3}
+  - {fileID: 21300000, guid: 82a5b1997f9495644a1bc8da05c19a56, type: 3}
+  - {fileID: 21300000, guid: 08f859d9a4b9a314e96f432071a172b4, type: 3}
+  - {fileID: 21300000, guid: 362461aa88c614547a10f334687ebd27, type: 3}
+  - {fileID: 21300000, guid: 0fc2a1fa7a1c8024ab95252cb4dd2b6a, type: 3}
+  - {fileID: 21300000, guid: 3a3368fa7706edd43817d123d4c04938, type: 3}
+  - {fileID: 21300000, guid: fc16a05b44f102b4292ea64881285fd7, type: 3}
+  - {fileID: 21300000, guid: 5225559cd98e2e74a8ee8f837a87b104, type: 3}
+  - {fileID: 21300000, guid: db96d25dbc320ae42bc8b60c444d53e4, type: 3}
+  - {fileID: 21300000, guid: e1bf668d4537efa468f563b23362400d, type: 3}
+  - {fileID: 21300000, guid: 775ddb9d5bcdb4045ad37f56667e2442, type: 3}
+  - {fileID: 21300000, guid: 292860ae394e4ef42950c916ddf8380b, type: 3}
+  - {fileID: 21300000, guid: 4ee6762fd9ed8e141be4e0f487fd4776, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - rock
+  - DarkGross
+  - GradientToDark
+  - sun
+  - Crystal04
+  - BrightSky
+  - DarkTree01
+  - GiantTree
+  - Tree05
+  - DarkTree03
+  - MoutainTop
+  - moss
+  - Tree04
+  - fog
+  - Tree01
+  - DarkTree02
+  - Crystal01
+  - Tree06
+  - Crystal03
+  - BrightGrassLand
+  - Tree02
+  - Tree03
+  - ground
+  - Tree07
+  - moutain
+  - DarkSky
+  - ForestTop
+  - DarkGrassLand
+  - RemoteTree
+  - Crystal02
+  m_RenderDataMap: {}
+  m_Tag: ForestAtlas
+  m_IsVariant: 0
+  m_IsPlaceholder: 0
