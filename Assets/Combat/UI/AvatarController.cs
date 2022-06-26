@@ -15,13 +15,13 @@ namespace Combat {
 		[SerializeField] Image redCrossImage;
 		[SerializeField] Text hpText;
 		[SerializeField] Text powerText;
-		[SerializeField] int targetIndex;
+		[HideInInspector] public int targetIndex;
 
 		bool inited;
 		int previousHp = -1;
 		int previousMaxHp = -1;
 		int previousPower = -1;
-		float previousCooldownAmount=-1;
+		float previousCooldownAmount = -1;
 		bool targetDead;
 
 		EntityBase target;
@@ -35,6 +35,7 @@ namespace Combat {
 			if(!inited) {
 				//init
 				inited=true;
+
 				target=EntityFriendly.friendlyList[targetIndex];
 
 				avatarImage.color=Color.white;
@@ -42,7 +43,7 @@ namespace Combat {
 
 			}
 
-			if(!targetDead&&!target){
+			if(!targetDead&&!target) {
 
 				//¸ÕËÀÍö
 				redCrossImage.gameObject.SetActive(true);
@@ -50,14 +51,14 @@ namespace Combat {
 				hpText.gameObject.SetActive(false);
 				powerText.gameObject.SetActive(false);
 				cooldownBase.gameObject.SetActive(false);
-				
+
 				targetDead=true;
 
-			}else if(!targetDead&&target){
+			} else if(!targetDead&&target) {
 
 				//Õý³£
 
-				if(target.maxHp!=previousMaxHp||target.hp!=previousHp){
+				if(target.maxHp!=previousMaxHp||target.hp!=previousHp) {
 					previousMaxHp=target.maxHp;
 					previousHp=target.hp;
 					hpText.text=previousHp+"/"+previousMaxHp;
@@ -65,13 +66,13 @@ namespace Combat {
 				}
 
 				int currentPower = Mathf.RoundToInt(target.attackBasePower*target.powerBuff);
-				if(previousPower!=currentPower){
+				if(previousPower!=currentPower) {
 					previousPower=currentPower;
 					powerText.text="ATK:"+currentPower;
 				}
 
 				float cooldownAmount = target.timeAfterAttack/target.attackCd;
-				if(previousCooldownAmount!=cooldownAmount){
+				if(previousCooldownAmount!=cooldownAmount) {
 					previousCooldownAmount=cooldownAmount;
 					cooldownImage.fillAmount=previousCooldownAmount;
 				}

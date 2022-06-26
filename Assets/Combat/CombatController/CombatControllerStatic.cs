@@ -14,13 +14,13 @@ namespace Combat {
 	}
 
 	public partial class CombatController:MonoBehaviour {
-		
-		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
-		public static float startX;
-		public static float startY;
-		public static PlayerData.LevelData levelData=new PlayerData.LevelData();
 
-		public static void StartCombat(int[] friendlyIds,string sceneName,string levelPath) {
+		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
+		public static float startX { get { return levelData.startX.value; } }
+		public static float endX { get { return levelData.endX.value; } }
+		public static PlayerData.LevelData levelData = new PlayerData.LevelData();
+
+		public static void StartCombat(int[] friendlyIds,string levelPath) {
 			for(int i = 0;i<3;i++) {
 				int id = friendlyIds[i];
 				CharacterData targetData = CharacterData.datas[id];
@@ -35,6 +35,7 @@ namespace Combat {
 			}
 
 			levelData.LoadFile(levelPath);
+			string sceneName = levelData.sceneName.value;
 			SceneManager.LoadScene(sceneName);
 
 		}

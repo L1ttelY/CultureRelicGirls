@@ -36,6 +36,7 @@ namespace Combat {
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
 
+
 		//获取当前角色正常攻击的参数
 		protected virtual DamageModel GetDamage() {
 			DamageModel result = new DamageModel();
@@ -110,7 +111,7 @@ namespace Combat {
 		}
 
 		protected virtual void OnDestroy() {
-			entities.Remove(positionInList);
+			if(positionInList!=null&&entities!=null) entities.Remove(positionInList);
 		}
 
 		private void Update() {
@@ -118,11 +119,24 @@ namespace Combat {
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
+
 		}
 
 		protected virtual void FixedUpdate() {
 			OnUpdateStats();
 			currensState();
+
+			if(transform.position.x<CombatController.startX) {
+				if(velocity.x<0) velocity.x=0;
+				if(previousPosition.x<CombatController.startX) previousPosition.x=CombatController.startX;
+				transform.position+=Vector3.right*(CombatController.startX-transform.position.x);
+			}
+			if(transform.position.x>CombatController.endX) {
+				if(velocity.x>0) velocity.x=0;
+				if(previousPosition.x>CombatController.endX) previousPosition.x=CombatController.endX;
+				transform.position+=Vector3.right*(CombatController.endX-transform.position.x);
+			}
+
 		}
 
 		//移动相关
