@@ -1,17 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public partial class CombatController:MonoBehaviour {
-	//static
-	public static GameObject friendly1 { get; private set; }
-	public static GameObject friendly2 { get; private set; }
-	public static GameObject friendly3 { get; private set; }
+namespace Combat {
 
-	public static void StartCombat(int friendly1,int friendly2,int friendly3,string sceneName,string levelName,bool streamingAssetLevel) {
-
+	[System.Serializable]
+	public class CharacterParameters {
+		public GameObject prefab;
+		public int hp;
+		public int power;
+		public int id;
 	}
 
-	public static CombatController instance{ get; private set; }
+	public partial class CombatController:MonoBehaviour {
+		
+		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
+		public static float startX;
+		public static float startY;
+		public static PlayerData.LevelData levelData=new PlayerData.LevelData();
 
+		public static void StartCombat(int[] friendlyIds,string sceneName,string levelPath) {
+			for(int i = 0;i<3;i++) {
+				int id = friendlyIds[i];
+				CharacterData targetData = CharacterData.datas[id];
+				CharacterParameters target = new CharacterParameters();
+				int level = PlayerData.PlayerDataRoot.instance.characterDatas[id].level.value;
+				friendlyList[i]=target;
+
+				target.prefab=targetData.combatPrefab;
+				target.hp=targetData.levels[level].hpMax;
+				target.power=targetData.levels[level].power;
+				target.id=id;
+			}
+
+			levelData.LoadFile(levelPath);
+			SceneManager.LoadScene(sceneName);
+
+		}
+
+		public static CombatController instance { get; private set; }
+
+	}
 }
