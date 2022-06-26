@@ -11,13 +11,13 @@ namespace Combat {
 			if(instance) Debug.LogError("Duplicate");
 			instance=this;
 
-			DestroyAllEnemies();
+			DestroyAllEntities();
 			LoadAllEnemies(levelData);
-
+			LoadAllFriendlies();
 		}
 
-		public void DestroyAllEnemies() {
-			EntityEnemy[] enemies = GetComponentsInChildren<EntityEnemy>(true);
+		public void DestroyAllEntities() {
+			EntityBase[] enemies = GetComponentsInChildren<EntityBase>(true);
 			foreach(var i in enemies) Destroy(i.gameObject);
 		}
 		public void LoadAllEnemies(PlayerData.LevelData levelData) {
@@ -32,9 +32,53 @@ namespace Combat {
 			}
 
 		}
+		public void LoadAllFriendlies() {
+			for(int i = 0;i<3;i++) {
+				if(friendlyList[i].prefab==null) continue;
+				CharacterParameters param = friendlyList[i];
+				EntityFriendly newFriendly = Instantiate(param.prefab,transform).GetComponent<EntityFriendly>();
+				newFriendly.transform.position=new Vector3(levelData.startX.value+(3f-i),0,0);
+				newFriendly.InitStats(param.hp,param.power,i);
+
+			}
+		}
 
 		public int rewardSm;
 		public int rewardPm;
+
+		private void Update() {
+			UpdateEndGame();
+		}
+
+		int ticks;
+		bool gameEnd = false;
+		void UpdateEndGame() {
+			if(ticks<10) {
+				ticks++;
+				return;
+			}
+
+			if(gameEnd) return;
+
+			if(!GetComponentInChildren<EntityFriendly>(true)) {
+				//Ê§°Ü
+				gameEnd=true;
+				PlayerData.PlayerDataRoot.smCount+=rewardSm;
+				CombatRewardUIController.instance.EnterMode(false,rewardSm,0,-1);
+			} else if(!GetComponentInChildren<EntityEnemy>(true)) {
+				//Ê¤Àû
+				gameEnd=true;
+				rewardSm+=levelData.rewardSm.value;
+				rewardPm+=levelData.rewardPm.value;
+				PlayerData.PlayerDataRoot.smCount+=rewardSm;
+				PlayerData.PlayerDataRoot.pmCount+=rewardPm;
+				if(levelData.rewardCharacter.value>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardSm].level.value==-1) {
+					PlayerData.PlayerDataRoot.instance.characterDatas[rewardSm].level.value=0;
+				}
+				CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,levelData.rewardCharacter.value);
+			}
+
+		}
 
 	}
 }

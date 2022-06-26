@@ -21,6 +21,7 @@ namespace Combat {
 		[SerializeField] CharacterParameters[] 友方角色信息 = new CharacterParameters[3];
 
 		[SerializeField] string 文件名;
+		[SerializeField] string 场景名;
 		[SerializeField] float 开始位置;
 		[SerializeField] float 结束位置;
 		[SerializeField] int 意识晶体奖励量;
@@ -34,6 +35,8 @@ namespace Combat {
 		string filePath { get { return $"{Application.dataPath}/StreamingAssets/{文件名}.xml"; } }
 
 		void SaveFile() {
+
+			levelData.sceneName.value=场景名;
 
 			levelData.rewardSm.value=意识晶体奖励量;
 			levelData.rewardPm.value=碳材料奖励量;
@@ -56,13 +59,15 @@ namespace Combat {
 
 			levelData.LoadFile(filePath);
 
+			场景名=levelData.sceneName.value;
+
 			意识晶体奖励量=levelData.rewardSm.value;
 			碳材料奖励量=levelData.rewardPm.value;
 			奖励角色ID=levelData.rewardCharacter.value;
 
 			开始位置=levelData.startX.value;
 			结束位置=levelData.endX.value;
-			combatController.DestroyAllEnemies();
+			combatController.DestroyAllEntities();
 			combatController.LoadAllEnemies(levelData);
 		}
 
