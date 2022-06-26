@@ -40,7 +40,7 @@ namespace Combat {
 		public static float leftestX { get; private set; }
 		public static float rightestX { get; private set; }
 
-		[SerializeField] int positionInTeam;
+		[SerializeField] public int positionInTeam;
 
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
@@ -60,13 +60,13 @@ namespace Combat {
 
 			velocity.y=0;
 
-			float buffedSpeed = maxSpeed*speedBuff;
-			float buffedAcceleration = acceleration*speedBuff;
+			float buffedSpeed = maxSpeed*speedBuff; //移动速度
+			float buffedAcceleration = acceleration*speedBuff; //加速度
 
-			Vector2 position = previousPosition;
+			Vector2 position = previousPosition; //位置
 
-			float targetVelocity;
-			float deltaSpeed = buffedAcceleration*Time.deltaTime;
+			float targetVelocity; 
+			float deltaSpeed = buffedAcceleration*Time.deltaTime; //单位时间速度
 
 			int previousIndex=-1;
 			EntityFriendly previousEntity=null;
