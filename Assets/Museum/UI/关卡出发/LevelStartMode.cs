@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Museum {
+
+	public class LevelStartMode:UIModeBase {
+
+		[SerializeField] Text infoText;
+		int levelId;
+
+		public static LevelStartMode instance { get; private set; }
+
+		public override void Init() {
+			base.Init();
+			if(instance) Debug.LogError("Duplicate");
+			instance=this;
+		}
+
+		public int[] chosenCharacters = new int[3];
+		string targetLevelPath;
+		PlayerData.LevelData levelData = new PlayerData.LevelData();
+
+		public static void EnterMode(string targetLevelPath,int levelId) { instance._EnterMode(targetLevelPath,levelId); }
+		void _EnterMode(string targetLevelPath,int levelId) {
+			for(int i = 0;i<3;i++) chosenCharacters[i]=-1;
+			this.targetLevelPath=targetLevelPath;
+			levelData.LoadFile(targetLevelPath);
+			infoText.text=
+				$"{levelData.levelName}\n"+
+				$"{levelData.enemyCount.value}¸öµÐÈË";
+			UIController.instance.SwitchUIMode(this);
+			this.levelId=levelId;
+		}
+
+		int lastClickIndex;
+		public void OnSlotClick(int index) {
+			lastClickIndex=index;
+			CharacterSelectionMode.EnterMode(CharacterFilter,false,CharacterSelectionCallback);
+		}
+		bool CharacterFilter(int id) {
+			var saveData = PlayerData.PlayerDataRoot.instance.characterDatas[id];
+			Debug.Log($"id : {id} , level : {saveData.level.value}");
+
+			if(saveData.level.value<1) return false;
+			if(saveData.healStatus.value!=0) return false;
+			if(saveData.healthAmount==0) return false;
+			for(int i = 0;i<3;i++) {
+				if(chosenCharacters[i]==id) return false;
+			}
+			return true;
+		}
+
+		public void OnStartClick() {
+			Combat.CombatController.StartCombat(chosenCharacters,targetLevelPath,levelId);
+		}
+
+		void CharacterSelectionCallback(int characterId) {
+			chosenCharacters[lastClickIndex]=characterId;
+			UIController.instance.SwitchUIMode(this);
+		}
+
+	}
+
+}

@@ -30,6 +30,7 @@ namespace PlayerData {
 		public LevelData() : base("LevelData",null) {
 
 			sceneName=new DataString("sceneName",this);
+			levelName=new DataString("levelName",this);
 
 			rewardSm=new DataInt("rewardSm",this);
 			rewardPm=new DataInt("rewardPm",this);
@@ -45,6 +46,7 @@ namespace PlayerData {
 		}
 
 		public DataString sceneName;
+		public DataString levelName;
 
 		public DataInt rewardSm;
 		public DataInt rewardPm;

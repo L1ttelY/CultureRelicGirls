@@ -10,48 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d363895d572e14ba1ab7d08d9ab7c0, type: 3}
-  m_Name: "\u6D4B\u8BD5\u89D2\u8272 1"
+  m_Name: "\u6D4B\u8BD5\u89D2\u82723"
   m_EditorClassIdentifier: 
-  <id>k__BackingField: 2
+  <id>k__BackingField: 3
   <maxLevel>k__BackingField: 4
-  <combatPrefab>k__BackingField: {fileID: 0}
+  <combatPrefab>k__BackingField: {fileID: 5322067514333351160, guid: 01b7dbcecbde2ea4cac3de26947cf8e7, type: 3}
   <healCostPerHp>k__BackingField: 1
   <healTimPerHpInSecond>k__BackingField: 1
-  <sprite>k__BackingField: {fileID: 21300000, guid: d632a964a313fcf4bbabcc8522401747, type: 3}
-  <picture>k__BackingField: {fileID: 21300000, guid: 7934f7bf099bf4246ba1bbf3534583d1, type: 3}
+  <sprite>k__BackingField: {fileID: 21300000, guid: 0f40ba4b9048ff1478e111a427d948af, type: 3}
+  <picture>k__BackingField: {fileID: 21300000, guid: 095e1571e57f46e40b52cb3206740d2f, type: 3}
   levels:
   - levelUpCost: 1
     levelUpCostHour: 0
     levelUpCostMinute: 1
     levelUpTimeHour: 0
     levelUpTimeMinute: 1
-    hpMax: 0
-    power: 0
+    hpMax: 100
+    power: 5
   - levelUpCost: 1
     levelUpCostHour: 0
     levelUpCostMinute: 1
     levelUpTimeHour: 0
     levelUpTimeMinute: 1
-    hpMax: 0
-    power: 0
+    hpMax: 100
+    power: 5
   - levelUpCost: 1
     levelUpCostHour: 0
     levelUpCostMinute: 1
     levelUpTimeHour: 0
     levelUpTimeMinute: 1
-    hpMax: 0
-    power: 0
+    hpMax: 200
+    power: 10
   - levelUpCost: 0
     levelUpCostHour: 0
     levelUpCostMinute: 0
     levelUpTimeHour: 0
     levelUpTimeMinute: 0
-    hpMax: 0
-    power: 0
+    hpMax: 300
+    power: 15
   - levelUpCost: 0
     levelUpCostHour: 0
     levelUpCostMinute: 0
     levelUpTimeHour: 0
     levelUpTimeMinute: 0
-    hpMax: 0
-    power: 0
+    hpMax: 400
+    power: 20

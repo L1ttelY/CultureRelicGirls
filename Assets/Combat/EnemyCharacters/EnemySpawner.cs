@@ -19,8 +19,8 @@ namespace Combat {
 
 		protected override void StartKnockback(float knockback,int direction) { }
 		protected override void OnDeath() {
-			base.OnDeath();
 			VfxPool.Create(deathVfx,transform.position,direction);
+			base.OnDeath();
 		}
 
 	}
