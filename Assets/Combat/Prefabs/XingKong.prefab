@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6624566440762702596}
   m_Layer: 0
   m_Name: XingKong
-  m_TagString: Untagged
+  m_TagString: Europen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +221,8 @@ MonoBehaviour:
   positionInTeam: 2
   <stars>k__BackingField: {fileID: 7842778750022487663, guid: 35038a97c8cc68b4f95bc2d612f472f4, type: 3}
   SkillDamage: 50
+  skillTime: 1.2
+  Height: 20
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0
