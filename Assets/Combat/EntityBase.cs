@@ -114,7 +114,7 @@ namespace Combat {
 			if(positionInList!=null&&entities!=null) entities.Remove(positionInList);
 		}
 
-		private void Update() {
+		protected virtual void Update() {
 			UpdateMove();
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
@@ -125,7 +125,6 @@ namespace Combat {
 		protected virtual void FixedUpdate() {
 			OnUpdateStats();
 			currensState();
-
 			if(transform.position.x<CombatController.startX) {
 				if(velocity.x<0) velocity.x=0;
 				if(previousPosition.x<CombatController.startX) previousPosition.x=CombatController.startX;
@@ -136,7 +135,6 @@ namespace Combat {
 				if(previousPosition.x>CombatController.endX) previousPosition.x=CombatController.endX;
 				transform.position+=Vector3.right*(CombatController.endX-transform.position.x);
 			}
-
 		}
 
 		//ÒÆ¶¯Ïà¹Ø

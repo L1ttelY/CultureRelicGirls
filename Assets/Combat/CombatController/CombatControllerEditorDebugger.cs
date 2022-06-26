@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Combat {
 	[ExecuteInEditMode]
+	[ExcludeFromPreset]
 	public class CombatControllerEditorDebugger:MonoBehaviour {
 
 		PlayerData.LevelData levelData = new PlayerData.LevelData();

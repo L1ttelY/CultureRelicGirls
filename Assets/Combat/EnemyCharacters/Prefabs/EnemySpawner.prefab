@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7bee8c62a1d931e44ab6d0bb664c544a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1b8d0e7ce7d04447949f6ccd9969cf5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -93,12 +93,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7471668723036389880}
-  - component: {fileID: 7471668723036389883}
   - component: {fileID: 7471668723036389882}
   - component: {fileID: 1113598440}
   - component: {fileID: 3633127368933592054}
+  - component: {fileID: 3251799851223714099}
   m_Layer: 0
-  m_Name: EnemyBlocker
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,40 +121,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7471668723036389883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7471668723036389886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53e4e39e441f904dba788d77c51399c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 12
-  <maxSpeed>k__BackingField: 4
-  <attackBasePower>k__BackingField: 20
-  <attackCd>k__BackingField: 0.8
-  <knockbackPower>k__BackingField: 0.7
-  <maxHp>k__BackingField: 20
-  <projectiles>k__BackingField:
-  - {fileID: 7842778750022487663, guid: e1a2467de8dc7364bad2f0fa79e6efc0, type: 3}
-  <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 2
-  <projectileVelocityY>k__BackingField: 5
-  <maxPredictSpeed>k__BackingField: 0
-  <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
-  powerBuff: 0
-  knockbackBuff: 0
-  cdSpeed: 0
-  speedBuff: 0
-  <enemyId>k__BackingField: 1
-  wakeUpDistance: 12
-  corpseSprite: {fileID: 21300000, guid: a2f575df317d02f4aaf60817416f11c3, type: 3}
-  sentienceMatterReward: 1
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: -0.21532154, y: 0.8800658}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 4.6386623, y: 2.7601316}
   m_EdgeRadius: 0
 --- !u!50 &1113598440
 Rigidbody2D:
@@ -212,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 7471668723036389886}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 24a1ed66d100df641868ef4d02973a2f, type: 2}
+  m_Controller: {fileID: 22100000, guid: 18ad495151dabf84b8f8127ebbe76f7c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -222,6 +188,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3251799851223714099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471668723036389886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d324c892189d8ad41b237aa1993fa16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <acceleration>k__BackingField: 0
+  <maxSpeed>k__BackingField: 0
+  <attackBasePower>k__BackingField: 5
+  <attackCd>k__BackingField: 2
+  <knockbackPower>k__BackingField: 5
+  <maxHp>k__BackingField: 700
+  <projectiles>k__BackingField: []
+  <attackRangeMin>k__BackingField: 0
+  <attackRangeMax>k__BackingField: 12
+  <projectileVelocityY>k__BackingField: 0
+  <maxPredictSpeed>k__BackingField: 0
+  <damageVfx>k__BackingField:
+  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
+  powerBuff: 0
+  knockbackBuff: 0
+  cdSpeed: 0
+  speedBuff: 0
+  <enemyId>k__BackingField: 4
+  wakeUpDistance: 12
+  corpseSprite: {fileID: 0}
+  sentienceMatterReward: 0
+  spawnedPrefab: {fileID: 7471668723036389886, guid: 189c151e299f69c45a34d44171dae313, type: 3}
+  deathVfx: {fileID: 1763441829856274810, guid: b26c975ec216d7f4ca655e3d67e15741, type: 3}
 --- !u!1001 &4217703048371878529
 PrefabInstance:
   m_ObjectHideFlags: 0

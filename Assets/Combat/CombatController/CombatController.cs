@@ -18,7 +18,7 @@ namespace Combat {
 
 		public void DestroyAllEntities() {
 			EntityBase[] enemies = GetComponentsInChildren<EntityBase>(true);
-			foreach(var i in enemies) Destroy(i.gameObject);
+			foreach(var i in enemies) DestroyImmediate(i.gameObject);
 		}
 		public void LoadAllEnemies(PlayerData.LevelData levelData) {
 

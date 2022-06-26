@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7bee8c62a1d931e44ab6d0bb664c544a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd14bbac8b51e6540a9d86dafea0526a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -93,12 +93,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7471668723036389880}
-  - component: {fileID: 7471668723036389883}
   - component: {fileID: 7471668723036389882}
   - component: {fileID: 1113598440}
   - component: {fileID: 3633127368933592054}
+  - component: {fileID: 1702059522812446492}
   m_Layer: 0
-  m_Name: EnemyBlocker
+  m_Name: EnemyJumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,40 +121,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7471668723036389883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7471668723036389886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53e4e39e441f904dba788d77c51399c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 12
-  <maxSpeed>k__BackingField: 4
-  <attackBasePower>k__BackingField: 20
-  <attackCd>k__BackingField: 0.8
-  <knockbackPower>k__BackingField: 0.7
-  <maxHp>k__BackingField: 20
-  <projectiles>k__BackingField:
-  - {fileID: 7842778750022487663, guid: e1a2467de8dc7364bad2f0fa79e6efc0, type: 3}
-  <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 2
-  <projectileVelocityY>k__BackingField: 5
-  <maxPredictSpeed>k__BackingField: 0
-  <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
-  powerBuff: 0
-  knockbackBuff: 0
-  cdSpeed: 0
-  speedBuff: 0
-  <enemyId>k__BackingField: 1
-  wakeUpDistance: 12
-  corpseSprite: {fileID: 21300000, guid: a2f575df317d02f4aaf60817416f11c3, type: 3}
-  sentienceMatterReward: 1
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 7471668723036389886}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 24a1ed66d100df641868ef4d02973a2f, type: 2}
+  m_Controller: {fileID: 22100000, guid: 85707e40d0daa0b4381819834408d0a0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -222,6 +188,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1702059522812446492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471668723036389886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12a5717c8c43bba4ea28ee95b8f6d458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <acceleration>k__BackingField: 0
+  <maxSpeed>k__BackingField: 0
+  <attackBasePower>k__BackingField: 5
+  <attackCd>k__BackingField: 0
+  <knockbackPower>k__BackingField: 0
+  <maxHp>k__BackingField: 100
+  <projectiles>k__BackingField: []
+  <attackRangeMin>k__BackingField: 0
+  <attackRangeMax>k__BackingField: 1.5
+  <projectileVelocityY>k__BackingField: 0
+  <maxPredictSpeed>k__BackingField: 0
+  <damageVfx>k__BackingField:
+  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
+  powerBuff: 0
+  knockbackBuff: 0
+  cdSpeed: 0
+  speedBuff: 0
+  <enemyId>k__BackingField: 3
+  wakeUpDistance: 12
+  corpseSprite: {fileID: 21300000, guid: 1a005deab0acfd24a806bf80bc98d1d9, type: 3}
+  sentienceMatterReward: 0
+  kbResistance: 0.5
 --- !u!1001 &4217703048371878529
 PrefabInstance:
   m_ObjectHideFlags: 0
