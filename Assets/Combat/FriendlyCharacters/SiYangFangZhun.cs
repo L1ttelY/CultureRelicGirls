@@ -9,6 +9,7 @@ namespace Combat
 	{
 
 		public float HealBuff = 0.05f;
+		public GameObject healPre;
 		int AttackTimes = 0;
 		protected override ProjectileBase Attack(EntityBase target) //当攻击时：
 		{
@@ -20,7 +21,12 @@ namespace Combat
 				foreach(var i in entities) //遍历对象寻找队友
                 {
 					if (i is EntityFriendly)
+					{
 						i.Heal((int)HealBuff * maxHp); //恢复血量
+						GameObject a = Instantiate(healPre, i.transform.position, Quaternion.identity);
+						a.transform.parent = i.transform;
+
+					}
                 }
 			}
 			return base.Attack(target);
