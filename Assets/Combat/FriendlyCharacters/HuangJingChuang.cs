@@ -10,9 +10,11 @@ namespace Combat
 
 		public float buffDamage = 10.0f;
 		public float buffTime;
+		public GameObject attPre;
 		float addDamage;
 		float times;
 		int AttackTimes = 0;
+		int isAnima = 0;
 		protected override ProjectileBase Attack(EntityBase target) //当攻击时：
 		{
 		
@@ -21,6 +23,7 @@ namespace Combat
 			{
 				times = buffTime;
 				addDamage = buffDamage;
+				isAnima = 3;
 			}
 
 			return base.Attack(target);
@@ -56,7 +59,11 @@ namespace Combat
 			//注意用+= 不要用*=或=
 
 			sender.powerBuff += addDamage/sender.attackBasePower; //增加攻击力
-
+			if (isAnima-- >0)
+			{
+				GameObject a = Instantiate(attPre, sender.transform.position, Quaternion.identity);
+				a.transform.parent = sender.transform;
+			}
 		}
 	}
 

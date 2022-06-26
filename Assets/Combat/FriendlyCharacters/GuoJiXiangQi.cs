@@ -10,6 +10,8 @@ namespace Combat
 
 		float times = 0;
 		public float skillTimes;
+		public GameObject healPre;
+		public GameObject exchangePre;
 		EntityBase Third;
 		EntityFriendly temp;
 		Vector2 position;
@@ -70,6 +72,15 @@ namespace Combat
 						friendlyList[(Third as EntityFriendly).positionInTeam] = Third as EntityFriendly;
 						
 						Third.Heal((int)(0.2 * Third.maxHp));
+
+						GameObject a = Instantiate(healPre, Third.transform.position, Quaternion.identity);
+						a.transform.parent = Third.transform;//治疗特效
+						GameObject b = Instantiate(exchangePre, Third.transform.position, Quaternion.identity);
+						b.transform.parent = Third.transform;//交换特效
+						GameObject c = Instantiate(exchangePre, this.transform.position, Quaternion.identity);
+						c.transform.parent = this.transform;//交换特效
+
+
 						Debug.Log(Third.hp);
 					}
                 }
