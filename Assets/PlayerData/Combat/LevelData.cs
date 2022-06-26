@@ -28,6 +28,9 @@ namespace PlayerData {
 		}
 
 		public LevelData() : base("LevelData",null) {
+
+			sceneName=new DataString("sceneName",this);
+
 			rewardSm=new DataInt("rewardSm",this);
 			rewardPm=new DataInt("rewardPm",this);
 			rewardCharacter=new DataInt("rewardCharacter",this);
@@ -40,6 +43,8 @@ namespace PlayerData {
 				enemies[i]=new EnemyData($"enemy{i}",this);
 			}
 		}
+
+		public DataString sceneName;
 
 		public DataInt rewardSm;
 		public DataInt rewardPm;

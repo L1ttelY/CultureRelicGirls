@@ -151,8 +151,10 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
+  <enemyId>k__BackingField: 0
   wakeUpDistance: 12
   corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
+  sentienceMatterReward: 1
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0
