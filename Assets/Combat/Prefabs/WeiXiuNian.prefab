@@ -135,16 +135,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 40
   <maxSpeed>k__BackingField: 6
-  <attackBasePower>k__BackingField: 38
-  <attackCd>k__BackingField: 1.25
-  <knockbackPower>k__BackingField: 1
+  <attackBasePower>k__BackingField: 35
+  <attackCd>k__BackingField: 1
+  <knockbackPower>k__BackingField: 0.5
   <maxHp>k__BackingField: 65
   <projectiles>k__BackingField:
-  - {fileID: 7842778750022487663, guid: 1504a694ef345d84ba9863e72007c46e, type: 3}
-  <attackRangeMin>k__BackingField: 4
-  <attackRangeMax>k__BackingField: 12
-  <projectileVelocityY>k__BackingField: 11
-  <maxPredictSpeed>k__BackingField: 10
+  - {fileID: 7842778750022487663, guid: fcdfbbbf6b6bb3748b223d70789ccb5c, type: 3}
+  <attackRangeMin>k__BackingField: 0
+  <attackRangeMax>k__BackingField: 8
+  <projectileVelocityY>k__BackingField: 10
+  <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
   powerBuff: 0

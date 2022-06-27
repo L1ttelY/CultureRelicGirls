@@ -18,7 +18,11 @@ namespace Combat {
 
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
+			UpdateContactDamage();
 
+		}
+
+		protected virtual void UpdateContactDamage() {
 			//Åö×²ÉËº¦
 			int cnt = collider.Cast(Vector2.left,Utility.raycastBuffer,Mathf.Abs(velocity.x)*Time.deltaTime);
 
@@ -32,7 +36,6 @@ namespace Combat {
 					other.Damage(damage);
 				}
 			}
-
 		}
 
 		protected virtual void StartIdle() {
@@ -68,9 +71,11 @@ namespace Combat {
 
 		protected override void OnDeath() {
 			base.OnDeath();
-			EnemyCorpse.Create(corpseSprite,transform.position,direction);
-			CombatController.instance.rewardSm+=sentienceMatterReward;
-			Destroy(gameObject);
+			if(corpseSprite!=null) {
+				EnemyCorpse.Create(corpseSprite,transform.position,direction);
+				CombatController.instance.rewardSm+=sentienceMatterReward;
+				Destroy(gameObject);
+			}
 		}
 
 	}

@@ -42,12 +42,14 @@ namespace Combat {
 
 		[SerializeField] public int positionInTeam;
 
-		public void InitStats(int hp,int power,int positionInTeam) {
+		public void InitStats(int hp,int power,int positionInTeam,float hpAmount) {
 			maxHp=hp;
-			this.hp=hp;
+			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
 			attackBasePower=power;
 			this.positionInTeam=positionInTeam;
+			this.hpAmount=hpAmount;
 		}
+		float hpAmount=1;
 
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
@@ -61,6 +63,7 @@ namespace Combat {
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 			Debug.Log($"pos : {positionInTeam}");
+			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
 		}
 
 		protected override void StateMove() {

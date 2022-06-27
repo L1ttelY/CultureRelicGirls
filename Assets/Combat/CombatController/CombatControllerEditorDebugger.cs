@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Combat {
 	[ExecuteInEditMode]
+	[ExcludeFromPreset]
 	public class CombatControllerEditorDebugger:MonoBehaviour {
 
 		PlayerData.LevelData levelData = new PlayerData.LevelData();
@@ -22,6 +23,7 @@ namespace Combat {
 
 		[SerializeField] string 文件名;
 		[SerializeField] string 场景名;
+		[SerializeField] string 关卡名;
 		[SerializeField] float 开始位置;
 		[SerializeField] float 结束位置;
 		[SerializeField] int 意识晶体奖励量;
@@ -45,6 +47,8 @@ namespace Combat {
 			levelData.startX.value=开始位置;
 			levelData.endX.value=结束位置;
 
+			levelData.levelName.value=关卡名;
+
 			EntityEnemy[] enemies = GetComponentsInChildren<EntityEnemy>(true);
 			for(int i = 0;i<enemies.Length;i++) {
 				levelData.enemies[i].enemyType.value=enemies[i].enemyId;
@@ -60,6 +64,7 @@ namespace Combat {
 			levelData.LoadFile(filePath);
 
 			场景名=levelData.sceneName.value;
+			关卡名=levelData.levelName.value;
 
 			意识晶体奖励量=levelData.rewardSm.value;
 			碳材料奖励量=levelData.rewardPm.value;

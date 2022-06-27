@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpawnerAnimator
+  m_Controller: {fileID: 9100000, guid: 89318b7fa983a3f4482bfb9595fe25c8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3ffe169da9216c0428a146793194430f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4d7ebef43569873418ed27db871dcb38, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6a2a2d03136298849a73841298614a7e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1525d48492105d14bb5d06264b2055f2, type: 2}

@@ -26,9 +26,7 @@ namespace PlayerData {
 			buildingDatas=new BuildingData[20];
 			for(int i = 0;i<20;i++) buildingDatas[i]=new BuildingData("building"+i,this);
 
-			floorLevel=new DataInt("floorLevel",this);
-			floorUnlockProgression=new Progression("floorUnlockProgression",this);
-			floorUnlockStatus=new DataInt("floorUnlockStatus",this);
+			campaignProgression=new DataInt("campaignProgression",this);
 
 		}
 		
@@ -63,9 +61,7 @@ namespace PlayerData {
 		public CharacterData[] characterDatas;
 		public BuildingData[] buildingDatas;
 
-		public DataInt floorLevel;
-		public Progression floorUnlockProgression;
-		public DataInt floorUnlockStatus;
+		public DataInt campaignProgression;
 
 	}
 

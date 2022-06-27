@@ -51,15 +51,23 @@ MonoBehaviour:
     hp: 400
     power: 5
     id: 1
+    hpAmount: 0
+    instance: {fileID: 0}
   - prefab: {fileID: 5322067514333351160, guid: d031b62ca7ab251448903607aca222cb, type: 3}
     hp: 400
     power: 5
     id: 1
+    hpAmount: 0
+    instance: {fileID: 0}
   - prefab: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
     hp: 400
     power: 5
     id: 1
+    hpAmount: 0
+    instance: {fileID: 0}
   "\u6587\u4EF6\u540D": LevelTest1
+  "\u573A\u666F\u540D": 
+  "\u5173\u5361\u540D": 
   "\u5F00\u59CB\u4F4D\u7F6E": -25.84
   "\u7ED3\u675F\u4F4D\u7F6E": 44.32
   "\u610F\u8BC6\u6676\u4F53\u5956\u52B1\u91CF": 10
@@ -80,3 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 7471668723036389886, guid: 189c151e299f69c45a34d44171dae313, type: 3}
+  - {fileID: 7471668723036389886, guid: fb7b5608b7ab55747960e27425cce1b9, type: 3}
+  - {fileID: 7471668723036389886, guid: fb7b5608b7ab55747960e27425cce1b9, type: 3}
+  rewardSm: 0
+  rewardPm: 0

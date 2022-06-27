@@ -11,6 +11,8 @@ namespace Combat {
 		public int hp;
 		public int power;
 		public int id;
+		public float hpAmount;
+		public EntityFriendly instance;
 	}
 
 	public partial class CombatController:MonoBehaviour {
@@ -19,19 +21,30 @@ namespace Combat {
 		public static float startX { get { return levelData.startX.value; } }
 		public static float endX { get { return levelData.endX.value; } }
 		public static PlayerData.LevelData levelData = new PlayerData.LevelData();
+		public static int levelId { get; private set; }
 
-		public static void StartCombat(int[] friendlyIds,string levelPath) {
+		public static void StartCombat(int[] friendlyIds,string levelPath,int levelId) {
 			for(int i = 0;i<3;i++) {
 				int id = friendlyIds[i];
-				CharacterData targetData = CharacterData.datas[id];
-				CharacterParameters target = new CharacterParameters();
-				int level = PlayerData.PlayerDataRoot.instance.characterDatas[id].level.value;
-				friendlyList[i]=target;
+				if(id>=0) {
+					CharacterData targetData = CharacterData.datas[id];
+					CharacterParameters target = new CharacterParameters();
+					var saveData = PlayerData.PlayerDataRoot.instance.characterDatas[id];
+					int level = saveData.level.value;
+					
+					friendlyList[i]=target;
 
-				target.prefab=targetData.combatPrefab;
-				target.hp=targetData.levels[level].hpMax;
-				target.power=targetData.levels[level].power;
-				target.id=id;
+					target.prefab=targetData.combatPrefab;
+					target.hp=targetData.levels[level].hpMax;
+					target.power=targetData.levels[level].power;
+					target.id=id;
+					target.hpAmount=saveData.healthAmount;
+					CombatController.levelId=levelId;
+				} else {
+					CharacterParameters target = new CharacterParameters();
+					target.prefab=null;
+					friendlyList[i]=target;
+				}
 			}
 
 			levelData.LoadFile(levelPath);

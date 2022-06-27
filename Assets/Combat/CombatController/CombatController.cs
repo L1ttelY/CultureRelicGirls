@@ -18,7 +18,7 @@ namespace Combat {
 
 		public void DestroyAllEntities() {
 			EntityBase[] enemies = GetComponentsInChildren<EntityBase>(true);
-			foreach(var i in enemies) Destroy(i.gameObject);
+			foreach(var i in enemies) DestroyImmediate(i.gameObject);
 		}
 		public void LoadAllEnemies(PlayerData.LevelData levelData) {
 
@@ -37,9 +37,9 @@ namespace Combat {
 				if(friendlyList[i].prefab==null) continue;
 				CharacterParameters param = friendlyList[i];
 				EntityFriendly newFriendly = Instantiate(param.prefab,transform).GetComponent<EntityFriendly>();
+				friendlyList[i].instance=newFriendly;
 				newFriendly.transform.position=new Vector3(levelData.startX.value+(3f-i),0,0);
-				newFriendly.InitStats(param.hp,param.power,i);
-
+				newFriendly.InitStats(param.hp,param.power,i,friendlyList[i].hpAmount);
 			}
 		}
 
@@ -65,6 +65,11 @@ namespace Combat {
 				gameEnd=true;
 				PlayerData.PlayerDataRoot.smCount+=rewardSm;
 				CombatRewardUIController.instance.EnterMode(false,rewardSm,0,-1);
+				foreach(var i in friendlyList) {
+					int id = i.id;
+					if(i.prefab!=null&&id>0) PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+				}
+
 			} else if(!GetComponentInChildren<EntityEnemy>(true)) {
 				//Ê¤Àû
 				gameEnd=true;
@@ -72,8 +77,24 @@ namespace Combat {
 				rewardPm+=levelData.rewardPm.value;
 				PlayerData.PlayerDataRoot.smCount+=rewardSm;
 				PlayerData.PlayerDataRoot.pmCount+=rewardPm;
-				if(levelData.rewardCharacter.value>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardSm].level.value==-1) {
-					PlayerData.PlayerDataRoot.instance.characterDatas[rewardSm].level.value=0;
+
+				int newCampaignProgression = levelId+1;
+				if(PlayerData.PlayerDataRoot.instance.campaignProgression.value<newCampaignProgression)
+					PlayerData.PlayerDataRoot.instance.campaignProgression.value=newCampaignProgression;
+
+				int rewardCharacterId = levelData.rewardCharacter.value;
+				if(rewardCharacterId>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value==-1) {
+					PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value=0;
+				}
+				foreach(var i in friendlyList) {
+					int id = i.id;
+					if(i.prefab!=null&&id>0) {
+
+						if(i.instance) {
+							float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
+							PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=hpAmount;
+						} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+					}
 				}
 				CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,levelData.rewardCharacter.value);
 			}

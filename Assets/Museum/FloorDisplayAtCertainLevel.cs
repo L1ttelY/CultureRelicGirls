@@ -28,8 +28,10 @@ namespace Museum {
 		}
 
 		void Update() {
+			throw new System.NotImplementedException();
+
 			bool display = false;
-			int currentLevel = PlayerData.PlayerDataRoot.instance.floorLevel.value;
+			int currentLevel = 0;
 
 			switch(compar) {
 			case Compar.Equal:
