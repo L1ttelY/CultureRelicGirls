@@ -16,6 +16,8 @@ public class CharacterData:ScriptableObject {
 	}
 
 	[field: TextArea] public string descriptionShort { get; private set; }
+	[field: TextArea] public string skillDescription { get; private set; }
+	[field: TextArea] public string fullDescription { get; private set; }
 
 	[field: SerializeField] public int id { get; private set; }
 	[field: SerializeField] public int maxLevel { get; private set; }
@@ -24,6 +26,7 @@ public class CharacterData:ScriptableObject {
 	[field: SerializeField] public float healTimPerHpInSecond { get; private set; }
 	[field: SerializeField] public Sprite sprite { get; private set; } //战斗中的精灵
 	[field: SerializeField] public Sprite picture { get; private set; }//实物图片
+
 	public CharacterLevelData[] levels;
 
 }

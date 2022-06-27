@@ -2819,7 +2819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1581327663033369127, guid: 80cc8123ab0ed1a4ca1c2126992f0a9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.853535
+      value: -31.69
       objectReference: {fileID: 0}
     - target: {fileID: 1581327663033369127, guid: 80cc8123ab0ed1a4ca1c2126992f0a9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2893,7 +2893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1581327663033369127, guid: 80cc8123ab0ed1a4ca1c2126992f0a9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.853535
+      value: -31.69
       objectReference: {fileID: 0}
     - target: {fileID: 1581327663033369127, guid: 80cc8123ab0ed1a4ca1c2126992f0a9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4172,6 +4172,9 @@ GameObject:
   - component: {fileID: 995932232}
   - component: {fileID: 995932233}
   - component: {fileID: 995932234}
+  - component: {fileID: 995932237}
+  - component: {fileID: 995932236}
+  - component: {fileID: 995932238}
   m_Layer: 0
   m_Name: f1_gate_ForbiddenLine
   m_TagString: Untagged
@@ -4260,6 +4263,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 0
   level: 1
+--- !u!61 &995932236
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995932231}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 1}
+    newSize: {x: 0.75, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &995932237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995932231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9042abe09e6426439d2a62279d5fce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusMargin: 0.5
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 995932238}
+        m_TargetAssemblyTypeName: Museum.BuildingControllerBase, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &995932238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995932231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5643afdc708394746b841c93faa537bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: 19
+  <buildingData>k__BackingField: {fileID: 11400000, guid: a9ba7c0dbd995894ba15384385acf773, type: 2}
+  highlightMaterial: {fileID: 0}
+  buildingsToUnlock:
+  - {fileID: 1751360631}
+  floorIndex: 0
 --- !u!1 &1033011998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6221,7 +6296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740644156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.344734, y: -28.853535, z: 0}
+  m_LocalPosition: {x: -27.344734, y: -31.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6390,6 +6465,9 @@ GameObject:
   - component: {fileID: 1751360628}
   - component: {fileID: 1751360630}
   - component: {fileID: 1751360629}
+  - component: {fileID: 1751360633}
+  - component: {fileID: 1751360632}
+  - component: {fileID: 1751360631}
   m_Layer: 0
   m_Name: plant
   m_TagString: Untagged
@@ -6482,6 +6560,63 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37888873dc99a3a45ac0e814d3ddd076, type: 3}
   buildingId: 15
   overrideLevel: 2
+--- !u!114 &1751360631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751360627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c63b638012209b41ba12292704cb3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: 15
+  <buildingData>k__BackingField: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: a529519afa9362c48b5996bdcf24a008, type: 2}
+--- !u!61 &1751360632
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751360627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.3818182, y: 1.8909091}
+    newSize: {x: 1.0909091, y: 1.3090909}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3818182, y: 1.8909091}
+  m_EdgeRadius: 0
+--- !u!114 &1751360633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751360627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9042abe09e6426439d2a62279d5fce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusMargin: 0.5
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1857220335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7974,7 +8109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1581327663033369127, guid: 80cc8123ab0ed1a4ca1c2126992f0a9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.853535
+      value: -31.69
       objectReference: {fileID: 0}
     - target: {fileID: 1581327663033369127, guid: 80cc8123ab0ed1a4ca1c2126992f0a9f, type: 3}
       propertyPath: m_LocalPosition.z

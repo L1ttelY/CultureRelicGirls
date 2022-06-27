@@ -77,6 +77,8 @@ namespace Museum {
 			}
 			wanderPosition=new Vector2(Random.Range(wanderFloor.leftX,wanderFloor.rightX),wanderFloor.y);
 
+			if(!StairCaseController.floorUnlocked[wanderFloor.floorIndex]) ResetWanderPosition();
+
 		}
 
 		Vector2 GetTargetPosition() {

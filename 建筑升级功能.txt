@@ -12,3 +12,15 @@ Noctural 5 Fang Works
 
 Dimennected Technology
 次元桥科技
+
+
+博物馆里需要的东西
+
+	对每个建筑:
+		建筑控制器 (有其他的Controller则不需要)
+		加上建筑控制器以后会自动生成
+			显示控制器
+			摄像头聚焦对象
+			boxcollider
+
+		设置:
