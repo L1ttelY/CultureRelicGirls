@@ -12,11 +12,13 @@ namespace Combat
 		int AttackTimes = 0;
 		float time = 0;
 		float desireAttackBuff;
+		float[] animaTime;
         protected override ProjectileBase Attack(EntityBase target)
         {
 			AttackTimes = Mathf.Clamp(AttackTimes + 1, 0, 5);
 			time = BuffTime; 
 			return base.Attack(target);
+
 		}
 
 		protected override void FixedUpdate()
@@ -35,7 +37,6 @@ namespace Combat
 				//倒计时没结束，上buff
 				desireAttackBuff = ((float)AttackTimes * AddAttackPerBuff) / attackBasePower;
             }
-			Debug.Log(AttackTimes);
 		}
 
 		protected override void Start()
@@ -50,6 +51,7 @@ namespace Combat
 		}
 		private void EntityBase_UpdateStats(object _sender)
 		{
+			
 			//判断是否响应
 			EntityBase sender = _sender as EntityBase;
 			if (sender != this) return;
@@ -57,6 +59,8 @@ namespace Combat
 			//准备相应
 			//注意用+= 不要用*=或=
 			powerBuff += desireAttackBuff;
+			GetComponentInChildren<ShuangTouSheSkill>().buff = AttackTimes;
+
 		}
 	}
 

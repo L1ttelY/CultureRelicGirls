@@ -10,7 +10,8 @@ namespace Combat
 
 		int buffNumber = 1;
 		public float addAttactPerBuff = 6.0f;
-		string[] area= { "Europen","America","Asia" }; 
+		string[] area= { "Europen","America","Asia" };
+		public GameObject attPre;
        
 		protected override void Start()
 		{
@@ -28,6 +29,9 @@ namespace Combat
 					}
 				}
 			}
+			GameObject a = Instantiate(attPre, this.transform.position, Quaternion.identity);
+			a.transform.parent = this.transform;//¼õËÙÌØÐ§
+
 		}
 
 		protected override void OnDestroy()

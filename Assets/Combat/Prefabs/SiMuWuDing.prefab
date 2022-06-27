@@ -182,14 +182,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 40
   <maxSpeed>k__BackingField: 6
-  <attackBasePower>k__BackingField: 38
+  <attackBasePower>k__BackingField: 1
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1
   <maxHp>k__BackingField: 250
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: cb0152dd5ef7b514fa187acc155c6a63, type: 3}
-  <attackRangeMin>k__BackingField: 4
-  <attackRangeMax>k__BackingField: 12
+  <attackRangeMin>k__BackingField: 0
+  <attackRangeMax>k__BackingField: 3
   <projectileVelocityY>k__BackingField: 10
   <maxPredictSpeed>k__BackingField: 6
   <damageVfx>k__BackingField:
@@ -200,6 +200,8 @@ MonoBehaviour:
   speedBuff: 0
   positionInTeam: 0
   antiDamage: 10
+  antiPre: {fileID: 1763441829856274810, guid: 037c25f001271b547906d30e3204e0a0, type: 3}
+  animaTime: 0.21
 --- !u!95 &7189738652749299581
 Animator:
   serializedVersion: 4
