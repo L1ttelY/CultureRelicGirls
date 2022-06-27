@@ -17,7 +17,7 @@ namespace Museum {
 			camera=GetComponent<Camera>();
 		}
 
-		public CameraFocus focus{ get; private set; }
+		public CameraFocus focus { get; private set; }
 		public bool SetFocus(CameraFocus newFocus) {
 
 			if(newFocus) {
@@ -43,7 +43,7 @@ namespace Museum {
 		float cameraSize = 5;
 		Vector2 cameraPosition;
 
-		bool focusChanged; 
+		bool focusChanged;
 		private void Update() {
 
 			if(focus) {
@@ -59,13 +59,16 @@ namespace Museum {
 
 			} else {
 				//摄像头由玩家控制
+				if(UIController.currentMode is EmptyMode) {
 
-				UpdateResize();
-				UpdateDrag();
-				ConstrainTransform();
+					UpdateResize();
+					UpdateDrag();
+					ConstrainTransform();
 
-				camera.orthographicSize=cameraSize;
-				transform.position=cameraPosition;
+					camera.orthographicSize=cameraSize;
+					transform.position=cameraPosition;
+
+				}
 
 			}
 		}

@@ -18,6 +18,9 @@ namespace Museum {
 		}
 
 		public void OnClick() {
+
+			if(UIController.currentMode.OverrideQuitButton()) return;
+
 			CameraController.instance.SetFocus(null);
 			EmptyMode.EnterMode();
 		}

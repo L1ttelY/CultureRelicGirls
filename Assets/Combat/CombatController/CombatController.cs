@@ -43,8 +43,8 @@ namespace Combat {
 			}
 		}
 
-		public int rewardSm;
-		public int rewardPm;
+		[HideInInspector] public int rewardSm;
+		[HideInInspector] public int rewardPm;
 
 		private void Update() {
 			UpdateEndGame();

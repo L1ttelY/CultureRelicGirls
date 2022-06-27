@@ -48,6 +48,11 @@ namespace Museum {
 			slotOccupied[token.index]=false;
 		}
 		public virtual bool HasSlotLeft() {
+
+			int occupiedCount = 0;
+			foreach(var i in slotOccupied) if(i) occupiedCount++;
+			if(occupiedCount>=saveData.level.value) return false;
+
 			for(int i = 0;i<slots.Length;i++) {
 				if(!slotOccupied[i]) return true;
 			}

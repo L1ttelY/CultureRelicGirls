@@ -11,6 +11,10 @@ namespace Museum {
 	/// </summary>
 	public class UIModeBase:MonoBehaviour {
 
+		public virtual bool OverrideQuitButton() {
+			return false;
+		}
+
 		virtual public void Init() {
 			UIController.instance.AddMode(gameObject.name,this);
 		}
