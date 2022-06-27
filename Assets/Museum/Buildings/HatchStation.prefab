@@ -163,7 +163,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0026573539, y: 0.096208096}
+  m_Offset: {x: 0.0026573539, y: 0.111005425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67663634, y: 1.1924162}
+  m_Size: {x: 0.67663634, y: 1.2220109}
   m_EdgeRadius: 0
 --- !u!212 &2593639835152004176
 SpriteRenderer:
@@ -217,7 +217,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a5bd7e42f6e30364aa9b9d2d1261c6fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c26eb7930aee6844dae0c52bcd376c5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 50cc68c9f030742448343f6c5d3634a4, type: 3}
   - {fileID: 21300000, guid: a5bd7e42f6e30364aa9b9d2d1261c6fc, type: 3}
   buildingId: 0
-  overrideLevel: 3
+  overrideLevel: 1
 --- !u!1 &8681996683472192072
 GameObject:
   m_ObjectHideFlags: 0

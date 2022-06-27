@@ -8,6 +8,7 @@ namespace Museum {
 
 		[SerializeField] SpriteRenderer coverSprite;
 		[SerializeField] SpriteRenderer contentSprite;
+		CountDownController.CountDownToken hatchCountDown;
 
 		static List<HatchStationController> hatchers = new List<HatchStationController>();
 
@@ -22,7 +23,6 @@ namespace Museum {
 
 			bool canBeUsed = true;
 			if(saveData.extraStatus.value>0) canBeUsed=false;
-			if(saveData.levelUpStatus.value!=0) canBeUsed=false;
 
 			if(canBeUsed) BuildingLevelUpMode.EnterMode(id,OnExtraButtonClick);
 			else BuildingLevelUpMode.EnterMode(id,null);
@@ -32,31 +32,41 @@ namespace Museum {
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
 			if(saveData.extraStatus.value>0&&saveData.extraProgression.completion) {
-				int characterId = saveData.extraStatus.value;	
+				int characterId = saveData.extraStatus.value;
 				saveData.extraStatus.value=statusNotHatching;
-				PlayerData.PlayerDataRoot.instance.characterDatas[characterId].level.value=1;
+
+				int startLevel = saveData.level.value>=3 ? 2 : 1;
+				PlayerData.PlayerDataRoot.instance.characterDatas[characterId].level.value=startLevel;
 			}
 
 			coverSprite.color=saveData.extraStatus.value>0 ? Color.clear : Color.white;
 			if(saveData.extraStatus.value>0) contentSprite.sprite=CharacterData.datas[saveData.extraStatus.value].picture;
 
-		}
-
-		public override bool CanLevelUp() {
-			if(!base.CanLevelUp()) return false;
 			if(saveData.extraStatus.value>0) {
-				messageBuffer="建筑正在使用中";
-				return false;
+				if(hatchCountDown==null) {
+					hatchCountDown=CountDownController.instance.CreateCountDown();
+				}
+				hatchCountDown.boundObject.transform.position=contentSprite.transform.position+Vector3.up*0.3f;
+				hatchCountDown.progressionImage.fillAmount=saveData.extraProgression.progressionAmount;
+				hatchCountDown.textField.text=saveData.extraProgression.TimeLeftText();
+			} else {
+				if(hatchCountDown!=null) {
+					CountDownController.instance.FreeCountDown(hatchCountDown);
+					hatchCountDown=null;
+				}
+
 			}
-			return true;
+
 		}
 
 		void OnExtraButtonClick() {
 			CharacterSelectionMode.EnterMode(CharacterFilter,true,OnCharacterSelected);
 		}
 		void OnCharacterSelected(int id) {
-
-			Debug.Log(id);
+			if(id<=0) {
+				BuildingLevelUpMode.instance.BackToThisMode();
+				return;
+			}
 
 			int cost = CharacterData.datas[id].levels[0].levelUpCost;
 			if(PlayerData.PlayerDataRoot.smCount<cost) {
@@ -77,7 +87,9 @@ namespace Museum {
 		void OnConfirmHatch() {
 			PlayerData.PlayerDataRoot.smCount-=CharacterData.datas[selectedCharacter].levels[0].levelUpCost;
 			saveData.extraStatus.value=selectedCharacter;
-			saveData.extraProgression.SetProgression(CharacterData.datas[selectedCharacter].levels[0].levelUpCostTime,0);
+			float hatchTimeMultiplier = saveData.level.value>=2 ? 0.7f : 1;
+			System.TimeSpan hatchtime = CharacterData.datas[selectedCharacter].levels[0].levelUpCostTime*hatchTimeMultiplier;
+			saveData.extraProgression.SetProgression(hatchtime,0);
 			CameraController.instance.SetFocus(null);
 		}
 

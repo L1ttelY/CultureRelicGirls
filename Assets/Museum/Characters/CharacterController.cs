@@ -15,6 +15,7 @@ namespace Museum {
 		BuildingWithCharacterInteractionBase.SlotToken slotToken;
 		CountDownController.CountDownToken countDownToken;
 		SpriteRenderer spriteRenderer;
+		Animator animator;
 
 		private void Start() {
 			saveData=PlayerData.PlayerDataRoot.instance.characterDatas[characterIndex];
@@ -24,14 +25,23 @@ namespace Museum {
 			pathFinder.SetTarget(GetTargetPosition());
 			pathFinder.TeleportToTarget();
 			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
+			animator=GetComponent<Animator>();
 		}
 
-		private void Update() {
+		protected virtual void Update() {
 			UpdateWanderPosition();
 			UpdateWorkEnd();
 			UpdateStateChange();
 			pathFinder.SetTarget(GetTargetPosition());
 			UpdateCountDown();
+			UpdateAnimator();
+		}
+
+		protected virtual void UpdateAnimator() {
+			animator.SetBool("isMoving",pathFinder.moving);
+			bool isFloating = currentHealStatus!=0||currentLevelUpStatus!=0;
+			isFloating&=pathFinder.arrived;
+			animator.SetBool("isFloating",isFloating);
 		}
 
 		int previousHealStatus;

@@ -5,6 +5,12 @@ using UnityEngine;
 namespace Museum {
 	public class CharacterSelectionMode:UIModeBase {
 
+		public override bool OverrideQuitButton() {
+			EmptyMode.EnterMode();
+			callback?.Invoke(-1);
+			return true;
+		}
+
 		public delegate void SelectionCallback(int id);
 		public delegate bool Filter(int id);
 
@@ -33,6 +39,7 @@ namespace Museum {
 			this.filter=filter;
 			this.callback=callback;
 			for(int i = 0;i<characters.Length;i++) characters[i]=-1;
+			this.usePicture=usePicture;
 
 			int cnt = 0;
 			PlayerData.PlayerDataRoot playerData = PlayerData.PlayerDataRoot.instance;
@@ -53,6 +60,7 @@ namespace Museum {
 			EmptyMode.EnterMode();
 			callback?.Invoke(characters[id]);
 		}
+
 
 	}
 }

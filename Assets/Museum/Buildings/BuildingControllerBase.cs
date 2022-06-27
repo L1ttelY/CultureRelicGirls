@@ -57,7 +57,12 @@ namespace Museum {
 				spriteRenderer.material=highlightMaterial;
 				saveData.levelUpStatus.value=0;
 				saveData.level.value++;
+				LevelUpFinish();
 			}
+
+		}
+
+		protected virtual void LevelUpFinish() {
 
 		}
 

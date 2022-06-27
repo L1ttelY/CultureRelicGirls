@@ -21,6 +21,7 @@ namespace Combat {
 		protected override void OnDeath() {
 			VfxPool.Create(deathVfx,transform.position,direction);
 			base.OnDeath();
+			Destroy(gameObject);
 		}
 
 	}

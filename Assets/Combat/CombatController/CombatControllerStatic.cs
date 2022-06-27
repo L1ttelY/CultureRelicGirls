@@ -12,7 +12,7 @@ namespace Combat {
 		public int power;
 		public int id;
 		public float hpAmount;
-		public EntityFriendly instance;
+		[HideInInspector] public EntityFriendly instance;
 	}
 
 	public partial class CombatController:MonoBehaviour {
@@ -31,7 +31,7 @@ namespace Combat {
 					CharacterParameters target = new CharacterParameters();
 					var saveData = PlayerData.PlayerDataRoot.instance.characterDatas[id];
 					int level = saveData.level.value;
-					
+
 					friendlyList[i]=target;
 
 					target.prefab=targetData.combatPrefab;
