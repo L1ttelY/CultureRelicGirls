@@ -23,11 +23,11 @@ namespace Museum {
 
 		public bool infoPanelUp { get; private set; }
 
-		int targetId;
-		int targetLevel;
-		CharacterController targetController;
-		CharacterData targetStaticData;
-		PlayerData.CharacterData targetSaveData;
+		public int targetId { get; private set; }
+		public int targetLevel { get; private set; }
+		public CharacterController targetController { get; private set; }
+		public CharacterData targetStaticData { get; private set; }
+		public PlayerData.CharacterData targetSaveData { get; private set; }
 
 		public static void EnterMode(CharacterController controller) {
 			instance._EnterMode(controller);
