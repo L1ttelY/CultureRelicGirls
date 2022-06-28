@@ -24,9 +24,8 @@ namespace Museum {
 			try {
 				int currentLevel = PlayerDataRoot.instance.buildingDatas[buildingId].level.value;
 
-				if(currentLevel==-1) spriteRenderer.color=Color.clear;
+				if(currentLevel==-1) spriteRenderer.sprite=null;
 				else {
-					spriteRenderer.color=Color.white;
 					spriteRenderer.sprite=sprites[currentLevel];
 				}
 

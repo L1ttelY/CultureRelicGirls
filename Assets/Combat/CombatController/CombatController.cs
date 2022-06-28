@@ -56,7 +56,10 @@ namespace Combat {
 		}
 
 		int ticks;
-		bool gameEnd = false;
+		bool gameEnd;
+		float endTime;
+		bool endStart;
+		const float timeToEnd = 1;
 		void UpdateEndGame() {
 			if(ticks<10) {
 				ticks++;
@@ -64,44 +67,54 @@ namespace Combat {
 			}
 
 			if(gameEnd) return;
+			if(endStart) endTime+=Time.deltaTime;
 
 			if(!GetComponentInChildren<EntityFriendly>(true)) {
 				//Ê§°Ü
-				gameEnd=true;
-				PlayerData.PlayerDataRoot.smCount+=rewardSm;
-				CombatRewardUIController.instance.EnterMode(false,rewardSm,0,-1);
-				foreach(var i in friendlyList) {
-					int id = i.id;
-					if(i.prefab!=null&&id>0) PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+				endStart=true;
+
+				if(endTime>timeToEnd) {
+					gameEnd=true;
+					PlayerData.PlayerDataRoot.smCount+=rewardSm;
+					CombatRewardUIController.instance.EnterMode(false,rewardSm,0,-1);
+					foreach(var i in friendlyList) {
+						int id = i.id;
+						if(i.prefab!=null&&id>0) PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+					}
 				}
 
 			} else if(!GetComponentInChildren<EntityEnemy>(true)) {
 				//Ê¤Àû
-				gameEnd=true;
-				rewardSm+=levelData.rewardSm.value;
-				rewardPm+=levelData.rewardPm.value;
-				PlayerData.PlayerDataRoot.smCount+=rewardSm;
-				PlayerData.PlayerDataRoot.pmCount+=rewardPm;
+				endStart=true;
 
-				int newCampaignProgression = levelId+1;
-				if(PlayerData.PlayerDataRoot.instance.campaignProgression.value<newCampaignProgression)
-					PlayerData.PlayerDataRoot.instance.campaignProgression.value=newCampaignProgression;
+				if(endTime>timeToEnd) {
+					gameEnd=true;
+					rewardSm+=levelData.rewardSm.value;
+					rewardPm+=levelData.rewardPm.value;
+					PlayerData.PlayerDataRoot.smCount+=rewardSm;
+					PlayerData.PlayerDataRoot.pmCount+=rewardPm;
 
-				int rewardCharacterId = levelData.rewardCharacter.value;
-				if(rewardCharacterId>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value==-1) {
-					PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value=0;
-				}
-				foreach(var i in friendlyList) {
-					int id = i.id;
-					if(i.prefab!=null&&id>0) {
+					int newCampaignProgression = levelId+1;
+					if(PlayerData.PlayerDataRoot.instance.campaignProgression.value<newCampaignProgression)
+						PlayerData.PlayerDataRoot.instance.campaignProgression.value=newCampaignProgression;
 
-						if(i.instance) {
-							float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
-							PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=hpAmount;
-						} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+					int rewardCharacterId = levelData.rewardCharacter.value;
+					if(rewardCharacterId>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value==-1) {
+						PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value=0;
 					}
+					foreach(var i in friendlyList) {
+						int id = i.id;
+						if(i.prefab!=null&&id>0) {
+
+							if(i.instance) {
+								float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
+								PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=hpAmount;
+							} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+						}
+					}
+					CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,levelData.rewardCharacter.value);
 				}
-				CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,levelData.rewardCharacter.value);
+
 			}
 
 		}
