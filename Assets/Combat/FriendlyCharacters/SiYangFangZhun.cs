@@ -22,7 +22,7 @@ namespace Combat
                 {
 					if (i is EntityFriendly)
 					{
-						i.Heal((int)HealBuff * maxHp); //»Ö¸´ÑªÁ¿
+						i.Heal((int)(HealBuff * (float)(i.maxHp-i.hp))); //»Ö¸´ÑªÁ¿
 						GameObject a = Instantiate(healPre, i.transform.position, Quaternion.identity);
 						a.transform.parent = i.transform;
 

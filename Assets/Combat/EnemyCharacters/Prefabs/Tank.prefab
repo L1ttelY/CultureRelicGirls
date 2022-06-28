@@ -133,12 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53e4e39e441f904dba788d77c51399c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 12
+  <acceleration>k__BackingField: 16
   <maxSpeed>k__BackingField: 8
-  <attackBasePower>k__BackingField: 20
+  <attackBasePower>k__BackingField: 30
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1.5
-  <maxHp>k__BackingField: 500
+  <maxHp>k__BackingField: 340
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: e1a2467de8dc7364bad2f0fa79e6efc0, type: 3}
   <attackRangeMin>k__BackingField: 0
@@ -151,11 +151,12 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  <enemyId>k__BackingField: 3
-  wakeUpDistance: 12
+  <enemyId>k__BackingField: 4
+  wakeUpDistance: 8
   corpseSprite: {fileID: 21300000, guid: bdb85aeae4fec4e4ab09b9adf3e2c012, type: 3}
   sentienceMatterReward: 7
   knockbackResistance: 1
+  BlockDefine: {fileID: 0}
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0.21}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -180,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.66, y: 1.3}
   m_EdgeRadius: 0
 --- !u!50 &1113598440
 Rigidbody2D:
