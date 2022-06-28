@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d363895d572e14ba1ab7d08d9ab7c0, type: 3}
   m_Name: TianChongYunJiang
   m_EditorClassIdentifier: 
-  <id>k__BackingField: 2
+  <id>k__BackingField: 4
   <maxLevel>k__BackingField: 5
   <combatPrefab>k__BackingField: {fileID: 8447825321245819325, guid: 711f618df39cc1b448f3fc5ee351e227, type: 3}
   <healCostPerHp>k__BackingField: 0.16666667
   <healTimPerHpInSecond>k__BackingField: 5
   <sprite>k__BackingField: {fileID: 21300000, guid: e96fa961b2b54f747bd7a44b4b107b2b, type: 3}
-  <picture>k__BackingField: {fileID: 0}
+  <picture>k__BackingField: {fileID: 21300000, guid: 0a19231dc8744ed48a44d4ee8dd48fe1, type: 3}
   levels:
   - levelUpCost: 80
     levelUpCostHour: 0
@@ -36,9 +36,9 @@ MonoBehaviour:
     power: 24
   - levelUpCost: 220
     levelUpCostHour: 0
-    levelUpCostMinute: 30
-    levelUpTimeHour: 0
-    levelUpTimeMinute: 66
+    levelUpCostMinute: 35
+    levelUpTimeHour: 1
+    levelUpTimeMinute: 5
     hpMax: 180
     power: 30
   - levelUpCost: 300
