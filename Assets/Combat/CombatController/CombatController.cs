@@ -6,6 +6,7 @@ namespace Combat {
 	public partial class CombatController:MonoBehaviour {
 
 		public GameObject[] enemyPrefabs;
+		EntityEnemy[] enemies;
 
 		private void Start() {
 			if(instance) Debug.LogError("Duplicate");
@@ -17,8 +18,8 @@ namespace Combat {
 		}
 
 		public void DestroyAllEntities() {
-			EntityBase[] enemies = GetComponentsInChildren<EntityBase>(true);
-			foreach(var i in enemies) DestroyImmediate(i.gameObject);
+			EntityBase[] entities = GetComponentsInChildren<EntityBase>(true);
+			foreach(var i in entities) DestroyImmediate(i.gameObject);
 		}
 		public void LoadAllEnemies(PlayerData.LevelData levelData) {
 
@@ -29,7 +30,10 @@ namespace Combat {
 				GameObject newEnemy = Instantiate(enemyPrefabs[enemy.enemyType.value],transform);
 				Vector3 position = new Vector3(enemy.x.value,0,0);
 				newEnemy.transform.position=position;
+				newEnemy.gameObject.SetActive(false);
 			}
+
+			enemies=GetComponentsInChildren<EntityEnemy>(true);
 
 		}
 		public void LoadAllFriendlies() {
@@ -46,8 +50,9 @@ namespace Combat {
 		[HideInInspector] public int rewardSm;
 		[HideInInspector] public int rewardPm;
 
-		private void Update() {
+		private void FixedUpdate() {
 			UpdateEndGame();
+			UpdateActivateEnemy();
 		}
 
 		int ticks;
@@ -99,6 +104,26 @@ namespace Combat {
 				CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,levelData.rewardCharacter.value);
 			}
 
+		}
+
+		const float activateRange = 12;
+		void UpdateActivateEnemy() {
+
+			float rightX = float.MinValue;
+			foreach(EntityFriendly i in EntityFriendly.friendlyList) {
+				if(!i) continue;
+				rightX=Mathf.Max(rightX,i.transform.position.x);
+			}
+
+			foreach(var i in enemies) {
+
+				if(!i) continue;
+				if(i.gameObject.activeInHierarchy) continue;
+				if(i.transform.position.x>rightX+activateRange) continue;
+
+				i.gameObject.SetActive(true);
+
+			}
 		}
 
 	}

@@ -28,7 +28,7 @@ namespace Museum {
 			this.targetLevelPath=targetLevelPath;
 			levelData.LoadFile(targetLevelPath);
 			infoText.text=
-				$"{levelData.levelName}\n"+
+				$"{levelData.levelName.value}\n"+
 				$"{levelData.enemyCount.value}¸öµÐÈË";
 			UIController.instance.SwitchUIMode(this);
 			this.levelId=levelId;

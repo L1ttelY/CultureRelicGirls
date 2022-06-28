@@ -21,11 +21,13 @@ namespace Museum {
 			instance=this;
 		}
 
-		int targetId;
-		int targetLevel;
-		CharacterController targetController;
-		CharacterData targetStaticData;
-		PlayerData.CharacterData targetSaveData;
+		public bool infoPanelUp { get; private set; }
+
+		public int targetId { get; private set; }
+		public int targetLevel { get; private set; }
+		public CharacterController targetController { get; private set; }
+		public CharacterData targetStaticData { get; private set; }
+		public PlayerData.CharacterData targetSaveData { get; private set; }
 
 		public static void EnterMode(CharacterController controller) {
 			instance._EnterMode(controller);
@@ -36,10 +38,11 @@ namespace Museum {
 			targetStaticData=controller.staticData;
 			targetSaveData=PlayerData.PlayerDataRoot.instance.characterDatas[targetId];
 			UIController.instance.SwitchUIMode(this);
+			infoPanelUp=false;
 		}
 
 		private void Update() {
-			targetLevel=PlayerData.PlayerDataRoot.instance.characterDatas[targetId].level.value;
+			targetLevel=targetSaveData.level.value;
 			levelUpCostButton.color=targetController.CanLevelUpCost() ? Color.white : new Color(0.4f,0.4f,0.4f);
 			levelUpTimeButton.color=targetController.CanLevelUpTime() ? Color.white : new Color(0.4f,0.4f,0.4f);
 			healCostButton.color=targetController.CanHealCost() ? Color.white : new Color(0.4f,0.4f,0.4f);
@@ -51,6 +54,7 @@ namespace Museum {
 		}
 
 		public void OnLevelUpCostButtonClick() {
+			if(infoPanelUp) return;
 			if(!targetController.CanLevelUpCost()) {
 				Message(CharacterController.messageBuffer);
 				return;
@@ -64,6 +68,7 @@ namespace Museum {
 		}
 
 		public void OnLevelUpTimeButtonClick() {
+			if(infoPanelUp) return;
 			if(!targetController.CanLevelUpTime()) {
 				Message(CharacterController.messageBuffer);
 				return;
@@ -76,6 +81,7 @@ namespace Museum {
 		}
 
 		public void OnHealCostButtonClick() {
+			if(infoPanelUp) return;
 			if(!targetController.CanHealCost()) {
 				Message(CharacterController.messageBuffer);
 				return;
@@ -89,6 +95,7 @@ namespace Museum {
 		}
 
 		public void OnHealTimeButtonClick() {
+			if(infoPanelUp) return;
 			if(!targetController.CanHealTime()) {
 				Message(CharacterController.messageBuffer);
 				return;
@@ -111,6 +118,10 @@ namespace Museum {
 		}
 		public void BackTothisMode() {
 			EnterMode(targetController);
+		}
+
+		public void OnInfoPanelClick() {
+			infoPanelUp=!infoPanelUp;
 		}
 
 	}
