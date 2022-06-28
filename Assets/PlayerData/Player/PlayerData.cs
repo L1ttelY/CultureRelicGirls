@@ -23,13 +23,16 @@ namespace PlayerData {
 			characterDatas=new CharacterData[20];
 			for(int i = 0;i<20;i++) characterDatas[i]=new CharacterData("character"+i,this);
 
-			buildingDatas=new BuildingData[20];
+			buildingDatas=new BuildingData[30];
 			for(int i = 0;i<20;i++) buildingDatas[i]=new BuildingData("building"+i,this);
+
+			storyStatus=new DataInt[30];
+			for(int i = 0;i<30;i++) storyStatus[i]=new DataInt($"story{i}",this);
 
 			campaignProgression=new DataInt("campaignProgression",this);
 
 		}
-		
+
 		public static void LoadDocument(XmlDocument xml) {
 
 			instance=new PlayerDataRoot("playerData",null);
@@ -62,6 +65,12 @@ namespace PlayerData {
 		public BuildingData[] buildingDatas;
 
 		public DataInt campaignProgression;
+
+		public const int storyLocked = 0;
+		public const int storyUnlocked = 0;
+		public const int storyViewed = 0;
+		public DataInt[] storyStatus;
+
 
 	}
 

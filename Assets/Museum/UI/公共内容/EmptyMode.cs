@@ -17,8 +17,11 @@ namespace Museum {
 
 		void _EnterMode() { UIController.instance.SwitchUIMode(this); }
 
-		public void OnGoCombatClick(){
+		public void OnGoCombatClick() {
 			LevelSelectionMode.EnterMode();
+		}
+		public void OnGoStoryClick() {
+			StoryMode.EnterMode();
 		}
 
 	}
