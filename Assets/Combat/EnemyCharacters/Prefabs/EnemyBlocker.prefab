@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53e4e39e441f904dba788d77c51399c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 12
-  <maxSpeed>k__BackingField: 8
+  <acceleration>k__BackingField: 10
+  <maxSpeed>k__BackingField: 4
   <attackBasePower>k__BackingField: 20
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1.5
@@ -152,9 +152,11 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 2
-  wakeUpDistance: 12
+  wakeUpDistance: 10
   corpseSprite: {fileID: 21300000, guid: a2f575df317d02f4aaf60817416f11c3, type: 3}
   sentienceMatterReward: 7
+  knockbackResistance: 0.5
+  BlockDefine: {fileID: 0}
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0
