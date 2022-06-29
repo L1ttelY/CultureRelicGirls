@@ -22,7 +22,7 @@ namespace Combat
 			if (AttackTimes % 2 == 0) //每两下攻击刷新一次buff
 			{
 				times = buffTime;
-				addDamage = buffDamage;
+				addDamage = buffDamage; 
 				isAnima = 3;
 			}
 
@@ -54,10 +54,10 @@ namespace Combat
 			EntityBase sender = _sender as EntityBase;
 			if (! (sender is EntityFriendly)) return;
 
-			//准备相应
-			//注意用+= 不要用*=或=
-
-			sender.powerBuff += addDamage/sender.attackBasePower; //增加攻击力
+			//增加攻击力
+			sender.powerBuff += addDamage/sender.attackBasePower; 
+			
+			//生成特效
 			if (isAnima-- >0)
 			{
 				GameObject a = Instantiate(attPre, sender.transform.position, Quaternion.identity);
