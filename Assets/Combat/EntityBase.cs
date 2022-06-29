@@ -36,6 +36,9 @@ namespace Combat {
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
 
+		[SerializeField] AudioClip soundAttack;
+		[SerializeField] AudioClip soundHit;
+		[SerializeField] AudioClip soundDeath;
 
 		//获取当前角色正常攻击的参数
 		protected virtual DamageModel GetDamage() {
@@ -72,6 +75,7 @@ namespace Combat {
 
 		//对角色造成伤害
 		public virtual void Damage(DamageModel e) { //受到伤害
+			AudioController.PlayAudio(soundHit,transform.position);
 
 			hp-=e.amount;
 			StartKnockback(e.knockback,e.direction);
@@ -96,6 +100,7 @@ namespace Combat {
 		public static event EventHandler Death;
 		//死亡时触发的代码
 		protected virtual void OnDeath() {
+			AudioController.PlayAudio(soundDeath,transform.position);
 			Death?.Invoke(this);
 		}
 
@@ -111,6 +116,7 @@ namespace Combat {
 		}
 
 		protected virtual void OnDestroy() {
+
 			if(positionInList!=null&&entities!=null) entities.Remove(positionInList);
 		}
 
@@ -230,6 +236,7 @@ namespace Combat {
 
 		//若要攻击 则执行这个函数判断如何攻击
 		protected virtual ProjectileBase Attack(EntityBase target) {
+			AudioController.PlayAudio(soundAttack,transform.position);
 
 			int projectileType = Random.Range(0,projectiles.Length);
 

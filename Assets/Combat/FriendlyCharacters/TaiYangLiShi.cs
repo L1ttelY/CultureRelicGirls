@@ -38,11 +38,10 @@ namespace Combat
 			isAnima = true;
 		}
 
-        protected override void OnDestroy()
-		{
+        protected override void OnDestroy() {
+			EntityBase.UpdateStats-=EntityBase_UpdateStats;
+			EntityBase.DamageEvent-=EntityBase_DamageEvent;
 			base.OnDestroy();
-			EntityBase.UpdateStats -= EntityBase_UpdateStats;
-			EntityBase.DamageEvent -= EntityBase_DamageEvent;
 		}
 
 		private void EntityBase_UpdateStats(object _sender)
