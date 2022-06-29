@@ -34,7 +34,10 @@ namespace Museum {
 				if(dist<400) {
 					CancelFocus doCancel = new CancelFocus();
 					onClick?.Invoke(doCancel);
-					if(!doCancel.doCancel) CameraController.instance.SetFocus(this);
+					if(!doCancel.doCancel) {
+						CameraController.instance.SetFocus(this);
+						ButtonSound.instance.PlaySound();
+					}
 				}
 
 			}
