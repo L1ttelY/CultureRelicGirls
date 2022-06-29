@@ -94,10 +94,12 @@ namespace Combat {
 
 			}
 
-			if(Utility.debug){
-				targetVelocity=0;
-				if(Input.GetKey(KeyCode.A)) targetVelocity-=1;
-				if(Input.GetKey(KeyCode.D)) targetVelocity+=1;
+			if(Utility.debug) {
+				if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)) {
+					targetVelocity=0;
+					if(Input.GetKey(KeyCode.A)) targetVelocity-=1;
+					if(Input.GetKey(KeyCode.D)) targetVelocity+=1;
+				}
 			}
 
 		}

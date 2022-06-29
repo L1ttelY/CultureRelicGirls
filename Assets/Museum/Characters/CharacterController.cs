@@ -10,14 +10,14 @@ namespace Museum {
 
 		[field: SerializeField] public int characterIndex { get; private set; }
 		[field: SerializeField] public CharacterData staticData { get; private set; }
-		PlayerData.CharacterData saveData;
-		PathFinder pathFinder;
+		protected PlayerData.CharacterData saveData;
+		protected PathFinder pathFinder;
 		BuildingWithCharacterInteractionBase.SlotToken slotToken;
 		CountDownController.CountDownToken countDownToken;
 		SpriteRenderer spriteRenderer;
-		Animator animator;
+		protected Animator animator;
 
-		private void Start() {
+		protected virtual void Start() {
 			saveData=PlayerData.PlayerDataRoot.instance.characterDatas[characterIndex];
 			pathFinder=GetComponent<PathFinder>();
 			UpdateStateChange();
@@ -62,10 +62,12 @@ namespace Museum {
 
 		Vector2 wanderPosition;
 		float wanderTimer;
+		const float wanderIntervalMin = 5f;
+		const float wanderIntervalMax = 10f;
 		void UpdateWanderPosition() {
 			wanderTimer-=Time.deltaTime;
 			if(wanderTimer<=0) {
-				wanderTimer=Random.Range(10f,30f);
+				wanderTimer=Random.Range(wanderIntervalMin,wanderIntervalMax);
 				ResetWanderPosition();
 			}
 		}
@@ -81,7 +83,7 @@ namespace Museum {
 
 		}
 
-		Vector2 GetTargetPosition() {
+		protected virtual Vector2 GetTargetPosition() {
 			if(saveData.level.value<=0) return inactivePosition;
 			Vector2 result = wanderPosition;
 			if(slotToken!=null) result=slotToken.position;
