@@ -17,7 +17,7 @@ namespace Museum {
 		SpriteRenderer spriteRenderer;
 		Animator animator;
 
-		private void Start() {
+		protected virtual void Start() {
 			saveData=PlayerData.PlayerDataRoot.instance.characterDatas[characterIndex];
 			pathFinder=GetComponent<PathFinder>();
 			UpdateStateChange();
@@ -81,7 +81,7 @@ namespace Museum {
 
 		}
 
-		Vector2 GetTargetPosition() {
+		protected virtual Vector2 GetTargetPosition() {
 			if(saveData.level.value<=0) return inactivePosition;
 			Vector2 result = wanderPosition;
 			if(slotToken!=null) result=slotToken.position;

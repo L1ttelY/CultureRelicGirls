@@ -4,29 +4,24 @@ using UnityEngine;
 
 namespace Museum {
 
-	public class BuilderController:MonoBehaviour {
+	public class BuilderController:CharacterController {
 
-		[SerializeField] CharacterController character;
-		PathFinder pathFinder;
-		Animator animator;
-
-		bool working;
 		public static BuilderController instance;
-		private void Start() {
+		protected override void Start() {
+			base.Start();
 			if(instance) Debug.LogError("Duplicate");
 			instance=this;
-			pathFinder=GetComponent<PathFinder>();
-			animator=GetComponent<Animator>();
 		}
 
-		private void FixedUpdate() {
 
-			
-
-			animator.SetBool("moving",pathFinder.moving);
-			animator.SetBool("working",working);
+		protected override void UpdateAnimator() {
+			base.UpdateAnimator();
 		}
 
+		protected override Vector2 GetTargetPosition() {
+
+			return base.GetTargetPosition();
+		}
 
 		public int levelUpMax { get { return 1; } }
 
