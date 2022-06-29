@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class ResetAllZ {
 
@@ -15,6 +16,12 @@ public class ResetAllZ {
 			position.z=0;
 			(i as Transform).position=position;
 		}
+
+	}
+
+	[MenuItem("GameObject/为所有按钮增加音效")]
+	static void Worrk() {
+
 
 	}
 

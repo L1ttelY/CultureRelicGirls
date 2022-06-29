@@ -3585,6 +3585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 926201138}
   - component: {fileID: 926201139}
+  - component: {fileID: 926201140}
   m_Layer: 0
   m_Name: loader
   m_TagString: Untagged
@@ -3621,6 +3622,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 1937007113}
+--- !u!114 &926201140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926201137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb6f0a93a8518348afac7958ce443b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: a66e6b98660ccfc49bb25693ed3d0cb9, type: 3}
 --- !u!1 &934792270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9136,6 +9150,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1937007114}
     m_Modifications:
+    - target: {fileID: 3429566531510263504, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565843153494670671, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85.20001
+      objectReference: {fileID: 0}
     - target: {fileID: 4971001045604504336, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9227,6 +9249,18 @@ PrefabInstance:
     - target: {fileID: 4971001045604504348, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971001045694963128, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -776.9991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971001046816807536, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620702258016120915, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 71.400024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
