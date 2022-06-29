@@ -6,12 +6,12 @@ namespace Museum {
 
 	public class BuilderArmController:MonoBehaviour {
 
-		static Dictionary<int,BuilderArmController> instances = new Dictionary<int,BuilderArmController>();
-		[SerializeField] int index;
+		public static Dictionary<int,BuilderArmController> instances = new Dictionary<int,BuilderArmController>();
+		[field: SerializeField] public int index { get; private set; }
 
 		Animator animator;
-		PathFinder pathFinder;
-		BuildingControllerBase targetBuilding;
+		public PathFinder pathFinder { get; private set; }
+		public BuildingControllerBase targetBuilding { get; private set; }
 
 		private void Start() {
 
@@ -24,25 +24,29 @@ namespace Museum {
 			pathFinder.SetTarget(new Vector2(0,-10000));
 			pathFinder.TeleportToTarget();
 
+			animator.speed=Random.Range(0.8f,1.2f);
+
 		}
 
 		private void FixedUpdate() {
 
-			if(targetBuilding.saveData.levelUpStatus.value!=0) targetBuilding=null;
-			if(targetBuilding==null) {
+			if(targetBuilding!=null&&targetBuilding.saveData.levelUpStatus.value==0) targetBuilding=null;
+			if(index<BuilderController.instance.levelUpMax&&targetBuilding==null) {
 				foreach(var i in BuildingControllerBase.instances) {
-					var target = i.Value;
+					var crr = i.Value;
 
-					if(target.saveData.levelUpStatus.value!=0) {
+					if(crr.saveData.levelUpStatus.value!=0) {
+
 						bool taken = false;
 						foreach(var j in instances) {
-							if(j.Value.targetBuilding==target) {
+							if(j.Value.targetBuilding==crr) {
 								taken=true;
 								break;
 							}
 						}
+
 						if(!taken) {
-							targetBuilding=target;
+							targetBuilding=crr;
 							break;
 						}
 
@@ -70,6 +74,8 @@ namespace Museum {
 		Vector2 GetTargetPosition() {
 			if(index>=BuilderController.instance.levelUpMax) return new Vector2(0,-100000);
 			if(targetBuilding==null) {
+				if(index==2) return BuilderController.instance.transform.position+Vector3.right*0.5f;
+				if(index==1) return BuilderController.instance.transform.position+Vector3.left*0.5f;
 				return BuilderController.instance.transform.position;
 			} else {
 				return targetBuilding.transform.position;
