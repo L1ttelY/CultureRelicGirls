@@ -13,24 +13,19 @@ MonoBehaviour:
   m_Name: "\u5DE5\u4F5C\u53F0"
   m_EditorClassIdentifier: 
   levels:
-  - levelUpCostMaterial: 1
-    levelUpHour: 1
-    levelUpMinute: 1
-    <description>k__BackingField: "\u5DE5\u4F5C\u53F0\n\u53EF\u4EE5\u4FEE\u590D\u6587\u7269\u5A18"
-    <levelUpMessage>k__BackingField: "\u8BA9\u4F60\u53EF\u4EE5\u4FEE\u590D\u6587\u7269"
-  - levelUpCostMaterial: 1
+  - levelUpCostMaterial: 100
     levelUpHour: 0
-    levelUpMinute: 1
-    <description>k__BackingField: "\u5DE5\u4F5C\u53F0\n\u53EF\u4EE5\u4FEE\u590D\u6587\u7269\u5A18"
-    <levelUpMessage>k__BackingField: "\u540C\u65F6\u4FEE\u590D\u7684\u6570\u91CF1->2"
-  - levelUpCostMaterial: 1
+    levelUpMinute: 10
+    <description>k__BackingField: "\u4FEE\u590D\u6587\u7269\u7684\u635F\u574F\u5EA6\uFF0C\u8BA9\u6587\u7269\u4FDD\u6301\u6700\u4F73\u72B6\u6001"
+    <levelUpMessage>k__BackingField: "\u6DFB\u7F6E\u4E9B\u4FEE\u590D\u5DE5\u5177"
+  - levelUpCostMaterial: 150
     levelUpHour: 0
-    levelUpMinute: 1
-    <description>k__BackingField: "\u5DE5\u4F5C\u53F0\n\u53EF\u4EE5\u4FEE\u590D\u6587\u7269\u5A18"
-    <levelUpMessage>k__BackingField: 2
-  - levelUpCostMaterial: 1
+    levelUpMinute: 20
+    <description>k__BackingField: "\u62E5\u6709\u66F4\u591A\u5DE5\u5177\u7684\u4FEE\u590D\u53F0\uFF0C\u53EF\u4EE5\u4FEE\u590D\u66F4\u591A\u7684\u6587\u7269"
+    <levelUpMessage>k__BackingField: "\u7528\u9AD8\u79D1\u6280\u8BBE\u5907\u63D0\u9AD8\u6548\u7387"
+  - levelUpCostMaterial: 0
     levelUpHour: 0
-    levelUpMinute: 1
-    <description>k__BackingField: "\u5DE5\u4F5C\u53F0\n\u53EF\u4EE5\u4FEE\u590D\u6587\u7269\u5A18"
-    <levelUpMessage>k__BackingField: 3
+    levelUpMinute: 0
+    <description>k__BackingField: "\u6700\u9AD8\u5F62\u6001\u7684\u4FEE\u590D\u53F0\uFF0C\u53EF\u4EE5\u66F4\u5FEB\u7684\u4FEE\u590D\u6587\u7269"
+    <levelUpMessage>k__BackingField: max
   <maxLevel>k__BackingField: 3
