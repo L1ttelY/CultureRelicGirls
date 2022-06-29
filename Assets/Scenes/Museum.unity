@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 1
   level: 2
+  spriteRenderer: {fileID: 0}
 --- !u!1 &48948541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,6 +2395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 1
   level: 2
+  spriteRenderer: {fileID: 0}
 --- !u!224 &522122874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4971001045604504336, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
@@ -3979,6 +3981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 1
   level: 3
+  spriteRenderer: {fileID: 0}
 --- !u!1 &969387329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,6 +4420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 0
   level: 1
+  spriteRenderer: {fileID: 0}
 --- !u!61 &995932236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4685,8 +4689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6103a46e39530a146b42be7d7d91fe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <id>k__BackingField: 1
-  <buildingData>k__BackingField: {fileID: 11400000, guid: e012a6b56f47a314b98981d9f1f5a11e, type: 2}
+  <id>k__BackingField: 12
+  <buildingData>k__BackingField: {fileID: 11400000, guid: 9a293ae424f1d0d43b790052f2436012, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 0a1f57566e324444a9c5fc5823c68380, type: 2}
   slots:
   - {x: 0, y: 0}
@@ -4757,7 +4761,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03401661, y: -0.20100796}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4768,7 +4772,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 2.8018389, y: 1.6885655}
   m_EdgeRadius: 0
 --- !u!114 &1050946050
 MonoBehaviour:
@@ -4785,7 +4789,19 @@ MonoBehaviour:
   focusMargin: 0.5
   onClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1050946047}
+        m_TargetAssemblyTypeName: Museum.BuildingControllerBase, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1050946051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5925,6 +5941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 1
   level: 2
+  spriteRenderer: {fileID: 0}
 --- !u!212 &1463087628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6348,6 +6365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compar: 1
   level: 2
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1722884827
 GameObject:
   m_ObjectHideFlags: 0
@@ -7936,7 +7954,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e20815130095cd040ba7db5934e98d30, type: 3}
   - {fileID: 21300000, guid: 296ab5ef29360b24f93663b362d51dd5, type: 3}
   - {fileID: 21300000, guid: 7c4245e597954b94db44732bdaeccd1d, type: 3}
-  buildingId: 16
+  buildingId: 0
   overrideLevel: 2
 --- !u!212 &2092945200
 SpriteRenderer:
@@ -8741,10 +8759,18 @@ PrefabInstance:
     - target: {fileID: 2593639835152004176, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a5bd7e42f6e30364aa9b9d2d1261c6fc, type: 3}
+      objectReference: {fileID: 21300000, guid: c26eb7930aee6844dae0c52bcd376c5f, type: 3}
     - target: {fileID: 2593639835152004176, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085654668065665705, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
+      propertyPath: <id>k__BackingField
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458117236861866684, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
+      propertyPath: buildingId
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5391234031550550158, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8810,30 +8836,5 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4458117236861866684, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
---- !u!1 &5391234032447769956 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5391234032197428149, guid: bbda8394dfb2d1e49a0cb3f14c55fe99, type: 3}
-  m_PrefabInstance: {fileID: 5391234032447769955}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5391234032447769957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391234032447769956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c7935894d5bed41be9328d7d7670ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 46c1c80a2ec00af489153ee4d161b7d7, type: 3}
-  - {fileID: 21300000, guid: c26eb7930aee6844dae0c52bcd376c5f, type: 3}
-  - {fileID: 21300000, guid: 50cc68c9f030742448343f6c5d3634a4, type: 3}
-  - {fileID: 21300000, guid: a5bd7e42f6e30364aa9b9d2d1261c6fc, type: 3}
-  buildingId: 11
-  overrideLevel: 3
