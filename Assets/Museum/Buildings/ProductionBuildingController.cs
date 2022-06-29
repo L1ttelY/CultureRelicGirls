@@ -12,7 +12,6 @@ namespace Museum {
 		[SerializeField] bool targetSentienceMatter;
 
 		[SerializeField] SpriteRenderer displaySpriteRenderer;
-		[SerializeField] Sprite[] displaySprites;
 
 		DataInt targetData;
 

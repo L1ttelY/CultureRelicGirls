@@ -30,7 +30,7 @@ namespace Museum {
 			collider=GetComponent<Collider2D>();
 			saveData=PlayerData.PlayerDataRoot.instance.buildingDatas[id];
 			if(!instances.ContainsKey(id)) instances.Add(id,this);
-			else if(instances[id]) Debug.LogError("Duplicate");
+			else if(instances[id]) Debug.LogError($"Duplicate @ id : {id}");
 			else instances[id]=this;
 		}
 

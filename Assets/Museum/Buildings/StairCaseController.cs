@@ -8,7 +8,6 @@ namespace Museum {
 
 		public static bool[] floorUnlocked = { true,false,false };
 
-		[SerializeField] BuildingControllerBase[] buildingsToUnlock;
 		[SerializeField] int floorIndex;
 
 		protected override void FixedUpdate() {
@@ -17,8 +16,10 @@ namespace Museum {
 		}
 
 		protected override void LevelUpFinish() {
+			GameObject[] buildingsToUnlock = GameObject.FindGameObjectsWithTag($"BuildingOfFloor{floorIndex}");
+
 			foreach(var i in buildingsToUnlock) {
-				int targetId = i.id;
+				int targetId = i.GetComponent<BuildingControllerBase>().id;
 				if(PlayerData.PlayerDataRoot.instance.buildingDatas[targetId].level.value<0)
 					PlayerData.PlayerDataRoot.instance.buildingDatas[targetId].level.value=0;
 			}
