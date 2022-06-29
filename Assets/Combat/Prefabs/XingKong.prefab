@@ -208,8 +208,8 @@ MonoBehaviour:
   <maxHp>k__BackingField: 50
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: 7d6f55102af488f448393f632f1f4f28, type: 3}
-  <attackRangeMin>k__BackingField: 4
-  <attackRangeMax>k__BackingField: 12
+  <attackRangeMin>k__BackingField: 0
+  <attackRangeMax>k__BackingField: 8
   <projectileVelocityY>k__BackingField: 10
   <maxPredictSpeed>k__BackingField: 5
   <damageVfx>k__BackingField:
@@ -220,7 +220,7 @@ MonoBehaviour:
   speedBuff: 0
   positionInTeam: 2
   <stars>k__BackingField: {fileID: 7842778750022487663, guid: 35038a97c8cc68b4f95bc2d612f472f4, type: 3}
-  SkillDamage: 50
+  SkillDamage: 20
   skillTime: 1.2
   Height: 15
 --- !u!1001 &723077633398494575

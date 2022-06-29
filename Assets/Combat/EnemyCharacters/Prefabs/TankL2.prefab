@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1113598440}
   - component: {fileID: 3633127368933592054}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: TankL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,12 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53e4e39e441f904dba788d77c51399c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 16
-  <maxSpeed>k__BackingField: 8
-  <attackBasePower>k__BackingField: 30
+  <acceleration>k__BackingField: 17
+  <maxSpeed>k__BackingField: 8.5
+  <attackBasePower>k__BackingField: 38
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1.5
-  <maxHp>k__BackingField: 340
+  <maxHp>k__BackingField: 425
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: e1a2467de8dc7364bad2f0fa79e6efc0, type: 3}
   <attackRangeMin>k__BackingField: 0
@@ -151,8 +151,8 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  <enemyId>k__BackingField: 5
-  wakeUpDistance: 8
+  <enemyId>k__BackingField: 8
+  wakeUpDistance: 9
   corpseSprite: {fileID: 21300000, guid: bdb85aeae4fec4e4ab09b9adf3e2c012, type: 3}
   sentienceMatterReward: 7
   knockbackResistance: 1.2
