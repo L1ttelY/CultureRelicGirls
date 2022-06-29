@@ -17,12 +17,19 @@ MonoBehaviour:
   <fullDescription>k__BackingField: "\u5929\u4E1B\u4E91\u5251\u53C8\u540D\u8349\u8599\u5263\uFF0C\u6536\u85CF\u4E8E\u70ED\u7530\u795E\u5BAB\u7684\u65E5\u672C\u4E09\u795E\u5668\u4E4B\u4E00\uFF0C\u66FE\u88AB\u76D7\u8D70\uFF0C\u540E\u4E8E688\u5E74\u5BFB\u56DE\u3002\u5251\u957F\u4E24\u5C3A\u4E03\u516B\u5BF8\uFF0C\u5200\u8EAB\u4E2D\u592E\u90E8\u5206\u8F83\u539A\uFF0C\u63E1\u67C4\u7684\u90E8\u5206\u7EA6\u6709\u516B\u5BF8\u539A\uFF0C\u5F62\u4F3C\u9C7C\u7684\u80CC\u810A\u9AA8\uFF0C\u7531\u4E0A\u5230\u4E0B\u90FD\u662F\u767D\u8272\u7684\uFF0C\u662F\u5373\u4FBF\u5929\u7687\u4E5F\u65E0\u6CD5\u968F\u610F\u89C2\u8D4F\u7684\u81F3\u5B9D\u3002"
   <id>k__BackingField: 4
   <maxLevel>k__BackingField: 5
-  <combatPrefab>k__BackingField: {fileID: 8447825321245819325, guid: 711f618df39cc1b448f3fc5ee351e227, type: 3}
+  <combatPrefab>k__BackingField: {fileID: 8447825321245819325, guid: 7022c7a8dcb78fd43a17656a055dd99b, type: 3}
   <healCostPerHp>k__BackingField: 0.16666667
   <healTimPerHpInSecond>k__BackingField: 5
-  <sprite>k__BackingField: {fileID: 21300000, guid: e96fa961b2b54f747bd7a44b4b107b2b, type: 3}
+  <sprite>k__BackingField: {fileID: 21300000, guid: d6fa2617eacae334184747e44271d8da, type: 3}
   <picture>k__BackingField: {fileID: 21300000, guid: 0a19231dc8744ed48a44d4ee8dd48fe1, type: 3}
   levels:
+  - levelUpCost: 40
+    levelUpCostHour: 0
+    levelUpCostMinute: 5
+    levelUpTimeHour: 0
+    levelUpTimeMinute: 0
+    hpMax: 0
+    power: 0
   - levelUpCost: 80
     levelUpCostHour: 0
     levelUpCostMinute: 10
@@ -47,14 +54,14 @@ MonoBehaviour:
   - levelUpCost: 300
     levelUpCostHour: 0
     levelUpCostMinute: 60
-    levelUpTimeHour: 0
-    levelUpTimeMinute: 110
-    hpMax: 0
-    power: 0
+    levelUpTimeHour: 1
+    levelUpTimeMinute: 50
+    hpMax: 216
+    power: 36
   - levelUpCost: 0
     levelUpCostHour: 0
     levelUpCostMinute: 0
     levelUpTimeHour: 0
     levelUpTimeMinute: 0
-    hpMax: 0
-    power: 0
+    hpMax: 252
+    power: 42
