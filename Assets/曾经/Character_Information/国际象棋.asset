@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d363895d572e14ba1ab7d08d9ab7c0, type: 3}
+  m_Name: "\u56FD\u9645\u8C61\u68CB"
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: 7
+  <maxLevel>k__BackingField: 5
+  <combatPrefab>k__BackingField: {fileID: 8447825321245819325, guid: fbd890e82e992044e95c7540ea619424, type: 3}
+  <healCostPerHp>k__BackingField: 0.16666667
+  <healTimPerHpInSecond>k__BackingField: 5
+  <sprite>k__BackingField: {fileID: 21300000, guid: 648f021296852564584a42514555d072, type: 3}
+  <picture>k__BackingField: {fileID: 21300000, guid: eac1b12d895c2b84ba104a5dd6ab6994, type: 3}
+  levels:
+  - levelUpCost: 80
+    levelUpCostHour: 0
+    levelUpCostMinute: 10
+    levelUpTimeHour: 0
+    levelUpTimeMinute: 20
+    hpMax: 130
+    power: 25
+  - levelUpCost: 160
+    levelUpCostHour: 0
+    levelUpCostMinute: 20
+    levelUpTimeHour: 0
+    levelUpTimeMinute: 40
+    hpMax: 156
+    power: 30
+  - levelUpCost: 220
+    levelUpCostHour: 0
+    levelUpCostMinute: 35
+    levelUpTimeHour: 1
+    levelUpTimeMinute: 5
+    hpMax: 195
+    power: 38
+  - levelUpCost: 300
+    levelUpCostHour: 1
+    levelUpCostMinute: 0
+    levelUpTimeHour: 1
+    levelUpTimeMinute: 40
+    hpMax: 234
+    power: 45
+  - levelUpCost: 0
+    levelUpCostHour: 0
+    levelUpCostMinute: 0
+    levelUpTimeHour: 0
+    levelUpTimeMinute: 0
+    hpMax: 272
+    power: 52

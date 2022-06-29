@@ -11,6 +11,11 @@ namespace Museum {
 
 		public override void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
+			if(saveData.level.value<0) {
+				cancelFocus.doCancel=true;
+				return;
+			}
+
 			BuildingLevelUpMode.EnterMode(id,OnExtraButtonClick);
 			spriteRenderer.material=normalMaterial;
 		}

@@ -22,11 +22,12 @@ namespace Museum {
 
 		public override void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
-			if(saveData.extraProgression.progressionAmount>0.1f&&saveData.extraStatus.value!=0) {
+			if(saveData.extraProgression.progressionAmount>0.1f&&saveData.extraStatus.value>0) {
 
 				targetData.value+=Mathf.FloorToInt(saveData.extraProgression.progressionAmount*capacity[saveData.level.value]);
 				saveData.extraProgression.SetProgression(FullProductionTime(saveData.level.value),0);
 				cancelFocus.doCancel=true;
+				spriteRenderer.material=normalMaterial;
 
 			} else base.OnClick(cancelFocus);
 		}
@@ -39,7 +40,7 @@ namespace Museum {
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
 
-			if(saveData.levelUpStatus.value!=0) {
+			if(saveData.levelUpStatus.value!=0||saveData.level.value<=0) {
 				saveData.extraStatus.value=0;
 			} else {
 				if(saveData.extraStatus.value==0) {

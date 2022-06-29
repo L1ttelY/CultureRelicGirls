@@ -26,6 +26,7 @@ namespace Museum {
 			pathFinder.TeleportToTarget();
 			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
 			animator=GetComponent<Animator>();
+			spriteRenderer.sprite=staticData.sprite;
 		}
 
 		protected virtual void Update() {
@@ -60,7 +61,7 @@ namespace Museum {
 			set => saveData.level.value=value;
 		}
 
-		Vector2 wanderPosition;
+		Vector2 wanderPosition = new Vector2(0,-100);
 		float wanderTimer;
 		const float wanderIntervalMin = 5f;
 		const float wanderIntervalMax = 10f;

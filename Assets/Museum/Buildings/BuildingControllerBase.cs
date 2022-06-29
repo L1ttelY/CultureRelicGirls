@@ -94,9 +94,13 @@ namespace Museum {
 
 		public virtual void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
+			if(saveData.level.value<0){
+				cancelFocus.doCancel=true;
+				return;
+			}
+
 			BuildingLevelUpMode.EnterMode(id,null);
 			spriteRenderer.material=normalMaterial;
-
 		}
 
 		public static int levelUpCount {

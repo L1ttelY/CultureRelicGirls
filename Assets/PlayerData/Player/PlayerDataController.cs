@@ -11,7 +11,7 @@ namespace PlayerData {
 	/// <summary>
 	/// 负责存档的读取和保存的管理
 	/// </summary>
-	public static class PlayerDataController{
+	public static class PlayerDataController {
 
 		const string fileName = "save.xml";
 		public static bool loaded { get; private set; }
@@ -23,18 +23,12 @@ namespace PlayerData {
 			//直接读取存档
 			string serialized = "";
 			if(File.Exists(EditorPath)) serialized=File.ReadAllText(EditorPath);
+			else serialized=File.ReadAllText(InitialPath);
 			SerializedToMemory(serialized);
 			SaveGame();
 
 		}
 
-
-		static void SDKInited(int _) {
-			fileSystem=WX.GetFileSystemManager();
-			string serialized = WX.StorageGetStringSync(fileName,"");
-			SerializedToMemory(serialized);
-			SaveGame();
-		}
 
 		static public void SaveGame() {
 			string save = MemoryToSerialized();
@@ -56,7 +50,16 @@ namespace PlayerData {
 		}
 
 		static string EditorPath { get { return Application.dataPath+"/"+fileName; } }
+		static string InitialPath { get { return Application.streamingAssetsPath+"/"+fileName; } }
 
+
+
+		static void SDKInited(int _) {
+			fileSystem=WX.GetFileSystemManager();
+			string serialized = WX.StorageGetStringSync(fileName,"");
+			SerializedToMemory(serialized);
+			SaveGame();
+		}
 	}
 
 }

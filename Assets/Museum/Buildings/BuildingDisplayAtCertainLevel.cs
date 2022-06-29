@@ -8,6 +8,8 @@ namespace Museum {
 	[ExecuteInEditMode]
 	public class BuildingDisplayAtCertainLevel:MonoBehaviour {
 
+		[SerializeField] bool useSprite0OnNegativeLevel;
+
 		[SerializeField] Sprite[] sprites;
 		[SerializeField] int buildingId;
 
@@ -24,8 +26,9 @@ namespace Museum {
 			try {
 				int currentLevel = PlayerDataRoot.instance.buildingDatas[buildingId].level.value;
 
-				if(currentLevel==-1) spriteRenderer.sprite=null;
-				else {
+				if(currentLevel<0) {
+					spriteRenderer.sprite=useSprite0OnNegativeLevel ? sprites[0] : null;
+				} else {
 					spriteRenderer.sprite=sprites[currentLevel];
 				}
 
