@@ -202,10 +202,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 0
   <maxSpeed>k__BackingField: 0
-  <attackBasePower>k__BackingField: 40
+  <attackBasePower>k__BackingField: 20
   <attackCd>k__BackingField: 0
   <knockbackPower>k__BackingField: 0
-  <maxHp>k__BackingField: 500
+  <maxHp>k__BackingField: 300
   <projectiles>k__BackingField: []
   <attackRangeMin>k__BackingField: 0
   <attackRangeMax>k__BackingField: 1.5
@@ -217,7 +217,7 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  <enemyId>k__BackingField: 9
+  <enemyId>k__BackingField: 14
   wakeUpDistance: 12
   corpseSprite: {fileID: 21300000, guid: 1a005deab0acfd24a806bf80bc98d1d9, type: 3}
   sentienceMatterReward: 0
