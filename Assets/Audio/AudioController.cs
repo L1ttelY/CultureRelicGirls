@@ -5,15 +5,18 @@ using UnityEngine;
 public partial class AudioController:MonoBehaviour {
 
 	AudioSource audioSource;
-	private void Start() {
-		audioSource=GetComponent<AudioSource>();
-	}
+	AudioClip activeClip;
 
 	private void Update() {
 		if(!audioSource.isPlaying) {
 			pool.Push(this);
 			gameObject.SetActive(false);
 		}
+	}
+
+	private void OnEnable() {
+		audioSource=GetComponent<AudioSource>();
+		audioSource.PlayOneShot(activeClip);
 	}
 
 }
@@ -39,7 +42,7 @@ public partial class AudioController:MonoBehaviour {
 
 		newController.transform.position=position;
 		newController.gameObject.SetActive(true);
-		newController.audioSource.PlayOneShot(clip);
+		newController.activeClip=clip;
 
 	}
 

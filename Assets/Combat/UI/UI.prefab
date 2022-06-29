@@ -2559,6 +2559,7 @@ GameObject:
   - component: {fileID: 8806760926367801969}
   - component: {fileID: 7109215315509530288}
   - component: {fileID: 7602124913977805929}
+  - component: {fileID: 8639308753362794912}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2685,6 +2686,19 @@ MonoBehaviour:
   - {fileID: 5534445548172620930}
   - {fileID: 3878010992911203712}
   - {fileID: 8806760925359043761}
+--- !u!114 &8639308753362794912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8806760926367801970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb6f0a93a8518348afac7958ce443b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 2a349839f8c3304479af44df56745a9c, type: 3}
 --- !u!1001 &5150010416148894178
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,7 +36,7 @@ namespace Combat {
 				if(!usePopup) SceneManager.LoadScene("Museum");
 				else {
 					Debug.Log("!!!");
-					rewardCharacterText.text=$"已获得文物 : {CharacterData.datas[rewardCharacterIndex].name}";
+					rewardCharacterText.text=$"已获得文物\n{CharacterData.datas[rewardCharacterIndex].name}";
 					GameObject popUpObject = rewardCharacterBig.transform.parent.gameObject;
 					popUpObject.SetActive(true);
 				}

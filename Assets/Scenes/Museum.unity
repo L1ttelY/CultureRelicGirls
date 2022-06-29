@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb6f0a93a8518348afac7958ce443b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: a66e6b98660ccfc49bb25693ed3d0cb9, type: 3}
+  audioClip: {fileID: 8300000, guid: 2a349839f8c3304479af44df56745a9c, type: 3}
 --- !u!1 &934792270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9150,22 +9150,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1937007114}
     m_Modifications:
-    - target: {fileID: 261300789185088515, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3429566531510263504, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -54.599976
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565843153494670671, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -85.20001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565843154030666463, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4971001045604504336, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9257,22 +9241,6 @@ PrefabInstance:
     - target: {fileID: 4971001045604504348, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971001045694963128, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -776.9991
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971001046540053510, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971001046816807536, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -54.599976
-      objectReference: {fileID: 0}
-    - target: {fileID: 4971001047047471456, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4028971827e7e874693594b61fb24ccc, type: 3}

@@ -41,8 +41,8 @@ namespace Combat {
 			
 		}
 		protected override void OnDestroy() {
-			base.OnDestroy();
 			EntityBase.UpdateStats-=EntityBase_UpdateStats;
+			base.OnDestroy();
 		}
 
 
