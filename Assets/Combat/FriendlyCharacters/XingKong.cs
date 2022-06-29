@@ -79,7 +79,7 @@ namespace Combat
 					}
 					//对数组中的第三个敌人照成伤害
 					position.x = enermy[2].transform.position.x;
-					position.y = enermy[2].transform.position.y + Height;
+					position.y = this.transform.position.y + Height;
 					if (position.x - this.transform.position.x < 15)
 					{
 						ProjectilePool.Create(stars, position, vec, enermy[2], true, starDamage);

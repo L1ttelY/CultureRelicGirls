@@ -38,7 +38,6 @@ namespace Combat
 				Vector2 position;
 				position.x = this.transform.position.x+6; position.y = Height;
 				starDamage.amount = 0;
-				starDamage.knockback = 0;
 
 				ProjectilePool.Create(Thunder, position, vec, this , true, starDamage);
 				isSkill = true;

@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8447825321245819326}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6502283220555646516
 SpriteRenderer:
@@ -132,7 +132,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8447825321245819326}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2522598447239158626
 SpriteRenderer:
@@ -218,8 +218,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5481035969811243166}
   - {fileID: 6447738066202564640}
+  - {fileID: 5481035969811243166}
   - {fileID: 8496982349175691835}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -307,13 +307,13 @@ MonoBehaviour:
   <maxSpeed>k__BackingField: 6
   <attackBasePower>k__BackingField: 10
   <attackCd>k__BackingField: 0.5
-  <knockbackPower>k__BackingField: 2
-  <maxHp>k__BackingField: 100
+  <knockbackPower>k__BackingField: 1
+  <maxHp>k__BackingField: 120
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: a80a33ff3e8ec2641b7116e29889d0b3, type: 3}
   - {fileID: 7842778750022487663, guid: eb6bbd93e2fb43341bccdd06e6cd901e, type: 3}
   <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 4
+  <attackRangeMax>k__BackingField: 3
   <projectileVelocityY>k__BackingField: 0
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:

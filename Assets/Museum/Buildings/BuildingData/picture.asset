@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6962fe57c353c824b83922db1311feed, type: 3}
+  m_Name: picture
+  m_EditorClassIdentifier: 
+  levels:
+  - levelUpCostMaterial: 50
+    levelUpHour: 0
+    levelUpMinute: 5
+    <description>k__BackingField: "\u653E\u4E2A\u53EF\u4EE5\u4EA7\u751F\u610F\u8BC6\u6676\u4F53\u7684\u753B"
+    <levelUpMessage>k__BackingField: 
+  - levelUpCostMaterial: 150
+    levelUpHour: 0
+    levelUpMinute: 15
+    <description>k__BackingField: "\u53EF\u4EE5\u6302\u4E9B\u597D\u770B\u7684\u753B\u4E86\uFF01"
+    <levelUpMessage>k__BackingField: "\u6362\u4E2A\u91D1\u5C5E\u6846\u5427"
+  - levelUpCostMaterial: 250
+    levelUpHour: 0
+    levelUpMinute: 30
+    <description>k__BackingField: "\u8131\u79BB\u4E86\u6728\u6846\u67B6\u7684\u91D1\u5C5E\u6846\u67B6"
+    <levelUpMessage>k__BackingField: "\u518D\u52A0\u70B9\u88C5\u9970"
+  - levelUpCostMaterial: 0
+    levelUpHour: 0
+    levelUpMinute: 0
+    <description>k__BackingField: "\u7480\u74A8\uFF01"
+    <levelUpMessage>k__BackingField: 
+  <maxLevel>k__BackingField: 3
