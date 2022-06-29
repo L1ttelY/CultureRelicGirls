@@ -39,13 +39,13 @@ namespace Combat {
 					if(!i) continue;
 					if(i.transform.position.x<transform.position.x) direction=Direction.left;
 				}
-				StartJump(Random.Range(2f,3f),direction);
+				StartJump(Random.Range(4f,5f),direction);
 			}
 
 		}
 
-		const float jumpTime = 0.35f;
-		const float jumpHeight = 5f;
+		[SerializeField] float jumpTime = 0.35f;
+		[SerializeField] float jumpHeight = 5f;
 
 		float timeSinceJump;
 		float jumpDistance;
