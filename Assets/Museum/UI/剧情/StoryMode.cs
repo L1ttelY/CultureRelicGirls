@@ -20,6 +20,8 @@ namespace Museum {
 		[SerializeField] GameObject redDotDown;
 		[SerializeField] GameObject redDotUp;
 
+		[SerializeField] Transform textBoxTransform;
+
 		[HideInInspector] public List<StoryData> activeStories = new List<StoryData>();
 		[HideInInspector] public List<int> activeIds = new List<int>();
 		public override void Init() {
@@ -97,15 +99,64 @@ namespace Museum {
 			redDotUp.SetActive(upNew);
 			redDotDown.SetActive(downNew);
 
+			UpdateViewing();
+
 		}
 
+		float velocity;
+		bool pressed;
+		float previousY;
+		public float scrollRatio;
+		[SerializeField] float scrollSpeedMultiplier = 1;
+		[SerializeField] float friction = 1;
+		void UpdateViewing() {
+			if(!isViewing) {
+				velocity=0;
+				pressed=false;
+				return;
+			}
+
+			if(Input.GetMouseButton(0)) {
+				if(pressed) velocity=Input.mousePosition.y-previousY;
+				else pressed=true;
+				previousY=Input.mousePosition.y;
+			} else {
+
+				pressed=false;
+				float deltaSpeed = friction*Time.deltaTime;
+				if(velocity>deltaSpeed) velocity-=deltaSpeed;
+				else if(velocity<-deltaSpeed) velocity+=deltaSpeed;
+				else velocity=0;
+
+			}
+
+			float heightTotal = textBox.preferredHeight-500;
+
+			DataFloat positionData = PlayerDataRoot.instance.storyPosition[currentStoryId];
+			positionData.value+=velocity*Time.deltaTime*scrollSpeedMultiplier;
+			if(positionData.value<0) positionData.value=0;
+			if(positionData.value>heightTotal) positionData.value=heightTotal;
+
+			scrollRatio=positionData.value/heightTotal;
+
+			Vector3 pos = textBoxTransform.localPosition;
+			pos.y=positionData.value;
+			textBoxTransform.localPosition=pos;
+
+			Debug.Log(scrollRatio);
+
+		}
+
+		int currentStoryId;
 		public void OnTitleClick(StoryModeTitleController sender) {
 			if(isViewing) return;
 			if(sender.targetIndex>=activeStories.Count) return;
 			isViewing=true;
-			DataInt currentData = PlayerDataRoot.instance.storyStatus[sender.targetIndex];
+			DataInt currentData = PlayerDataRoot.instance.storyStatus[activeIds[sender.targetIndex]];
 			if(currentData.value<2) currentData.value=2;
 			textBox.text=activeStories[sender.targetIndex].text;
+
+			currentStoryId=activeIds[sender.targetIndex];
 		}
 
 	}

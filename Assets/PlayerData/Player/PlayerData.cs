@@ -28,6 +28,8 @@ namespace PlayerData {
 
 			storyStatus=new DataInt[30];
 			for(int i = 0;i<30;i++) storyStatus[i]=new DataInt($"story{i}",this);
+			storyPosition=new DataFloat[30];
+			for(int i = 0;i<30;i++) storyPosition[i]=new DataFloat($"storyPosition{i}",this);
 
 			campaignProgression=new DataInt("campaignProgression",this);
 
@@ -70,6 +72,7 @@ namespace PlayerData {
 		public const int storyUnlocked = 0;
 		public const int storyViewed = 0;
 		public DataInt[] storyStatus;
+		public DataFloat[] storyPosition;
 
 
 	}

@@ -7,7 +7,7 @@ namespace Museum {
 	[CreateAssetMenu(menuName = "×Ô¶¨/¾çÇéÆ¬¶Î")]
 	public class StoryData:ScriptableObject {
 		public string title;
-		[TextArea] public string text;
+		[TextArea(10,10000)] public string text;
 	}
 
 }
