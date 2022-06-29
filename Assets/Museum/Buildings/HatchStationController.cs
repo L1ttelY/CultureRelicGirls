@@ -21,8 +21,14 @@ namespace Museum {
 
 		public override void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
+			if(saveData.level.value<0) {
+				cancelFocus.doCancel=true;
+				return;
+			}
+
 			bool canBeUsed = true;
 			if(saveData.extraStatus.value>0) canBeUsed=false;
+			if(saveData.level.value<=0) canBeUsed=false;
 
 			if(canBeUsed) BuildingLevelUpMode.EnterMode(id,OnExtraButtonClick);
 			else BuildingLevelUpMode.EnterMode(id,null);
@@ -55,6 +61,11 @@ namespace Museum {
 					hatchCountDown=null;
 				}
 
+			}
+
+			if(saveData.level.value<=0) {
+				coverSprite.color=Color.clear;
+				contentSprite.color=Color.clear;
 			}
 
 		}
