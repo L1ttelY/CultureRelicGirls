@@ -15,9 +15,9 @@ public class CharacterData:ScriptableObject {
 		datas.Add(id,this);
 	}
 
-	[field: TextArea] public string descriptionShort { get; private set; }
-	[field: TextArea] public string skillDescription { get; private set; }
-	[field: TextArea] public string fullDescription { get; private set; }
+	[field: TextArea] [field: SerializeField] public string descriptionShort { get; private set; } //在选择人物后升级界面所展示的介绍
+	[field: TextArea] [field: SerializeField] public string skillDescription { get; private set; } //角色的技能介绍
+	[field: TextArea] [field: SerializeField] public string fullDescription { get; private set; }  //角色的背景介绍
 
 	[field: SerializeField] public int id { get; private set; }
 	[field: SerializeField] public int maxLevel { get; private set; }

@@ -10,48 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d363895d572e14ba1ab7d08d9ab7c0, type: 3}
-  m_Name: XingKong
+  m_Name: "3D\u6253\u5370\u6BCD\u673A"
   m_EditorClassIdentifier: 
-  <id>k__BackingField: 5
+  <id>k__BackingField: 0
   <maxLevel>k__BackingField: 5
-  <combatPrefab>k__BackingField: {fileID: 8447825321245819325, guid: 7d0a888717686ff4ab1fe67df5c74ab4, type: 3}
+  <combatPrefab>k__BackingField: {fileID: 8447825321245819325, guid: 848aecb8ea6fb644eb69bdb5f48db41d, type: 3}
   <healCostPerHp>k__BackingField: 0.16666667
   <healTimPerHpInSecond>k__BackingField: 5
-  <sprite>k__BackingField: {fileID: 21300000, guid: 2b08253418e824b478b2bbcef027dd92, type: 3}
-  <picture>k__BackingField: {fileID: 21300000, guid: 98d15734f9bbaa74091442104ac68e5e, type: 3}
+  <sprite>k__BackingField: {fileID: 21300000, guid: f4f059ab01ba95747b7126688836cd54, type: 3}
+  <picture>k__BackingField: {fileID: 0}
   levels:
   - levelUpCost: 80
     levelUpCostHour: 0
     levelUpCostMinute: 10
     levelUpTimeHour: 0
     levelUpTimeMinute: 20
-    hpMax: 50
-    power: 25
+    hpMax: 60
+    power: 35
   - levelUpCost: 160
     levelUpCostHour: 0
     levelUpCostMinute: 20
     levelUpTimeHour: 0
     levelUpTimeMinute: 40
-    hpMax: 60
-    power: 30
+    hpMax: 72
+    power: 42
   - levelUpCost: 220
     levelUpCostHour: 0
     levelUpCostMinute: 35
-    levelUpTimeHour: 1
-    levelUpTimeMinute: 5
-    hpMax: 75
-    power: 38
+    levelUpTimeHour: 0
+    levelUpTimeMinute: 65
+    hpMax: 90
+    power: 52
   - levelUpCost: 300
     levelUpCostHour: 1
     levelUpCostMinute: 0
     levelUpTimeHour: 1
     levelUpTimeMinute: 40
-    hpMax: 90
-    power: 45
+    hpMax: 108
+    power: 63
   - levelUpCost: 0
     levelUpCostHour: 0
     levelUpCostMinute: 0
     levelUpTimeHour: 0
     levelUpTimeMinute: 0
-    hpMax: 105
-    power: 53
+    hpMax: 126
+    power: 73
