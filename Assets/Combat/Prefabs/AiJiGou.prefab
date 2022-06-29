@@ -204,7 +204,7 @@ MonoBehaviour:
   <maxSpeed>k__BackingField: 6
   <attackBasePower>k__BackingField: 1
   <attackCd>k__BackingField: 1.5
-  <knockbackPower>k__BackingField: 0.1
+  <knockbackPower>k__BackingField: 0
   <maxHp>k__BackingField: 40
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: 305790212d886724392ec3693e865e34, type: 3}
@@ -219,7 +219,6 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 2
-  aoeDamage: 50
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0

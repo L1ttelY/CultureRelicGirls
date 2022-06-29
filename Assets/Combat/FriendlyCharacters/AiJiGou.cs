@@ -9,7 +9,6 @@ namespace Combat
 	{
 		
 		DamageModel aoe;
-		public int aoeDamage;
 		float times = 2;
 
 		protected override void Start()
@@ -18,8 +17,9 @@ namespace Combat
 			EntityBase.UpdateStats += EntityBase_UpdateStats;
 			EntityBase.DamageEvent += EntityBase_DamageEvent;
 			aoe = GetDamage();
-			aoe.amount = aoeDamage;
+			aoe.amount = (int)(attackBasePower*powerBuff);
 			aoe.knockback = 0;
+			powerBuff = 0.1f;
 		}
 
 		private void EntityBase_DamageEvent(object sender, DamageModel e)
@@ -31,7 +31,7 @@ namespace Combat
 				{
 					if (!(i is EntityFriendly))
 					{
-						if (i.transform.position.x - this.transform.position.x < 12 )
+						if (i.transform.position.x - this.transform.position.x < 10 )
 						{
 							i.Damage(aoe);
 						}

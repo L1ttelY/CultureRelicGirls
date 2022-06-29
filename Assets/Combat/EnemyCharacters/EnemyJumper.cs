@@ -32,14 +32,25 @@ namespace Combat {
 			velocity=Vector2.zero;
 			previousPosition=transform.position;
 			timeStayed+=Time.deltaTime;
-
+			float distance = 0;
 			if(timeStayed>timeToStay) {
 				direction=Direction.right;
 				foreach(var i in EntityFriendly.friendlyList) {
 					if(!i) continue;
-					if(i.transform.position.x<transform.position.x) direction=Direction.left;
+					if (i.transform.position.x < transform.position.x)
+					{
+						direction = Direction.left;
+						distance = i.transform.position.x - this.transform.position.x;
+					}
 				}
-				StartJump(Random.Range(4f,5f),direction);
+				if (direction == Direction.left)
+					StartJump(Random.Range(7f, 8f), direction);
+				else if (distance>6f)
+					StartJump(distance+5f, direction);
+				else
+					StartJump(Random.Range(4f, 5f), direction);
+
+
 			}
 
 		}
