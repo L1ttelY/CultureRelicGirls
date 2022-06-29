@@ -6,6 +6,7 @@ namespace Combat {
 
 	public class EnemyJumper:EntityEnemy {
 
+		[SerializeField] AudioClip soundLand;
 		[SerializeField] float kbResistance = 0.5f;
 
 		protected override void StartKnockback(float knockback,int direction) {
@@ -88,6 +89,7 @@ namespace Combat {
 
 			if(timeSinceJump>=jumpTime) {
 				StartMove();
+				AudioController.PlayAudio(soundLand,transform.position);
 
 				foreach(var i in EntityFriendly.friendlyList) {
 					if(!i) continue;

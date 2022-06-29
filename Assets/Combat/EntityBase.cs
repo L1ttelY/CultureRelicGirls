@@ -36,9 +36,9 @@ namespace Combat {
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
 
-		[SerializeField] AudioClip soundAttack;
-		[SerializeField] AudioClip soundHit;
-		[SerializeField] AudioClip soundDeath;
+		[SerializeField] protected AudioClip soundAttack;
+		[SerializeField] protected AudioClip soundHit;
+		[SerializeField] protected AudioClip soundDeath;
 
 		//获取当前角色正常攻击的参数
 		protected virtual DamageModel GetDamage() {
@@ -141,6 +141,11 @@ namespace Combat {
 				if(previousPosition.x>CombatController.endX) previousPosition.x=CombatController.endX;
 				transform.position+=Vector3.right*(CombatController.endX-transform.position.x);
 			}
+
+			if(currensState==StateMove&&timeAfterAttack>attackCd) {
+				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
+			}
+
 		}
 
 		//移动相关

@@ -47,7 +47,7 @@ namespace Combat {
 
 			//准备相应
 			//注意用+= 不要用*=或=
-			powerBuff+=(buffNumber*addAttactPerBuff)/sender.attackBasePower;
+			sender.powerBuff+=(buffNumber*addAttactPerBuff)/sender.attackBasePower;
 		}
 	}
 

@@ -9,6 +9,8 @@ namespace Combat {
 		[SerializeField] GameObject deathVfx;
 		protected override ProjectileBase Attack(EntityBase target) {
 
+			AudioController.PlayAudio(soundAttack,transform.position);
+
 			animator.SetTrigger("attack");
 			
 			int enermyNumber = 0;

@@ -30,17 +30,14 @@ namespace Combat {
                     if (whoAmI == BlockDefine && distance < 5) //前方是盾，距离小
                     { 
                         CurrentKnockbackResistance = 0.9f;
-                        this.speedBuff = 0.5f;
                         break;
                     }
                     if(whoAmI == TankDefine && distance < 5)
                     {
-                        this.speedBuff = 1.5f;
                         break;
                     }
                 }
                 CurrentKnockbackResistance = knockbackResistance;
-                this.speedBuff = 1;
             }
         }
 

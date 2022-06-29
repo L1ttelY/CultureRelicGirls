@@ -178,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 8447825321245819325}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 89318b7fa983a3f4482bfb9595fe25c8, type: 2}
+  m_Controller: {fileID: 22100000, guid: 050841f603574d1408f46ca6fd731e19, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -215,13 +215,14 @@ MonoBehaviour:
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
   soundAttack: {fileID: 8300000, guid: 09de206313d86fd428329ffee62e21cf, type: 3}
-  soundHit: {fileID: 8300000, guid: 5c362d35d362c7e44ac5e630f75ea571, type: 3}
+  soundHit: {fileID: 8300000, guid: 3c3dec1d6a6746c478855ebe71e912d6, type: 3}
   soundDeath: {fileID: 8300000, guid: 038e34d7a70ed4845b6e9a64414d2753, type: 3}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 1
+  soundSkill: {fileID: 8300000, guid: 9b049782380d06e4ebc971f0039e5069, type: 3}
   skillTimes: 10
   healPre: {fileID: 7740515300585657647, guid: 8300fafa09cde8a4b8bb116d4ebb8a36, type: 3}
   exchangePre: {fileID: 2263730588193710504, guid: 864a325d5d492134690f98ba7ee1b701, type: 3}

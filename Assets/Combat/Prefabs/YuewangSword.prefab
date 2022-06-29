@@ -318,11 +318,15 @@ MonoBehaviour:
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 4e1fa28cb3668a8498e365ded527d699, type: 3}
+  soundAttack: {fileID: 8300000, guid: 09de206313d86fd428329ffee62e21cf, type: 3}
+  soundHit: {fileID: 8300000, guid: 5c362d35d362c7e44ac5e630f75ea571, type: 3}
+  soundDeath: {fileID: 8300000, guid: 038e34d7a70ed4845b6e9a64414d2753, type: 3}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 1
+  soundSkill: {fileID: 8300000, guid: 9cf6f8bda37ad1e4da03961e9136388b, type: 3}
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0

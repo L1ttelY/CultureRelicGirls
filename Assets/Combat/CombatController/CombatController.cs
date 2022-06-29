@@ -98,9 +98,12 @@ namespace Combat {
 					if(PlayerData.PlayerDataRoot.instance.campaignProgression.value<newCampaignProgression)
 						PlayerData.PlayerDataRoot.instance.campaignProgression.value=newCampaignProgression;
 
+					bool characterNew=false;
 					int rewardCharacterId = levelData.rewardCharacter.value;
+
 					if(rewardCharacterId>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value==-1) {
 						PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value=0;
+						characterNew=true;
 					}
 					foreach(var i in friendlyList) {
 						int id = i.id;
@@ -112,7 +115,7 @@ namespace Combat {
 							} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
 						}
 					}
-					CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,levelData.rewardCharacter.value);
+					CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,characterNew?levelData.rewardCharacter.value:-1);
 				}
 
 			}

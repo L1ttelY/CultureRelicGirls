@@ -194,6 +194,9 @@ MonoBehaviour:
   <maxPredictSpeed>k__BackingField: 6
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
+  soundAttack: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
+  soundHit: {fileID: 8300000, guid: 830da8d6af293004097b0b93142f5d4d, type: 3}
+  soundDeath: {fileID: 8300000, guid: 038e34d7a70ed4845b6e9a64414d2753, type: 3}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
@@ -212,7 +215,7 @@ Animator:
   m_GameObject: {fileID: 8447825321245819325}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 89318b7fa983a3f4482bfb9595fe25c8, type: 2}
+  m_Controller: {fileID: 22100000, guid: 24a1ed66d100df641868ef4d02973a2f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

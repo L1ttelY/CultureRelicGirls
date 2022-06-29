@@ -41,7 +41,6 @@ namespace Museum {
 		}
 		bool CharacterFilter(int id) {
 			var saveData = PlayerData.PlayerDataRoot.instance.characterDatas[id];
-			Debug.Log($"id : {id} , level : {saveData.level.value}");
 
 			if(saveData.level.value<1) return false;
 			if(saveData.healStatus.value!=0) return false;

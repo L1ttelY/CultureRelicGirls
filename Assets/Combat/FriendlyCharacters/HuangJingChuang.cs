@@ -6,6 +6,8 @@ namespace Combat {
 
 	public class HuangJingChuang:EntityFriendly {
 
+		[SerializeField] AudioClip skillSound;
+
 		public float buffDamage = 10.0f;
 		public float buffTime;
 		public GameObject attPre;
@@ -21,6 +23,7 @@ namespace Combat {
 				times=buffTime;
 				addDamage=buffDamage;
 				isAnima=3;
+				AudioController.PlayAudio(skillSound,transform.position);
 			}
 
 			return base.Attack(target);

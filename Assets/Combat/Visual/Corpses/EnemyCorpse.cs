@@ -30,9 +30,14 @@ namespace Combat {
 		[SerializeField] float friction = 3;
 		[SerializeField] float lifetime = 35;
 
+		const float fallSpeed = 5;
+
 		void Update() {
 
-			transform.position-=(Vector3)Direction.GetVector(direction)*speed*Time.deltaTime;
+			Vector3 deltaPosition = -(Vector3)Direction.GetVector(direction)*speed*Time.deltaTime;
+			if(transform.position.y>Time.deltaTime*fallSpeed) deltaPosition+=Vector3.down*Time.deltaTime*fallSpeed;
+			else deltaPosition.y=-transform.position.y;
+			transform.position+=deltaPosition;
 			speed=Mathf.Max(0,speed-friction*Time.deltaTime);
 
 			time+=Time.deltaTime;

@@ -6,6 +6,7 @@ namespace Combat {
 
 	public class CreateVfxOnHorizon:MonoBehaviour {
 
+		[SerializeField] AudioClip soundActivation;
 		[SerializeField] GameObject vfxPrefab;
 		bool used;
 
@@ -15,9 +16,12 @@ namespace Combat {
 
 		private void Update() {
 
-			if(!used&&transform.position.y<=0) {
+			if(!used&&transform.position.y<=-0.5f) {
 				used=true;
-				VfxPool.Create(vfxPrefab,transform.position,Direction.right);
+				Vector3 position = transform.position;
+				position.y=-0.5f;
+				AudioController.PlayAudio(soundActivation,transform.position);
+				VfxPool.Create(vfxPrefab,position,Direction.right);
 			}
 
 		}

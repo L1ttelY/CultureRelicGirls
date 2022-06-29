@@ -58,8 +58,7 @@ namespace Combat {
 			if(position.x<EntityFriendly.rightestX+attackRangeMax) targetVelocity=Vector2.zero;
 			if(position.x<EntityFriendly.rightestX+attackRangeMin) targetVelocity=-Vector2.left*speedBuff*maxSpeed;
 
-
-			float deltaSpeed = acceleration*speedBuff*Time.deltaTime;
+			float deltaSpeed = acceleration*((speedBuff+1)*0.5f)*Time.deltaTime;
 			velocity=Vector2.MoveTowards(velocity,targetVelocity,deltaSpeed);
 
 			position+=velocity*Time.deltaTime;

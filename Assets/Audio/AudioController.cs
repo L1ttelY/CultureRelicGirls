@@ -16,7 +16,7 @@ public partial class AudioController:MonoBehaviour {
 
 	private void OnEnable() {
 		audioSource=GetComponent<AudioSource>();
-		audioSource.PlayOneShot(activeClip);
+		if(activeClip!=null) audioSource.PlayOneShot(activeClip);
 	}
 
 }
@@ -34,15 +34,15 @@ public partial class AudioController:MonoBehaviour {
 		AudioController newController;
 		if(pool.Count>0) {
 			newController=pool.Pop();
-			newController.gameObject.SetActive(true);
 		} else {
 			newController=Instantiate(prefab,Vector3.zero,Quaternion.identity).GetComponent<AudioController>();
 			DontDestroyOnLoad(newController.gameObject);
+			newController.gameObject.SetActive(false);
 		}
 
 		newController.transform.position=position;
-		newController.gameObject.SetActive(true);
 		newController.activeClip=clip;
+		newController.gameObject.SetActive(true);
 
 	}
 
