@@ -46,8 +46,8 @@ namespace Museum {
 				if(
 					Mathf.Abs(targetArm.transform.position.x-transform.position.x)<1&&
 					targetArm.pathFinder.currentFloor==pathFinder.currentFloor
-				) return transform.position+new Vector3(1,1);
-				return targetArm.transform.position+Vector3.up;
+				) return transform.position;
+				return targetArm.transform.position+Vector3.up+new Vector3(1,1);
 			}
 
 			working=false;
