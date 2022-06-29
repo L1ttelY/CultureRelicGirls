@@ -151,12 +151,13 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  <enemyId>k__BackingField: 1
+  <enemyId>k__BackingField: 4
   wakeUpDistance: 12
   corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
   sentienceMatterReward: 9
   knockbackResistance: 0
   BlockDefine: {fileID: 21300000, guid: 7bee8c62a1d931e44ab6d0bb664c544a, type: 3}
+  TankDefine: {fileID: 21300000, guid: 3cc63ecf638b3e846be1a7f2370d15ba, type: 3}
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ namespace PlayerData {
 			for(int i = 0;i<20;i++) characterDatas[i]=new CharacterData("character"+i,this);
 
 			buildingDatas=new BuildingData[30];
-			for(int i = 0;i<20;i++) buildingDatas[i]=new BuildingData("building"+i,this);
+			for(int i = 0;i<30;i++) buildingDatas[i]=new BuildingData("building"+i,this);
 
 			storyStatus=new DataInt[30];
 			for(int i = 0;i<30;i++) storyStatus[i]=new DataInt($"story{i}",this);
