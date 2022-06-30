@@ -8,7 +8,7 @@ namespace Combat {
 
 
 
-		int buffNumber = 1;
+		int buffNumber = 0;
 		public float addAttactPerBuff = 6.0f;
 		string[] area = { "Europen","America","Asia" };
 		public GameObject attPre;
@@ -19,21 +19,33 @@ namespace Combat {
 			base.Start();
 			EntityBase.UpdateStats+=EntityBase_UpdateStats;
 
-			for(int j = 0;j<3;j++) {
-				foreach(var i in entities) {
-					if(i is EntityFriendly&&i.tag==area[j]) {
-						buffNumber+=1;
-						Debug.Log(area[j]);
-						break;
+
+		}
+
+		bool inited;
+		protected override void Update() {
+			base.Update();
+
+			if(!inited) {
+				for(int j = 0;j<3;j++) {
+					foreach(var i in friendlyList) {
+						Debug.Log($"{name} : {area[j]} -> {i.gameObject.tag}");
+						if(i.gameObject.tag==area[j]) {
+							buffNumber+=1;
+							break;
+						}
 					}
 				}
+				Debug.Log(buffNumber);
+
+				if(buffNumber>0) {
+					AudioController.PlayAudio(buffSound,transform.position);
+					GameObject a = Instantiate(attPre,this.transform.position,Quaternion.identity);
+					a.transform.parent=this.transform;//减速特效
+
+				}
+				inited=true;
 			}
-
-			AudioController.PlayAudio(buffSound,transform.position);
-
-			GameObject a = Instantiate(attPre,this.transform.position,Quaternion.identity);
-			a.transform.parent=this.transform;//减速特效
-
 		}
 
 		protected override void OnDestroy() {
@@ -47,7 +59,9 @@ namespace Combat {
 
 			//准备相应
 			//注意用+= 不要用*=或=
-			sender.powerBuff+=(buffNumber*addAttactPerBuff)/sender.attackBasePower;
+			if(buffNumber==1) sender.powerBuff+=0.05f;
+			else if(buffNumber==2) sender.powerBuff+=0.25f;
+
 		}
 	}
 

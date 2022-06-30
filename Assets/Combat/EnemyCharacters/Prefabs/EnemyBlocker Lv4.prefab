@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 10
   <maxSpeed>k__BackingField: 4
-  <attackBasePower>k__BackingField: 30
+  <attackBasePower>k__BackingField: 40
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1.2
   <maxHp>k__BackingField: 850
@@ -147,9 +147,9 @@ MonoBehaviour:
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
-  soundAttack: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
-  soundHit: {fileID: 8300000, guid: 8a7bf03a736d82e449942742a9af223d, type: 3}
-  soundDeath: {fileID: 8300000, guid: a7b8025ad86c6c541b964eb29818fbb4, type: 3}
+  soundAttack: {fileID: 0}
+  soundHit: {fileID: 0}
+  soundDeath: {fileID: 0}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
