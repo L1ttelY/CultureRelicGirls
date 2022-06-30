@@ -12,9 +12,10 @@ namespace Combat {
 		int AttackTimes = 0;
 		float time = 0;
 		float desireAttackBuff;
+		float desiredCdRateBuff;
 		float[] animaTime;
 		protected override ProjectileBase Attack(EntityBase target) {
-			if(AttackTimes==0||AttackTimes==5) time=BuffTime;
+			time=BuffTime;
 			AudioController.PlayAudio(soundSkill,transform.position);
 			AttackTimes=Mathf.Clamp(AttackTimes+1,0,5);
 			return base.Attack(target);
@@ -33,6 +34,7 @@ namespace Combat {
 				}
 				//倒计时没结束，上buff
 				desireAttackBuff=((float)AttackTimes*AddAttackPerBuff)/attackBasePower;
+				desiredCdRateBuff=AttackTimes*0.1f;
 			}
 		}
 
@@ -53,6 +55,7 @@ namespace Combat {
 			//准备相应
 			//注意用+= 不要用*=或=
 			powerBuff+=desireAttackBuff;
+			cdSpeed+=desiredCdRateBuff;
 			GetComponentInChildren<ShuangTouSheSkill>().buff=AttackTimes;
 
 		}

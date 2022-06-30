@@ -208,7 +208,7 @@ namespace Combat {
 		//让角色自行判断是否攻击
 		protected virtual void UpdateAttack() {
 
-			timeAfterAttack+=Time.deltaTime;
+			timeAfterAttack+=Time.deltaTime*cdSpeed;
 
 			//找到敌人
 			EntityBase target = null;
@@ -280,7 +280,11 @@ namespace Combat {
 
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*travelTime[projectileType];
 
-			if(travelTime[projectileType]==0) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY;
+			if(travelTime[projectileType]==0) {
+				Debug.Log("velocity : "+(target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY);
+
+				return (target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY;
+			}
 			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
 			return new Vector2(velocityX,projectileVelocityY);
 
