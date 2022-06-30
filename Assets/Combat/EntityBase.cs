@@ -75,7 +75,7 @@ namespace Combat {
 
 		//对角色造成伤害
 		public virtual void Damage(DamageModel e) { //受到伤害
-			AudioController.PlayAudio(soundHit,transform.position);
+			if(e.amount>0) AudioController.PlayAudio(soundHit,transform.position);
 
 			hp-=e.amount;
 			StartKnockback(e.knockback,e.direction);
@@ -149,8 +149,8 @@ namespace Combat {
 
 			if(currensState==StateMove) {
 				distanceMoved+=Time.deltaTime*Mathf.Abs(velocity.x);
-				if(distanceMoved>1.5f) {
-					distanceMoved-=1;
+				if(distanceMoved>2.5f) {
+					distanceMoved-=2.5f;
 					AudioClip soundToPlay = CombatController.instance.walkSounds[Random.Range(0,2)];
 					AudioController.PlayAudio(soundToPlay,transform.position);
 				}
@@ -168,7 +168,7 @@ namespace Combat {
 			transform.position=position;
 		}
 
-		protected Void currensState;
+		public Void currensState { get; protected set; }
 
 		protected virtual void StartMove() {
 			currensState=StateMove;
