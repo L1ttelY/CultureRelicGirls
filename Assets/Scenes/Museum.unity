@@ -1978,7 +1978,7 @@ GameObject:
   - component: {fileID: 456588131}
   m_Layer: 0
   m_Name: 2F Upstairs
-  m_TagString: BuildingOfFloor1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9012,8 +9012,16 @@ PrefabInstance:
       value: -4.241
       objectReference: {fileID: 0}
     - target: {fileID: 1550797007566567746, guid: 065e44f5a22c4ed42ac4668df140521f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550797007566567746, guid: 065e44f5a22c4ed42ac4668df140521f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550797007566567747, guid: 065e44f5a22c4ed42ac4668df140521f, type: 3}
+      propertyPath: <rightX>k__BackingField
+      value: 6.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 065e44f5a22c4ed42ac4668df140521f, type: 3}
@@ -9152,11 +9160,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3429566531510263504, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54.600098
+      value: -54.600037
       objectReference: {fileID: 0}
     - target: {fileID: 3565843153494670671, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -85.19995
+      value: -85.20001
       objectReference: {fileID: 0}
     - target: {fileID: 4971001045604504336, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Pivot.x
@@ -9252,7 +9260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4971001045694963128, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -776.999
+      value: -776.9991
       objectReference: {fileID: 0}
     - target: {fileID: 4971001046816807536, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
