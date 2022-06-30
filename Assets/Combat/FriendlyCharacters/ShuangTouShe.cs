@@ -15,7 +15,7 @@ namespace Combat {
 		float desiredCdRateBuff;
 		float[] animaTime;
 		protected override ProjectileBase Attack(EntityBase target) {
-			time=BuffTime;
+			if(AttackTimes==0||AttackTimes==5) time=BuffTime;
 			AudioController.PlayAudio(soundSkill,transform.position);
 			AttackTimes=Mathf.Clamp(AttackTimes+1,0,5);
 			return base.Attack(target);
@@ -32,6 +32,7 @@ namespace Combat {
 					AttackTimes-=1;
 					time=BuffTime;
 				}
+
 				//倒计时没结束，上buff
 				desireAttackBuff=((float)AttackTimes*AddAttackPerBuff)/attackBasePower;
 				desiredCdRateBuff=AttackTimes*0.1f;

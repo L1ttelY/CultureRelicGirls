@@ -94151,18 +94151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6066830030485937408, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.00030517578
-      objectReference: {fileID: 0}
-    - target: {fileID: 7109215315509530288, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
-      propertyPath: hideUI
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8806760924378135469, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.40283203
-      objectReference: {fileID: 0}
     - target: {fileID: 8806760926367801970, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_Name
       value: 'UI '
@@ -94251,6 +94239,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806760926367801975, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
 --- !u!1 &2089385787
