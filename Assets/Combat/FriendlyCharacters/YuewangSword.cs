@@ -28,7 +28,7 @@ namespace Combat {
 				this.GetComponentInChildren<YueWangSkill>().skillStates=0;
 			}
 			if(hpPerentage<=0.5f) {
-				desiredPowerBuff+=0.75f;
+				desiredPowerBuff+=0.25f;
 				this.GetComponentInChildren<YueWangSkill>().skillStates=1;
 			}
 
