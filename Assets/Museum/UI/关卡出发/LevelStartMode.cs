@@ -6,6 +6,7 @@ using UnityEngine.UI;
 namespace Museum {
 
 	public class LevelStartMode:UIModeBase {
+		[SerializeField] GameObject goButton;
 
 		[SerializeField] Text infoText;
 		int levelId;
@@ -52,12 +53,25 @@ namespace Museum {
 		}
 
 		public void OnStartClick() {
+			bool hasCharacter = false;
+			foreach(var item in chosenCharacters) {
+				if(item!=-1) hasCharacter=true;
+			}
+			if(!hasCharacter) return;
 			Combat.CombatController.StartCombat(chosenCharacters,targetLevelPath,levelId);
 		}
 
 		void CharacterSelectionCallback(int characterId) {
 			chosenCharacters[lastClickIndex]=characterId;
 			UIController.instance.SwitchUIMode(this);
+		}
+
+		private void Update() {
+			bool hasCharacter = false;
+			foreach(var item in chosenCharacters) {
+				if(item!=-1) hasCharacter=true;
+			}
+			goButton.SetActive(hasCharacter);
 		}
 
 	}
