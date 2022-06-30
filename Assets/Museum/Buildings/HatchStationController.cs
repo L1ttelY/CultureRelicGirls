@@ -52,7 +52,7 @@ namespace Museum {
 				if(hatchCountDown==null) {
 					hatchCountDown=CountDownController.instance.CreateCountDown();
 				}
-				hatchCountDown.boundObject.transform.position=contentSprite.transform.position+Vector3.up*0.3f;
+				hatchCountDown.boundObject.transform.position=contentSprite.transform.position+Vector3.up*0.5f;
 				hatchCountDown.progressionImage.fillAmount=saveData.extraProgression.progressionAmount;
 				hatchCountDown.textField.text=saveData.extraProgression.TimeLeftText();
 			} else {

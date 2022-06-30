@@ -62,7 +62,6 @@ namespace Combat {
 			if(positionInTeam==0) playerControlled=this;
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
-			Debug.Log($"pos : {positionInTeam}");
 			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
 		}
 

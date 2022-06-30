@@ -11,7 +11,6 @@ public class ButtonSound:MonoBehaviour {
 		Button[] buttons = Resources.FindObjectsOfTypeAll<Button>();
 
 		foreach(var i in buttons) {
-			Debug.Log(i.name);
 			i.onClick.AddListener(PlaySound);
 		}
 		instance=this;

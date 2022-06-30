@@ -36,9 +36,9 @@ namespace Combat {
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
 
-		[SerializeField] AudioClip soundAttack;
-		[SerializeField] AudioClip soundHit;
-		[SerializeField] AudioClip soundDeath;
+		[SerializeField] protected AudioClip soundAttack;
+		[SerializeField] protected AudioClip soundHit;
+		[SerializeField] protected AudioClip soundDeath;
 
 		//获取当前角色正常攻击的参数
 		protected virtual DamageModel GetDamage() {
@@ -141,6 +141,11 @@ namespace Combat {
 				if(previousPosition.x>CombatController.endX) previousPosition.x=CombatController.endX;
 				transform.position+=Vector3.right*(CombatController.endX-transform.position.x);
 			}
+
+			if(currensState==StateMove&&timeAfterAttack>attackCd) {
+				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
+			}
+
 		}
 
 		//移动相关
@@ -203,7 +208,7 @@ namespace Combat {
 		//让角色自行判断是否攻击
 		protected virtual void UpdateAttack() {
 
-			timeAfterAttack+=Time.deltaTime;
+			timeAfterAttack+=Time.deltaTime*cdSpeed;
 
 			//找到敌人
 			EntityBase target = null;
@@ -275,7 +280,11 @@ namespace Combat {
 
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*travelTime[projectileType];
 
-			if(travelTime[projectileType]==0) return (target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY;
+			if(travelTime[projectileType]==0) {
+				Debug.Log("velocity : "+(target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY);
+
+				return (target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY;
+			}
 			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
 			return new Vector2(velocityX,projectileVelocityY);
 

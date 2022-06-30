@@ -41,12 +41,14 @@ namespace Combat {
 			}
 		}
 
+		[SerializeField] AudioClip soundSkill;
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
 			coolTime+=Time.deltaTime;
 			if(isSkill) {
 				duringSkill-=Time.deltaTime;
 				if(duringSkill<=0) {
+					AudioController.PlayAudio(soundSkill,transform.position);
 					isSkill=false;
 					foreach(var i in entities) {
 						if(i is EntityEnemy&&(i.transform.position.x-this.transform.position.x<12)) {

@@ -8,6 +8,8 @@ namespace Combat
 	public class HuangJingChuang : EntityFriendly
 	{
 
+		[SerializeField] AudioClip skillSound;
+
 		public float buffDamage = 10.0f;
 		public float buffTime;
 		public GameObject attPre;
@@ -15,15 +17,15 @@ namespace Combat
 		float times;
 		int AttackTimes = 0;
 		int isAnima = 0;
-		protected override ProjectileBase Attack(EntityBase target) //当攻击时：
-		{
-		
-			AttackTimes += 1;
-			if (AttackTimes % 2 == 0) //每两下攻击刷新一次buff
-			{
-				times = buffTime;
-				addDamage = buffDamage; 
-				isAnima = 3;
+		protected override ProjectileBase Attack(EntityBase target) {//当攻击时：
+
+			AttackTimes+=1;
+			if(AttackTimes%2==0) {
+				//每两下攻击刷新一次buff
+				times=buffTime;
+				addDamage=buffDamage;
+				isAnima=3;
+				AudioController.PlayAudio(skillSound,transform.position);
 			}
 
 			return base.Attack(target);
