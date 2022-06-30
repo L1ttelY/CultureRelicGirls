@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6962fe57c353c824b83922db1311feed, type: 3}
-  m_Name: library
+  m_Name: "\u610F\u8BC6\u6676\u4F53\u63D0\u53D6\u5668"
   m_EditorClassIdentifier: 
   levels:
   - levelUpCostMaterial: 50
     levelUpHour: 0
-    levelUpMinute: 5
-    <description>k__BackingField: "\u653E\u4E2A\u4E66\u67B6\uFF0C\u8BA9\u6587\u7269\u4EEC\u53EF\u4EE5\u81EA\u6211\u63D0\u5347\uFF01"
+    levelUpMinute: 0
+    <description>k__BackingField: "\u4EA7\u751F\u5927\u91CF\u610F\u8BC6\u6676\u4F53\u7684\u795E\u5947\u690D\u7269"
     <levelUpMessage>k__BackingField: 
   - levelUpCostMaterial: 100
     levelUpHour: 0
     levelUpMinute: 15
-    <description>k__BackingField: "\u5229\u7528\u4E66\u67B6\u6587\u7269\u4EEC\u53EF\u4EE5\u81EA\u6211\u63D0\u5347\u2026\u2026"
-    <levelUpMessage>k__BackingField: "\u6211\u4EEC\u9700\u8981\u4E00\u4E2A\u6C99\u53D1"
+    <description>k__BackingField: "\u53EF\u4EE5\u4EA7\u751F\u610F\u8BC6\u6676\u4F53\u7684\u795E\u5947\u690D\u7269\u5E7C\u82D7"
+    <levelUpMessage>k__BackingField: "\u597D\u597D\u7167\u987E\uFF0C\u4F1A\u957F\u5F97\u66F4\u5FEB"
   - levelUpCostMaterial: 150
     levelUpHour: 0
     levelUpMinute: 30
-    <description>k__BackingField: "\u56FE\u4E66\u9986\u73B0\u5728\u53EF\u4EE5\u5BB9\u7EB3\u66F4\u591A\u4EBA\u5566"
-    <levelUpMessage>k__BackingField: "\u5E94\u8BE5\u518D\u591A\u4E9B\u4E66\uFF0C\u5377\u554A\uFF01"
+    <description>k__BackingField: "\u4EA7\u751F\u66F4\u591A\u610F\u8BC6\u6676\u4F53\u7684\u795E\u5947\u690D\u682A"
+    <levelUpMessage>k__BackingField: "\u597D\u597D\u7167\u987E\uFF0C\u4F1A\u957F\u5F97\u66F4\u5FEB"
   - levelUpCostMaterial: 0
     levelUpHour: 0
     levelUpMinute: 0
-    <description>k__BackingField: "\u52AA\u529B\u5B66\u4E60\u7684\u6587\u7269\u624D\u662F\u597D\u6587\u7269"
+    <description>k__BackingField: "\u4EA7\u751F\u5927\u91CF\u610F\u8BC6\u6676\u4F53\u7684\u795E\u5947\u690D\u7269"
     <levelUpMessage>k__BackingField: 
   <maxLevel>k__BackingField: 3
