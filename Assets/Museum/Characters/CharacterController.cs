@@ -121,7 +121,7 @@ namespace Museum {
 					slotToken=LibraryController.instance.GetSlot();
 					break;
 				case PlayerData.CharacterData.levelUpCost:
-					slotToken=ResearchStationController.instance.GetStaticSlot();
+					slotToken=ResearchStationController.instance.GetSlot();
 					break;
 				}
 			}

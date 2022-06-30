@@ -53,6 +53,8 @@ namespace Museum {
 			foreach(var i in slotOccupied) if(i) occupiedCount++;
 			if(occupiedCount>=saveData.level.value) return false;
 
+			Debug.Log($"name {name} , occ {occupiedCount} , level {saveData.level.value}");
+
 			for(int i = 0;i<slots.Length;i++) {
 				if(!slotOccupied[i]) return true;
 			}
