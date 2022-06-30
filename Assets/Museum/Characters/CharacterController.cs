@@ -10,6 +10,8 @@ namespace Museum {
 
 		[field: SerializeField] public int characterIndex { get; private set; }
 		[field: SerializeField] public CharacterData staticData { get; private set; }
+		[SerializeField] AudioClip soundLevelUp;
+		[SerializeField] AudioClip soundHealUp;
 		protected PlayerData.CharacterData saveData;
 		protected PathFinder pathFinder;
 		BuildingWithCharacterInteractionBase.SlotToken slotToken;
@@ -135,6 +137,7 @@ namespace Museum {
 			if(currentLevelUpStatus!=0&&saveData.levelUpProgression.completion) {
 				currentLevelUpStatus=0;
 				currentLevel++;
+				AudioController.PlayAudio(soundLevelUp,transform.position);
 			}
 			if(currentHealStatus==PlayerData.CharacterData.healTime&&saveData.healProgression.completion) StopHealTime();
 			if(currentHealStatus==PlayerData.CharacterData.healCost&&pathFinder.arrived) FinishHealCost();
@@ -271,12 +274,14 @@ namespace Museum {
 			float healProgression = saveData.healProgression.progressionAmount;
 			saveData.healthAmount=healProgression;
 			currentHealStatus=0;
+			AudioController.PlayAudio(soundHealUp,transform.position);
 		}
 
 		void FinishHealCost() {
 			PlayerData.PlayerDataRoot.smCount-=HealCost();
 			saveData.healthAmount=1;
 			currentHealStatus=0;
+			AudioController.PlayAudio(soundHealUp,transform.position);
 		}
 
 	}

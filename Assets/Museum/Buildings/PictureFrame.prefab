@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c7935894d5bed41be9328d7d7670ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useSprite0OnNegativeLevel: 0
   sprites:
   - {fileID: 21300000, guid: ec1382536de54114bb0a33e2184670f6, type: 3}
   - {fileID: 21300000, guid: daf35d80d7877c14dad1d8179a87d459, type: 3}
@@ -177,6 +178,7 @@ MonoBehaviour:
   <id>k__BackingField: 5
   <buildingData>k__BackingField: {fileID: 11400000, guid: 7cf8a5826f3b07b41a9af363266fb6ab, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 0a1f57566e324444a9c5fc5823c68380, type: 2}
+  soundLevelUp: {fileID: 8300000, guid: e3f6e097a5b908946956b3865a31943f, type: 3}
   targetImage: {fileID: 1065215643327339176}
 --- !u!1 &4358466590971390396
 GameObject:
