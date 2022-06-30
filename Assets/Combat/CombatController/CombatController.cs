@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Combat {
 	public partial class CombatController:MonoBehaviour {
 
+		public AudioClip[] walkSounds;
+
 		public GameObject[] enemyPrefabs;
 		EntityEnemy[] enemies;
 
