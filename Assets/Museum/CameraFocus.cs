@@ -22,7 +22,7 @@ namespace Museum {
 		Vector2 pressPosition;
 		bool pressed;
 		private void Update() {
-			if(Input.GetMouseButtonDown(0)) {
+			if(Input.GetMouseButtonDown(0)&&(UIController.currentMode is EmptyMode)) {
 				pressPosition=Input.mousePosition;
 				Vector2 physicalPosition = Camera.main.ScreenToWorldPoint(pressPosition);
 				pressed=clickArea.OverlapPoint(physicalPosition);

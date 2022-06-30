@@ -86,9 +86,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511159334d17a0941be510707f6e6ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSounds: []
   enemyPrefabs:
   - {fileID: 7471668723036389886, guid: 189c151e299f69c45a34d44171dae313, type: 3}
   - {fileID: 7471668723036389886, guid: fb7b5608b7ab55747960e27425cce1b9, type: 3}
   - {fileID: 7471668723036389886, guid: fb7b5608b7ab55747960e27425cce1b9, type: 3}
   rewardSm: 0
   rewardPm: 0
+  soundVictory: {fileID: 8300000, guid: 039cd614f83dac047a58c9e5641d3c55, type: 3}
+  soundFail: {fileID: 8300000, guid: ea794964c18f28941b1bf54c520827e6, type: 3}
+  forceEnd: 0
