@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Combat {
 	public partial class CombatController:MonoBehaviour {
 
+		public AudioClip[] walkSounds;
+
 		public GameObject[] enemyPrefabs;
 		EntityEnemy[] enemies;
 
@@ -49,6 +51,8 @@ namespace Combat {
 
 		[HideInInspector] public int rewardSm;
 		[HideInInspector] public int rewardPm;
+		[SerializeField] AudioClip soundVictory;
+		[SerializeField] AudioClip soundFail;
 
 		private void FixedUpdate() {
 			UpdateEndGame();
@@ -76,6 +80,7 @@ namespace Combat {
 				endStart=true;
 
 				if(endTime>timeToEnd) {
+					AudioController.PlayAudio(soundFail,Camera.main.transform.position);
 					gameEnd=true;
 					PlayerData.PlayerDataRoot.smCount+=rewardSm;
 					CombatRewardUIController.instance.EnterMode(false,rewardSm,0,-1);
@@ -98,6 +103,7 @@ namespace Combat {
 				endStart=true;
 
 				if(endTime>timeToEnd) {
+					AudioController.PlayAudio(soundVictory,Camera.main.transform.position);
 
 					gameEnd=true;
 					rewardSm+=levelData.rewardSm.value;

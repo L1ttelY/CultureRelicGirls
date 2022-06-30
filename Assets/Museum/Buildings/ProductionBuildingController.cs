@@ -13,6 +13,8 @@ namespace Museum {
 
 		[SerializeField] SpriteRenderer displaySpriteRenderer;
 
+		[SerializeField] AudioClip soundCahsIn;
+
 		DataInt targetData;
 
 		System.TimeSpan FullProductionTime(int level) {
@@ -22,12 +24,15 @@ namespace Museum {
 
 		public override void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
-			if(saveData.extraProgression.progressionAmount>0.1f&&saveData.extraStatus.value>0) {
+			int gainAmount = Mathf.FloorToInt(saveData.extraProgression.progressionAmount*capacity[saveData.level.value]);
+			if(gainAmount>0&&saveData.extraStatus.value>0) {
 
 				targetData.value+=Mathf.FloorToInt(saveData.extraProgression.progressionAmount*capacity[saveData.level.value]);
 				saveData.extraProgression.SetProgression(FullProductionTime(saveData.level.value),0);
 				cancelFocus.doCancel=true;
 				spriteRenderer.material=normalMaterial;
+
+				AudioController.PlayAudio(soundCahsIn,transform.position);
 
 			} else base.OnClick(cancelFocus);
 		}

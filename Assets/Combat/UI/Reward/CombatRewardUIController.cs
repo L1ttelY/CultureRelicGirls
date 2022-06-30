@@ -16,6 +16,7 @@ namespace Combat {
 		[SerializeField] Text rewardPmDisplay;
 		[SerializeField] Text rewardCharacterText;
 		[SerializeField] AnimationCurve popUpCurve;
+		[SerializeField] AudioClip soundNewCharacter;
 
 		public static CombatRewardUIController instance { get; private set; }
 
@@ -35,7 +36,7 @@ namespace Combat {
 
 				if(!usePopup) SceneManager.LoadScene("Museum");
 				else {
-					Debug.Log("!!!");
+					AudioController.PlayAudio(soundNewCharacter,Camera.main.transform.position);
 					rewardCharacterText.text=$"已获得文物\n{CharacterData.datas[rewardCharacterIndex].name}";
 					GameObject popUpObject = rewardCharacterBig.transform.parent.gameObject;
 					popUpObject.SetActive(true);

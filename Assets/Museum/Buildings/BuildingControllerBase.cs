@@ -22,6 +22,8 @@ namespace Museum {
 		protected Material normalMaterial;
 		[SerializeField] protected Material highlightMaterial;
 
+		[SerializeField] AudioClip soundLevelUp;
+
 		public PlayerData.BuildingData saveData { get; private set; }
 
 		protected virtual void Start() {
@@ -63,7 +65,7 @@ namespace Museum {
 		}
 
 		protected virtual void LevelUpFinish() {
-
+			AudioController.PlayAudio(soundLevelUp,transform.position);
 		}
 
 		public virtual bool CanLevelUp() {

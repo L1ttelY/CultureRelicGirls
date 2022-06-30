@@ -16,6 +16,7 @@ namespace Museum {
 		}
 
 		protected override void LevelUpFinish() {
+			base.LevelUpFinish();
 			GameObject[] buildingsToUnlock = GameObject.FindGameObjectsWithTag($"BuildingOfFloor{floorIndex}");
 
 			foreach(var i in buildingsToUnlock) {

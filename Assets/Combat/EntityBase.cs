@@ -128,6 +128,7 @@ namespace Combat {
 
 		}
 
+		float distanceMoved;
 		protected virtual void FixedUpdate() {
 			OnUpdateStats();
 			currensState();
@@ -144,6 +145,15 @@ namespace Combat {
 
 			if(currensState==StateMove&&timeAfterAttack>attackCd) {
 				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
+			}
+
+			if(currensState==StateMove) {
+				distanceMoved+=Time.deltaTime*Mathf.Abs(velocity.x);
+				if(distanceMoved>1.5f) {
+					distanceMoved-=1;
+					AudioClip soundToPlay = CombatController.instance.walkSounds[Random.Range(0,2)];
+					AudioController.PlayAudio(soundToPlay,transform.position);
+				}
 			}
 
 		}

@@ -312,7 +312,7 @@ MonoBehaviour:
   <projectiles>k__BackingField:
   - {fileID: 7842778750022487663, guid: a80a33ff3e8ec2641b7116e29889d0b3, type: 3}
   <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 3
+  <attackRangeMax>k__BackingField: 4
   <projectileVelocityY>k__BackingField: 0
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -325,6 +325,7 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 1
+  soundSkill: {fileID: 0}
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0
