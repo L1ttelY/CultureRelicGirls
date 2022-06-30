@@ -49,7 +49,10 @@ namespace Museum {
 			healTimeButton.color=targetController.CanHealTime() ? Color.white : new Color(0.4f,0.4f,0.4f);
 
 			levelDisplay.level=targetLevel;
-			description.text=targetStaticData.descriptionShort;
+			description.text=
+				$"{targetStaticData.descriptionShort}\n"+
+				$"血量 : {Mathf.FloorToInt(targetSaveData.healthAmount*targetStaticData.levels[targetLevel].hpMax)}/{targetStaticData.levels[targetLevel].hpMax}\n"+
+				$"力量 : {targetStaticData.levels[targetLevel].power}";
 
 		}
 
@@ -108,7 +111,7 @@ namespace Museum {
 			string message =
 				$"是否消耗{h}时{m}分\n"+
 				$"将{targetStaticData.name}完全修复?\n"+
-				$"修复过程中无法出战, 可以随时中断";
+				$"修复过程中无法出战";
 			ConfirmationMode.EnterMode(message,() => { targetController.GoHealTime(); CameraController.instance.SetFocus(null); },BackTothisMode);
 		}
 

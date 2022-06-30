@@ -68,7 +68,7 @@ namespace Combat {
 				int currentPower = Mathf.RoundToInt(target.attackBasePower*target.powerBuff);
 				if(previousPower!=currentPower) {
 					previousPower=currentPower;
-					powerText.text="ATK:"+currentPower;
+					powerText.text="Á¦Á¿:"+currentPower;
 				}
 
 				float cooldownAmount = target.timeAfterAttack/target.attackCd;
