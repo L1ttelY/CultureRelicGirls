@@ -23,6 +23,7 @@ namespace Museum {
 
 		protected override void UpdateAnimator() {
 			if(working) animator.SetBool("isWorking",working&&pathFinder.arrived);
+			else animator.SetBool("isWorking",false);
 			base.UpdateAnimator();
 		}
 
@@ -39,6 +40,8 @@ namespace Museum {
 						break;
 					}
 				}
+			} else {
+				if(targetArm.targetBuilding==null) targetArm=null;
 			}
 
 			if(saveData.healStatus.value==0&&saveData.levelUpStatus.value==0&&targetArm!=null) {
@@ -49,7 +52,7 @@ namespace Museum {
 				) return transform.position;
 				return targetArm.transform.position+Vector3.up+new Vector3(1,1);
 			}
-
+			Debug.Log("?");
 			working=false;
 			return base.GetTargetPosition();
 		}
