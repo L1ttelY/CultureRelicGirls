@@ -55,6 +55,8 @@ namespace Combat {
 			UpdateActivateEnemy();
 		}
 
+		public bool forceEnd;
+
 		int ticks;
 		bool gameEnd;
 		float endTime;
@@ -69,7 +71,7 @@ namespace Combat {
 			if(gameEnd) return;
 			if(endStart) endTime+=Time.deltaTime;
 
-			if(!GetComponentInChildren<EntityFriendly>(true)) {
+			if(forceEnd||!GetComponentInChildren<EntityFriendly>(true)) {
 				//Ê§°Ü
 				endStart=true;
 
@@ -77,10 +79,18 @@ namespace Combat {
 					gameEnd=true;
 					PlayerData.PlayerDataRoot.smCount+=rewardSm;
 					CombatRewardUIController.instance.EnterMode(false,rewardSm,0,-1);
+
 					foreach(var i in friendlyList) {
 						int id = i.id;
-						if(i.prefab!=null&&id>0) PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+						if(i.prefab!=null&&id>-1) {
+
+							if(i.instance) {
+								float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
+								PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=hpAmount;
+							} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+						}
 					}
+
 				}
 
 			} else if(!GetComponentInChildren<EntityEnemy>(true)) {
@@ -98,7 +108,7 @@ namespace Combat {
 					if(PlayerData.PlayerDataRoot.instance.campaignProgression.value<newCampaignProgression)
 						PlayerData.PlayerDataRoot.instance.campaignProgression.value=newCampaignProgression;
 
-					bool characterNew=false;
+					bool characterNew = false;
 					int rewardCharacterId = levelData.rewardCharacter.value;
 
 					if(rewardCharacterId>0&&PlayerData.PlayerDataRoot.instance.characterDatas[rewardCharacterId].level.value==-1) {
@@ -107,7 +117,7 @@ namespace Combat {
 					}
 					foreach(var i in friendlyList) {
 						int id = i.id;
-						if(i.prefab!=null&&id>0) {
+						if(i.prefab!=null&&id>-1) {
 
 							if(i.instance) {
 								float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
@@ -115,7 +125,7 @@ namespace Combat {
 							} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
 						}
 					}
-					CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,characterNew?levelData.rewardCharacter.value:-1);
+					CombatRewardUIController.instance.EnterMode(true,rewardSm,rewardPm,characterNew ? levelData.rewardCharacter.value : -1);
 				}
 
 			}
@@ -139,6 +149,19 @@ namespace Combat {
 
 				i.gameObject.SetActive(true);
 
+			}
+		}
+
+		private void OnApplicationQuit() {
+			foreach(var i in friendlyList) {
+				int id = i.id;
+				if(i.prefab!=null&&id>-1) {
+
+					if(i.instance) {
+						float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
+						PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=hpAmount;
+					} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
+				}
 			}
 		}
 

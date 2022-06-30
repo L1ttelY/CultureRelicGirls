@@ -8,6 +8,7 @@ namespace Combat {
 
 	public class UIController:MonoBehaviour {
 		[SerializeField] bool hideUI;
+		[SerializeField] GameObject pauseMenu;
 		void Start() {
 			GetComponentInChildren<CombatRewardUIController>(true).Init();
 		}
@@ -19,5 +20,30 @@ namespace Combat {
 			}
 		}
 
+		bool paused;
+		public void PauseClick() {
+			paused=true;
+		}
+		public void ResumeClick() {
+			paused=false;
+		}
+		public void QuitClick() {
+			CombatController.instance.forceEnd=true;
+			paused=false;
+		}
+
+		private void Update() {
+
+			if(paused) {
+				pauseMenu.SetActive(true);
+				Time.timeScale=0;
+			} else {
+				pauseMenu.SetActive(false);
+				Time.timeScale=1;
+			}
+
+		}
+
 	}
+
 }
