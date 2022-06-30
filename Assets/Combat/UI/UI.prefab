@@ -1182,7 +1182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7747008799595229975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2239,7 +2239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBound: {fileID: 8806760925472130537}
   rightBound: {fileID: 8806760925676485613}
-  resetSpeed: 10
+  resetSpeed: 1000
 --- !u!1 &8806760925359043761
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,10 +8,8 @@ public static class FileManager {
 
 	static string SAPath {
 		get {
-#if UNITY_ANDROID
-			return "jar:file://"+Application.dataPath+"!/assets";
-#endif
-			return Application.streamingAssetsPath;
+			if(Application.platform==RuntimePlatform.Android) return "jar:file://"+Application.dataPath+"!/assets";
+			else return Application.streamingAssetsPath;
 		}
 	}
 

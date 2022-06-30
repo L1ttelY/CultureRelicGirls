@@ -68,10 +68,57 @@ namespace Museum {
 					camera.orthographicSize=cameraSize;
 					transform.position=cameraPosition;
 
+					if(
+						Application.platform==RuntimePlatform.WindowsPlayer||
+						Application.platform==RuntimePlatform.OSXPlayer||
+						Application.platform==RuntimePlatform.WindowsEditor||
+						Application.platform==RuntimePlatform.OSXEditor
+					)
+						UpdateDesktopCamera();
+
 				}
 
 			}
 		}
+
+		bool draggingMouse;
+		Vector2 originalPositionMouse;
+		void UpdateDesktopCamera() {
+			Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+			//drag	
+
+			if(!Input.GetMouseButton(0)) {
+				draggingMouse=false;
+
+				const float moveSpeed = 15;
+				if(Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow)) cameraPosition+=moveSpeed*Vector2.up*Time.deltaTime;
+				if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)) cameraPosition+=moveSpeed*Vector2.left*Time.deltaTime;
+				if(Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow)) cameraPosition+=moveSpeed*Vector2.down*Time.deltaTime;
+				if(Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow)) cameraPosition+=moveSpeed*Vector2.right*Time.deltaTime;
+
+			} else {
+
+				Debug.Log(mousePosition);
+
+				if(!draggingMouse) {
+					draggingMouse=true;
+					originalPositionMouse=mousePosition;
+				} else {
+					cameraPosition-=mousePosition-originalPositionMouse;
+				}
+
+			}
+
+			//resize
+			const float scaleSpeed = -0.1f;
+			float resizeFactor = 1+Input.mouseScrollDelta.y*scaleSpeed;
+			Vector2 vectorToMouse = mousePosition-cameraPosition;
+			vectorToMouse*=resizeFactor;
+			cameraPosition=mousePosition-vectorToMouse;
+			cameraSize*=resizeFactor;
+
+		}
+
 
 		bool dragging;
 		Vector2 originalPosition;
