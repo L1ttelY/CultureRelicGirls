@@ -98,11 +98,17 @@ namespace Combat {
 				endStart=true;
 
 				if(endTime>timeToEnd) {
+
 					gameEnd=true;
 					rewardSm+=levelData.rewardSm.value;
 					rewardPm+=levelData.rewardPm.value;
 					PlayerData.PlayerDataRoot.smCount+=rewardSm;
 					PlayerData.PlayerDataRoot.pmCount+=rewardPm;
+
+					if(levelId>=0) {
+						var targetData = PlayerData.PlayerDataRoot.instance.storyStatus[levelId+2];
+						if(targetData.value<1) targetData.value=1;
+					}
 
 					int newCampaignProgression = levelId+1;
 					if(PlayerData.PlayerDataRoot.instance.campaignProgression.value<newCampaignProgression)
