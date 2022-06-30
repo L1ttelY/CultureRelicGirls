@@ -1786,6 +1786,7 @@ MonoBehaviour:
   capacity: 00000000300000005400000078000000
   targetSentienceMatter: 0
   displaySpriteRenderer: {fileID: 765863366}
+  soundCahsIn: {fileID: 8300000, guid: b0758262f57b2894398f236d154e0cea, type: 3}
 --- !u!61 &413035421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7247,6 +7248,7 @@ MonoBehaviour:
   capacity: 000000003c0000006000000084000000
   targetSentienceMatter: 1
   displaySpriteRenderer: {fileID: 818017500}
+  soundCahsIn: {fileID: 8300000, guid: b0758262f57b2894398f236d154e0cea, type: 3}
 --- !u!1001 &1818745246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9158,6 +9160,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1937007114}
     m_Modifications:
+    - target: {fileID: 3429566531510263504, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565843153494670671, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85.19995
+      objectReference: {fileID: 0}
     - target: {fileID: 4971001045604504336, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9249,6 +9259,14 @@ PrefabInstance:
     - target: {fileID: 4971001045604504348, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971001045694963128, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -776.999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971001046816807536, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54.599976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
