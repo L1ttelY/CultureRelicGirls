@@ -21031,9 +21031,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7294599481122470988, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
+      propertyPath: walkSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294599481122470988, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
       propertyPath: enemyPrefabs.Array.size
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 7294599481122470988, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
+      propertyPath: walkSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b699daa54e402d4d8c4e0dd894ec527, type: 3}
+    - target: {fileID: 7294599481122470988, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
+      propertyPath: walkSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba0d78fb55e834145bdd6da765361ece, type: 3}
     - target: {fileID: 7294599481122470988, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
       propertyPath: enemyPrefabs.Array.data[1]
       value: 
