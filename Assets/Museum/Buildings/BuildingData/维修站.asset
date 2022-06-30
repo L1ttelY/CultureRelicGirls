@@ -10,9 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6962fe57c353c824b83922db1311feed, type: 3}
-  m_Name: "\u7EF4\u4FEE\u6218"
+  m_Name: "\u7EF4\u4FEE\u7AD9"
   m_EditorClassIdentifier: 
   levels:
+  - levelUpCostMaterial: 0
+    levelUpHour: 0
+    levelUpMinute: 0
+    <description>k__BackingField: "\u6700\u9AD8\u5F62\u6001\u7684\u4FEE\u590D\u53F0\uFF0C\u53EF\u4EE5\u66F4\u5FEB\u7684\u4FEE\u590D\u6587\u7269"
+    <levelUpMessage>k__BackingField: max
   - levelUpCostMaterial: 100
     levelUpHour: 0
     levelUpMinute: 10
