@@ -3388,7 +3388,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1646aeb33f9c05542bd91e8f13638760, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 029a329d3eb6e9f44a952ccd0cae2bbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3417,8 +3417,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 029a329d3eb6e9f44a952ccd0cae2bbb, type: 3}
   - {fileID: 21300000, guid: 7115b12cb50973e4ebedcd158832b2e0, type: 3}
   - {fileID: 21300000, guid: 1646aeb33f9c05542bd91e8f13638760, type: 3}
-  buildingId: 15
-  overrideLevel: 3
+  buildingId: 16
+  overrideLevel: 1
 --- !u!1 &881303915
 GameObject:
   m_ObjectHideFlags: 0
@@ -7264,7 +7264,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 37888873dc99a3a45ac0e814d3ddd076, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 078a0958edbdf384fa43b323ec892443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7294,7 +7294,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0321ead48b9bc9947b3441d4c535f872, type: 3}
   - {fileID: 21300000, guid: 37888873dc99a3a45ac0e814d3ddd076, type: 3}
   buildingId: 16
-  overrideLevel: 3
+  overrideLevel: 1
 --- !u!61 &1751360632
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7311,8 +7311,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3818182, y: 1.8909091}
+    pivot: {x: 0.43, y: 0.65}
+    oldSize: {x: 1.0909091, y: 1.3090909}
     newSize: {x: 1.3818182, y: 1.8909091}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

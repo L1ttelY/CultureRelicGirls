@@ -46,8 +46,10 @@ namespace Museum {
 				return;
 			}
 
-			string levelPath = $"{Application.streamingAssetsPath}/Level{levelId}.xml";
-			LevelStartMode.EnterMode(levelPath,levelId);
+
+
+			string levelName = $"Level{levelId}.xml";
+			LevelStartMode.EnterMode(true,levelName,levelId);
 
 		}
 

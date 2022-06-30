@@ -20,14 +20,18 @@ namespace Museum {
 		}
 
 		public int[] chosenCharacters = new int[3];
-		string targetLevelPath;
+		string targetLevelName;
 		PlayerData.LevelData levelData = new PlayerData.LevelData();
+		bool loadLevelFromSA;
 
-		public static void EnterMode(string targetLevelPath,int levelId) { instance._EnterMode(targetLevelPath,levelId); }
-		void _EnterMode(string targetLevelPath,int levelId) {
+		public static void EnterMode(bool loadLevelFromSA,string targetLevelName,int levelId) {
+			instance._EnterMode(loadLevelFromSA,targetLevelName,levelId);
+		}
+		void _EnterMode(bool loadLevelFromSA,string targetLevelName,int levelId) {
+			this.loadLevelFromSA=loadLevelFromSA;
 			for(int i = 0;i<3;i++) chosenCharacters[i]=-1;
-			this.targetLevelPath=targetLevelPath;
-			levelData.LoadFile(targetLevelPath);
+			this.targetLevelName=targetLevelName;
+			levelData.LoadFile(loadLevelFromSA,targetLevelName);
 			infoText.text=
 				$"{levelData.levelName.value}\n"+
 				$"{levelData.enemyCount.value}¸öµÐÈË";
@@ -58,7 +62,7 @@ namespace Museum {
 				if(item!=-1) hasCharacter=true;
 			}
 			if(!hasCharacter) return;
-			Combat.CombatController.StartCombat(chosenCharacters,targetLevelPath,levelId);
+			Combat.CombatController.StartCombat(loadLevelFromSA,chosenCharacters,targetLevelName,levelId);
 		}
 
 		void CharacterSelectionCallback(int characterId) {

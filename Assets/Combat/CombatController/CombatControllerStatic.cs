@@ -23,7 +23,7 @@ namespace Combat {
 		public static PlayerData.LevelData levelData = new PlayerData.LevelData();
 		public static int levelId { get; private set; }
 
-		public static void StartCombat(int[] friendlyIds,string levelPath,int levelId) {
+		public static void StartCombat(bool isSA,int[] friendlyIds,string levelName,int levelId) {
 			for(int i = 0;i<3;i++) {
 				int id = friendlyIds[i];
 				if(id>=0) {
@@ -47,7 +47,7 @@ namespace Combat {
 				}
 			}
 
-			levelData.LoadFile(levelPath);
+			levelData.LoadFile(isSA,levelName);
 			string sceneName = levelData.sceneName.value;
 			SceneManager.LoadScene(sceneName);
 

@@ -16,15 +16,18 @@ namespace PlayerData {
 		const string fileName = "save.xml";
 		public static bool loaded { get; private set; }
 
-		public static WXFileSystemManager fileSystem;
 		[RuntimeInitializeOnLoadMethod]
 		static void Init() {
 
+
 			//÷±Ω”∂¡»°¥Êµµ
 			string serialized = "";
-			if(File.Exists(EditorPath)) serialized=File.ReadAllText(EditorPath);
-			else serialized=File.ReadAllText(InitialPath);
+			if(File.Exists(SavePath)) serialized=File.ReadAllText(SavePath);
+			else serialized=FileManager.ReadSA(fileName);
+			//else serialized=Resources.Load<Museum.StoryData>("initial save").text;
+
 			SerializedToMemory(serialized);
+
 			SaveGame();
 
 		}
@@ -32,8 +35,8 @@ namespace PlayerData {
 
 		static public void SaveGame() {
 			string save = MemoryToSerialized();
-			if(!File.Exists(EditorPath)) File.Create(EditorPath).Dispose();
-			File.WriteAllText(EditorPath,MemoryToSerialized());
+			if(!File.Exists(SavePath)) File.Create(SavePath).Dispose();
+			File.WriteAllText(SavePath,MemoryToSerialized());
 		}
 
 		static void SerializedToMemory(string data) {
@@ -49,17 +52,8 @@ namespace PlayerData {
 			return xml.InnerXml;
 		}
 
-		static string EditorPath { get { return Application.dataPath+"/"+fileName; } }
-		static string InitialPath { get { return Application.streamingAssetsPath+"/"+fileName; } }
+		static string SavePath => FileManager.activeDataPath+"/"+fileName;
 
-
-
-		static void SDKInited(int _) {
-			fileSystem=WX.GetFileSystemManager();
-			string serialized = WX.StorageGetStringSync(fileName,"");
-			SerializedToMemory(serialized);
-			SaveGame();
-		}
 	}
 
 }

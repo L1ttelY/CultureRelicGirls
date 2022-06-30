@@ -8,9 +8,14 @@ namespace PlayerData {
 
 	public class LevelData:DataBase {
 
-		public void LoadFile(string path) {
+		public void LoadFile(bool isSA,string fileName) {
 			string data = "";
-			if(File.Exists(path)) data=File.ReadAllText(path);
+			if(isSA) {
+				data=FileManager.ReadSA(fileName);
+			} else {
+				string path = FileManager.activeDataPath+"/"+fileName;
+				if(File.Exists(path)) data=File.ReadAllText(path);
+			}
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);
 			Load(xml.DocumentElement);
@@ -51,7 +56,7 @@ namespace PlayerData {
 		public DataInt rewardSm;
 		public DataInt rewardPm;
 		public DataInt rewardCharacter;
-		
+
 		public DataFloat startX;
 		public DataFloat endX;
 
