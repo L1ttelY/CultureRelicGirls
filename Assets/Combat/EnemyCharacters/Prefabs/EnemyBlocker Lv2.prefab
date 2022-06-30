@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 10
   <maxSpeed>k__BackingField: 4
-  <attackBasePower>k__BackingField: 25
+  <attackBasePower>k__BackingField: 30
   <attackCd>k__BackingField: 1
   <knockbackPower>k__BackingField: 1.2
   <maxHp>k__BackingField: 600
@@ -147,6 +147,9 @@ MonoBehaviour:
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
+  soundAttack: {fileID: 0}
+  soundHit: {fileID: 0}
+  soundDeath: {fileID: 0}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
@@ -157,6 +160,7 @@ MonoBehaviour:
   sentienceMatterReward: 7
   knockbackResistance: 0.8
   BlockDefine: {fileID: 0}
+  TankDefine: {fileID: 0}
 --- !u!61 &7471668723036389882
 BoxCollider2D:
   m_ObjectHideFlags: 0

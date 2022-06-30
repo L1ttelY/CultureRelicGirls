@@ -214,13 +214,16 @@ MonoBehaviour:
   <maxPredictSpeed>k__BackingField: 5
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
+  soundAttack: {fileID: 0}
+  soundHit: {fileID: 0}
+  soundDeath: {fileID: 0}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
   positionInTeam: 2
   <stars>k__BackingField: {fileID: 7842778750022487663, guid: 35038a97c8cc68b4f95bc2d612f472f4, type: 3}
-  SkillDamage: 20
+  SkillDamage: 30
   skillTime: 1.2
   Height: 15
 --- !u!1001 &723077633398494575
