@@ -234,7 +234,7 @@ namespace Museum {
 				return false;
 			}
 			if(PlayerData.PlayerDataRoot.smCount<HealCost()) {
-				messageBuffer="意识晶体不足";
+				messageBuffer=$"意识晶体不足\n需要{HealCost()}点意识晶体";
 				return false;
 			}
 			return true;

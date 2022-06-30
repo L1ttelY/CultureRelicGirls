@@ -72,7 +72,10 @@ namespace Museum {
 			int currentLevel = saveData.level.value;
 			PlayerData.PlayerDataRoot playerData = PlayerData.PlayerDataRoot.instance;
 			if(saveData.level.value>=buildingData.maxLevel) { messageBuffer="建筑等级已满"; return false; }
-			if(playerData.printingMaterial.value<buildingData.levels[currentLevel].levelUpCostMaterial) { messageBuffer="碳材料不足"; return false; }
+			if(playerData.printingMaterial.value<buildingData.levels[currentLevel].levelUpCostMaterial) {
+				messageBuffer=$"碳材料不足\n需要{buildingData.levels[currentLevel].levelUpCostMaterial}点碳材料";
+				return false;
+			}
 			if(levelUpCount>=BuilderController.instance.levelUpMax) { messageBuffer="没有可用的3D打印臂"; return false; }
 			if(saveData.levelUpStatus.value!=0) { messageBuffer="正在升级中"; return false; }
 			return true;
@@ -94,7 +97,7 @@ namespace Museum {
 
 		public virtual void OnClick(CameraFocus.CancelFocus cancelFocus) {
 
-			if(saveData.level.value<0){
+			if(saveData.level.value<0) {
 				cancelFocus.doCancel=true;
 				return;
 			}
