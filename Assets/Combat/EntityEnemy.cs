@@ -32,6 +32,9 @@ namespace Combat {
 				EntityFriendly other = hit.collider.GetComponent<EntityFriendly>();
 				if(other) {
 					DamageModel damage = GetDamage();
+
+					if(other.currensState==StateKnockback) damage.amount=0;
+
 					damage.direction=Direction.left;
 					other.Damage(damage);
 				}
