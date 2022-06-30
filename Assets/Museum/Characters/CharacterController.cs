@@ -169,7 +169,7 @@ namespace Museum {
 
 		public System.TimeSpan HealTime() {
 			System.TimeSpan totalTime = new System.TimeSpan((long)(System.TimeSpan.TicksPerSecond*staticData.levels[currentLevel].hpMax*staticData.healTimPerHpInSecond));
-			return totalTime*saveData.healthAmount;
+			return totalTime*(1-saveData.healthAmount);
 		}
 		public int HealCost() {
 			return Mathf.CeilToInt(staticData.healCostPerHp*staticData.levels[currentLevel].hpMax);

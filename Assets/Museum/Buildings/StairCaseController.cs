@@ -15,6 +15,18 @@ namespace Museum {
 			if(saveData.level.value>0) floorUnlocked[floorIndex]=true;
 		}
 
+		protected override void Start() {
+			base.Start();
+			if(saveData.level.value>0) {
+				GameObject[] buildingsToUnlock = GameObject.FindGameObjectsWithTag($"BuildingOfFloor{floorIndex}");
+				foreach(var i in buildingsToUnlock) {
+					int targetId = i.GetComponent<BuildingControllerBase>().id;
+					if(PlayerData.PlayerDataRoot.instance.buildingDatas[targetId].level.value<0)
+						PlayerData.PlayerDataRoot.instance.buildingDatas[targetId].level.value=0;
+				}
+			}
+		}
+
 		protected override void LevelUpFinish() {
 			base.LevelUpFinish();
 			GameObject[] buildingsToUnlock = GameObject.FindGameObjectsWithTag($"BuildingOfFloor{floorIndex}");

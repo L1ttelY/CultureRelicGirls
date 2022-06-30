@@ -1980,7 +1980,7 @@ GameObject:
   - component: {fileID: 456588131}
   m_Layer: 0
   m_Name: 2F Upstairs
-  m_TagString: Untagged
+  m_TagString: BuildingOfFloor1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2918,6 +2918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 692068144}
   - component: {fileID: 692068145}
+  - component: {fileID: 692068146}
   m_Layer: 0
   m_Name: f3_railing
   m_TagString: Untagged
@@ -2981,7 +2982,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5081f3d5aa0bd624ba56f8de872f3243, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2989,9 +2990,27 @@ SpriteRenderer:
   m_Size: {x: 1.75, y: 0.390625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &692068146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692068143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c7935894d5bed41be9328d7d7670ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSprite0OnNegativeLevel: 0
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 5081f3d5aa0bd624ba56f8de872f3243, type: 3}
+  buildingId: 1
+  overrideLevel: 0
 --- !u!1001 &695001750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4673,7 +4692,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: b3e82058dfb3d9a44bbdff3d881c3a7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae13fc039f9ca094cab98cb8b707452a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4700,8 +4719,8 @@ BoxCollider2D:
   m_Offset: {x: -0.03401661, y: -0.20100796}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.3333333, y: 2.25}
+    pivot: {x: 0.5, y: 0.55}
+    oldSize: {x: 3.3333333, y: 2.0833333}
     newSize: {x: 2.4166667, y: 1.3333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4752,6 +4771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSprite0OnNegativeLevel: 0
   sprites:
+  - {fileID: 0}
   - {fileID: 21300000, guid: 48b71ddb2cdf45c42951ca3487fd8ad1, type: 3}
   - {fileID: 21300000, guid: ae13fc039f9ca094cab98cb8b707452a, type: 3}
   - {fileID: 21300000, guid: b3e82058dfb3d9a44bbdff3d881c3a7e, type: 3}
@@ -4851,6 +4871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1079979993}
   - component: {fileID: 1079979994}
+  - component: {fileID: 1079979995}
   m_Layer: 0
   m_Name: chair
   m_TagString: Untagged
@@ -4914,7 +4935,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 374f4900312f3074e8b83f6cada3acdd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4922,9 +4943,27 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 0.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1079979995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079979992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c7935894d5bed41be9328d7d7670ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSprite0OnNegativeLevel: 0
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 374f4900312f3074e8b83f6cada3acdd, type: 3}
+  buildingId: 2
+  overrideLevel: 0
 --- !u!1 &1107612510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,7 +5299,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 74f20e81fb42b08438098ae145fa92e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8171,6 +8210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1982622395}
   - component: {fileID: 1982622396}
+  - component: {fileID: 1982622397}
   m_Layer: 0
   m_Name: f3_railing
   m_TagString: Untagged
@@ -8234,7 +8274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 5081f3d5aa0bd624ba56f8de872f3243, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8242,9 +8282,27 @@ SpriteRenderer:
   m_Size: {x: 1.75, y: 0.390625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1982622397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982622394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c7935894d5bed41be9328d7d7670ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSprite0OnNegativeLevel: 0
+  sprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 5081f3d5aa0bd624ba56f8de872f3243, type: 3}
+  buildingId: 2
+  overrideLevel: 0
 --- !u!1001 &1985369893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8577,6 +8635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSprite0OnNegativeLevel: 0
   sprites:
+  - {fileID: 0}
   - {fileID: 21300000, guid: e20815130095cd040ba7db5934e98d30, type: 3}
   - {fileID: 21300000, guid: 296ab5ef29360b24f93663b362d51dd5, type: 3}
   - {fileID: 21300000, guid: 7c4245e597954b94db44732bdaeccd1d, type: 3}
@@ -8623,7 +8682,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7c4245e597954b94db44732bdaeccd1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 296ab5ef29360b24f93663b362d51dd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9312,7 +9371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3565843153494670671, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -85.20001
+      value: -85.19995
       objectReference: {fileID: 0}
     - target: {fileID: 4971001045604504336, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_Pivot.x
@@ -9408,11 +9467,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4971001045694963128, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -776.9991
+      value: -776.999
       objectReference: {fileID: 0}
     - target: {fileID: 4971001046816807536, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -54.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971001046872482401, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 480.99994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971001047472323398, guid: 4028971827e7e874693594b61fb24ccc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 478.4001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4028971827e7e874693594b61fb24ccc, type: 3}

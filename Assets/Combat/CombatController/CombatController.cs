@@ -114,6 +114,8 @@ namespace Combat {
 					if(levelId>=0) {
 						var targetData = PlayerData.PlayerDataRoot.instance.storyStatus[levelId+2];
 						if(targetData.value<1) targetData.value=1;
+						targetData=PlayerData.PlayerDataRoot.instance.storyStatus[1];
+						if(targetData.value<1) targetData.value=1;
 					}
 
 					int newCampaignProgression = levelId+1;
