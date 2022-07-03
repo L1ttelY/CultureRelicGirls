@@ -28,10 +28,11 @@ public static class FileManager {
 
 	public static string activeDataPath {
 		get {
-#if UNITY_ANDROID
-			return Application.persistentDataPath;
-#endif
-			return Application.dataPath;
+			if(Application.isMobilePlatform) {
+				if(Application.isEditor) return Application.dataPath;
+				else return Application.persistentDataPath;
+			} else return Application.dataPath;
+
 		}
 	}
 

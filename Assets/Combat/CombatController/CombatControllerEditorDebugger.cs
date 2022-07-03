@@ -34,7 +34,7 @@ namespace Combat {
 		[ContextMenuItem("加载关卡布置","LoadFile")]
 		[SerializeField] int 右键我来进行其他操作;
 
-		string filePath { get { return $"{Application.dataPath}/StreamingAssets/{文件名}.xml"; } }
+		string fileName { get { return $"{文件名}.xml"; } }
 
 		void SaveFile() {
 
@@ -56,12 +56,12 @@ namespace Combat {
 			}
 			levelData.enemyCount.value=enemies.Length;
 
-			levelData.SaveFile(filePath);
+			levelData.SaveFile(Application.streamingAssetsPath+"/"+fileName);
 		}
 
 		void LoadFile() {
 
-			levelData.LoadFile(true,filePath);
+			levelData.LoadFile(true,fileName);
 
 			场景名=levelData.sceneName.value;
 			关卡名=levelData.levelName.value;
@@ -96,7 +96,7 @@ namespace Combat {
 
 			for(int i = 0;i<3;i++) CombatController.friendlyList[i]=友方角色信息[i];
 			SaveFile();
-			CombatController.levelData.LoadFile(true,filePath);
+			CombatController.levelData.LoadFile(true,fileName);
 
 		}
 
