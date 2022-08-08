@@ -7,6 +7,9 @@ namespace Combat {
 
 	public class Player:MonoBehaviour {
 
+		public static event Void ChargeEvent;
+		public static event Void ActionSkillEvent;
+
 		[SerializeField] Transform leftBound;
 		[SerializeField] Transform rightBound;
 		[SerializeField] float resetSpeed = 2000;
@@ -34,6 +37,9 @@ namespace Combat {
 		int touchId = -1;
 
 		void Update() {
+
+			if(timeAfterDash<dashCd) timeAfterDash+=Time.deltaTime;
+
 			leftX=leftBound.transform.position.x;
 			rightX=rightBound.transform.position.x;
 
@@ -117,6 +123,27 @@ namespace Combat {
 
 		}
 
+		public int chargeDirection { get; private set; }
+		public void ButtonClick() {
+			Debug.Log(targetVelocity);
+			if(Mathf.Abs(targetVelocity)>0.98f) {
+				if(timeAfterDash>=dashCd) {
+					chargeDirection=(int)Mathf.Sign(targetVelocity);
+					ChargeEvent?.Invoke();
+					timeAfterDash=0;
+				}
+			} else ActionSkillEvent?.Invoke();
+		}
+
+		float timeAfterDash;
+		[SerializeField] float dashCd = 10;
+
+		public float dashCdProgress {
+			get { return timeAfterDash/dashCd; }
+		}
+		public float skillCdProgress {
+			get { return 0.5f; }
+		}
 
 	}
 

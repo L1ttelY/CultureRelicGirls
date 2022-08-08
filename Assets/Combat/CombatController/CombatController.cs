@@ -40,12 +40,15 @@ namespace Combat {
 		}
 		public void LoadAllFriendlies() {
 			for(int i = 0;i<3;i++) {
-				if(friendlyList[i].prefab==null) continue;
+				if(friendlyList[i].characterData==null||friendlyList[i].characterData.combatPrefab==null) continue;
 				CharacterParameters param = friendlyList[i];
-				EntityFriendly newFriendly = Instantiate(param.prefab,transform).GetComponent<EntityFriendly>();
+				EntityFriendly newFriendly = Instantiate(param.characterData.combatPrefab,transform).GetComponent<EntityFriendly>();
 				friendlyList[i].instance=newFriendly;
 				newFriendly.transform.position=new Vector3(levelData.startX.value+(3f-i),0,0);
-				newFriendly.InitStats(param.hp,param.power,i,friendlyList[i].hpAmount);
+
+				int useLevel = param.use.level;
+				CharacterLevelData characterLevelData = param.characterData.levels[useLevel];
+				newFriendly.InitStats(characterLevelData.hpMax,characterLevelData.power,i);
 			}
 		}
 
@@ -87,7 +90,7 @@ namespace Combat {
 
 					foreach(var i in friendlyList) {
 						int id = i.id;
-						if(i.prefab!=null&&id>-1) {
+						if(i.characterData&&i.characterData.combatPrefab!=null&&id>-1) {
 
 							if(i.instance) {
 								float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
@@ -131,7 +134,7 @@ namespace Combat {
 					}
 					foreach(var i in friendlyList) {
 						int id = i.id;
-						if(i.prefab!=null&&id>-1) {
+						if(i.characterData&&i.characterData.combatPrefab!=null&&id>-1) {
 
 							if(i.instance) {
 								float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
@@ -163,19 +166,6 @@ namespace Combat {
 
 				i.gameObject.SetActive(true);
 
-			}
-		}
-
-		private void OnApplicationQuit() {
-			foreach(var i in friendlyList) {
-				int id = i.id;
-				if(i.prefab!=null&&id>-1) {
-
-					if(i.instance) {
-						float hpAmount = (float)i.instance.hp/(float)i.instance.maxHp;
-						PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=hpAmount;
-					} else PlayerData.PlayerDataRoot.instance.characterDatas[id].healthAmount=0;
-				}
 			}
 		}
 

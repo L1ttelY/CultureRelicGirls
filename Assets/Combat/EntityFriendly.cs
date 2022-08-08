@@ -6,6 +6,9 @@ namespace Combat {
 
 	public class EntityFriendly:EntityBase {
 
+		public void SetUse(CharacterUseModel use) { this.use=use; }
+		CharacterUseModel use;
+
 		//static update
 		[RuntimeInitializeOnLoadMethod]
 		static void SubscribeStaticEvents() {
@@ -30,7 +33,7 @@ namespace Combat {
 				}
 			}
 
-			if(!friendlyLeft){
+			if(!friendlyLeft) {
 				leftestX=originalLeftest;
 				rightestX=originalRightest;
 			}
@@ -42,14 +45,13 @@ namespace Combat {
 
 		[SerializeField] public int positionInTeam;
 
-		public void InitStats(int hp,int power,int positionInTeam,float hpAmount) {
+		public void InitStats(int hp,int power,int positionInTeam) {
 			maxHp=hp;
 			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
 			attackBasePower=power;
 			this.positionInTeam=positionInTeam;
-			this.hpAmount=hpAmount;
 		}
-		float hpAmount=1;
+		float hpAmount = 1;
 
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
@@ -63,6 +65,22 @@ namespace Combat {
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
+
+			Player.ActionSkillEvent+=Player_ActionSkillEvent;
+			Player.ChargeEvent+=Player_ChargeEvent;
+		}
+
+		protected override void OnDestroy() {
+			base.OnDestroy();
+			Player.ActionSkillEvent-=Player_ActionSkillEvent;
+			Player.ChargeEvent-=Player_ChargeEvent;
+		}
+
+		private void Player_ChargeEvent() {
+			ChargeStart();
+		}
+		private void Player_ActionSkillEvent() {
+			if(use.useActionSkill) ActionSkillUse();
 		}
 
 		protected override void StateMove() {
@@ -75,11 +93,11 @@ namespace Combat {
 
 			Vector2 position = previousPosition; //位置
 
-			float targetVelocity; 
+			float targetVelocity;
 			float deltaSpeed = buffedAcceleration*Time.deltaTime; //单位时间速度
 
-			int previousIndex=-1;
-			EntityFriendly previousEntity=null;
+			int previousIndex = -1;
+			EntityFriendly previousEntity = null;
 			for(int comparisonIndex = positionInTeam-1;comparisonIndex>=0;comparisonIndex--) {
 				if(friendlyList[comparisonIndex]) {
 					previousEntity=friendlyList[comparisonIndex];
@@ -131,6 +149,38 @@ namespace Combat {
 			FriendlyCorpseController.Create(transform,spriteRenderer.sprite);
 
 			Destroy(gameObject);
+		}
+
+		protected virtual void ChargeStart() {
+			StartCharging();
+		}
+		protected virtual void ActionSkillUse() { }
+
+		protected bool isCharging { get { return currensState==StateCharging; } }
+		protected const float chargeTime = 0.3f;
+		protected float timeCharged;
+
+		void StartCharging() {
+			currensState=StateCharging;
+			timeCharged=0;
+		}
+		const float startChargeSpeed = 15;
+		const float endChargeSpeed = 5;
+		void StateCharging() {
+
+			timeCharged+=Time.deltaTime;
+
+			Vector2 position = previousPosition; //位置
+			velocity.y=0;
+			velocity.x=Mathf.Lerp(startChargeSpeed,endChargeSpeed,timeCharged/chargeTime)*Player.instance.chargeDirection;
+
+			position.x+=velocity.x*Time.deltaTime;
+			position.y=0;
+			transform.position=position;
+			previousPosition=position;
+
+			if(timeCharged>chargeTime) StartMove();
+
 		}
 
 	}

@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 namespace Combat {
 
 	[System.Serializable]
+	//描述角色出场时的状态
+	public struct CharacterUseModel {
+		public int level;
+		public bool useActionSkill;
+	}
+
+	[System.Serializable]
 	public class CharacterParameters {
-		public GameObject prefab;
-		public int hp;
-		public int power;
+		public CharacterData characterData;
 		public int id;
-		public float hpAmount;
+		public CharacterUseModel use;
+
 		[HideInInspector] public EntityFriendly instance;
 	}
 
@@ -24,25 +30,25 @@ namespace Combat {
 		public static int levelId { get; private set; }
 
 		public static void StartCombat(bool isSA,int[] friendlyIds,string levelName,int levelId) {
+
+			CombatController.levelId=levelId;
+
 			for(int i = 0;i<3;i++) {
 				int id = friendlyIds[i];
 				if(id>=0) {
 					CharacterData targetData = CharacterData.datas[id];
 					CharacterParameters target = new CharacterParameters();
 					var saveData = PlayerData.PlayerDataRoot.instance.characterDatas[id];
-					int level = saveData.level.value;
 
 					friendlyList[i]=target;
 
-					target.prefab=targetData.combatPrefab;
-					target.hp=targetData.levels[level].hpMax;
-					target.power=targetData.levels[level].power;
+					target.use.level=saveData.level.value;
+					target.characterData=targetData;
 					target.id=id;
-					target.hpAmount=saveData.healthAmount;
-					CombatController.levelId=levelId;
+
 				} else {
 					CharacterParameters target = new CharacterParameters();
-					target.prefab=null;
+					target.characterData=null;
 					friendlyList[i]=target;
 				}
 			}
