@@ -47,11 +47,9 @@ namespace Combat {
 
 		public void InitStats(int hp,int power,int positionInTeam) {
 			maxHp=hp;
-			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
 			attackBasePower=power;
 			this.positionInTeam=positionInTeam;
 		}
-		float hpAmount = 1;
 
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
@@ -64,7 +62,6 @@ namespace Combat {
 			if(positionInTeam==0) playerControlled=this;
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
-			this.hp=Mathf.FloorToInt(maxHp*hpAmount);
 
 			Player.ActionSkillEvent+=Player_ActionSkillEvent;
 			Player.ChargeEvent+=Player_ChargeEvent;

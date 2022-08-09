@@ -36,6 +36,7 @@ namespace Combat {
 					if(other.currensState==StateKnockback) damage.amount=0;
 
 					damage.direction=Direction.left;
+					damage.damageType=DamageType.Contact;
 					other.Damage(damage);
 				}
 			}

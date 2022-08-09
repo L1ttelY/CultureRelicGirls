@@ -4,11 +4,19 @@ using UnityEngine;
 
 namespace Combat {
 
+	public enum DamageType {
+		Ranged,
+		Contact,
+		Slash
+	}
+
 	public struct DamageModel {
-		public int amount;          //攻击力
-		public float knockback;     //击退力
-		public EntityBase dealer;   //造成攻击者
-		public int direction;       //攻击方向, 值的含义参考Direction类
+		public DamageType damageType;          //伤害类型
+		public int amount;                     //攻击力
+		public float knockback;                //击退力
+		public EntityBase dealer;              //造成攻击者
+		public ProjectileBase dealerProjectile;//造成攻击的射弹
+		public int direction;                  //攻击方向, 值的含义参考Direction类
 	}
 
 	public class EntityBase:MonoBehaviour {
@@ -220,6 +228,23 @@ namespace Combat {
 
 			timeAfterAttack+=Time.deltaTime*cdSpeed;
 
+			EntityBase target = GetNearestTarget();
+
+			if(target) {
+				Debug.Log($"Target : {target}");
+				Debug.Log($"CD : {timeAfterAttack} / {attackCd}");
+				direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
+				if(timeAfterAttack>attackCd) {
+
+					Attack(target);
+				}
+			} else {
+				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
+			}
+
+		}
+
+		protected virtual EntityBase GetNearestTarget() {
 			//找到敌人
 			EntityBase target = null;
 			float targetDistance = float.MaxValue;
@@ -236,21 +261,15 @@ namespace Combat {
 					target=i;
 				}
 
-				if(target) {
-					direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
-					if(timeAfterAttack>attackCd) {
-						Attack(target);
-					}
-				} else {
-					direction=(this is EntityFriendly) ? Direction.right : Direction.left;
-				}
-
 			}
-
+			return target;
 		}
 
 		//若要攻击 则执行这个函数判断如何攻击
 		protected virtual ProjectileBase Attack(EntityBase target) {
+
+			Debug.Log("C");
+
 			AudioController.PlayAudio(soundAttack,transform.position);
 
 			int projectileType = Random.Range(0,projectiles.Length);
@@ -302,7 +321,6 @@ namespace Combat {
 		}
 
 	}
-
 
 
 }
