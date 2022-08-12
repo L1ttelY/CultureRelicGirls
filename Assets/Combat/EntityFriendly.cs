@@ -6,8 +6,28 @@ namespace Combat {
 
 	public class EntityFriendly:EntityBase {
 
-		public void SetUse(CharacterUseModel use) { this.use=use; }
-		CharacterUseModel use;
+		//技能冷却相关
+		//主动技能CD长度
+		[SerializeField] protected float skill1Cd;
+		[SerializeField] protected float skill2Cd;
+		protected float skillCd;
+		protected float timeAfterSkill;
+		//主动技能CD完成比例
+		public float skillCdProgress { get { return skillCd/timeAfterSkill; } }
+
+		public virtual void SetUse(CharacterUseModel use) {
+			this.use=use;
+			if(use.actionSkillType!=0) Player.instance.skilledCharacter=this;
+			if(use.actionSkillType==1) skillCd=skill1Cd;
+			else if(use.actionSkillType==2) skillCd=skill2Cd;
+		}
+		
+		protected CharacterUseModel use;
+
+		protected override void Update() {
+			base.Update();
+			timeAfterSkill+=Time.deltaTime;
+		}
 
 		//static update
 		[RuntimeInitializeOnLoadMethod]
@@ -59,7 +79,7 @@ namespace Combat {
 
 		protected override void Start() {
 			base.Start();
-			if(positionInTeam==0) playerControlled=this;
+			if(positionInTeam==0) playerControlled=this;	
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 
@@ -77,7 +97,8 @@ namespace Combat {
 			ChargeStart();
 		}
 		private void Player_ActionSkillEvent() {
-			if(use.useActionSkill) ActionSkillUse();
+			if(use.actionSkillType==1) ActionSkill1();
+			else if(use.actionSkillType==2) ActionSkill2();
 		}
 
 		protected override void StateMove() {
@@ -151,7 +172,8 @@ namespace Combat {
 		protected virtual void ChargeStart() {
 			StartCharging();
 		}
-		protected virtual void ActionSkillUse() { }
+		protected virtual void ActionSkill1() { }
+		protected virtual void ActionSkill2() { }
 
 		protected bool isCharging { get { return currensState==StateCharging; } }
 		protected const float chargeTime = 0.3f;

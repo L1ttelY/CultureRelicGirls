@@ -9,7 +9,7 @@ namespace Combat {
 	//描述角色出场时的状态
 	public struct CharacterUseModel {
 		public int level;
-		public bool useActionSkill;
+		public int actionSkillType;
 	}
 
 	[System.Serializable]

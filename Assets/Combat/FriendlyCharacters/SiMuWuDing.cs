@@ -1,54 +1,130 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Combat {
 
-	public class SiMuWuDing:EntityFriendly {
-		public int antiDamage;
-		public GameObject antiPre;
-		public float animaTime = 0.21f;
-		float times = 0;
-		public override void Damage(DamageModel e) { //Damage函数被调用时，触发此函数
-			base.Damage(e);
-			if(e.amount<=0) return;
+	public class SiMuWuDing:CloseRangeBase {
 
-			//设置返回伤害模型
-			DamageModel returnDamage = GetDamage();
-			returnDamage.amount=antiDamage;
-			returnDamage.knockback=GetDamage().knockback/3;
-			//对敌人照成伤害
-			e.dealer.Damage(returnDamage);
+		[SerializeField] Image energyBar;
+		[SerializeField] SpriteRenderer shield;
 
-			if(times>=animaTime) {
-				VfxPool.Create(antiPre,this.transform.position,Direction.right);
-				times=0;
+		float maxEnergy;
+		bool energyEarnedThisCharge;
+
+		int shieldAmount;
+		int shieldMax {
+			get { return Mathf.RoundToInt(maxEnergy*shieldEfficiency); }
+		}
+		float shieldEfficiency {
+			get { return 1.05f+use.level*0.05f; }
+		}
+
+		float timeAfterPassive = 999;
+		[SerializeField] float passiveCooldown = 20;
+
+		float energy;
+
+		protected override void ChargeStart() {
+			base.ChargeStart();
+			energyEarnedThisCharge=false;
+		}
+
+		protected override void OnChargeHit(EntityEnemy target) {
+			base.OnChargeHit(target);
+			if(!energyEarnedThisCharge) {
+				energyEarnedThisCharge=true;
+				energy+=maxEnergy*((use.level>=8) ? 0.5f : 0.3f);
+			}
+		}
+
+		public override void Damage(DamageModel e) {
+
+			if(shieldAmount>0) {
+				if(shieldAmount>=e.amount) {
+					shieldAmount-=e.amount;
+					return;
+				} else {
+					e.amount-=shieldAmount;
+					shieldAmount=0;
+				}
 			}
 
+			if(isCharging) return;
+
+			//丰收
+			energy+=e.amount;
+
+			//青铜合金
+			if(use.level>=4) {
+				int negation = use.level*5;
+				if(isSkill2Active) negation=Mathf.RoundToInt(negation*(0.2f*use.level-1));//主动技能2
+				e.amount-=negation;
+			}
+			if(e.amount<0) e.amount=0;
+
+			base.Damage(e);
 		}
 
-		protected override void FixedUpdate() {
-			base.FixedUpdate();
-			times+=Time.deltaTime;
+		void HealEffect(float amount) {
+
+			Heal(Mathf.RoundToInt(amount));
+			foreach(var i in friendlyList) {
+				if(i==this) continue;
+				i.Heal(Mathf.RoundToInt(0.5f*amount));
+			}
 		}
 
-		protected override void Start() {
-			base.Start();
-			EntityBase.UpdateStats+=EntityBase_UpdateStats;
-		}
-		protected override void OnDestroy() {
-			EntityBase.UpdateStats-=EntityBase_UpdateStats;
-			base.OnDestroy();
-		}
-		private void EntityBase_UpdateStats(object _sender) {
-			//判断是否响应
-			EntityBase sender = _sender as EntityBase;
-			if(sender!=this) return;
+		protected override void Update() {
+			base.Update();
 
-			//准备相应
-			//注意用+= 不要用*=或=
+			maxEnergy=maxHp*0.3f;
+			energyBar.fillAmount=energy/maxEnergy;
+
+			timeAfterPassive+=Time.deltaTime;
+
+			shield.color=new Color(1,1,1,shieldAmount/shieldMax);
+
+			if(energy>=maxEnergy) {
+				energy=maxEnergy;
+
+				//被动技能 消耗能量恢复血量
+				if(use.actionSkillType!=1&&timeAfterPassive>=passiveCooldown) {
+					timeAfterPassive=0;
+					energy=0;
+					HealEffect(0.75f*maxEnergy);
+				}
+			}
+
+			//主动技能1 护盾结束时恢复血量
+			if(timeAfterSkill>5&&shieldAmount!=0) {
+				HealEffect(0.3f*shieldAmount);
+				shieldAmount=0;
+			}
+
+			//主动技能2
+			if(isSkill2Active) timeAfterPassive=999;
 
 		}
+
+
+		protected override void ActionSkill1() {
+			if(timeAfterSkill<skillCd) return;
+			timeAfterSkill=0;
+			shieldAmount=Mathf.RoundToInt(energy*shieldEfficiency);
+			energy=0;
+		}
+
+		float skill2Duration = 20f;
+
+		bool isSkill2Active { get { return use.actionSkillType==2&&timeAfterSkill<skill2Duration; } }
+		protected override void ActionSkill2() {
+			if(timeAfterSkill<skillCd) return;
+			timeAfterSkill=0;
+		}
+
+
 	}
 
 }

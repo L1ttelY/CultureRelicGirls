@@ -142,8 +142,10 @@ namespace Combat {
 			get { return timeAfterDash/dashCd; }
 		}
 		public float skillCdProgress {
-			get { return 0.5f; }
+			get { return skilledCharacter.skillCdProgress; }
 		}
+			
+		public EntityFriendly skilledCharacter;
 
 	}
 
