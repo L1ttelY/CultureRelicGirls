@@ -28,8 +28,9 @@ namespace Combat {
 		public static float endX { get { return levelData.endX.value; } }
 		public static PlayerData.LevelData levelData = new PlayerData.LevelData();
 		public static int levelId { get; private set; }
+		public static CharmData[] charmDatas;
 
-		public static void StartCombat(bool isSA,int[] friendlyIds,string levelName,int levelId) {
+		public static void StartCombat(bool isSA,int[] friendlyIds,string levelName,int levelId,CharmData[]charms) {
 
 			CombatController.levelId=levelId;
 
@@ -56,6 +57,7 @@ namespace Combat {
 			levelData.LoadFile(isSA,levelName);
 			string sceneName = levelData.sceneName.value;
 			SceneManager.LoadScene(sceneName);
+			charmDatas=charms;
 
 		}
 

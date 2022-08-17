@@ -29,6 +29,7 @@ namespace Combat {
 		[SerializeField] int 意识晶体奖励量;
 		[SerializeField] int 碳材料奖励量;
 		[SerializeField] int 奖励角色ID;
+		[SerializeField] CharmData[] 符文;
 
 		[ContextMenuItem("保存关卡布置","SaveFile")]
 		[ContextMenuItem("加载关卡布置","LoadFile")]
@@ -95,6 +96,7 @@ namespace Combat {
 #endif
 
 			for(int i = 0;i<3;i++) CombatController.friendlyList[i]=友方角色信息[i];
+			CombatController.charmDatas=符文;
 			SaveFile();
 			CombatController.levelData.LoadFile(true,fileName);
 

@@ -24,18 +24,18 @@ namespace Combat {
 
 				RaycastHit2D hit = Utility.raycastBuffer[i];
 				EntityEnemy other = hit.collider.GetComponent<EntityEnemy>();
-				if(other) OnChargeHit(other);
+				if(other) OnChargeHit(other,!other.isKnockbacked);
 			}
 		}
 
-		protected virtual void OnChargeHit(EntityEnemy target) {
+		protected virtual void OnChargeHit(EntityEnemy target,bool actualHit) {
 			DamageModel damage = GetDamage();
-
-			if(target.currensState==StateKnockback) damage.amount=0;
 
 			damage.amount=Mathf.RoundToInt(damage.amount*1.1f);
 			damage.direction=velocity.x>0 ? Direction.right : Direction.left;
 			damage.damageType=DamageType.Contact;
+			damage.knockback=10;
+			if(!actualHit) damage.amount=0;
 			target.Damage(damage);
 		}
 

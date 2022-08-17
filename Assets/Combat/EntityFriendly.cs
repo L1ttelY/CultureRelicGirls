@@ -13,15 +13,20 @@ namespace Combat {
 		protected float skillCd;
 		protected float timeAfterSkill;
 		//主动技能CD完成比例
-		public float skillCdProgress { get { return skillCd/timeAfterSkill; } }
+		public float skillCdProgress { get { return timeAfterSkill/skillCd; } }
 
+		//设置使用方式
+		//设置等级 使用的主动技能
+		//会在游戏开始时调用
+		//希望根据等级和技能设置某些变量的话需要重写
 		public virtual void SetUse(CharacterUseModel use) {
 			this.use=use;
 			if(use.actionSkillType!=0) Player.instance.skilledCharacter=this;
 			if(use.actionSkillType==1) skillCd=skill1Cd;
 			else if(use.actionSkillType==2) skillCd=skill2Cd;
 		}
-		
+
+		//目前的使用方式
 		protected CharacterUseModel use;
 
 		protected override void Update() {
@@ -60,9 +65,11 @@ namespace Combat {
 
 		}
 
+		//最左侧和最右侧的角色位置 用于调整摄像机位置
 		public static float leftestX { get; private set; }
 		public static float rightestX { get; private set; }
 
+		//在队伍中的位置
 		[SerializeField] public int positionInTeam;
 
 		public void InitStats(int hp,int power,int positionInTeam) {
@@ -79,7 +86,7 @@ namespace Combat {
 
 		protected override void Start() {
 			base.Start();
-			if(positionInTeam==0) playerControlled=this;	
+			if(positionInTeam==0) playerControlled=this;
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 
@@ -169,12 +176,16 @@ namespace Combat {
 			Destroy(gameObject);
 		}
 
+		//冲刺开始时调用
 		protected virtual void ChargeStart() {
 			StartCharging();
 		}
+		//使用1级主动时调用
 		protected virtual void ActionSkill1() { }
+		//使用8级主动时调用
 		protected virtual void ActionSkill2() { }
 
+		//判断自身是否在冲刺
 		protected bool isCharging { get { return currensState==StateCharging; } }
 		protected const float chargeTime = 0.3f;
 		protected float timeCharged;

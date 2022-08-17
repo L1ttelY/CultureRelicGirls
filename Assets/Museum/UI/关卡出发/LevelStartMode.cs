@@ -62,7 +62,7 @@ namespace Museum {
 				if(item!=-1) hasCharacter=true;
 			}
 			if(!hasCharacter) return;
-			Combat.CombatController.StartCombat(loadLevelFromSA,chosenCharacters,targetLevelName,levelId);
+			Combat.CombatController.StartCombat(loadLevelFromSA,chosenCharacters,targetLevelName,levelId,new CharmData[0]);
 		}
 
 		void CharacterSelectionCallback(int characterId) {

@@ -24,6 +24,7 @@ namespace Combat {
 
 		protected virtual void UpdateContactDamage() {
 			//Åö×²ÉËº¦
+			if(isKnockbacked) return;
 			int cnt = collider.Cast(Vector2.left,Utility.raycastBuffer,Mathf.Abs(velocity.x)*Time.deltaTime);
 
 			for(int i = 0;i<cnt;i++) {
@@ -33,7 +34,7 @@ namespace Combat {
 				if(other) {
 					DamageModel damage = GetDamage();
 
-					if(other.currensState==StateKnockback) damage.amount=0;
+					if(other.isKnockbacked) damage.amount=0;
 
 					damage.direction=Direction.left;
 					damage.damageType=DamageType.Contact;

@@ -21350,9 +21350,17 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
+      propertyPath: "\u7B26\u6587.Array.size"
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
       propertyPath: "\u78B3\u6750\u6599\u5956\u52B1\u91CF"
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
+      propertyPath: "\u7B26\u6587.Array.data[0]"
+      value: 
+      objectReference: {fileID: 11400000, guid: 477173a737a08fb4181d369e5f599a6a, type: 2}
     - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
       propertyPath: "\u610F\u8BC6\u6676\u4F53\u5956\u52B1\u91CF"
       value: 10
@@ -21423,12 +21431,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
       propertyPath: "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F.Array.data[1].use.level"
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
       propertyPath: "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F.Array.data[1].characterData"
       value: 
       objectReference: {fileID: 11400000, guid: 8ab92d119b925594fbcab7f979716ebd, type: 2}
+    - target: {fileID: 7294599481122470989, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
+      propertyPath: "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F.Array.data[1].use.actionSkillType"
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc073206650ce874886ff834d06b8bc8, type: 3}
 --- !u!1 &464357134

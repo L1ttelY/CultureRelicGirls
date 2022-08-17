@@ -9,6 +9,7 @@ namespace Combat {
 
 		public GameObject[] enemyPrefabs;
 		EntityEnemy[] enemies;
+		CharmBase[] activeCharms;
 
 		private void Start() {
 			if(instance) Debug.LogError("Duplicate");
@@ -17,6 +18,12 @@ namespace Combat {
 			DestroyAllEntities();
 			LoadAllEnemies(levelData);
 			LoadAllFriendlies();
+
+			activeCharms=new CharmBase[charmDatas.Length];
+			for(int i = 0;i<charmDatas.Length;i++) {
+				Debug.Log("I "+i);
+				activeCharms[i]=charmDatas[i].CreateCharm();
+			}
 		}
 
 		public void DestroyAllEntities() {
@@ -43,6 +50,7 @@ namespace Combat {
 				if(friendlyList[i].characterData==null||friendlyList[i].characterData.combatPrefab==null) continue;
 				CharacterParameters param = friendlyList[i];
 				EntityFriendly newFriendly = Instantiate(param.characterData.combatPrefab,transform).GetComponent<EntityFriendly>();
+				newFriendly.SetUse(param.use);
 				friendlyList[i].instance=newFriendly;
 				newFriendly.transform.position=new Vector3(levelData.startX.value+(3f-i),0,0);
 
@@ -60,6 +68,7 @@ namespace Combat {
 		private void FixedUpdate() {
 			UpdateEndGame();
 			UpdateActivateEnemy();
+			foreach(var i in activeCharms) i.Update();
 		}
 
 		public bool forceEnd;
@@ -167,6 +176,10 @@ namespace Combat {
 				i.gameObject.SetActive(true);
 
 			}
+		}
+
+		private void OnDestroy() {
+			foreach(var i in activeCharms) i.Terminate();
 		}
 
 	}

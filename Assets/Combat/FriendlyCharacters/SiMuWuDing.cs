@@ -31,9 +31,10 @@ namespace Combat {
 			energyEarnedThisCharge=false;
 		}
 
-		protected override void OnChargeHit(EntityEnemy target) {
-			base.OnChargeHit(target);
-			if(!energyEarnedThisCharge) {
+		protected override void OnChargeHit(EntityEnemy target,bool actualHit) {
+			base.OnChargeHit(target,actualHit);
+
+			if(actualHit&&!energyEarnedThisCharge) {
 				energyEarnedThisCharge=true;
 				energy+=maxEnergy*((use.level>=8) ? 0.5f : 0.3f);
 			}
@@ -41,20 +42,7 @@ namespace Combat {
 
 		public override void Damage(DamageModel e) {
 
-			if(shieldAmount>0) {
-				if(shieldAmount>=e.amount) {
-					shieldAmount-=e.amount;
-					return;
-				} else {
-					e.amount-=shieldAmount;
-					shieldAmount=0;
-				}
-			}
-
 			if(isCharging) return;
-
-			//丰收
-			energy+=e.amount;
 
 			//青铜合金
 			if(use.level>=4) {
@@ -63,6 +51,19 @@ namespace Combat {
 				e.amount-=negation;
 			}
 			if(e.amount<0) e.amount=0;
+
+			if(shieldAmount>0) {
+				if(shieldAmount>=e.amount) {
+					shieldAmount-=e.amount;
+					e.amount=0;
+				} else {
+					e.amount-=shieldAmount;
+					shieldAmount=0;
+				}
+			}
+
+			//丰收
+			energy+=e.amount;
 
 			base.Damage(e);
 		}
@@ -77,6 +78,7 @@ namespace Combat {
 		}
 
 		protected override void Update() {
+
 			base.Update();
 
 			maxEnergy=maxHp*0.3f;
@@ -108,7 +110,6 @@ namespace Combat {
 
 		}
 
-
 		protected override void ActionSkill1() {
 			if(timeAfterSkill<skillCd) return;
 			timeAfterSkill=0;
@@ -123,7 +124,6 @@ namespace Combat {
 			if(timeAfterSkill<skillCd) return;
 			timeAfterSkill=0;
 		}
-
 
 	}
 

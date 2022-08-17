@@ -21,7 +21,6 @@ namespace Combat {
 
 	public class EntityBase:MonoBehaviour {
 
-
 		public static LinkedList<EntityBase> entities = new LinkedList<EntityBase>();
 		LinkedListNode<EntityBase> positionInList;
 
@@ -75,6 +74,8 @@ namespace Combat {
 			cdSpeed=1;
 			speedBuff=1;
 			UpdateStats?.Invoke(this);
+
+			Debug.Log(powerBuff);
 		}
 
 		public DamageModel lastDamage { get; protected set; }            //最后一次受到的伤害
@@ -124,7 +125,6 @@ namespace Combat {
 		}
 
 		protected virtual void OnDestroy() {
-
 			if(positionInList!=null&&entities!=null) entities.Remove(positionInList);
 		}
 
@@ -187,6 +187,9 @@ namespace Combat {
 		}
 
 		protected virtual void StartKnockback(float knockback,int direction) {
+			Debug.Log($"{name} , knockbacked by {direction*knockback}");
+			transform.position+=(Vector3)Direction.GetVector(direction)*knockback*0.1f;
+
 			timeSinceKnockback=0;
 			currentKnockback=knockback;
 			knockbackDirection=direction;
@@ -200,6 +203,7 @@ namespace Combat {
 		float currentKnockback;
 		float timeSinceKnockback;
 		int knockbackDirection;
+		public bool isKnockbacked { get { return currensState==StateKnockback; } }
 		protected virtual void StateKnockback() {
 			timeSinceKnockback+=Time.deltaTime;
 			Vector2 position = previousPosition;
@@ -231,8 +235,6 @@ namespace Combat {
 			EntityBase target = GetNearestTarget();
 
 			if(target) {
-				Debug.Log($"Target : {target}");
-				Debug.Log($"CD : {timeAfterAttack} / {attackCd}");
 				direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
 				if(timeAfterAttack>attackCd) {
 
@@ -244,6 +246,7 @@ namespace Combat {
 
 		}
 
+		//获取应该攻击的敌人
 		protected virtual EntityBase GetNearestTarget() {
 			//找到敌人
 			EntityBase target = null;
@@ -291,6 +294,7 @@ namespace Combat {
 		protected bool projectileParametersGet;
 		protected float[] projectileGravity;
 		protected float[] travelTime;
+		//计算射弹的发射速度
 		protected virtual Vector2 ProjectileVelocity(Vector2 target,Vector2 velocity,int projectileType) {
 			if(!projectileParametersGet) {
 				projectileParametersGet=true;
