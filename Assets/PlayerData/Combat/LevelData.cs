@@ -5,7 +5,7 @@ using System.IO;
 using System.Xml;
 
 namespace PlayerData {
-
+/*
 	public class LevelData:DataBase {
 
 		public void LoadFile(bool isSA,string fileName) {
@@ -64,5 +64,5 @@ namespace PlayerData {
 		public EnemyData[] enemies;
 
 	}
-
+	*/
 }

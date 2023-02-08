@@ -29,6 +29,8 @@ namespace Combat {
 		protected SpriteRenderer spriteRenderer;
 		protected Animator animator;
 
+		protected CombatRoomController room;
+
 		//属性 在prefab中编辑 不要动态修改
 		[field: SerializeField] public float acceleration { get; protected set; }           //加速能力   
 		[field: SerializeField] public float maxSpeed { get; protected set; }               //最大速率   
@@ -75,7 +77,6 @@ namespace Combat {
 			speedBuff=1;
 			UpdateStats?.Invoke(this);
 
-			Debug.Log(powerBuff);
 		}
 
 		public DamageModel lastDamage { get; protected set; }            //最后一次受到的伤害
@@ -115,13 +116,14 @@ namespace Combat {
 
 		protected virtual void Start() {
 			hp=maxHp;
-			previousPosition=transform.position;
 			StartMove();
 			positionInList=entities.AddLast(this);
 
 			collider=GetComponent<Collider2D>();
 			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
 			animator=GetComponent<Animator>();
+
+			room=GetComponentInParent<CombatRoomController>();
 		}
 
 		protected virtual void OnDestroy() {
@@ -129,6 +131,9 @@ namespace Combat {
 		}
 
 		protected virtual void Update() {
+
+			if(room!=CombatRoomController.currentRoom) return;
+
 			UpdateMove();
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
@@ -138,22 +143,17 @@ namespace Combat {
 
 		float distanceMoved;
 		protected virtual void FixedUpdate() {
+
+			if(room!=CombatRoomController.currentRoom) return;
+
 			OnUpdateStats();
 			currensState();
-			if(transform.position.x<CombatController.startX) {
-				if(velocity.x<0) velocity.x=0;
-				if(previousPosition.x<CombatController.startX) previousPosition.x=CombatController.startX;
-				transform.position+=Vector3.right*(CombatController.startX-transform.position.x);
-			}
-			if(transform.position.x>CombatController.endX) {
-				if(velocity.x>0) velocity.x=0;
-				if(previousPosition.x>CombatController.endX) previousPosition.x=CombatController.endX;
-				transform.position+=Vector3.right*(CombatController.endX-transform.position.x);
-			}
 
 			if(currensState==StateMove&&timeAfterAttack>attackCd) {
 				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
 			}
+
+			UpdateLimitation();
 
 			if(currensState==StateMove) {
 				distanceMoved+=Time.deltaTime*Mathf.Abs(velocity.x);
@@ -166,9 +166,30 @@ namespace Combat {
 
 		}
 
+		protected void UpdateLimitation() {
+
+			float startX = room.startX;
+			float endX = room.endX;
+
+			Vector3 position = transform.position;
+
+			if(transform.position.x<startX) {
+				if(velocity.x<0) velocity.x=0;
+				if(position.x<startX) position.x=startX;
+				transform.position+=Vector3.right*(startX-transform.position.x);
+			}
+			if(transform.position.x>endX) {
+				if(velocity.x>0) velocity.x=0;
+				if(position.x>endX) position.x=endX;
+				transform.position+=Vector3.right*(endX-transform.position.x);
+			}
+
+			transform.position=position;
+
+		}
+
 		//移动相关
 		protected Vector2 velocity;
-		protected Vector2 previousPosition;
 		virtual protected void UpdateMove() {
 			Vector2 position = transform.position;
 			position+=velocity*Time.deltaTime;
@@ -206,10 +227,10 @@ namespace Combat {
 		public bool isKnockbacked { get { return currensState==StateKnockback; } }
 		protected virtual void StateKnockback() {
 			timeSinceKnockback+=Time.deltaTime;
-			Vector2 position = previousPosition;
+			Vector2 position = transform.position;
 
 			float curveX = (timeSinceKnockback-0.5f*knockbackTime)/knockbackTime;
-			position.y=knockbackHeight*(-curveX*curveX+0.25f);
+			position.y=room.transform.position.y+knockbackHeight*(-curveX*curveX+0.25f);
 			position+=Direction.GetVector(knockbackDirection)*Time.deltaTime*currentKnockback/knockbackTime;
 
 
@@ -220,7 +241,6 @@ namespace Combat {
 			velocity.y=(nextY-position.y)/Time.deltaTime;
 
 			transform.position=position;
-			previousPosition=position;
 			direction=Direction.Reverse(knockbackDirection);
 			if(timeSinceKnockback>=knockbackTime) StartMove();
 		}

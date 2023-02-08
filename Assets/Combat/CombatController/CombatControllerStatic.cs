@@ -15,7 +15,7 @@ namespace Combat {
 	[System.Serializable]
 	public class CharacterParameters {
 		public CharacterData characterData;
-		public int id;
+		public int id => characterData.id;
 		public CharacterUseModel use;
 
 		[HideInInspector] public EntityFriendly instance;
@@ -23,41 +23,24 @@ namespace Combat {
 
 	public partial class CombatController:MonoBehaviour {
 
+		public static float startX;
+		public static string startRoom;
+		public static string sceneName;
 		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
-		public static float startX { get { return levelData.startX.value; } }
-		public static float endX { get { return levelData.endX.value; } }
-		public static PlayerData.LevelData levelData = new PlayerData.LevelData();
 		public static int levelId { get; private set; }
 		public static CharmData[] charmDatas;
 
-		public static void StartCombat(bool isSA,int[] friendlyIds,string levelName,int levelId,CharmData[]charms) {
-
-			CombatController.levelId=levelId;
-
-			for(int i = 0;i<3;i++) {
-				int id = friendlyIds[i];
-				if(id>=0) {
-					CharacterData targetData = CharacterData.datas[id];
-					CharacterParameters target = new CharacterParameters();
-					var saveData = PlayerData.PlayerDataRoot.instance.characterDatas[id];
-
-					friendlyList[i]=target;
-
-					target.use.level=saveData.level.value;
-					target.characterData=targetData;
-					target.id=id;
-
-				} else {
-					CharacterParameters target = new CharacterParameters();
-					target.characterData=null;
-					friendlyList[i]=target;
-				}
+		public static void StartCombat(CharacterParameters[] friendlyDatas,string sceneName,string startRoom,float startX,CharmData[]charms) {
+			
+			for(int i=0;i<3;i++){
+				friendlyList[i]=friendlyDatas[i];
 			}
-
-			levelData.LoadFile(isSA,levelName);
-			string sceneName = levelData.sceneName.value;
-			SceneManager.LoadScene(sceneName);
+			
 			charmDatas=charms;
+
+			CombatController.startX=startX;
+			CombatController.startRoom=startRoom;
+			CombatController.sceneName=sceneName;
 
 		}
 

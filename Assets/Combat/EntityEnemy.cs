@@ -18,8 +18,6 @@ namespace Combat {
 
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
-			UpdateContactDamage();
-
 		}
 
 		protected virtual void UpdateContactDamage() {
@@ -56,7 +54,7 @@ namespace Combat {
 
 		protected override void StateMove() {
 
-			Vector2 position = previousPosition;
+			Vector2 position = transform.position;
 
 
 			Vector2 targetVelocity = Vector2.left*speedBuff*maxSpeed;
@@ -68,8 +66,7 @@ namespace Combat {
 
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
-			previousPosition=position;
-
+			
 			UpdateAttack();
 		}
 

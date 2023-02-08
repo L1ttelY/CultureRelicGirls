@@ -21,7 +21,6 @@ namespace Museum {
 
 		public int[] chosenCharacters = new int[3];
 		string targetLevelName;
-		PlayerData.LevelData levelData = new PlayerData.LevelData();
 		bool loadLevelFromSA;
 
 		public static void EnterMode(bool loadLevelFromSA,string targetLevelName,int levelId) {
@@ -31,10 +30,6 @@ namespace Museum {
 			this.loadLevelFromSA=loadLevelFromSA;
 			for(int i = 0;i<3;i++) chosenCharacters[i]=-1;
 			this.targetLevelName=targetLevelName;
-			levelData.LoadFile(loadLevelFromSA,targetLevelName);
-			infoText.text=
-				$"{levelData.levelName.value}\n"+
-				$"{levelData.enemyCount.value}¸öµÐÈË";
 			UIController.instance.SwitchUIMode(this);
 			this.levelId=levelId;
 		}
@@ -62,7 +57,9 @@ namespace Museum {
 				if(item!=-1) hasCharacter=true;
 			}
 			if(!hasCharacter) return;
-			Combat.CombatController.StartCombat(loadLevelFromSA,chosenCharacters,targetLevelName,levelId,new CharmData[0]);
+
+			throw new System.NotImplementedException();
+			//Combat.CombatController.StartCombat(chosenCharacters,targetLevelName,levelId,new CharmData[0]);
 		}
 
 		void CharacterSelectionCallback(int characterId) {

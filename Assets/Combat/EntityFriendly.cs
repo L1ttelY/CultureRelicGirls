@@ -82,7 +82,7 @@ namespace Combat {
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
 
 		const float distancePerCharacter = 1;
-		const float distanceTolerence = 0.3f;
+		const float distanceTolerence = 0.1f;
 
 		protected override void Start() {
 			base.Start();
@@ -92,12 +92,27 @@ namespace Combat {
 
 			Player.ActionSkillEvent+=Player_ActionSkillEvent;
 			Player.ChargeEvent+=Player_ChargeEvent;
+			CombatRoomController.RoomChange+=CombatRoomController_RoomChange;
 		}
 
 		protected override void OnDestroy() {
 			base.OnDestroy();
 			Player.ActionSkillEvent-=Player_ActionSkillEvent;
 			Player.ChargeEvent-=Player_ChargeEvent;
+			CombatRoomController.RoomChange-=CombatRoomController_RoomChange;
+		}
+
+		private void CombatRoomController_RoomChange(object _sender) {
+
+			CombatRoomController sender = _sender as CombatRoomController;
+			if(sender==null) return;
+
+			transform.parent=sender.transform;
+			transform.position=new Vector3(CombatController.startX,sender.transform.position.y);
+			room=sender;
+
+			Debug.Log(room.gameObject.name);
+
 		}
 
 		private void Player_ChargeEvent() {
@@ -116,7 +131,7 @@ namespace Combat {
 			float buffedSpeed = maxSpeed*speedBuff; //移动速度
 			float buffedAcceleration = acceleration*speedBuff; //加速度
 
-			Vector2 position = previousPosition; //位置
+			Vector2 position = transform.position; //位置
 
 			float targetVelocity;
 			float deltaSpeed = buffedAcceleration*Time.deltaTime; //单位时间速度
@@ -160,9 +175,8 @@ namespace Combat {
 			else velocity.x+=deltaSpeed;
 
 			position.x+=velocity.x*Time.deltaTime;
-			position.y=0;
+			position.y=room.transform.position.y;
 			transform.position=position;
-			previousPosition=position;
 
 			UpdateAttack();
 
@@ -185,32 +199,38 @@ namespace Combat {
 		//使用8级主动时调用
 		protected virtual void ActionSkill2() { }
 
+
 		//判断自身是否在冲刺
 		protected bool isCharging { get { return currensState==StateCharging; } }
-		protected const float chargeTime = 0.3f;
+		protected const float chargeTime = 0.5f;
 		protected float timeCharged;
 
 		void StartCharging() {
 			currensState=StateCharging;
 			timeCharged=0;
 		}
-		const float startChargeSpeed = 15;
+		const float startChargeSpeed = 25;
 		const float endChargeSpeed = 5;
 		void StateCharging() {
 
+			animator.SetBool("IsCharging",true);
+
 			timeCharged+=Time.deltaTime;
 
-			Vector2 position = previousPosition; //位置
+			Vector2 position = transform.position; //位置
 			velocity.y=0;
 			velocity.x=Mathf.Lerp(startChargeSpeed,endChargeSpeed,timeCharged/chargeTime)*Player.instance.chargeDirection;
 
 			position.x+=velocity.x*Time.deltaTime;
-			position.y=0;
+			position.y=room.transform.position.y;
+
 			transform.position=position;
-			previousPosition=position;
 
-			if(timeCharged>chargeTime) StartMove();
+			if(timeCharged>chargeTime) {
 
+				animator.SetBool("IsCharging",false);
+				StartMove();
+			}
 		}
 
 	}
