@@ -88,7 +88,7 @@ namespace Combat {
 			if(e.amount>0) AudioController.PlayAudio(soundHit,transform.position);
 
 			hp-=e.amount;
-			StartKnockback(e.knockback,e.direction);
+			DoKnockback(e.knockback,e.direction);
 
 			int vfxIndex = Random.Range(0,damageVfx.Length);
 			VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
@@ -124,6 +124,10 @@ namespace Combat {
 			animator=GetComponent<Animator>();
 
 			room=GetComponentInParent<CombatRoomController>();
+
+
+			buffSlot=new BuffSlot();
+			buffSlot.Init(this);
 		}
 
 		protected virtual void OnDestroy() {
@@ -139,6 +143,7 @@ namespace Combat {
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
 
+			buffSlot.Update();
 		}
 
 		float distanceMoved;
@@ -193,7 +198,7 @@ namespace Combat {
 		virtual protected void UpdateMove() {
 			Vector2 position = transform.position;
 			position+=velocity*Time.deltaTime;
-			if(position.y<0) position.y=0;
+			if(position.y<room.transform.position.y) position.y=room.transform.position.y;
 			transform.position=position;
 		}
 
@@ -207,15 +212,19 @@ namespace Combat {
 
 		}
 
-		protected virtual void StartKnockback(float knockback,int direction) {
-			Debug.Log($"{name} , knockbacked by {direction*knockback}");
-			transform.position+=(Vector3)Direction.GetVector(direction)*knockback*0.1f;
+		protected virtual void DoKnockback(float knockback,int direction) {
+			/*
+				transform.position+=(Vector3)Direction.GetVector(direction)*knockback*0.1f;
+					
+				timeSinceKnockback=0;
+				currentKnockback=knockback;
+				knockbackDirection=direction;
+				currensState=StateKnockback;
+				animator.SetBool("inKnockback",true);
+			*/
 
-			timeSinceKnockback=0;
-			currentKnockback=knockback;
-			knockbackDirection=direction;
-			currensState=StateKnockback;
-			animator.SetBool("inKnockback",true);
+			buffSlot[typeof(BuffKnockback)].stacks+=(direction==Direction.right?1:-1)*knockback;
+
 		}
 
 		const float knockbackTime = 0.1f;
@@ -235,7 +244,7 @@ namespace Combat {
 
 
 			curveX=(timeSinceKnockback+Time.deltaTime-0.5f*knockbackTime)/knockbackTime;
-			float nextY = knockbackHeight*(-curveX*curveX+0.25f);
+			float nextY = room.transform.position.y+knockbackHeight*(-curveX*curveX+0.25f);
 
 			velocity=Direction.GetVector(knockbackDirection)*currentKnockback/knockbackTime;
 			velocity.y=(nextY-position.y)/Time.deltaTime;
@@ -274,6 +283,8 @@ namespace Combat {
 
 			foreach(var i in entities) {
 
+				if(!i.gameObject.activeInHierarchy) continue;
+
 				if((i is EntityFriendly)==(this is EntityFriendly)) continue;
 				float x = i.transform.position.x;
 				float dist = Mathf.Abs(x-transform.position.x);
@@ -290,8 +301,6 @@ namespace Combat {
 
 		//若要攻击 则执行这个函数判断如何攻击
 		protected virtual ProjectileBase Attack(EntityBase target) {
-
-			Debug.Log("C");
 
 			AudioController.PlayAudio(soundAttack,transform.position);
 
@@ -333,16 +342,14 @@ namespace Combat {
 
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*travelTime[projectileType];
 
-			if(travelTime[projectileType]==0) {
-				Debug.Log("velocity : "+(target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY);
-
-				return (target.x>transform.position.x ? Vector2.right : Vector2.left)*projectileVelocityY;
-			}
 			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
+			if(travelTime[projectileType]==0) velocityX=0;
 			return new Vector2(velocityX,projectileVelocityY);
 
 
 		}
+
+		protected BuffSlot buffSlot;
 
 	}
 

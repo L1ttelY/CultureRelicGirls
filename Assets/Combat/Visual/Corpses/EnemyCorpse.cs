@@ -34,9 +34,11 @@ namespace Combat {
 
 		void Update() {
 
+			float floorY = transform.parent.position.y;
+
 			Vector3 deltaPosition = -(Vector3)Direction.GetVector(direction)*speed*Time.deltaTime;
-			if(transform.position.y>Time.deltaTime*fallSpeed) deltaPosition+=Vector3.down*Time.deltaTime*fallSpeed;
-			else deltaPosition.y=-transform.position.y;
+			if(transform.position.y>floorY+Time.deltaTime*fallSpeed) deltaPosition+=Vector3.down*Time.deltaTime*fallSpeed;
+			else deltaPosition.y=floorY-transform.position.y;
 			transform.position+=deltaPosition;
 			speed=Mathf.Max(0,speed-friction*Time.deltaTime);
 

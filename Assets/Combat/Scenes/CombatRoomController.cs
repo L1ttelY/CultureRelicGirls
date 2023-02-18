@@ -15,19 +15,33 @@ namespace Combat {
 		[field: SerializeField] public float endX { get; private set; }
 
 
+
 		void Start() {
 
 			if(gameObject.name==CombatController.startRoom) currentRoom=this;
 
-			if(endX<startX){
+			if(endX<startX) {
 				//½»»»endXºÍstartX
 				float t = startX;
 				startX=endX;
 			}
+
 		}
 
+
 		void Update() {
-			
+
+			for(int i = 0;i<transform.childCount;i++) {
+				GameObject go = transform.GetChild(i).gameObject;
+				EntityEnemy entity = go.GetComponent<EntityEnemy>();
+				if(entity) {
+					entity.gameObject.SetActive(isCurrentRoom);
+
+				} else if(!go.GetComponent<DoNotDeactivate>()) {
+					go.SetActive(isCurrentRoom);
+				}
+
+			}
 		}
 
 		private void OnDrawGizmos() {

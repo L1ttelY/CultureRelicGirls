@@ -11,8 +11,8 @@ namespace Combat {
 		public Sprite TankDefine; //得到Tank的精灵，用于鉴别tank
 
 
-		protected override void StartKnockback(float knockback,int direction) {
-			base.StartKnockback(knockback*(1-CurrentKnockbackResistance),direction);//这里的变量换了下
+		protected override void DoKnockback(float knockback,int direction) {
+			base.DoKnockback(knockback*(1-CurrentKnockbackResistance),direction);//这里的变量换了下
 		}
 		protected override void Update() {
 			base.Update();

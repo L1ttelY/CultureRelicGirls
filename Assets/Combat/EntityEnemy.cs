@@ -66,14 +66,15 @@ namespace Combat {
 
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
-			
+
 			UpdateAttack();
 		}
 
 		protected override void OnDeath() {
 			base.OnDeath();
 			if(corpseSprite!=null) {
-				EnemyCorpse.Create(corpseSprite,transform.position,direction);
+				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseSprite,transform.position,direction);
+				newCorpse.gameObject.transform.parent=room.transform;
 				CombatController.instance.rewardSm+=sentienceMatterReward;
 				Destroy(gameObject);
 			}
