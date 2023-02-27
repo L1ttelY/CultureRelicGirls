@@ -16,9 +16,11 @@ namespace PlayerData {
 		const string fileName = "save.xml";
 		public static bool loaded { get; private set; }
 
-		[RuntimeInitializeOnLoadMethod]
-		static void Init() {
+		static bool inited = false;
+		public static void Init() {
 
+			if(inited) return;
+			inited=true;
 
 			//÷±Ω”∂¡»°¥Êµµ
 			string serialized = "";

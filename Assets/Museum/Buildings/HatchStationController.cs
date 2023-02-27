@@ -46,7 +46,9 @@ namespace Museum {
 			}
 
 			coverSprite.color=saveData.extraStatus.value>0 ? Color.clear : Color.white;
-			if(saveData.extraStatus.value>0) contentSprite.sprite=CharacterData.datas[saveData.extraStatus.value].picture;
+
+			throw new System.NotImplementedException();
+			//if(saveData.extraStatus.value>0) contentSprite.sprite=CharacterData.datas[saveData.extraStatus.value].picture;
 
 			if(saveData.extraStatus.value>0) {
 				if(hatchCountDown==null) {
@@ -79,6 +81,8 @@ namespace Museum {
 				return;
 			}
 
+			throw new System.NotImplementedException();
+			/*
 			int cost = CharacterData.datas[id].levels[0].levelUpCost;
 			if(PlayerData.PlayerDataRoot.smCount<cost) {
 				//无法支付
@@ -92,15 +96,17 @@ namespace Museum {
 				$"来意识化{CharacterData.datas[id].name}?\n";
 				ConfirmationMode.EnterMode(message,OnConfirmHatch,BuildingLevelUpMode.instance.BackToThisMode);
 			}
-
+			*/
 		}
 		int selectedCharacter;
 		void OnConfirmHatch() {
-			PlayerData.PlayerDataRoot.smCount-=CharacterData.datas[selectedCharacter].levels[0].levelUpCost;
+
+			throw new System.NotImplementedException();
+			//PlayerData.PlayerDataRoot.smCount-=CharacterData.datas[selectedCharacter].levels[0].levelUpCost;
 			saveData.extraStatus.value=selectedCharacter;
 			float hatchTimeMultiplier = saveData.level.value>=2 ? 0.7f : 1;
-			System.TimeSpan hatchtime = CharacterData.datas[selectedCharacter].levels[0].levelUpCostTime*hatchTimeMultiplier;
-			saveData.extraProgression.SetProgression(hatchtime,0);
+			//System.TimeSpan hatchtime = CharacterData.datas[selectedCharacter].levels[0].levelUpCostTime*hatchTimeMultiplier;
+			//saveData.extraProgression.SetProgression(hatchtime,0);
 			CameraController.instance.SetFocus(null);
 		}
 

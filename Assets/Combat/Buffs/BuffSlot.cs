@@ -22,6 +22,8 @@ namespace Combat {
 			}
 		}
 
+		public bool ContainsBuff(System.Type buffType) => buffs.ContainsKey(buffType);
+
 		/// <summary>
 		/// 只应在Buff.RemoveSelf一处中调用
 		/// </summary>

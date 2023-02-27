@@ -154,10 +154,6 @@ namespace Combat {
 			OnUpdateStats();
 			currensState();
 
-			if(currensState==StateMove&&timeAfterAttack>attackCd) {
-				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
-			}
-
 			UpdateLimitation();
 
 			if(currensState==StateMove) {
@@ -204,6 +200,9 @@ namespace Combat {
 
 		public Void currensState { get; protected set; }
 
+		/// <summary>
+		/// ×·×ÙÍæ¼Ò
+		/// </summary>
 		protected virtual void StartMove() {
 			currensState=StateMove;
 			velocity=Vector2.zero;
@@ -223,7 +222,7 @@ namespace Combat {
 				animator.SetBool("inKnockback",true);
 			*/
 
-			buffSlot[typeof(BuffKnockback)].stacks+=(direction==Direction.right?1:-1)*knockback;
+			buffSlot[typeof(BuffKnockback)].stacks+=(direction==Direction.right ? 1 : -1)*knockback;
 
 		}
 
@@ -233,7 +232,7 @@ namespace Combat {
 		float currentKnockback;
 		float timeSinceKnockback;
 		int knockbackDirection;
-		public bool isKnockbacked { get { return currensState==StateKnockback; } }
+		public bool isKnockbacked { get { return buffSlot.ContainsBuff(typeof(BuffKnockback)); } }
 		protected virtual void StateKnockback() {
 			timeSinceKnockback+=Time.deltaTime;
 			Vector2 position = transform.position;
@@ -269,8 +268,6 @@ namespace Combat {
 
 					Attack(target);
 				}
-			} else {
-				direction=(this is EntityFriendly) ? Direction.right : Direction.left;
 			}
 
 		}

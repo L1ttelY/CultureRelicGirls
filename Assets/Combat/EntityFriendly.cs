@@ -82,7 +82,7 @@ namespace Combat {
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
 
 		const float distancePerCharacter = 1;
-		const float distanceTolerence = 0.1f;
+		const float distanceTolerence = 0.3f;
 
 		protected override void Start() {
 			base.Start();
@@ -152,21 +152,17 @@ namespace Combat {
 
 			} else {
 
-				float targetPosition = 0;
-				targetPosition=previousEntity.transform.position.x-(positionInTeam-previousIndex)*distancePerCharacter;
+				float targetPosition = previousEntity.transform.position.x;
+				targetPosition+=(positionInTeam-previousIndex)*distancePerCharacter*(Player.instance.teamDirection==Direction.left ? 1 : -1);
 
 				float decelerateDistance = 0.5f*velocity.x*velocity.x/buffedAcceleration;
 				if(decelerateDistance<distanceTolerence) decelerateDistance=distanceTolerence;
 				targetVelocity=buffedSpeed*(targetPosition>position.x ? 1 : -1);
-				if(Mathf.Abs(targetPosition-position.x)<decelerateDistance) {
-					float distance = Mathf.Abs(targetPosition-position.x);
 
-					targetVelocity=0;
-					if(distance<distanceTolerence) targetVelocity=0;
+				//Æð²½
+				float distance = Mathf.Abs(targetPosition-position.x);
+				if(distance<distanceTolerence) targetVelocity=0;
 
-					if(targetVelocity>buffedSpeed) targetVelocity=buffedSpeed;
-					targetVelocity=targetVelocity*(targetPosition>position.x ? 1 : -1);
-				}
 
 			}
 
@@ -178,6 +174,7 @@ namespace Combat {
 			position.y=room.transform.position.y;
 			transform.position=position;
 
+			direction=Player.instance.teamDirection;
 			UpdateAttack();
 
 		}

@@ -33,7 +33,9 @@ namespace Museum {
 				infoRoot.SetActive(true);
 				hpBarImage.fillAmount=characterData.healthAmount;
 				levelText.text=$"LV.{characterData.level.value}";
-				characterImage.sprite=CharacterData.datas[characterIndex].sprite;
+
+				throw new System.NotImplementedException();
+				//characterImage.sprite=CharacterData.datas[characterIndex].sprite;
 			}
 		}
 

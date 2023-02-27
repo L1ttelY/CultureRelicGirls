@@ -7,13 +7,28 @@ namespace Combat {
 	public class EntityEnemy:EntityBase {
 
 		[field: SerializeField] public int enemyId { get; private set; }
-		[SerializeField] protected float wakeUpDistance;
+		[SerializeField] protected float wakeUpDistanceFront;
+		[SerializeField] protected float wakeUpDistanceBack;
 		[SerializeField] Sprite corpseSprite;
 		[SerializeField] int sentienceMatterReward;
 
+		[SerializeField] bool startRight;
+
+		protected virtual float targetX {
+			get {
+				int targetIndex = 0;
+				for(int i = targetIndex;i<3;i++) {
+					if(EntityFriendly.friendlyList[i]) return EntityFriendly.friendlyList[i].transform.position.x;
+				}
+				return 0;
+			}
+		}
+
 		protected override void Start() {
 			base.Start();
-			StartIdle();
+			direction=startRight ? Direction.right : Direction.left;
+			StartInactive();
+
 		}
 
 		protected override void FixedUpdate() {
@@ -41,14 +56,23 @@ namespace Combat {
 			}
 		}
 
-		protected virtual void StartIdle() {
-			currensState=StateIdle;
+		protected virtual void StartInactive() {
+			currensState=StateInactive;
 		}
-
-		protected virtual void StateIdle() {
+		protected virtual void StateInactive() {
 			float x = transform.position.x;
 			bool toActive = false;
-			if(x<=EntityFriendly.rightestX+wakeUpDistance&&x>=EntityFriendly.leftestX-wakeUpDistance) toActive=true;
+
+			float sightLeft = x-(direction==Direction.right ? wakeUpDistanceBack : wakeUpDistanceFront);
+			float sightRight = x+(direction==Direction.left ? wakeUpDistanceBack : wakeUpDistanceFront);
+
+			foreach(var i in EntityFriendly.friendlyList) {
+				if(!i) continue;
+				float pos = i.transform.position.x;
+				if(pos<sightRight&&pos>sightLeft) toActive=true;
+			}
+			Debug.Log(toActive);
+
 			if(toActive) StartMove();
 		}
 
@@ -56,10 +80,9 @@ namespace Combat {
 
 			Vector2 position = transform.position;
 
-
-			Vector2 targetVelocity = Vector2.left*speedBuff*maxSpeed;
-			if(position.x<EntityFriendly.rightestX+attackRangeMax) targetVelocity=Vector2.zero;
-			if(position.x<EntityFriendly.rightestX+attackRangeMin) targetVelocity=-Vector2.left*speedBuff*maxSpeed;
+			float targetX = this.targetX;
+			Vector2 targetVelocity = (targetX>transform.position.x ? Vector2.right : Vector2.left)*speedBuff*maxSpeed;
+			if(Mathf.Abs(targetX-transform.position.x)<attackRangeMax) StartAttack();
 
 			float deltaSpeed = acceleration*((speedBuff+1)*0.5f)*Time.deltaTime;
 			velocity=Vector2.MoveTowards(velocity,targetVelocity,deltaSpeed);
@@ -67,8 +90,10 @@ namespace Combat {
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
 
-			UpdateAttack();
 		}
+
+		protected virtual void StartAttack() { currensState=StateAttack; }
+		protected virtual void StateAttack() { }
 
 		protected override void OnDeath() {
 			base.OnDeath();

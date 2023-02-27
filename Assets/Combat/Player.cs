@@ -23,6 +23,13 @@ namespace Combat {
 
 		public float targetVelocity { get; private set; }
 
+		/// <summary>
+		/// 数值参考Direction类
+		/// </summary>
+		public int teamDirection { get; private set; }
+		float directionChangeTime;
+		const float directionChangeTimeNeeded = 1;
+
 		void Start() {
 			if(instance) Debug.Break();
 			instance=this;
@@ -106,6 +113,23 @@ namespace Combat {
 				if(Input.GetKey(KeyCode.D)) targetVelocity+=1;
 			}
 
+			UpdateDirectionChange();
+
+		}
+
+		void UpdateDirectionChange() {
+
+			bool inChange = (targetVelocity>0)==(teamDirection==Direction.left);
+			if(targetVelocity==0) inChange=false;
+
+			if(!inChange) directionChangeTime=0;
+			else directionChangeTime+=Time.deltaTime;
+
+			if(directionChangeTime>=directionChangeTimeNeeded) {
+				teamDirection=targetVelocity<0 ? Direction.left : Direction.right;
+				directionChangeTime=0;
+			}
+
 		}
 
 		Vector2 TouchToPosition(Touch touch) {
@@ -144,7 +168,7 @@ namespace Combat {
 		public float skillCdProgress {
 			get { return skilledCharacter.skillCdProgress; }
 		}
-			
+
 		public EntityFriendly skilledCharacter;
 
 	}

@@ -15,7 +15,7 @@ namespace Combat {
 	[System.Serializable]
 	public class CharacterParameters {
 		public CharacterData characterData;
-		public int id => characterData.id;
+		public string name => characterData.name;
 		public CharacterUseModel use;
 
 		[HideInInspector] public EntityFriendly instance;
@@ -30,12 +30,12 @@ namespace Combat {
 		public static int levelId { get; private set; }
 		public static CharmData[] charmDatas;
 
-		public static void StartCombat(CharacterParameters[] friendlyDatas,string sceneName,string startRoom,float startX,CharmData[]charms) {
-			
-			for(int i=0;i<3;i++){
+		public static void StartCombat(CharacterParameters[] friendlyDatas,string sceneName,string startRoom,float startX,CharmData[] charms) {
+
+			for(int i = 0;i<3;i++) {
 				friendlyList[i]=friendlyDatas[i];
 			}
-			
+
 			charmDatas=charms;
 
 			CombatController.startX=startX;

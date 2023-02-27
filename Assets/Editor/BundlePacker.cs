@@ -9,7 +9,7 @@ public class BundlePacker {
       Directory.CreateDirectory(assetBundleDirectory);
     }
     BuildPipeline.BuildAssetBundles(assetBundleDirectory,
-                                    BuildAssetBundleOptions.AppendHashToAssetBundleName,
+                                    BuildAssetBundleOptions.None,
                                     BuildTarget.StandaloneWindows);
-  } 
+  }
 }

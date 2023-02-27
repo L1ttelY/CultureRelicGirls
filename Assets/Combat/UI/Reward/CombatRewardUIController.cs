@@ -37,7 +37,9 @@ namespace Combat {
 				if(!usePopup) SceneManager.LoadScene("Museum");
 				else {
 					AudioController.PlayAudio(soundNewCharacter,Camera.main.transform.position);
-					rewardCharacterText.text=$"已获得文物\n{CharacterData.datas[rewardCharacterIndex].name}";
+
+					throw new System.NotImplementedException();
+					//rewardCharacterText.text=$"已获得文物\n{CharacterData.datas[rewardCharacterIndex].name}";
 					GameObject popUpObject = rewardCharacterBig.transform.parent.gameObject;
 					popUpObject.SetActive(true);
 				}
@@ -63,8 +65,10 @@ namespace Combat {
 				rewardPmDisplay.text=rewardPm.ToString();
 				if(rewardCharacterIndex>0) {
 					this.rewardCharacterIndex=rewardCharacterIndex;
-					rewardCharacterBig.sprite=CharacterData.datas[rewardCharacterIndex].picture;
-					rewardCharacterSmall.sprite=CharacterData.datas[rewardCharacterIndex].picture;
+
+					throw new System.NotImplementedException();
+					//rewardCharacterBig.sprite=CharacterData.datas[rewardCharacterIndex].picture;
+					//rewardCharacterSmall.sprite=CharacterData.datas[rewardCharacterIndex].picture;
 					usePopup=true;
 				} else {
 					rewardCharacterSmall.color=Color.clear;

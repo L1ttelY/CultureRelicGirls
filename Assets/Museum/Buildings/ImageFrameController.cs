@@ -39,7 +39,9 @@ namespace Museum {
 			if(saveData.extraStatus.value<=0) targetImage.color=Color.clear;
 			else {
 				targetImage.color=Color.white;
-				targetImage.sprite=CharacterData.datas[saveData.extraStatus.value].picture;
+
+				throw new System.NotImplementedException();
+				//targetImage.sprite=CharacterData.datas[saveData.extraStatus.value].picture;
 			}
 		}
 

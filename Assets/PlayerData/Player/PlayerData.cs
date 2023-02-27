@@ -16,6 +16,8 @@ namespace PlayerData {
 
 		public static PlayerDataRoot instance { get; private set; }
 
+		public static event EventHandler OnRootCreation;
+
 		public PlayerDataRoot(string name,DataBase parent) : base(name,parent) {
 			sentienceMatter=new DataInt("sentienceMatter",this);
 			printingMaterial=new DataInt("printingMaterial",this);
@@ -33,6 +35,8 @@ namespace PlayerData {
 
 			campaignProgression=new DataInt("campaignProgression",this);
 
+			OnRootCreation?.Invoke(this);
+
 		}
 
 		public static void LoadDocument(XmlDocument xml) {
@@ -47,6 +51,7 @@ namespace PlayerData {
 				XmlElement root = xml.DocumentElement;
 				instance.Load(root);
 			}
+
 		}
 
 		public static void SaveDocument(XmlDocument xml) {

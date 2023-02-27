@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Museum {
+public class ItemBase:ScriptableObject {
 
-	public class PlayerDataInitialization:MonoBehaviour {
-
-
-
-	}
+	public virtual void Use() { }
 
 }

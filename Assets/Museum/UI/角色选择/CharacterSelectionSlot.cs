@@ -24,7 +24,8 @@ namespace Museum {
 				infoRoot.SetActive(false);
 			} else {
 				image.color=Color.white;
-				image.sprite=owner.usePicture ? CharacterData.datas[owner.characters[id]].picture : CharacterData.datas[owner.characters[id]].sprite;
+				throw new System.NotImplementedException();
+				//image.sprite=owner.usePicture ? CharacterData.datas[owner.characters[id]].picture : CharacterData.datas[owner.characters[id]].sprite;
 				PlayerData.CharacterData saveData = PlayerData.PlayerDataRoot.instance.characterDatas[owner.characters[id]];
 				if(saveData.level.value>0){
 					infoRoot.SetActive(true);

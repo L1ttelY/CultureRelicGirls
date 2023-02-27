@@ -10,7 +10,10 @@ namespace Combat {
 		[SerializeField] float cameraSize = 16;
 		[SerializeField] float moveSpeed = 5;
 
+
+
 		private void Start() {
+			PlayerData.PlayerDataController.Init();
 			instance=this;
 		}
 

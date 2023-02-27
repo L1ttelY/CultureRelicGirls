@@ -44,7 +44,9 @@ namespace Museum {
 			int cnt = 0;
 			PlayerData.PlayerDataRoot playerData = PlayerData.PlayerDataRoot.instance;
 			for(int i = 0;i<playerData.characterDatas.Length;i++) {
-				if(!CharacterData.datas.ContainsKey(i)) continue;
+
+				throw new System.NotImplementedException();
+				//if(!CharacterData.datas.ContainsKey(i)) continue;
 				if(!filter(i)) continue;
 
 				characters[cnt]=i;
