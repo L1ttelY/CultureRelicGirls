@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Combat {
 
-	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler {
+	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerUpHandler {
 
 		public enum States {
 			Unpressed,
@@ -32,10 +32,15 @@ namespace Combat {
 
 		int chosenIndex;
 
+		public int pointerId { get; private set; }
 		bool mouseOver;
 
 		public void OnPointerDown(PointerEventData eventData) {
-			if(state==States.Unpressed) state=States.Pressed;
+			if(state==States.Unpressed) {
+				state=States.Pressed;
+				mouseOver=true;
+				pointerId=eventData.pointerId;
+			}
 		}
 		public void OnPointerExit(PointerEventData eventData) {
 			mouseOver=false;
@@ -44,10 +49,30 @@ namespace Combat {
 		public void OnPointerEnter(PointerEventData eventData) {
 			mouseOver=true;
 		}
+		public void OnPointerUp(PointerEventData eventData) {
+
+			var hoverList = eventData.hovered;
+
+			if(state==States.Pressed) {
+				Debug.Log("!!!!");
+				LoadoutController.GetHotBar(chosenIndex).InvokeUse();
+				state=States.Unpressed;
+			}
+
+			if(state==States.Selecting) {
+				foreach(var i in hoverList) {
+					ItemSelectionIconController selection = i.GetComponent<ItemSelectionIconController>();
+					if(selection==null) continue;
+					Select(selection.index);
+					return;
+				}
+				state=States.Unpressed;
+			}
+
+		}
+
 
 		public void Select(int originalIndex) {
-
-			Debug.Log(originalIndex);
 
 			if(state!=States.Selecting) return;
 			state=States.Unpressed;
@@ -69,14 +94,6 @@ namespace Combat {
 				pressTime+=Time.deltaTime;
 				if(pressTime>timeToStartSelect) state=States.Selecting;
 			} else pressTime=0;
-
-			if(Input.GetMouseButtonUp(0)&&!ItemSelectionIconController.IsMouseOver()) {
-				if(state==States.Selecting) state=States.Unpressed;
-
-				if(mouseOver){
-					LoadoutController.GetHotBar(chosenIndex).InvokeUse();
-				}
-			}
 
 			image.sprite=LoadoutController.GetHotBar(chosenIndex)?.sprite;
 			image.color=(image.sprite==null) ? Color.clear : Color.white;
