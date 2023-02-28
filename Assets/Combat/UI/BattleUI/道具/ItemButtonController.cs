@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Combat {
 
-	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerEnterHandler, IPointerUpHandler {
+	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
 		public enum States {
 			Unpressed,
@@ -33,30 +33,29 @@ namespace Combat {
 		int chosenIndex;
 
 		public int pointerId { get; private set; }
-		bool mouseOver;
+
+		bool IsMouseOver(List<GameObject> hover) {
+			foreach(var i in hover) if(gameObject==i) return true;
+			return false;
+		}
 
 		public void OnPointerDown(PointerEventData eventData) {
 			if(state==States.Unpressed) {
 				state=States.Pressed;
-				mouseOver=true;
 				pointerId=eventData.pointerId;
 			}
-		}
-		public void OnPointerExit(PointerEventData eventData) {
-			mouseOver=false;
-			if(state==States.Pressed) state=States.Selecting;
-		}
-		public void OnPointerEnter(PointerEventData eventData) {
-			mouseOver=true;
 		}
 		public void OnPointerUp(PointerEventData eventData) {
 
 			var hoverList = eventData.hovered;
 
 			if(state==States.Pressed) {
-				Debug.Log("!!!!");
-				LoadoutController.GetHotBar(chosenIndex).InvokeUse();
-				state=States.Unpressed;
+				if(IsMouseOver(hoverList)) {
+					LoadoutController.GetHotBar(chosenIndex).InvokeUse();
+					state=States.Unpressed;
+				} else {
+					state=States.Selecting;
+				}
 			}
 
 			if(state==States.Selecting) {
