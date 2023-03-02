@@ -26,6 +26,18 @@ public static class FileManager {
 
 	}
 
+	public static AssetBundle LoadSAAB(string fileName) {
+
+		if(Application.platform==RuntimePlatform.Android) {
+			UnityWebRequest req = UnityWebRequestAssetBundle.GetAssetBundle(SAPath+"/"+fileName);
+			req.SendWebRequest();
+			while(!req.isDone) ;
+			return DownloadHandlerAssetBundle.GetContent(req);
+		} else {
+			return AssetBundle.LoadFromFile(SAPath+"/"+fileName);
+		}
+	}
+
 	public static string activeDataPath {
 		get {
 			if(Application.isMobilePlatform) {

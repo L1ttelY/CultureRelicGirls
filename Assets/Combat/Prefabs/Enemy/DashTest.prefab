@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 89318b7fa983a3f4482bfb9595fe25c8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54471998a4ef50940aba461d8c013bca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 7
   <maxSpeed>k__BackingField: 4
-  <attackBasePower>k__BackingField: 1
+  <attackBasePower>k__BackingField: 5
   <attackCd>k__BackingField: 0
   <knockbackPower>k__BackingField: 1
-  <maxHp>k__BackingField: 1000
+  <maxHp>k__BackingField: 10000000
   <projectiles>k__BackingField: []
   <attackRangeMin>k__BackingField: 0
   <attackRangeMax>k__BackingField: 4
@@ -217,7 +217,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1300691747, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -307,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.769
+      value: 1.1103
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

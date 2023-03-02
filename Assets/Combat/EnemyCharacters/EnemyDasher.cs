@@ -12,24 +12,31 @@ namespace Combat {
 			base.StartAttack();
 			timeSinceAttack=0;
 			chargeSign=targetX>transform.position.x ? 1 : -1;
+			animator.SetTrigger("attack");
 		}
 
-		float chargeSpeed = 20;
-		float chargeTime = 0.25f;
-		float signatureTime = 0.6f;
+		float moveSpeed = 3;
+		float chargeSpeed = 10;
+		float signatureEnd = 0.6f;
+		float preChargeEnd = 1.1f;
+		float chargeEnd = 1.7f;
+		float animationEnd = 2.1f;
 
 		protected override void StateAttack() {
 			base.StateAttack();
 			timeSinceAttack+=Time.deltaTime;
-			if(timeSinceAttack<signatureTime) {
+			if(timeSinceAttack<signatureEnd) {
 				velocity=Vector2.zero;
-				return;
-			}
+			}else if(timeSinceAttack<preChargeEnd){
+				velocity=Vector2.right*chargeSign*moveSpeed;
+			}else if(timeSinceAttack<chargeEnd){
+				velocity=Vector2.right*chargeSign*chargeSpeed;
+				UpdateContactDamage();
+			}else if(timeSinceAttack<animationEnd){
+				velocity=Vector2.right*chargeSign*moveSpeed;
+			} else StartMove();
 
-			velocity=Vector2.right*chargeSign*chargeSpeed;
-			UpdateContactDamage();
-
-			if(timeSinceAttack>signatureTime+chargeTime) StartMove();
+			animator.ResetTrigger("hit");
 
 		}
 
