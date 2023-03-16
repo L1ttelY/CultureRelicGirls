@@ -71,7 +71,6 @@ namespace Combat {
 				float pos = i.transform.position.x;
 				if(pos<sightRight&&pos>sightLeft) toActive=true;
 			}
-			Debug.Log(toActive);
 
 			if(toActive) StartMove();
 		}
@@ -82,6 +81,8 @@ namespace Combat {
 
 			float targetX = this.targetX;
 			Vector2 targetVelocity = (targetX>transform.position.x ? Vector2.right : Vector2.left)*speedBuff*maxSpeed;
+			direction=(targetVelocity.x>0) ? Direction.right : Direction.left;
+
 			if(Mathf.Abs(targetX-transform.position.x)<attackRangeMax) StartAttack();
 
 			float deltaSpeed = acceleration*((speedBuff+1)*0.5f)*Time.deltaTime;

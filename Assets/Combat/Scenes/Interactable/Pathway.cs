@@ -8,11 +8,6 @@ namespace Combat {
 
 		[SerializeField] GameObject otherSide;
 
-
-		[ContextMenuItem("work","GoThrough")]
-		public int work;
-
-
 		public void GoThrough() {
 
 			CombatRoomController targetRoom = otherSide.GetComponentInParent<CombatRoomController>();
@@ -20,6 +15,8 @@ namespace Combat {
 
 			CombatController.startX=otherSide.transform.position.x;	
 			targetRoom.GoToRoom();
+
+			Debug.Log("!!!");
 
 		}
 

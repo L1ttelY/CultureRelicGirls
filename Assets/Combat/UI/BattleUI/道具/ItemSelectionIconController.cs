@@ -13,9 +13,19 @@ namespace Combat {
 
 		void Update() {
 
-			ItemData selectedItem = LoadoutController.GetHotBar(ItemButtonController.MapIndex(index));
-			if(selectedItem) image.sprite=selectedItem.sprite;
-			else image.sprite=null;
+			if(ItemButtonController.instance.state==ItemButtonController.States.Selecting) {
+				ItemData selectedItem = LoadoutController.GetHotBar(ItemButtonController.MapIndex(index));
+				if(selectedItem) {
+					image.sprite=selectedItem.sprite;
+					image.color=Color.white;
+				} else {
+					image.sprite=null;
+					image.color=Color.clear;
+				}
+			} else {
+				image.sprite=null;
+				image.color=Color.clear;
+			}
 
 		}
 

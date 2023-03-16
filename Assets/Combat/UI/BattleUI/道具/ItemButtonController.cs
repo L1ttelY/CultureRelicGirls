@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 namespace Combat {
 
-	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerUpHandler,IPointerExitHandler {
 
 		public enum States {
 			Unpressed,
 			Pressed,
 			Selecting
 		}
-		States state;
+		public States state { get; private set; }
 
 		/// <summary>
 		/// ½«ÂÖÅÌµÄ±àºÅÓ³Éäµ½¿ì½ÝÀ¸µÄ±àºÅ
@@ -69,7 +69,9 @@ namespace Combat {
 			}
 
 		}
-
+		public void OnPointerExit(PointerEventData eventData) {
+			if(state==States.Pressed) state=States.Selecting;
+		}
 
 		public void Select(int originalIndex) {
 
@@ -87,7 +89,8 @@ namespace Combat {
 
 		void Update() {
 
-			Debug.Log(state);
+			LoadoutController.SetHotBar(0,ItemData.instances["heal"]);
+			LoadoutController.SetHotBar(1,ItemData.instances["heal 1"]);
 
 			if(state==States.Pressed) {
 				pressTime+=Time.deltaTime;

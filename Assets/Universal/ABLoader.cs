@@ -13,8 +13,10 @@ public static class ABLoader {
 		loaded=true;
 
 		ItemData.ClearInstances();
-		AssetBundle.LoadFromFile(Application.streamingAssetsPath+"/itemdata.ab").LoadAllAssets();
-
+		AssetBundle ab = FileManager.LoadSAAB("itemdata.ab");ab.LoadAllAssets();
+		string[] a = ab.GetAllAssetNames();
+		foreach(var i in a) Debug.LogWarning(a);
+		Debug.LogWarning("FINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN");
 	}
 
 }

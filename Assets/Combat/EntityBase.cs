@@ -85,8 +85,10 @@ namespace Combat {
 
 		//对角色造成伤害
 		public virtual void Damage(DamageModel e) { //受到伤害
-			if(e.amount>0) AudioController.PlayAudio(soundHit,transform.position);
-
+			if(e.amount>0) {
+				AudioController.PlayAudio(soundHit,transform.position);
+				animator.SetTrigger("hit");
+			}
 			hp-=e.amount;
 			DoKnockback(e.knockback,e.direction);
 
