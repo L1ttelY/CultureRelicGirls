@@ -82,7 +82,7 @@ namespace Combat {
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
 
 		const float distancePerCharacter = 1;
-		const float distanceTolerence = 0.3f;
+		const float distanceTolerence = 0.1f;
 
 		protected override void Start() {
 			base.Start();

@@ -58,7 +58,7 @@ namespace Combat {
 			targetPosition.x=targetX;
 			position=Vector2.MoveTowards(position,targetPosition,speed*Time.deltaTime);
 
-			position.z=-10;
+			position.z=-3;
 			position.y=CombatRoomController.currentRoom.transform.position.y;
 			transform.position=position;
 		}

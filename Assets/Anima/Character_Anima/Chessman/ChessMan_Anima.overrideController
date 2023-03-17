@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: ChessMan_Anima
   m_Controller: {fileID: 9100000, guid: 89318b7fa983a3f4482bfb9595fe25c8, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e42162d407722e84fa97ff2ae18fbe82, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 396db18e3a74798438d98d9ddf7ef433, type: 2}
