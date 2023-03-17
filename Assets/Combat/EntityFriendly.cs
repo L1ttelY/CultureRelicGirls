@@ -81,7 +81,7 @@ namespace Combat {
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
 
-		const float distancePerCharacter = 1;
+		const float distancePerCharacter = 0.5f;
 		const float distanceTolerence = 0.1f;
 
 		protected override void Start() {

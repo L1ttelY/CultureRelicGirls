@@ -27,7 +27,7 @@ namespace Combat {
 
 		void UpdateTargetX() {
 
-			const float cameraStaticOffset = 7;
+			const float cameraStaticOffset = 5;
 			targetX=(EntityFriendly.leftestX+EntityFriendly.rightestX)*0.5f+cameraStaticOffset;
 
 			float originalTargetX = targetX;
@@ -58,8 +58,8 @@ namespace Combat {
 			targetPosition.x=targetX;
 			position=Vector2.MoveTowards(position,targetPosition,speed*Time.deltaTime);
 
-			position.z=-3;
-			position.y=CombatRoomController.currentRoom.transform.position.y;
+			position.z=-2.7f;
+			position.y=CombatRoomController.currentRoom.transform.position.y+0.3f;
 			transform.position=position;
 		}
 
