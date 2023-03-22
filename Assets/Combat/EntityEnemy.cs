@@ -96,9 +96,6 @@ namespace Combat {
 		protected virtual void StartAttack() { currensState=StateAttack; }
 		protected virtual void StateAttack() { }
 
-
-
-
 		protected override void OnDeath() {
 			base.OnDeath();
 			if(corpseSprite!=null) {
