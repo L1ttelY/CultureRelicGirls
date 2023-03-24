@@ -31,7 +31,7 @@ namespace Combat {
 
 		protected CombatRoomController room;
 
-		//属性 在prefab中编辑 不要动态修改
+		#region 属性 在prefab中编辑 不要动态修改
 		[field: SerializeField] public float acceleration { get; protected set; }           //加速能力   
 		[field: SerializeField] public float maxSpeed { get; protected set; }               //最大速率   
 		[field: SerializeField] public int attackBasePower { get; protected set; }          //基础攻击力 
@@ -64,6 +64,8 @@ namespace Combat {
 		[HideInInspector] public float knockbackBuff;  //增强击退
 		[HideInInspector] public float cdSpeed;        //增加攻击冷却速度
 		[HideInInspector] public float speedBuff;      //增加移动速度和加速度
+
+		#endregion
 
 		//角色的朝向 参考Direction类
 		protected int direction = Direction.right;
@@ -130,6 +132,8 @@ namespace Combat {
 
 			buffSlot=new BuffSlot();
 			buffSlot.Init(this);
+
+			for(int i = 0;i<attacks.Length;i++) attacks[i].id=i;
 		}
 
 		protected virtual void OnDestroy() {
@@ -140,7 +144,9 @@ namespace Combat {
 
 			if(room!=CombatRoomController.currentRoom) return;
 
+			UpdateTarget();
 			UpdateMove();
+
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
@@ -255,7 +261,22 @@ namespace Combat {
 			if(timeSinceKnockback>=knockbackTime) StartMove();
 		}
 
-		//攻击
+		#region 攻击目标
+
+		protected virtual void UpdateTarget() { target=GetNearestTarget(); }
+
+		protected EntityBase target;
+
+		protected virtual float targetX => target==null ? transform.position.x : target.transform.position.x;
+
+		protected virtual float distanceToTarget => Mathf.Abs(targetX-transform.position.x);
+
+		#endregion
+
+		#region 攻击动画/攻击状态
+
+		[SerializeField] protected float attackChance = 1;        //移动结束后进入攻击状态的概率
+		[SerializeField] protected AttackStateData[] attacks;     //包含所有攻击状态的列表
 		public float timeAfterAttack { get; protected set; }
 		//让角色自行判断是否攻击
 		protected virtual void UpdateAttack() {
@@ -273,6 +294,117 @@ namespace Combat {
 			}
 
 		}
+
+		//播放攻击动画
+
+		public float 攻击动画移动速度;
+		protected float overrideSpeed {
+			get => 攻击动画移动速度;
+			set => 攻击动画移动速度=value;
+		}
+
+		protected int attackIndex;
+
+		protected readonly static SortedSet<AttackStateData> attackStatesBuffer = new SortedSet<AttackStateData>();
+		protected readonly static SortedSet<AttackStateTransistion> transitionBuffer = new SortedSet<AttackStateTransistion>();
+
+		protected virtual void StartRandomAttack() {
+			float weightTotal = 0;
+			float distanceToTarget = this.distanceToTarget;
+
+			//找出可能的转移目标
+			attackStatesBuffer.Clear();
+			foreach(var i in attacks) {
+				if(i.maxDistance<distanceToTarget||i.minDistance>distanceToTarget) continue;
+				weightTotal+=i.startWeight;
+				attackStatesBuffer.Add(i);
+			}
+
+			//选择实际的转移目标(攻击动画)
+			float randomFactor = Random.Range(0,weightTotal);
+			AttackStateData targetState = null;
+			foreach(var i in attackStatesBuffer) {
+				randomFactor-=i.startWeight;
+				if(randomFactor<=Mathf.Epsilon) {
+					targetState=i;
+					break;
+				}
+			}
+
+			//判断要转移到攻击动画还是行走
+			if(Utility.Chance(1-attackChance)||targetState==null) {
+				//继续行走
+				StartMove();
+			} else {
+				//进行攻击
+				StartAttack(targetState.id);
+			}
+
+		}
+		protected virtual void StartAttack(int attackIndex) {
+			direction=targetX>transform.position.x ? Direction.right : Direction.left;
+			this.attackIndex=attackIndex;
+			animator.SetTrigger($"attack{attackIndex}");
+			currensState=StateAttack;
+		}
+		protected virtual void StateAttack() {
+
+			velocity=overrideSpeed*Direction.GetVector(direction);
+			overrideSpeed=0;
+
+		}
+
+		//在代码中提前结束攻击的接口
+		protected virtual void EndAttack() {
+			animator.SetTrigger("attackEnd");
+			StartMove();
+		}
+
+		//通过动画在攻击结束时调用
+		public virtual void 攻击事件_AttackEnd() {
+			transitionBuffer.Clear();
+			float distanceToTarget = this.distanceToTarget;
+			AttackStateData currentAttack = attacks[attackIndex];
+			float weightTotal = 0;
+
+			//统计可用的目标状态
+			foreach(var i in currentAttack.transitionList) {
+				switch(i.type) {
+				case AttackStateTransistionType.Attack:
+					if(distanceToTarget<attacks[i.attackId].minDistance||distanceToTarget>attacks[i.attackId].maxDistance) break;
+					weightTotal+=i.weight;
+					transitionBuffer.Add(i);
+					break;
+
+				case AttackStateTransistionType.Move:
+					weightTotal+=i.weight;
+					transitionBuffer.Add(i);
+					break;
+
+				}
+
+
+			}
+
+			//判断最终目标
+			float randomFactor = Random.Range(0,weightTotal);
+			AttackStateTransistion transistion = null;
+			foreach(var i in transitionBuffer) {
+				randomFactor-=i.weight;
+				if(randomFactor<=Mathf.Epsilon) {
+					transistion=i;
+					break;
+				}
+			}
+
+			if(transistion==null||transistion.type==AttackStateTransistionType.Move) StartMove();
+			else StartAttack(transistion.attackId);
+
+		}
+		#endregion
+
+		#region 默认攻击事件
+
 
 		//获取应该攻击的敌人
 		protected virtual EntityBase GetNearestTarget() {
@@ -348,7 +480,10 @@ namespace Combat {
 
 		}
 
+		#endregion
+
 		protected BuffSlot buffSlot;
+
 
 	}
 

@@ -14,15 +14,26 @@ namespace Combat {
 
 		[SerializeField] bool startRight;
 
-		protected virtual float targetX {
-			get {
-				int targetIndex = 0;
-				for(int i = targetIndex;i<3;i++) {
-					if(EntityFriendly.friendlyList[i]) return EntityFriendly.friendlyList[i].transform.position.x;
-				}
-				return 0;
+		[SerializeField] protected bool doingDamage;
+		[SerializeField] Collider2D damageBox;
+
+		[SerializeField] int targetIndex;
+
+		#region 攻击目标
+
+		protected override void UpdateTarget() {
+			base.UpdateTarget();
+
+			target=null;
+			for(int i = targetIndex;i<3;i++) {
+				if(EntityFriendly.friendlyList[i]) target=EntityFriendly.friendlyList[i];
 			}
+
 		}
+
+		#endregion
+
+		protected override float distanceToTarget => Mathf.Abs(transform.position.x-targetX);
 
 		protected override void Start() {
 			base.Start();
@@ -35,10 +46,14 @@ namespace Combat {
 			base.FixedUpdate();
 		}
 
-		protected virtual void UpdateContactDamage() {
+		//返回是否命中敌人
+		protected virtual bool UpdateContactDamage() {
 			//碰撞伤害
-			if(isKnockbacked) return;
-			int cnt = collider.Cast(Vector2.left,Utility.raycastBuffer,Mathf.Abs(velocity.x)*Time.deltaTime);
+			if(isKnockbacked) return false;
+
+			bool result = false;
+
+			int cnt = damageBox.Cast(Vector2.left,Utility.raycastBuffer,Mathf.Abs(velocity.x)*Time.deltaTime);
 
 			for(int i = 0;i<cnt;i++) {
 
@@ -49,11 +64,14 @@ namespace Combat {
 
 					if(other.isKnockbacked) damage.amount=0;
 
-					damage.direction=Direction.left;
+					damage.direction=direction;
 					damage.damageType=DamageType.Contact;
 					other.Damage(damage);
+					result=true;
 				}
 			}
+
+			return result;
 		}
 
 		protected virtual void StartInactive() {
@@ -75,6 +93,11 @@ namespace Combat {
 			if(toActive) StartMove();
 		}
 
+		protected override void StateAttack() {
+			base.StateAttack();
+			if(doingDamage) UpdateContactDamage();
+		}
+
 		protected override void StateMove() {
 
 			Vector2 position = transform.position;
@@ -83,7 +106,7 @@ namespace Combat {
 			Vector2 targetVelocity = (targetX>transform.position.x ? Vector2.right : Vector2.left)*speedBuff*maxSpeed;
 			direction=(targetVelocity.x>0) ? Direction.right : Direction.left;
 
-			if(Mathf.Abs(targetX-transform.position.x)<attackRangeMax) StartAttack();
+			if(Mathf.Abs(targetX-transform.position.x)<attackRangeMax) StartAttack(0);
 
 			float deltaSpeed = acceleration*((speedBuff+1)*0.5f)*Time.deltaTime;
 			velocity=Vector2.MoveTowards(velocity,targetVelocity,deltaSpeed);
@@ -92,9 +115,6 @@ namespace Combat {
 			transform.position=position;
 
 		}
-
-		protected virtual void StartAttack() { currensState=StateAttack; }
-		protected virtual void StateAttack() { }
 
 		protected override void OnDeath() {
 			base.OnDeath();
