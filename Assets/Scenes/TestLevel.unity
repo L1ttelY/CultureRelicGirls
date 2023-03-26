@@ -597,13 +597,14 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 1fa1d5bb05a8c9ad074d9ba9e1d34b53cdf0f4e0e1ee633173a67db50b7e67e527aed876af94c7ec59e5ca40891c3be000000000f190c88a5364abc57361ffb3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
@@ -1078,6 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1123,6 +1125,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 975770044}
     m_Modifications:
     - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: doingDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: <maxSpeed>k__BackingField
       value: 5
       objectReference: {fileID: 0}
@@ -1137,6 +1143,42 @@ PrefabInstance:
     - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: <knockbackPower>k__BackingField
       value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[1].<type>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[2].<type>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[3].<type>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[1].<weight>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[2].<weight>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[3].<weight>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[2].<attackId>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[3].<attackId>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: m_RootOrder
