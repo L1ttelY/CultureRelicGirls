@@ -303,8 +303,8 @@ namespace Combat {
 
 		protected int attackIndex;
 
-		protected readonly static SortedSet<AttackStateData> attackStatesBuffer = new SortedSet<AttackStateData>();
-		protected readonly static SortedSet<AttackStateTransistion> transitionBuffer = new SortedSet<AttackStateTransistion>();
+		protected readonly static HashSet<AttackStateData> attackStatesBuffer = new HashSet<AttackStateData>();
+		protected readonly static HashSet<AttackStateTransistion> transitionBuffer = new HashSet<AttackStateTransistion>();
 
 		protected virtual void StartRandomAttack() {
 			float weightTotal = 0;
