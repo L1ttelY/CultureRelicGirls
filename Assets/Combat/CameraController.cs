@@ -27,7 +27,8 @@ namespace Combat {
 
 		void UpdateTargetX() {
 
-			const float cameraStaticOffset = 5;
+			//调整摄像机左右，越大越左，越小越右
+			const float cameraStaticOffset = 10;
 			targetX=(EntityFriendly.leftestX+EntityFriendly.rightestX)*0.5f+cameraStaticOffset;
 
 			float originalTargetX = targetX;
@@ -42,7 +43,7 @@ namespace Combat {
 				}
 			}
 
-			float xMax = EntityFriendly.leftestX+cameraSize*0.5f-1;
+			float xMax = EntityFriendly.leftestX+cameraSize*0.5f-1f;
 			float xMin = EntityFriendly.rightestX;
 
 			targetX=Mathf.Clamp(targetX,xMin,xMax);
@@ -58,8 +59,10 @@ namespace Combat {
 			targetPosition.x=targetX;
 			position=Vector2.MoveTowards(position,targetPosition,speed*Time.deltaTime);
 
-			position.z=-2.7f;
-			position.y=CombatRoomController.currentRoom.transform.position.y+0.7f;
+			position.z=-4.8f;
+			//调整摄像机前后
+			position.y=CombatRoomController.currentRoom.transform.position.y+1.1f;
+			//调整摄像机上下
 			transform.position=position;
 		}
 
