@@ -137,8 +137,24 @@ MonoBehaviour:
   speedBuff: 0
   attackChance: 1
   attacks:
+  - <minDistance>k__BackingField: 4
+    <maxDistance>k__BackingField: 6
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 10
+    <maxDistance>k__BackingField: 3
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 3
+    <maxDistance>k__BackingField: 4
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
