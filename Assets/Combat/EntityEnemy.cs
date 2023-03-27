@@ -133,10 +133,8 @@ namespace Combat {
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
 
-			Debug.Log(position.x-moveTargetX);
 			if(Mathf.Abs(position.x-moveTargetX)<0.2f){
 				//½áÊøÒÆ¶¯
-				Debug.Log("ATTACK!!!");
 				StartRandomAttack();
 			}
 

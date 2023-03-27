@@ -342,6 +342,7 @@ namespace Combat {
 		protected virtual void StartAttack(int attackIndex) {
 			direction=targetX>transform.position.x ? Direction.right : Direction.left;
 			this.attackIndex=attackIndex;
+			animator.ResetTrigger("attackEnd");
 			animator.SetTrigger($"attack{attackIndex}");
 			currensState=StateAttack;
 		}
@@ -360,6 +361,8 @@ namespace Combat {
 
 		//通过动画在攻击结束时调用
 		public virtual void 攻击事件_AttackEnd() {
+			animator.SetTrigger("attackEnd");
+
 			transitionBuffer.Clear();
 			float distanceToTarget = this.distanceToTarget;
 			AttackStateData currentAttack = attacks[attackIndex];
