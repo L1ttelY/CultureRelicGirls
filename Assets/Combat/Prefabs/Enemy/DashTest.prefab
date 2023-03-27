@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015972137, y: 0.27950698}
+  m_Offset: {x: -0.12462616, y: 0.27073324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2370758, y: 1.0063136}
+  m_Size: {x: 0.9774513, y: 0.9887661}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -137,19 +137,8 @@ MonoBehaviour:
   speedBuff: 0
   attackChance: 1
   attacks:
-  - <minDistance>k__BackingField: 2.5
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
-      <weight>k__BackingField: 3
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 2.5
+    <maxDistance>k__BackingField: 10
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -166,7 +155,7 @@ MonoBehaviour:
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
-  targetDistanceMin: 1
+  targetDistanceMin: 2
   targetDistanceMax: 4
 --- !u!1 &3852622794831498748
 GameObject:
@@ -351,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.7555
+      value: 0.8182
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_SizeDelta.y
@@ -387,11 +376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.016
+      value: -0.097
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.892
+      value: 0.983
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
