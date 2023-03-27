@@ -1125,59 +1125,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 975770044}
     m_Modifications:
     - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: doingDamage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: <maxSpeed>k__BackingField
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: <acceleration>k__BackingField
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: <attackRangeMax>k__BackingField
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: <knockbackPower>k__BackingField
-      value: 0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[1].<type>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[2].<type>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[3].<type>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[1].<weight>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[2].<weight>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[3].<weight>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[2].<attackId>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: attacks.Array.data[0].transitionList.Array.data[3].<attackId>k__BackingField
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
@@ -1227,26 +1179,6 @@ PrefabInstance:
     - target: {fileID: 3264549902813579658, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: m_Name
       value: DashTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 3264549902813579671, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4975866
-      objectReference: {fileID: 0}
-    - target: {fileID: 3264549902813579671, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.025143504
-      objectReference: {fileID: 0}
-    - target: {fileID: 3285920072080855564, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0.4907
-      objectReference: {fileID: 0}
-    - target: {fileID: 3285920072080855564, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0018
-      objectReference: {fileID: 0}
-    - target: {fileID: 3285920072080855564, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.417
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}

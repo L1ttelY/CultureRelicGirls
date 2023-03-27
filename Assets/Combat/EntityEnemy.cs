@@ -98,23 +98,51 @@ namespace Combat {
 			if(doingDamage) UpdateContactDamage();
 		}
 
+		#region 移动
+
+		[Tooltip("单位选择移动时追求的与目标距离的最小值\n单位在进入移动状态时会在此值与最大值之间随机选择一个值作为追求的与目标距离, 在与目标的距离达到追求的距离后会进行一次状态转移")]
+		[SerializeField] protected float targetDistanceMin;
+		[Tooltip("单位选择移动时追求的与目标距离的最大值")]
+		[SerializeField] protected float targetDistanceMax;
+
+		protected float targetDistance;
+
+		protected override void StartMove() {
+			base.StartMove();
+			targetDistance=Random.Range(targetDistanceMin,targetDistanceMax);
+		}
+
 		protected override void StateMove() {
 
 			Vector2 position = transform.position;
+			float moveTargetX;
+			if(targetX>position.x) {
+				//向右	
+				moveTargetX=targetX-targetDistance;
+			} else {
+				//向左
+				moveTargetX=targetX+targetDistance;
+			}
 
-			float targetX = this.targetX;
-			Vector2 targetVelocity = (targetX>transform.position.x ? Vector2.right : Vector2.left)*speedBuff*maxSpeed;
-			direction=(targetVelocity.x>0) ? Direction.right : Direction.left;
-
-			if(Mathf.Abs(targetX-transform.position.x)<attackRangeMax) StartAttack(0);
-
+			//确定速度
+			Vector2 targetVelocity = (moveTargetX>position.x ? Vector2.right : Vector2.left)*speedBuff*maxSpeed;
+			direction=(targetX>position.x) ? Direction.right : Direction.left;
 			float deltaSpeed = acceleration*((speedBuff+1)*0.5f)*Time.deltaTime;
 			velocity=Vector2.MoveTowards(velocity,targetVelocity,deltaSpeed);
 
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
 
+			Debug.Log(position.x-moveTargetX);
+			if(Mathf.Abs(position.x-moveTargetX)<0.2f){
+				//结束移动
+				Debug.Log("ATTACK!!!");
+				StartRandomAttack();
+			}
+
 		}
+
+		#endregion
 
 		protected override void OnDeath() {
 			base.OnDeath();
