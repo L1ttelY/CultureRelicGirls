@@ -10,6 +10,10 @@ namespace Combat {
 		//主动技能CD长度
 		[SerializeField] protected float skill1Cd;
 		[SerializeField] protected float skill2Cd;
+		[Tooltip("最小攻击距离")]
+		[field: SerializeField] public float attackRangeMin { get; protected set; }         //最小攻击距离
+		[Tooltip("最大攻击距离")]
+		[field: SerializeField] public float attackRangeMax { get; protected set; }         //最大攻击距离
 		protected float skillCd;
 		protected float timeAfterSkill;
 		//主动技能CD完成比例

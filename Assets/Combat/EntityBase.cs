@@ -39,8 +39,6 @@ namespace Combat {
 		[field: SerializeField] public float knockbackPower { get; protected set; }         //击退力
 		[field: SerializeField] public int maxHp { get; protected set; }                    //最大生命值
 		[field: SerializeField] public GameObject[] projectiles { get; protected set; }     //射弹种类 在数组中随机选取
-		[field: SerializeField] public float attackRangeMin { get; protected set; }         //最小攻击距离
-		[field: SerializeField] public float attackRangeMax { get; protected set; }         //最大攻击距离
 		[field: SerializeField] public float projectileVelocityY { get; protected set; }    //投射物的纵向速率 越大则横向速率越慢越难以命中 若投射物重力为0则为投射物的水平速率
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
@@ -419,7 +417,6 @@ namespace Combat {
 				if((i is EntityFriendly)==(this is EntityFriendly)) continue;
 				float x = i.transform.position.x;
 				float dist = Mathf.Abs(x-transform.position.x);
-				if(dist<attackRangeMin||dist>attackRangeMax) continue;
 
 				if(dist<targetDistance) {
 					targetDistance=dist;
