@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009331703, y: 0.025143504}
+  m_Offset: {x: -0.12462616, y: 0.27073324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.39696598, y: 0.4975866}
+  m_Size: {x: 0.9774513, y: 0.9887661}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -117,15 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 3
-  <maxSpeed>k__BackingField: 5
+  <acceleration>k__BackingField: 2
+  <maxSpeed>k__BackingField: 2.5
   <attackBasePower>k__BackingField: 5
   <attackCd>k__BackingField: 0
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 10000000
   <projectiles>k__BackingField: []
-  <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 3
   <projectileVelocityY>k__BackingField: 0
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -139,8 +137,24 @@ MonoBehaviour:
   speedBuff: 0
   attackChance: 1
   attacks:
+  - <minDistance>k__BackingField: 4
+    <maxDistance>k__BackingField: 6
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 10
+    <maxDistance>k__BackingField: 3
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 3
+    <maxDistance>k__BackingField: 4
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -157,8 +171,8 @@ MonoBehaviour:
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
-  targetDistanceMin: 4
-  targetDistanceMax: 10
+  targetDistanceMin: 2
+  targetDistanceMax: 4
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.4907
+      value: 0.8182
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_SizeDelta.y
@@ -378,11 +392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0018
+      value: -0.097
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.417
+      value: 0.983
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

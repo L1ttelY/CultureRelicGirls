@@ -17,7 +17,6 @@ public class ItemData:ScriptableObject {
 
 		instances.Add(name,this);
 
-		Debug.Log(name);
 		boundType=System.Type.GetType(className);
 		boundItem=boundType.GetConstructor(new System.Type[0]).Invoke(new object[0]) as ItemBase;
 
