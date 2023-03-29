@@ -1124,22 +1124,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 975770044}
     m_Modifications:
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: poiseMax
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: poiseRegen
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: <maxSpeed>k__BackingField
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684290606832352834, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: <acceleration>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1188,10 +1172,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashTest
       objectReference: {fileID: 0}
-    - target: {fileID: 8894793313059689301, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1300691747, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
 --- !u!4 &1777264412 stripped

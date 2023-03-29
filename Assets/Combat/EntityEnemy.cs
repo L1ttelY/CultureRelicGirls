@@ -98,7 +98,7 @@ namespace Combat {
 				nameHashSet=true;
 				nameHash=state.fullPathHash;
 			}
-			if(nameHash!=state.fullPathHash) 攻击事件_AttackEnd();
+			if(nameHash!=state.fullPathHash) AttackEnd();
 
 			velocity=overrideSpeed*Direction.GetVector(direction);
 			overrideSpeed=0;
@@ -113,8 +113,7 @@ namespace Combat {
 		}
 
 		//通过动画在攻击结束时调用
-		public virtual void 攻击事件_AttackEnd() {
-			animator.SetTrigger("attackEnd");
+		public virtual void AttackEnd() {
 			transitionBuffer.Clear();
 			float distanceToTarget = this.distanceToTarget;
 			AttackStateData currentAttack = attacks[attackIndex];
