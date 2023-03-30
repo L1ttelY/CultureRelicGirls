@@ -32,6 +32,128 @@ namespace Combat {
 		}
 
 		#endregion
+		#region 攻击动画/攻击状态
+
+		[SerializeField] protected float attackChance = 1;        //移动结束后进入攻击状态的概率
+		[SerializeField] protected AttackStateData[] attacks;     //包含所有攻击状态的列表
+
+
+		//播放攻击动画
+
+		public float 攻击动画移动速度;
+		protected float overrideSpeed {
+			get => 攻击动画移动速度;
+			set => 攻击动画移动速度=value;
+		}
+
+		protected int attackIndex;
+
+		protected readonly static SortedSet<AttackStateData> attackStatesBuffer = new SortedSet<AttackStateData>();
+		protected readonly static SortedSet<AttackStateTransistion> transitionBuffer = new SortedSet<AttackStateTransistion>();
+
+		protected virtual void StartRandomAttack() {
+			float weightTotal = 0;
+			float distanceToTarget = this.distanceToTarget;
+
+			//找出可能的转移目标
+			attackStatesBuffer.Clear();
+			foreach(var i in attacks) {
+				if(i.maxDistance<distanceToTarget||i.minDistance>distanceToTarget) continue;
+				weightTotal+=i.startWeight;
+				attackStatesBuffer.Add(i);
+			}
+
+			//选择实际的转移目标(攻击动画)
+			float randomFactor = Random.Range(0,weightTotal);
+			AttackStateData targetState = null;
+			foreach(var i in attackStatesBuffer) {
+				randomFactor-=i.startWeight;
+				if(randomFactor<=Mathf.Epsilon) {
+					targetState=i;
+					break;
+				}
+			}
+
+			//判断要转移到攻击动画还是行走
+			if(Utility.Chance(1-attackChance)||targetState==null) {
+				//继续行走
+				StartMove();
+			} else {
+				//进行攻击
+				StartAttack(targetState.id);
+			}
+
+		}
+		protected virtual void StartAttack(int attackIndex) {
+			direction=targetX>transform.position.x ? Direction.right : Direction.left;
+			this.attackIndex=attackIndex;
+			animator.SetTrigger($"attack{attackIndex}");
+			currensState=StateAttack;
+			nameHashSet=false;
+		}
+		protected virtual void StateAttack() {
+
+			AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+			if(!nameHashSet) {
+				nameHashSet=true;
+				nameHash=state.fullPathHash;
+			}
+			if(nameHash!=state.fullPathHash) AttackEnd();
+
+			velocity=overrideSpeed*Direction.GetVector(direction);
+			overrideSpeed=0;
+			if(doingDamage) UpdateContactDamage();
+
+		}
+
+		//在代码中提前结束攻击的接口
+		protected virtual void EndAttackPremature() {
+			animator.SetTrigger("attackEnd");
+			StartMove();
+		}
+
+		//通过动画在攻击结束时调用
+		public virtual void AttackEnd() {
+			transitionBuffer.Clear();
+			float distanceToTarget = this.distanceToTarget;
+			AttackStateData currentAttack = attacks[attackIndex];
+			float weightTotal = 0;
+
+			//统计可用的目标状态
+			foreach(var i in currentAttack.transitionList) {
+				switch(i.type) {
+				case AttackStateTransistionType.Attack:
+					if(distanceToTarget<attacks[i.attackId].minDistance||distanceToTarget>attacks[i.attackId].maxDistance) break;
+					weightTotal+=i.weight;
+					transitionBuffer.Add(i);
+					break;
+
+				case AttackStateTransistionType.Move:
+					weightTotal+=i.weight;
+					transitionBuffer.Add(i);
+					break;
+
+				}
+
+
+			}
+
+			//判断最终目标
+			float randomFactor = Random.Range(0,weightTotal);
+			AttackStateTransistion transistion = null;
+			foreach(var i in transitionBuffer) {
+				randomFactor-=i.weight;
+				if(randomFactor<=Mathf.Epsilon) {
+					transistion=i;
+					break;
+				}
+			}
+
+			if(transistion==null||transistion.type==AttackStateTransistionType.Move) StartMove();
+			else StartAttack(transistion.attackId);
+
+		}
+		#endregion
 
 		protected override float distanceToTarget => Mathf.Abs(transform.position.x-targetX);
 
@@ -39,11 +161,15 @@ namespace Combat {
 			base.Start();
 			direction=startRight ? Direction.right : Direction.left;
 			StartInactive();
-
+			poise=poiseMax;
+			for(int i = 0;i<attacks.Length;i++) attacks[i].id=i;
 		}
 
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
+			poise+=poiseRegen*Time.deltaTime;
+			if(poise>poiseMax) poise=poiseMax;
+			if(poise<=0) StartStagger();
 		}
 
 		//返回是否命中敌人
@@ -93,11 +219,6 @@ namespace Combat {
 			if(toActive) StartMove();
 		}
 
-		protected override void StateAttack() {
-			base.StateAttack();
-			if(doingDamage) UpdateContactDamage();
-		}
-
 		#region 移动
 
 		[Tooltip("单位选择移动时追求的与目标距离的最小值\n单位在进入移动状态时会在此值与最大值之间随机选择一个值作为追求的与目标距离, 在与目标的距离达到追求的距离后会进行一次状态转移")]
@@ -133,12 +254,53 @@ namespace Combat {
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
 
-			if(Mathf.Abs(position.x-moveTargetX)<0.2f){
+			Debug.Log(position.x-moveTargetX);
+			if(Mathf.Abs(position.x-moveTargetX)<0.2f) {
 				//结束移动
+				Debug.Log("ATTACK!!!");
 				StartRandomAttack();
 			}
 
 		}
+
+		#endregion
+
+		#region 韧性机制
+
+		[Tooltip("接受击退时受到的击退力和韧性伤害会被减去这个值")]
+		[SerializeField] protected float knockbackDefense;
+		[Tooltip("最大韧性值")]
+		[SerializeField] protected float poiseMax;
+		[Tooltip("韧性值恢复速率")]
+		[SerializeField] protected float poiseRegen;
+
+		protected float poise;
+		protected float staggeredTime;
+
+		protected override void DoKnockback(float knockback,int direction) {
+			float actualKnockback = Mathf.Max(0,knockback-knockbackDefense);
+			poise-=actualKnockback;
+			base.DoKnockback(knockback,direction);
+		}
+
+		protected virtual void StartStagger() {
+			currensState=StateStagger;
+			animator.SetTrigger("stagger");
+			nameHashSet=false;
+		}
+		protected virtual void StateStagger() {
+			var state = animator.GetCurrentAnimatorStateInfo(0);
+			if(!nameHashSet) {
+				nameHash=state.fullPathHash;
+				nameHashSet=true;
+			}
+
+			velocity=Vector2.zero;
+			poise=poiseMax;
+			if(state.fullPathHash!=nameHash) StartMove();
+
+		}
+
 
 		#endregion
 

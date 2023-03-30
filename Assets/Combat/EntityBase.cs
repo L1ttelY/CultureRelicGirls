@@ -131,7 +131,6 @@ namespace Combat {
 			buffSlot=new BuffSlot();
 			buffSlot.Init(this);
 
-			for(int i = 0;i<attacks.Length;i++) attacks[i].id=i;
 		}
 
 		protected virtual void OnDestroy() {
@@ -271,141 +270,13 @@ namespace Combat {
 
 		#endregion
 
-		#region 攻击动画/攻击状态
+		#region 攻击
 
-		[SerializeField] protected float attackChance = 1;        //移动结束后进入攻击状态的概率
-		[SerializeField] protected AttackStateData[] attacks;     //包含所有攻击状态的列表
 		public float timeAfterAttack { get; protected set; }
-		//让角色自行判断是否攻击
-		protected virtual void UpdateAttack() {
 
-			timeAfterAttack+=Time.deltaTime*cdSpeed;
-
-			EntityBase target = GetNearestTarget();
-
-			if(target) {
-				direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
-				if(timeAfterAttack>attackCd) {
-
-					Attack(target);
-				}
-			}
-
-		}
-
-		//播放攻击动画
-
-		public float 攻击动画移动速度;
-		protected float overrideSpeed {
-			get => 攻击动画移动速度;
-			set => 攻击动画移动速度=value;
-		}
-
-		protected int attackIndex;
-
-		protected readonly static HashSet<AttackStateData> attackStatesBuffer = new HashSet<AttackStateData>();
-		protected readonly static HashSet<AttackStateTransistion> transitionBuffer = new HashSet<AttackStateTransistion>();
-
-		protected virtual void StartRandomAttack() {
-			float weightTotal = 0;
-			float distanceToTarget = this.distanceToTarget;
-
-			//找出可能的转移目标
-			attackStatesBuffer.Clear();
-			foreach(var i in attacks) {
-				if(i.maxDistance<distanceToTarget||i.minDistance>distanceToTarget) continue;
-				weightTotal+=i.startWeight;
-				attackStatesBuffer.Add(i);
-			}
-
-			//选择实际的转移目标(攻击动画)
-			float randomFactor = Random.Range(0,weightTotal);
-			AttackStateData targetState = null;
-			foreach(var i in attackStatesBuffer) {
-				randomFactor-=i.startWeight;
-				if(randomFactor<=Mathf.Epsilon) {
-					targetState=i;
-					break;
-				}
-			}
-
-			//判断要转移到攻击动画还是行走
-			if(Utility.Chance(1-attackChance)||targetState==null) {
-				//继续行走
-				StartMove();
-			} else {
-				//进行攻击
-				StartAttack(targetState.id);
-			}
-
-		}
-		protected virtual void StartAttack(int attackIndex) {
-			direction=targetX>transform.position.x ? Direction.right : Direction.left;
-			this.attackIndex=attackIndex;
-			animator.ResetTrigger("attackEnd");
-			animator.SetTrigger($"attack{attackIndex}");
-			currensState=StateAttack;
-		}
-		protected virtual void StateAttack() {
-
-			velocity=overrideSpeed*Direction.GetVector(direction);
-			overrideSpeed=0;
-
-		}
-
-		//在代码中提前结束攻击的接口
-		protected virtual void EndAttack() {
-			animator.SetTrigger("attackEnd");
-			StartMove();
-		}
-
-		//通过动画在攻击结束时调用
-		public virtual void 攻击事件_AttackEnd() {
-			animator.SetTrigger("attackEnd");
-
-			transitionBuffer.Clear();
-			float distanceToTarget = this.distanceToTarget;
-			AttackStateData currentAttack = attacks[attackIndex];
-			float weightTotal = 0;
-
-			//统计可用的目标状态
-			foreach(var i in currentAttack.transitionList) {
-				switch(i.type) {
-				case AttackStateTransistionType.Attack:
-					if(distanceToTarget<attacks[i.attackId].minDistance||distanceToTarget>attacks[i.attackId].maxDistance) break;
-					weightTotal+=i.weight;
-					transitionBuffer.Add(i);
-					break;
-
-				case AttackStateTransistionType.Move:
-					weightTotal+=i.weight;
-					transitionBuffer.Add(i);
-					break;
-
-				}
-
-
-			}
-
-			//判断最终目标
-			float randomFactor = Random.Range(0,weightTotal);
-			AttackStateTransistion transistion = null;
-			foreach(var i in transitionBuffer) {
-				randomFactor-=i.weight;
-				if(randomFactor<=Mathf.Epsilon) {
-					transistion=i;
-					break;
-				}
-			}
-
-			if(transistion==null||transistion.type==AttackStateTransistionType.Move) StartMove();
-			else StartAttack(transistion.attackId);
-
-		}
 		#endregion
 
 		#region 默认攻击事件
-
 
 		//获取应该攻击的敌人
 		protected virtual EntityBase GetNearestTarget() {
@@ -479,11 +350,30 @@ namespace Combat {
 
 
 		}
+		
+		//让角色自行判断是否攻击
+		protected virtual void UpdateAttack() {
 
+			timeAfterAttack+=Time.deltaTime*cdSpeed;
+
+			EntityBase target = this.target;
+
+			if(target) {
+				direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
+				if(timeAfterAttack>attackCd) {
+
+					Attack(target);
+				}
+			}
+
+		}
 		#endregion
 
 		protected BuffSlot buffSlot;
 
+		//用于判断动画状态转移
+		protected int nameHash;
+		protected bool nameHashSet;
 
 	}
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4302525056012089162}
   - component: {fileID: 1684290606832352834}
   m_Layer: 0
-  m_Name: "\u7EA2\u773C\u8001\u9F20"
+  m_Name: DashTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08068943, y: 0.16049528}
+  m_Offset: {x: -0.12462616, y: 0.27073324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6022434, y: 0.723776}
+  m_Size: {x: 0.9774513, y: 0.9887661}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 08e7805dab5a7514ba60b3cce16ed361, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54471998a4ef50940aba461d8c013bca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -135,33 +135,6 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  attackChance: 1
-  attacks:
-  - <minDistance>k__BackingField: 4
-    <maxDistance>k__BackingField: 6
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 0
-  - <minDistance>k__BackingField: 4
-    <maxDistance>k__BackingField: 6
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 3
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   <enemyId>k__BackingField: 0
   wakeUpDistanceFront: 7
   wakeUpDistanceBack: 4
@@ -171,8 +144,38 @@ MonoBehaviour:
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
-  targetDistanceMin: 0
-  targetDistanceMax: 6
+  attackChance: 1
+  attacks:
+  - <minDistance>k__BackingField: 4
+    <maxDistance>k__BackingField: 6
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 3
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 3
+    <maxDistance>k__BackingField: 4
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
+  targetDistanceMin: 2
+  targetDistanceMax: 4
+  knockbackDefense: 0
+  poiseMax: 10
+  poiseRegen: 1
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6723150656730286130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.309, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -392,11 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.073
+      value: -0.097
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.703
+      value: 0.983
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
