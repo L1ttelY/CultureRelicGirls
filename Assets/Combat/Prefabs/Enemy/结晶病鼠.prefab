@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54471998a4ef50940aba461d8c013bca, type: 2}
+  m_Controller: {fileID: 22100000, guid: 395429c05d6a5b748b1358d490320939, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -135,6 +135,15 @@ MonoBehaviour:
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
+  <enemyId>k__BackingField: 0
+  wakeUpDistanceFront: 7
+  wakeUpDistanceBack: 4
+  corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
+  sentienceMatterReward: 0
+  startRight: 0
+  doingDamage: 0
+  damageBox: {fileID: 6651246421534483}
+  targetIndex: 0
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 5
@@ -173,17 +182,11 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
-  <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 7
-  wakeUpDistanceBack: 4
-  corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
-  sentienceMatterReward: 0
-  startRight: 0
-  doingDamage: 0
-  damageBox: {fileID: 6651246421534483}
-  targetIndex: 0
   targetDistanceMin: 0.5
   targetDistanceMax: 6
+  knockbackDefense: 0
+  poiseMax: 10
+  poiseRegen: 1
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0

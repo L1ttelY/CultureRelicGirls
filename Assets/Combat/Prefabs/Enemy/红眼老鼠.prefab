@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 08e7805dab5a7514ba60b3cce16ed361, type: 2}
+  m_Controller: {fileID: 22100000, guid: 2146f0e8ab2849c499344feb886cfb8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 3
-    <maxDistance>k__BackingField: 4
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 6
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -163,7 +163,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 1
+    <maxDistance>k__BackingField: 1.5
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -171,8 +171,8 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
-  targetDistanceMin: 2
-  targetDistanceMax: 4
+  targetDistanceMin: 0
+  targetDistanceMax: 6
   knockbackDefense: 0
   poiseMax: 10
   poiseRegen: 1
