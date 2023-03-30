@@ -748,6 +748,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 975770044}
     m_Modifications:
+    - target: {fileID: 1684290606832352834, guid: 39d7fceef0a259b4c9bdab0704e30921, type: 3}
+      propertyPath: targetDistanceMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 39d7fceef0a259b4c9bdab0704e30921, type: 3}
+      propertyPath: targetDistanceMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 39d7fceef0a259b4c9bdab0704e30921, type: 3}
+      propertyPath: attacks.Array.data[1].<maxDistance>k__BackingField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 39d7fceef0a259b4c9bdab0704e30921, type: 3}
+      propertyPath: attacks.Array.data[1].<minDistance>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 39d7fceef0a259b4c9bdab0704e30921, type: 3}
+      propertyPath: attacks.Array.data[2].<maxDistance>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 39d7fceef0a259b4c9bdab0704e30921, type: 3}
       propertyPath: m_RootOrder
       value: 3

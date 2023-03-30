@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4302525056012089162}
   - component: {fileID: 1684290606832352834}
   m_Layer: 0
-  m_Name: DashTest
+  m_Name: "\u7EA2\u773C\u8001\u9F20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54471998a4ef50940aba461d8c013bca, type: 2}
+  m_Controller: {fileID: 9100000, guid: 08e7805dab5a7514ba60b3cce16ed361, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,16 +146,8 @@ MonoBehaviour:
   targetIndex: 0
   attackChance: 1
   attacks:
-  - <minDistance>k__BackingField: 4
-    <maxDistance>k__BackingField: 6
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 3
+  - <minDistance>k__BackingField: 1
+    <maxDistance>k__BackingField: 2
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -164,6 +156,14 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 3
     <maxDistance>k__BackingField: 4
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 1
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -285,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6723150656730286130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.272, y: 0.716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
