@@ -48,8 +48,8 @@ namespace Combat {
 
 		protected int attackIndex;
 
-		protected readonly static SortedSet<AttackStateData> attackStatesBuffer = new SortedSet<AttackStateData>();
-		protected readonly static SortedSet<AttackStateTransistion> transitionBuffer = new SortedSet<AttackStateTransistion>();
+		protected readonly static HashSet<AttackStateData> attackStatesBuffer = new HashSet<AttackStateData>();
+		protected readonly static HashSet<AttackStateTransistion> transitionBuffer = new HashSet<AttackStateTransistion>();
 
 		protected virtual void StartRandomAttack() {
 			float weightTotal = 0;
@@ -77,8 +77,10 @@ namespace Combat {
 			//判断要转移到攻击动画还是行走
 			if(Utility.Chance(1-attackChance)||targetState==null) {
 				//继续行走
+				Debug.Log("MOVE!!!!!!!!!!!!!!!");
 				StartMove();
 			} else {
+				Debug.Log("ATTACK!!!!!!!!!!!!!!!");
 				//进行攻击
 				StartAttack(targetState.id);
 			}
@@ -254,7 +256,6 @@ namespace Combat {
 			position+=velocity*Time.deltaTime;
 			transform.position=position;
 
-			Debug.Log(position.x-moveTargetX);
 			if(Mathf.Abs(position.x-moveTargetX)<0.2f) {
 				//结束移动
 				Debug.Log("ATTACK!!!");
