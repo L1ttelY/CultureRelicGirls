@@ -49,6 +49,9 @@ namespace Combat {
 		private void OnDestroy() {
 			instances.Remove(this);
 		}
+		private void OnDisable() {
+			distanceToCharacter=1;
+		}
 
 	}
 
