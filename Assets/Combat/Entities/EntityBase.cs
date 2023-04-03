@@ -145,7 +145,7 @@ namespace Combat {
 			UpdateMove();
 
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
-			animator.SetFloat("speed",Mathf.Abs(velocity.x));
+			animator.SetFloat("speed",Mathf.Max(0.1f,Mathf.Abs(velocity.x)));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
 
 			buffSlot.Update();
@@ -350,7 +350,7 @@ namespace Combat {
 
 
 		}
-		
+
 		//ÈÃ½ÇÉ«×ÔÐÐÅÐ¶ÏÊÇ·ñ¹¥»÷
 		protected virtual void UpdateAttack() {
 
