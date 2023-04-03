@@ -210,8 +210,7 @@ Transform:
   m_LocalPosition: {x: 7.46, y: 0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1060574881}
+  m_Children: []
   m_Father: {fileID: 975770044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1007,6 +1006,7 @@ Transform:
   - {fileID: 564990532}
   - {fileID: 273242768}
   - {fileID: 1078990046}
+  - {fileID: 1060574881}
   m_Father: {fileID: 967585476}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1113,11 +1113,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 220762817}
+    m_TransformParent: {fileID: 975770044}
     m_Modifications:
     - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: targetDistanceMax
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: targetDistanceMin
@@ -1145,11 +1145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: attacks.Array.data[3].<maxDistance>k__BackingField
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: attacks.Array.data[3].<minDistance>k__BackingField
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: attacks.Array.data[3].<startWeight>k__BackingField
@@ -1177,15 +1177,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.71
+      value: 34.25
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: 0.15000004
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.z
