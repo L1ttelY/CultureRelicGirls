@@ -1115,13 +1115,73 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220762817}
     m_Modifications:
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: targetDistanceMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: targetDistanceMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: <maxSpeed>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[3].transitionList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[2].<minDistance>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[3].<maxDistance>k__BackingField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[3].<minDistance>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[3].<startWeight>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[0].transitionList.Array.data[0].<type>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[1].transitionList.Array.data[0].<type>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[2].transitionList.Array.data[0].<type>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[3].transitionList.Array.data[0].<type>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684290606832352834, guid: 451f458668ff817438ab1038ec219e45, type: 3}
+      propertyPath: attacks.Array.data[3].transitionList.Array.data[0].<weight>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.240002
+      value: 5.71
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1808,7 +1868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1382266093321172608, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -842.4128
+      value: -842.41284
       objectReference: {fileID: 0}
     - target: {fileID: 5150010418189835640, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.x
