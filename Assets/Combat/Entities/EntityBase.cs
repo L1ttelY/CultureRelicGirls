@@ -19,6 +19,20 @@ namespace Combat {
 		public int direction;                  //攻击方向, 值的含义参考Direction类
 	}
 
+	[System.Serializable]
+	public class AttackData {
+		[field: SerializeField] public GameObject projectile { get; private set; }
+		[Tooltip("投射物的纵向速率 越大则横向速率越慢越难以命中 若投射物重力为0则为投射物的水平速率")]
+		[field: SerializeField] public float projectileVelocityY { get; protected set; }
+		public float projectileGravity { get; private set; }
+		public float travelTime { get; private set; }
+		public void InitParams() {
+			projectileGravity=projectile.GetComponent<ProjectileBase>().gravity;
+			travelTime=2*projectileVelocityY/projectileGravity;
+			if(projectileGravity==0) travelTime=0;
+		}
+	}
+
 	public class EntityBase:MonoBehaviour {
 
 		public static LinkedList<EntityBase> entities = new LinkedList<EntityBase>();
@@ -32,16 +46,22 @@ namespace Combat {
 		protected CombatRoomController room;
 
 		#region 属性 在prefab中编辑 不要动态修改
-		[field: SerializeField] public float acceleration { get; protected set; }           //加速能力   
-		[field: SerializeField] public float maxSpeed { get; protected set; }               //最大速率   
-		[field: SerializeField] public int attackBasePower { get; protected set; }          //基础攻击力 
-		[field: SerializeField] public float attackCd { get; protected set; }               //攻击间隔   
-		[field: SerializeField] public float knockbackPower { get; protected set; }         //击退力
-		[field: SerializeField] public int maxHp { get; protected set; }                    //最大生命值
-		[field: SerializeField] public GameObject[] projectiles { get; protected set; }     //射弹种类 在数组中随机选取
-		[field: SerializeField] public float projectileVelocityY { get; protected set; }    //投射物的纵向速率 越大则横向速率越慢越难以命中 若投射物重力为0则为投射物的水平速率
-		[field: SerializeField] public float maxPredictSpeed { get; protected set; }        //最大预判速率 在预判攻击时若目标大于这个速率移动则是做以这个速率移动
-		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }       //伤害特效 在数组中随机选取
+		[Tooltip("加速能力")]
+		[field: SerializeField] public float acceleration { get; protected set; }
+		[Tooltip("最大速率")]
+		[field: SerializeField] public float maxSpeed { get; protected set; }
+		[Tooltip("基础攻击力")]
+		[field: SerializeField] public int attackBasePower { get; protected set; }
+		[Tooltip("击退力")]
+		[field: SerializeField] public float knockbackPower { get; protected set; }
+		[Tooltip("最大生命值")]
+		[field: SerializeField] public int maxHp { get; protected set; }
+		[Tooltip("远程攻击种类 在数组中随机选取")]
+		[field: SerializeField] public AttackData[] attacks { get; protected set; }
+		[Tooltip("最大预判速率 在预判攻击时若目标大于这个速率移动则认为是做以这个速率移动")]
+		[field: SerializeField] public float maxPredictSpeed { get; protected set; }
+		[Tooltip("伤害特效 在数组中随机选取")]
+		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }
 
 		[SerializeField] protected AudioClip soundAttack;
 		[SerializeField] protected AudioClip soundHit;
@@ -302,18 +322,17 @@ namespace Combat {
 		}
 
 		//若要攻击 则执行这个函数判断如何攻击
-		protected virtual ProjectileBase Attack(EntityBase target) {
+		protected virtual ProjectileBase Attack(EntityBase target,int attackType) {
 
 			AudioController.PlayAudio(soundAttack,transform.position);
 
-			int projectileType = Random.Range(0,projectiles.Length);
 
 			animator.SetTrigger("attack");
 			timeAfterAttack=0;
 			return ProjectilePool.Create(
-				projectiles[projectileType],
+				attacks[attackType].projectile,
 				transform.position,
-				ProjectileVelocity(target.transform.position,target.velocity,projectileType),
+				ProjectileVelocity(target.transform.position,target.velocity,attackType),
 				target,
 				this is EntityFriendly,
 				GetDamage()
@@ -323,50 +342,30 @@ namespace Combat {
 
 		//判断子弹的飞行速度 瞄准+预判
 		protected bool projectileParametersGet;
-		protected float[] projectileGravity;
-		protected float[] travelTime;
 		//计算射弹的发射速度
 		protected virtual Vector2 ProjectileVelocity(Vector2 target,Vector2 velocity,int projectileType) {
 			if(!projectileParametersGet) {
 				projectileParametersGet=true;
-
-				int cnt = projectiles.Length;
-				projectileGravity=new float[cnt];
-				travelTime=new float[cnt];
-
-				for(int i = 0;i<cnt;i++) {
-					projectileGravity[i]=projectiles[i].GetComponent<ProjectileBase>().gravity;
-					travelTime[i]=2*projectileVelocityY/projectileGravity[i];
-					if(projectileGravity[i]==0) travelTime[i]=0;
-				}
-
+				int cnt = attacks.Length;
+				for(int i = 0;i<cnt;i++) attacks[i].InitParams();
 			}
 
-			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*travelTime[projectileType];
+			AttackData attack = attacks[projectileType];
 
-			float velocityX = (arriveX-transform.position.x)/travelTime[projectileType];
-			if(travelTime[projectileType]==0) velocityX=0;
-			return new Vector2(velocityX,projectileVelocityY);
+			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*attack.travelTime;
+
+			float velocityX = (arriveX-transform.position.x)/attack.travelTime;
+			if(attack.travelTime==0) velocityX=0;
+			return new Vector2(velocityX,attack.projectileVelocityY);
 
 
 		}
-		
+
 		//让角色自行判断是否攻击
-		protected virtual void UpdateAttack() {
-
-			timeAfterAttack+=Time.deltaTime*cdSpeed;
-
-			EntityBase target = this.target;
-
-			if(target) {
-				direction=(target.transform.position.x<transform.position.x) ? Direction.left : Direction.right;
-				if(timeAfterAttack>attackCd) {
-
-					Attack(target);
-				}
-			}
-
+		public virtual void DoAttack(int type) {
+			Attack(target,type);
 		}
+
 		#endregion
 
 		protected BuffSlot buffSlot;
