@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032805443, y: 0.24256843}
+  m_Offset: {x: 0.018446445, y: 0.5347016}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.90156746, y: 0.93243647}
+  m_Size: {x: 1.3525801, y: 1.5167027}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d00c7da1948c1db4c8b9ea3b0684dbb1, type: 2}
+  m_Controller: {fileID: 22100000, guid: d5ec2ee449347334192cf3b51fe84a5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 2
-  <maxSpeed>k__BackingField: 2.5
+  <acceleration>k__BackingField: 4
+  <maxSpeed>k__BackingField: 6
   <attackBasePower>k__BackingField: 5
   <attackCd>k__BackingField: 0
   <knockbackPower>k__BackingField: 0.51
@@ -147,61 +147,13 @@ MonoBehaviour:
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 2
+    <maxDistance>k__BackingField: 1
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 0
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 2
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 2
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 1
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 1
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 4
-    <maxDistance>k__BackingField: 6
-    <startWeight>k__BackingField: 0.5
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 3
-    <startWeight>k__BackingField: 0.5
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
   targetDistanceMax: 6
