@@ -77,10 +77,8 @@ namespace Combat {
 			//判断要转移到攻击动画还是行走
 			if(Utility.Chance(1-attackChance)||targetState==null) {
 				//继续行走
-				Debug.Log("MOVE!!!!!!!!!!!!!!!");
 				StartMove();
 			} else {
-				Debug.Log("ATTACK!!!!!!!!!!!!!!!");
 				//进行攻击
 				StartAttack(targetState.id);
 			}
@@ -262,6 +260,11 @@ namespace Combat {
 				StartRandomAttack();
 			}
 
+		}
+
+		public void 移动事件_EndMove(){
+			Debug.Log("AAAAA");
+			StartRandomAttack();
 		}
 
 		#endregion
