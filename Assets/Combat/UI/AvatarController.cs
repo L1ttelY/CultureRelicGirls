@@ -24,7 +24,7 @@ namespace Combat {
 		float previousCooldownAmount = -1;
 		bool targetDead;
 
-		EntityBase target;
+		EntityFriendly target;
 
 		void Start() {
 			avatarImage.color=Color.clear;

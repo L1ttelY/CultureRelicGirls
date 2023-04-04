@@ -11,11 +11,6 @@ namespace Combat {
 			ChargeStartAction();
 		}
 
-		virtual protected void ChargeStartAction(){
-			EntityBase target = GetNearestTarget();
-			Attack(target);
-			UpdateAttack();
-		}
 
 	}
 

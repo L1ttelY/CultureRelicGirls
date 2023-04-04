@@ -4,16 +4,24 @@ using UnityEngine;
 
 namespace Combat {
 
+	[System.Serializable]
+	public class FriendlyAttackData {
+		public float minDistance;
+		public float maxDistance;
+		public float weight;
+	}
+
 	public class EntityFriendly:EntityBase {
 
 		//技能冷却相关
 		//主动技能CD长度
 		[SerializeField] protected float skill1Cd;
 		[SerializeField] protected float skill2Cd;
-		[Tooltip("最小攻击距离")]
-		[field: SerializeField] public float attackRangeMin { get; protected set; }         //最小攻击距离
-		[Tooltip("最大攻击距离")]
-		[field: SerializeField] public float attackRangeMax { get; protected set; }         //最大攻击距离
+		[Tooltip("视线范围")]
+		[field: SerializeField] public float visionRange{ get; protected set; }
+		[Tooltip("攻击cd")]
+		[field: SerializeField] public float attackCd { get; protected set; }
+
 		protected float skillCd;
 		protected float timeAfterSkill;
 		//主动技能CD完成比例
@@ -191,6 +199,8 @@ namespace Combat {
 			Destroy(gameObject);
 		}
 
+		#region 主动技能
+
 		//冲刺开始时调用
 		protected virtual void ChargeStart() {
 			StartCharging();
@@ -233,6 +243,14 @@ namespace Combat {
 				StartMove();
 			}
 		}
+		#endregion
+
+		#region 攻击
+		protected virtual void UpdateAttack() {
+			
+		}
+
+		#endregion
 
 	}
 }
