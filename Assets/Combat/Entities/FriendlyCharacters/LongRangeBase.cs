@@ -8,7 +8,6 @@ namespace Combat {
 
 		protected override void ChargeStart() {
 			base.ChargeStart();
-			ChargeStartAction();
 		}
 
 

@@ -18,9 +18,11 @@ namespace Combat {
 		[SerializeField] protected float skill1Cd;
 		[SerializeField] protected float skill2Cd;
 		[Tooltip("视线范围")]
-		[field: SerializeField] public float visionRange{ get; protected set; }
+		[field: SerializeField] public float visionRange { get; protected set; }
 		[Tooltip("攻击cd")]
 		[field: SerializeField] public float attackCd { get; protected set; }
+		[Tooltip("所有攻击动画对应的属性")]
+		[SerializeField] protected List<FriendlyAttackData> attackMethods;
 
 		protected float skillCd;
 		protected float timeAfterSkill;
@@ -199,6 +201,42 @@ namespace Combat {
 			Destroy(gameObject);
 		}
 
+		protected override void UpdateTarget() {
+			target=null;
+
+			bool targetAttackable = false;
+			float targetDistance = float.MaxValue;
+
+			foreach(var i in entities) {
+				if(i is EntityFriendly) continue;
+				float dist = Mathf.Abs(transform.position.x-i.transform.position.x);
+				if(dist>visionRange) continue;
+				bool attackable = false;
+				foreach(var attack in attackMethods) {
+					if(dist<attack.maxDistance&&dist>attack.minDistance) {
+						attackable=true;
+						break;
+					}
+				}
+
+				if(targetAttackable) {
+					if(!attackable) continue;
+					if(dist<targetDistance) {
+						targetDistance=dist;
+						target=i;
+					}
+				} else {
+					if(dist<targetDistance) {
+						targetDistance=dist;
+						target=i;
+						targetAttackable=attackable;
+					}
+				}
+
+			}
+
+		}
+
 		#region 主动技能
 
 		//冲刺开始时调用
@@ -247,7 +285,15 @@ namespace Combat {
 
 		#region 攻击
 		protected virtual void UpdateAttack() {
-			
+			if(timeAfterAttack<attackCd) return;
+			if(target==null) return;
+			float dist = Mathf.Abs(target.transform.position.x-transform.position.x);
+			var viableAttacks = attackMethods.FindAll((FriendlyAttackData a) => { return dist<a.maxDistance&&dist>a.minDistance; });
+			if(viableAttacks.Count==0) return;
+			int attackIndex = ChooseByWeight.Work((int a) => viableAttacks[a].weight,viableAttacks.Count);
+
+			animator.SetTrigger("attack"+attackIndex);
+
 		}
 
 		#endregion
