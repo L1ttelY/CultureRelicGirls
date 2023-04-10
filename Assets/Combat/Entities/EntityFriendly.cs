@@ -46,6 +46,7 @@ namespace Combat {
 		protected override void Update() {
 			base.Update();
 			timeAfterSkill+=Time.deltaTime;
+			timeAfterAttack+=Time.deltaTime;
 		}
 
 		//static update
@@ -188,7 +189,8 @@ namespace Combat {
 			position.y=room.transform.position.y;
 			transform.position=position;
 
-			direction=Player.instance.teamDirection;
+			if(target) direction=(target.transform.position.x>transform.position.x) ? Direction.right : Direction.left;
+			else direction=Player.instance.teamDirection;
 			UpdateAttack();
 
 		}
@@ -262,7 +264,7 @@ namespace Combat {
 		const float endChargeSpeed = 5;
 		void StateCharging() {
 
-			animator.SetBool("IsCharging",true);
+			animator.SetBool("isCharging",true);
 
 			timeCharged+=Time.deltaTime;
 
@@ -277,7 +279,7 @@ namespace Combat {
 
 			if(timeCharged>chargeTime) {
 
-				animator.SetBool("IsCharging",false);
+				animator.SetBool("isCharging",false);
 				StartMove();
 			}
 		}
@@ -293,6 +295,7 @@ namespace Combat {
 			int attackIndex = ChooseByWeight.Work((int a) => viableAttacks[a].weight,viableAttacks.Count);
 
 			animator.SetTrigger("attack"+attackIndex);
+			timeAfterAttack=0;
 
 		}
 

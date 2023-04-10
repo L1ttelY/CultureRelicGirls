@@ -56,7 +56,7 @@ namespace Combat {
 		[field: SerializeField] public float knockbackPower { get; protected set; }
 		[Tooltip("最大生命值")]
 		[field: SerializeField] public int maxHp { get; protected set; }
-		[Tooltip("远程攻击种类 在数组中随机选取")]
+		[Tooltip("远程攻击/平A技能种类 在数组中随机选取")]
 		[field: SerializeField] public AttackData[] attacks { get; protected set; }
 		[Tooltip("最大预判速率 在预判攻击时若目标大于这个速率移动则认为是做以这个速率移动")]
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }
@@ -327,7 +327,6 @@ namespace Combat {
 
 			AudioController.PlayAudio(soundAttack,transform.position);
 
-
 			animator.SetTrigger("attack");
 			timeAfterAttack=0;
 			return ProjectilePool.Create(
@@ -356,7 +355,7 @@ namespace Combat {
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*attack.travelTime;
 
 			float velocityX = (arriveX-transform.position.x)/attack.travelTime;
-			if(attack.travelTime==0) velocityX=0;
+			if(attack.travelTime==0) velocityX=0.01f*Direction.GetX(direction);
 			return new Vector2(velocityX,attack.projectileVelocityY);
 
 
