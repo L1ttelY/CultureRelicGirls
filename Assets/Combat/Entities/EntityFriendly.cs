@@ -210,6 +210,7 @@ namespace Combat {
 			float targetDistance = float.MaxValue;
 
 			foreach(var i in entities) {
+				if(!i.gameObject.activeInHierarchy) continue;
 				if(i is EntityFriendly) continue;
 				float dist = Mathf.Abs(transform.position.x-i.transform.position.x);
 				if(dist>visionRange) continue;
