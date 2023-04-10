@@ -93,14 +93,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8447825321245819326}
-  - component: {fileID: 8447825321245819297}
   - component: {fileID: 8447825321245819296}
   - component: {fileID: 1674207602}
   - component: {fileID: 7189738652749299581}
   - component: {fileID: 7653821060009075381}
-  - component: {fileID: -9076299759206232282}
   m_Layer: 0
-  m_Name: 03_ranged
+  m_Name: EntityFriendly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,45 +121,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8447825321245819297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8447825321245819325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df23a59015da14428739bd44c703632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 20
-  <maxSpeed>k__BackingField: 2
-  <attackBasePower>k__BackingField: 10
-  <attackCd>k__BackingField: 1
-  <knockbackPower>k__BackingField: 0.2
-  <maxHp>k__BackingField: 100
-  <projectiles>k__BackingField:
-  - {fileID: 7842778750022487663, guid: cb0152dd5ef7b514fa187acc155c6a63, type: 3}
-  <projectileVelocityY>k__BackingField: 0
-  <maxPredictSpeed>k__BackingField: 6
-  <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: f8aa72c515b5943409a9cd4a64a98da3, type: 3}
-  soundAttack: {fileID: 0}
-  soundHit: {fileID: 0}
-  soundDeath: {fileID: 0}
-  powerBuff: 0
-  knockbackBuff: 0
-  cdSpeed: 0
-  speedBuff: 0
-  attackChance: 1
-  attacks: []
-  "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
-  skill1Cd: 0
-  skill2Cd: 0
-  <attackRangeMin>k__BackingField: 0
-  <attackRangeMax>k__BackingField: 2
-  positionInTeam: 0
 --- !u!61 &8447825321245819296
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -241,20 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386bbd8bd0d71ba49be443f75372aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-9076299759206232282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8447825321245819325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Library: []
-  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0
