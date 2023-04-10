@@ -388,7 +388,7 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 519420032}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
@@ -451,7 +451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 175.89, y: 0, z: 113}
+  m_LocalPosition: {x: 18.41, y: 11.12, z: -6.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1586,19 +1586,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
   "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
-  - characterData: {fileID: 11400000, guid: 4af3e8593fa401444b0a1acb63d3c861, type: 2}
+  - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
     use:
-      level: 0
+      level: 1
       actionSkillType: 0
     instance: {fileID: 0}
-  - characterData: {fileID: 11400000, guid: 4af3e8593fa401444b0a1acb63d3c861, type: 2}
+  - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
     use:
-      level: 0
+      level: 1
       actionSkillType: 1
     instance: {fileID: 0}
-  - characterData: {fileID: 11400000, guid: 4af3e8593fa401444b0a1acb63d3c861, type: 2}
+  - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
     use:
-      level: 0
+      level: 1
       actionSkillType: 0
     instance: {fileID: 0}
   "\u7B26\u6587": []

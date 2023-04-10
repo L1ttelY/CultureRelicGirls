@@ -61,3 +61,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+--- !u!1 &9116741855547919855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+  m_PrefabInstance: {fileID: 844873759678975058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7698480857063930556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9116741855547919855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f509d41d8e79a4684d0808e6a794b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <acceleration>k__BackingField: 12
+  <maxSpeed>k__BackingField: 6
+  <attackBasePower>k__BackingField: 0
+  <knockbackPower>k__BackingField: 0.5
+  <maxHp>k__BackingField: 0
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 7842778750022487663, guid: a80a33ff3e8ec2641b7116e29889d0b3, type: 3}
+    <projectileVelocityY>k__BackingField: 0
+  - <projectile>k__BackingField: {fileID: 7842778750022487663, guid: eb6bbd93e2fb43341bccdd06e6cd901e, type: 3}
+    <projectileVelocityY>k__BackingField: 0
+  <maxPredictSpeed>k__BackingField: 0
+  <damageVfx>k__BackingField: []
+  soundAttack: {fileID: 8300000, guid: 09de206313d86fd428329ffee62e21cf, type: 3}
+  soundHit: {fileID: 8300000, guid: 5c362d35d362c7e44ac5e630f75ea571, type: 3}
+  soundDeath: {fileID: 8300000, guid: 038e34d7a70ed4845b6e9a64414d2753, type: 3}
+  powerBuff: 0
+  knockbackBuff: 0
+  cdSpeed: 0
+  speedBuff: 0
+  skill1Cd: 0
+  skill2Cd: 0
+  <visionRange>k__BackingField: 8
+  <attackCd>k__BackingField: 0
+  attackMethods:
+  - minDistance: 0
+    maxDistance: 4
+    weight: 1
+  - minDistance: 1
+    maxDistance: 5
+    weight: 1
+  positionInTeam: 0

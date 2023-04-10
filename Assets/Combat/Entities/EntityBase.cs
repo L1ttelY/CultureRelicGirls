@@ -166,6 +166,7 @@ namespace Combat {
 
 			transform.localScale=(direction==Direction.left) ? new Vector3(-1,1,1) : new Vector3(1,1,1);
 			animator.SetFloat("speed",Mathf.Abs(velocity.x));
+			animator.SetFloat("speedForward",velocity.x*Direction.GetX(direction));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
 
 			buffSlot.Update();
