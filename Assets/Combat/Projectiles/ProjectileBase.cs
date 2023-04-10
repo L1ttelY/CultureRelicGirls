@@ -12,6 +12,7 @@ namespace Combat {
 		[SerializeField] float lifeTime;
 		[SerializeField] Sprite[] sprites;
 		[SerializeField] bool doNotRotate;
+		[SerializeField] bool doFlip;
 
 		new Collider2D collider;
 		SpriteRenderer spriteRenderer;
@@ -91,6 +92,7 @@ namespace Combat {
 
 			if(doNotRotate) transform.rotation=Quaternion.identity;
 			else transform.rotation=((Angle)velocity).quaternion;
+			if(doFlip&&velocity.x<0) transform.localScale=new Vector3(transform.localScale.x,-transform.localScale.y,transform.localScale.z);
 
 		}
 

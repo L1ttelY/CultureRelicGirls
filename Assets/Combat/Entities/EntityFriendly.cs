@@ -4,16 +4,26 @@ using UnityEngine;
 
 namespace Combat {
 
+	[System.Serializable]
+	public class FriendlyAttackData {
+		public float minDistance;
+		public float maxDistance;
+		public float weight;
+	}
+
 	public class EntityFriendly:EntityBase {
 
 		//技能冷却相关
 		//主动技能CD长度
 		[SerializeField] protected float skill1Cd;
 		[SerializeField] protected float skill2Cd;
-		[Tooltip("最小攻击距离")]
-		[field: SerializeField] public float attackRangeMin { get; protected set; }         //最小攻击距离
-		[Tooltip("最大攻击距离")]
-		[field: SerializeField] public float attackRangeMax { get; protected set; }         //最大攻击距离
+		[Tooltip("视线范围")]
+		[field: SerializeField] public float visionRange { get; protected set; }
+		[Tooltip("攻击cd")]
+		[field: SerializeField] public float attackCd { get; protected set; }
+		[Tooltip("所有攻击动画对应的属性")]
+		[SerializeField] protected List<FriendlyAttackData> attackMethods;
+
 		protected float skillCd;
 		protected float timeAfterSkill;
 		//主动技能CD完成比例
@@ -36,6 +46,7 @@ namespace Combat {
 		protected override void Update() {
 			base.Update();
 			timeAfterSkill+=Time.deltaTime;
+			timeAfterAttack+=Time.deltaTime;
 		}
 
 		//static update
@@ -178,7 +189,8 @@ namespace Combat {
 			position.y=room.transform.position.y;
 			transform.position=position;
 
-			direction=Player.instance.teamDirection;
+			if(target) direction=(target.transform.position.x>transform.position.x) ? Direction.right : Direction.left;
+			else direction=Player.instance.teamDirection;
 			UpdateAttack();
 
 		}
@@ -190,6 +202,44 @@ namespace Combat {
 
 			Destroy(gameObject);
 		}
+
+		protected override void UpdateTarget() {
+			target=null;
+
+			bool targetAttackable = false;
+			float targetDistance = float.MaxValue;
+
+			foreach(var i in entities) {
+				if(i is EntityFriendly) continue;
+				float dist = Mathf.Abs(transform.position.x-i.transform.position.x);
+				if(dist>visionRange) continue;
+				bool attackable = false;
+				foreach(var attack in attackMethods) {
+					if(dist<attack.maxDistance&&dist>attack.minDistance) {
+						attackable=true;
+						break;
+					}
+				}
+
+				if(targetAttackable) {
+					if(!attackable) continue;
+					if(dist<targetDistance) {
+						targetDistance=dist;
+						target=i;
+					}
+				} else {
+					if(dist<targetDistance) {
+						targetDistance=dist;
+						target=i;
+						targetAttackable=attackable;
+					}
+				}
+
+			}
+
+		}
+
+		#region 主动技能
 
 		//冲刺开始时调用
 		protected virtual void ChargeStart() {
@@ -214,7 +264,7 @@ namespace Combat {
 		const float endChargeSpeed = 5;
 		void StateCharging() {
 
-			animator.SetBool("IsCharging",true);
+			animator.SetBool("isCharging",true);
 
 			timeCharged+=Time.deltaTime;
 
@@ -229,10 +279,27 @@ namespace Combat {
 
 			if(timeCharged>chargeTime) {
 
-				animator.SetBool("IsCharging",false);
+				animator.SetBool("isCharging",false);
 				StartMove();
 			}
 		}
+		#endregion
+
+		#region 攻击
+		protected virtual void UpdateAttack() {
+			if(timeAfterAttack<attackCd) return;
+			if(target==null) return;
+			float dist = Mathf.Abs(target.transform.position.x-transform.position.x);
+			var viableAttacks = attackMethods.FindAll((FriendlyAttackData a) => { return dist<a.maxDistance&&dist>a.minDistance; });
+			if(viableAttacks.Count==0) return;
+			int attackIndex = ChooseByWeight.Work((int a) => viableAttacks[a].weight,viableAttacks.Count);
+
+			animator.SetTrigger("attack"+attackIndex);
+			timeAfterAttack=0;
+
+		}
+
+		#endregion
 
 	}
 }
