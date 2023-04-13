@@ -91,7 +91,10 @@ namespace Combat {
 		protected virtual void StartAttack(int attackIndex) {
 			direction=targetX>transform.position.x ? Direction.right : Direction.left;
 			this.attackIndex=attackIndex;
-			animator.SetTrigger($"attack{attackIndex}");
+			animator.SetFloat($"attackType",attackIndex);
+			animator.SetTrigger($"attackStart");
+
+			//animator.SetTrigger($"attack{attackIndex}");
 			currensState=StateAttack;
 			nameHashSet=false;
 		}
