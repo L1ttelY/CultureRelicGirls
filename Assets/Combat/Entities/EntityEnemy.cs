@@ -65,7 +65,7 @@ namespace Combat {
 
 			//选择实际的转移目标(攻击动画)
 			int targetIndex = ChooseByWeight.Work((int a) => attackStatesBuffer[a].startWeight,attackStatesBuffer.Count);
-			AttackStateData targetState = attackStatesBuffer[targetIndex];
+			AttackStateData targetState = targetIndex<0 ? null : attackStatesBuffer[targetIndex];
 
 			/*
 			float randomFactor = Random.Range(0,weightTotal);
@@ -147,7 +147,7 @@ namespace Combat {
 			}
 
 			//判断最终目标
-			int targetIndex = ChooseByWeight.Work((a)=>transitionBuffer[a].weight,transitionBuffer.Count);
+			int targetIndex = ChooseByWeight.Work((a) => transitionBuffer[a].weight,transitionBuffer.Count);
 			AttackStateTransistion transistion = transitionBuffer[targetIndex];
 			/*
 			float randomFactor = Random.Range(0,weightTotal);
@@ -273,7 +273,7 @@ namespace Combat {
 
 		}
 
-		public void 移动事件_EndMove(){
+		public void 移动事件_EndMove() {
 			Debug.Log("AAAAA");
 			StartRandomAttack();
 		}
