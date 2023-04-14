@@ -295,7 +295,8 @@ namespace Combat {
 			if(viableAttacks.Count==0) return;
 			int attackIndex = ChooseByWeight.Work((int a) => viableAttacks[a].weight,viableAttacks.Count);
 
-			animator.SetTrigger("attack"+attackIndex);
+			animator.SetTrigger("attackStart");
+			animator.SetFloat("attackType",attackIndex);
 			timeAfterAttack=0;
 
 		}
