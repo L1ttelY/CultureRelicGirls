@@ -15,8 +15,8 @@ namespace Combat {
 
 		//技能冷却相关
 		//主动技能CD长度
-		[SerializeField] protected float skill1Cd;
-		[SerializeField] protected float skill2Cd;
+		[SerializeField] protected float skillCd;
+		//[SerializeField] protected float skill2Cd;
 		[Tooltip("视线范围")]
 		[field: SerializeField] public float visionRange { get; protected set; }
 		[Tooltip("攻击cd")]
@@ -24,7 +24,7 @@ namespace Combat {
 		[Tooltip("所有攻击动画对应的属性")]
 		[SerializeField] protected List<FriendlyAttackData> attackMethods;
 
-		protected float skillCd;
+		//protected float skillCd;
 		protected float timeAfterSkill;
 		//主动技能CD完成比例
 		public float skillCdProgress { get { return timeAfterSkill/skillCd; } }
@@ -35,9 +35,9 @@ namespace Combat {
 		//希望根据等级和技能设置某些变量的话需要重写
 		public virtual void SetUse(CharacterUseModel use) {
 			this.use=use;
-			if(use.actionSkillType!=0) Player.instance.skilledCharacter=this;
-			if(use.actionSkillType==1) skillCd=skill1Cd;
-			else if(use.actionSkillType==2) skillCd=skill2Cd;
+			//if(use.actionSkillType!=0) Player.instance.skilledCharacter=this;
+			//if(use.actionSkillType==1) skillCd=skill1Cd;
+			//else if(use.actionSkillType==2) skillCd=skill2Cd;
 		}
 
 		//目前的使用方式
@@ -105,14 +105,14 @@ namespace Combat {
 			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 
-			Player.ActionSkillEvent+=Player_ActionSkillEvent;
+			//Player.ActionSkillEvent+=Player_ActionSkillEvent;
 			Player.ChargeEvent+=Player_ChargeEvent;
 			CombatRoomController.RoomChange+=CombatRoomController_RoomChange;
 		}
 
 		protected override void OnDestroy() {
 			base.OnDestroy();
-			Player.ActionSkillEvent-=Player_ActionSkillEvent;
+			//Player.ActionSkillEvent-=Player_ActionSkillEvent;
 			Player.ChargeEvent-=Player_ChargeEvent;
 			CombatRoomController.RoomChange-=CombatRoomController_RoomChange;
 		}
@@ -133,10 +133,7 @@ namespace Combat {
 		private void Player_ChargeEvent() {
 			ChargeStart();
 		}
-		private void Player_ActionSkillEvent() {
-			if(use.actionSkillType==1) ActionSkill1();
-			else if(use.actionSkillType==2) ActionSkill2();
-		}
+
 
 		protected override void StateMove() {
 			base.StateMove();
@@ -246,12 +243,16 @@ namespace Combat {
 		protected virtual void ChargeStart() {
 			StartCharging();
 		}
-		//使用1级主动时调用
-		protected virtual void ActionSkill1() { }
-		//使用8级主动时调用
-		protected virtual void ActionSkill2() { }
+		//使用主动技能时调用
+		public virtual void ActionSkill() {
 
+			if(timeAfterSkill<skillCd) return;
 
+			timeAfterSkill=0;
+			animator.SetTrigger("attackStart");
+			animator.SetFloat("attackType",-1);
+
+		}
 		//判断自身是否在冲刺
 		protected bool isCharging { get { return currensState==StateCharging; } }
 		protected const float chargeTime = 0.5f;

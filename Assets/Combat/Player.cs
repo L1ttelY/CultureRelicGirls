@@ -156,7 +156,12 @@ namespace Combat {
 					ChargeEvent?.Invoke();
 					timeAfterDash=0;
 				}
-			} else ActionSkillEvent?.Invoke();
+			}
+		}
+
+		public void SkillClick(int id) {
+			if(!EntityFriendly.friendlyList[id]) return;
+			EntityFriendly.friendlyList[id].ActionSkill();
 		}
 
 		float timeAfterDash;
@@ -165,11 +170,11 @@ namespace Combat {
 		public float dashCdProgress {
 			get { return timeAfterDash/dashCd; }
 		}
-		public float skillCdProgress {
-			get { return skilledCharacter.skillCdProgress; }
-		}
+		//public float skillCdProgress {
+		//	get { return skilledCharacter.skillCdProgress; }
+		//}
 
-		public EntityFriendly skilledCharacter;
+		//public EntityFriendly skilledCharacter;
 
 	}
 
