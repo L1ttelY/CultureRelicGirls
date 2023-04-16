@@ -8,9 +8,7 @@ namespace Combat {
 
 		[field: SerializeField] public float gravity { get; protected set; }
 		[SerializeField] int penetratePower;
-		[SerializeField] float timePerFrame;
 		[SerializeField] float lifeTime;
-		[SerializeField] Sprite[] sprites;
 		[SerializeField] bool doNotRotate;
 		[SerializeField] bool doFlip;
 
@@ -53,7 +51,6 @@ namespace Combat {
 			time=0;
 			timeThisFrame=0;
 			imageIndex=0;
-			if(sprites.Length>0) spriteRenderer.sprite=sprites[0];
 
 			timePenetrated=0;
 			hit.Clear();
@@ -69,14 +66,6 @@ namespace Combat {
 			time+=Time.deltaTime;
 			if(time>lifeTime) ProjectilePool.Store(this);
 
-			/*
-			timeThisFrame+=Time.deltaTime;
-			if(timeThisFrame>timePerFrame) {
-				if(imageIndex+1<sprites.Length) imageIndex++;
-				if(sprites.Length>0) spriteRenderer.sprite=sprites[imageIndex];
-				timeThisFrame-=timePerFrame;
-			}
-			*/
 		}
 
 		protected virtual void FixedUpdate() {
