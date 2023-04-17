@@ -38,7 +38,7 @@ namespace Combat {
 			iconSkill.SetActive(angle>90);
 
 			dashCd.fillAmount=1-Player.instance.dashCdProgress;
-			skillCd.fillAmount=1-Player.instance.skillCdProgress;
+			//skillCd.fillAmount=1-Player.instance.skillCdProgress;
 
 		}
 	}

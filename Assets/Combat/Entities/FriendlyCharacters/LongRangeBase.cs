@@ -8,14 +8,8 @@ namespace Combat {
 
 		protected override void ChargeStart() {
 			base.ChargeStart();
-			ChargeStartAction();
 		}
 
-		virtual protected void ChargeStartAction(){
-			EntityBase target = GetNearestTarget();
-			Attack(target);
-			UpdateAttack();
-		}
 
 	}
 

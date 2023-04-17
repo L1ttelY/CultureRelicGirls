@@ -48,8 +48,8 @@ namespace Combat {
 
 		protected int attackIndex;
 
-		protected readonly static HashSet<AttackStateData> attackStatesBuffer = new HashSet<AttackStateData>();
-		protected readonly static HashSet<AttackStateTransistion> transitionBuffer = new HashSet<AttackStateTransistion>();
+		protected readonly static List<AttackStateData> attackStatesBuffer = new List<AttackStateData>();
+		protected readonly static List<AttackStateTransistion> transitionBuffer = new List<AttackStateTransistion>();
 
 		protected virtual void StartRandomAttack() {
 			float weightTotal = 0;
@@ -64,8 +64,11 @@ namespace Combat {
 			}
 
 			//选择实际的转移目标(攻击动画)
+			int targetIndex = ChooseByWeight.Work((int a) => attackStatesBuffer[a].startWeight,attackStatesBuffer.Count);
+			AttackStateData targetState = targetIndex<0 ? null : attackStatesBuffer[targetIndex];
+
+			/*
 			float randomFactor = Random.Range(0,weightTotal);
-			AttackStateData targetState = null;
 			foreach(var i in attackStatesBuffer) {
 				randomFactor-=i.startWeight;
 				if(randomFactor<=Mathf.Epsilon) {
@@ -73,6 +76,7 @@ namespace Combat {
 					break;
 				}
 			}
+			*/
 
 			//判断要转移到攻击动画还是行走
 			if(Utility.Chance(1-attackChance)||targetState==null) {
@@ -87,7 +91,10 @@ namespace Combat {
 		protected virtual void StartAttack(int attackIndex) {
 			direction=targetX>transform.position.x ? Direction.right : Direction.left;
 			this.attackIndex=attackIndex;
-			animator.SetTrigger($"attack{attackIndex}");
+			animator.SetFloat($"attackType",attackIndex);
+			animator.SetTrigger($"attackStart");
+
+			//animator.SetTrigger($"attack{attackIndex}");
 			currensState=StateAttack;
 			nameHashSet=false;
 		}
@@ -120,6 +127,7 @@ namespace Combat {
 			float weightTotal = 0;
 
 			//统计可用的目标状态
+
 			foreach(var i in currentAttack.transitionList) {
 				switch(i.type) {
 				case AttackStateTransistionType.Attack:
@@ -139,8 +147,10 @@ namespace Combat {
 			}
 
 			//判断最终目标
+			int targetIndex = ChooseByWeight.Work((a) => transitionBuffer[a].weight,transitionBuffer.Count);
+			AttackStateTransistion transistion = transitionBuffer[targetIndex];
+			/*
 			float randomFactor = Random.Range(0,weightTotal);
-			AttackStateTransistion transistion = null;
 			foreach(var i in transitionBuffer) {
 				randomFactor-=i.weight;
 				if(randomFactor<=Mathf.Epsilon) {
@@ -148,6 +158,7 @@ namespace Combat {
 					break;
 				}
 			}
+			*/
 
 			if(transistion==null||transistion.type==AttackStateTransistionType.Move) StartMove();
 			else StartAttack(transistion.attackId);
@@ -262,7 +273,7 @@ namespace Combat {
 
 		}
 
-		public void 移动事件_EndMove(){
+		public void 移动事件_EndMove() {
 			Debug.Log("AAAAA");
 			StartRandomAttack();
 		}
@@ -304,7 +315,6 @@ namespace Combat {
 			if(state.fullPathHash!=nameHash) StartMove();
 
 		}
-
 
 		#endregion
 
