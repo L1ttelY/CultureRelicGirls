@@ -83,14 +83,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 24
-  <maxSpeed>k__BackingField: 4
+  <maxSpeed>k__BackingField: 2
   <attackBasePower>k__BackingField: 0
   <knockbackPower>k__BackingField: 0.5
   <maxHp>k__BackingField: 0
   <attacks>k__BackingField:
-  - <projectile>k__BackingField: {fileID: 7842778750022487663, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 9b1f8675a1afcdd42adf683e5d25c3d5, type: 3}
     <projectileVelocityY>k__BackingField: 0
-  - <projectile>k__BackingField: {fileID: 7842778750022487663, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 240ce2b8de15be446add31b6bc2525d3, type: 3}
     <projectileVelocityY>k__BackingField: 0
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField: []
@@ -108,7 +108,7 @@ MonoBehaviour:
   - minDistance: 0
     maxDistance: 4
     weight: 1
-  - minDistance: 1
-    maxDistance: 5
+  - minDistance: 0
+    maxDistance: 4
     weight: 1
   positionInTeam: 0
