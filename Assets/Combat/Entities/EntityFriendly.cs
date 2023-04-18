@@ -54,29 +54,41 @@ namespace Combat {
 		static void SubscribeStaticEvents() {
 			EventManager.staticUpdate+=StaticUpdate;
 		}
+		public static readonly EntityFriendly[] sortedByX = new EntityFriendly[3];
 		static void StaticUpdate() { //π•ª˜æ‡¿Î£ø
 
-			float originalLeftest = leftestX;
-			float originalRightest = rightestX;
+			//º∆À„”—∑Ωµ•Œª∑∂Œß
+			float newLeftest = float.MaxValue;
+			float newRightest = float.MinValue;
 			bool friendlyLeft = false;
 
-			leftestX=float.MaxValue;
-			rightestX=float.MinValue;
 
-			foreach(var i in entities) {
-				if(i is EntityFriendly) {
-
-					leftestX=Mathf.Min(i.transform.position.x,leftestX);
-					rightestX=Mathf.Min(i.transform.position.x,leftestX);
-					friendlyLeft=true;
-
+			for(int i = 0;i<3;i++) {
+				EntityFriendly a = friendlyList[i];
+				if(!a) {
+					sortedByX[i]=null;
+					continue;
 				}
+				sortedByX[i]=a;
+				newLeftest=Mathf.Min(a.transform.position.x,newLeftest);
+				newRightest=Mathf.Max(a.transform.position.x,newRightest);
+				friendlyLeft=true;
 			}
 
-			if(!friendlyLeft) {
-				leftestX=originalLeftest;
-				rightestX=originalRightest;
+			System.Array.Sort(sortedByX,(a,b) => { return (int)Mathf.Sign(a.transform.position.x-b.transform.position.x); });
+
+			
+			if(!friendlyLeft) return;
+
+			const float maxDistance = 6;
+			if(newRightest-newLeftest>maxDistance) {
+				float nudgeTotal = (newRightest-newLeftest)-maxDistance;
+
 			}
+
+			leftestX=newLeftest;
+			rightestX=newRightest;
+
 
 		}
 
@@ -234,6 +246,10 @@ namespace Combat {
 				}
 
 			}
+
+		}
+
+		protected static void UpdateGather() {
 
 		}
 
