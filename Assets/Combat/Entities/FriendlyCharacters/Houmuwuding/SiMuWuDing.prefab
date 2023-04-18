@@ -70,7 +70,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
   m_PrefabInstance: {fileID: 844873759678975058}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-7698480857063930556
+--- !u!114 &-7176966723257304342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9116741855547919855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f509d41d8e79a4684d0808e6a794b1, type: 3}
+  m_Script: {fileID: 11500000, guid: de620f2a450cef74da7befc70c939670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 24
@@ -88,9 +88,9 @@ MonoBehaviour:
   <knockbackPower>k__BackingField: 0.5
   <maxHp>k__BackingField: 0
   <attacks>k__BackingField:
-  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 9b1f8675a1afcdd42adf683e5d25c3d5, type: 3}
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: eac17844aa274ff42bf728fc150c7237, type: 3}
     <projectileVelocityY>k__BackingField: 0
-  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 240ce2b8de15be446add31b6bc2525d3, type: 3}
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 31b874e6dd7c3ba46802c0c9299cb1d5, type: 3}
     <projectileVelocityY>k__BackingField: 0
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField: []
@@ -106,41 +106,9 @@ MonoBehaviour:
   <attackCd>k__BackingField: 1
   attackMethods:
   - minDistance: 0
-    maxDistance: 4
+    maxDistance: 2
     weight: 1
-  - minDistance: 1
-    maxDistance: 5
+  - minDistance: 0
+    maxDistance: 2
     weight: 1
-  positionInTeam: 0
---- !u!114 &-7176966723257304342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9116741855547919855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de620f2a450cef74da7befc70c939670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 0
-  <maxSpeed>k__BackingField: 0
-  <attackBasePower>k__BackingField: 0
-  <knockbackPower>k__BackingField: 0
-  <maxHp>k__BackingField: 0
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
-  <damageVfx>k__BackingField: []
-  soundAttack: {fileID: 0}
-  soundHit: {fileID: 0}
-  soundDeath: {fileID: 0}
-  powerBuff: 0
-  knockbackBuff: 0
-  cdSpeed: 0
-  speedBuff: 0
-  skillCd: 0
-  <visionRange>k__BackingField: 0
-  <attackCd>k__BackingField: 0
-  attackMethods: []
   positionInTeam: 0
