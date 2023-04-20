@@ -19,8 +19,6 @@ namespace Combat {
 		Animator animator;
 
 		protected float time;
-		protected float timeThisFrame;
-		protected int imageIndex;
 
 		protected DamageModel damage;
 		protected Vector2 velocity;
@@ -49,9 +47,6 @@ namespace Combat {
 			nextPosition=position;
 
 			time=0;
-			timeThisFrame=0;
-			imageIndex=0;
-
 			timePenetrated=0;
 			hit.Clear();
 
@@ -77,7 +72,7 @@ namespace Combat {
 			velocity+=Vector2.down*Time.deltaTime*gravity;
 			nextPosition=(Vector2)transform.position+velocity*Time.deltaTime;
 
-			if(!noDamage){
+			if(!noDamage&&time>0.1f){
 				int cnt = collider.Cast(velocity,Utility.raycastBuffer,velocity.magnitude*Time.deltaTime);
 
 				for(int i = 0;i<cnt;i++) {
@@ -91,8 +86,10 @@ namespace Combat {
 
 			if(doNotRotate) transform.rotation=Quaternion.identity;
 			else transform.rotation=((Angle)velocity).quaternion;
-			if(doFlip&&velocity.x<0) transform.localScale=new Vector3(transform.localScale.x,-transform.localScale.y,transform.localScale.z);
-
+			if(doFlip&&velocity.x<0) {
+				if(doNotRotate) transform.localScale=new Vector3(-1,1,1);
+				else transform.localScale=new Vector3(1,-1,1);
+			}
 		}
 
 		protected virtual void Hit(EntityBase target) {
