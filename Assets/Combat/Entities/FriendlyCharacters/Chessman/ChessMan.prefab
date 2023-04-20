@@ -11,6 +11,50 @@ PrefabInstance:
       propertyPath: skillCd
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: attackMethods.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attackCd>k__BackingField
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <maxSpeed>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <visionRange>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: attackMethods.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: attackMethods.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: attackMethods.Array.data[0].maxDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: attackMethods.Array.data[1].maxDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[0].<projectile>k__BackingField
+      value: 
+      objectReference: {fileID: 2774859980595649070, guid: 9b1f8675a1afcdd42adf683e5d25c3d5, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[1].<projectile>k__BackingField
+      value: 
+      objectReference: {fileID: 2774859980595649070, guid: 240ce2b8de15be446add31b6bc2525d3, type: 3}
     - target: {fileID: 2522598447239158626, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Sprite
       value: 

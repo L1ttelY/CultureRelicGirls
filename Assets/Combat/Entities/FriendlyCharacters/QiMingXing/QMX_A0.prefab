@@ -9,39 +9,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4592678012357767987, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: lifeTime
-      value: 0.33
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4592678012357767987, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
+      propertyPath: doNotRotate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4592678012357767987, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: penetratePower
-      value: -1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4592678012357767987, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
+      propertyPath: <gravity>k__BackingField
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -2314361920046503883, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 36df40dd2a65fd249b566ee5d8a6df53, type: 2}
+      objectReference: {fileID: 22100000, guid: fddfc4738d8094f4694dd46c79cf0740, type: 2}
     - target: {fileID: 6050360439167817259, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.23
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 6050360439167817259, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 7842778750022487649, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Size.x
-      value: 4.0035043
+      value: 0.5070561
       objectReference: {fileID: 0}
     - target: {fileID: 7842778750022487649, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Size.y
-      value: 2.1148226
+      value: 0.4708122
       objectReference: {fileID: 0}
     - target: {fileID: 7842778750022487649, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Offset.x
-      value: 1.5905702
+      value: 1.2530072
       objectReference: {fileID: 0}
     - target: {fileID: 7842778750022487649, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Offset.y
-      value: 1.0283993
+      value: 0.7105369
       objectReference: {fileID: 0}
     - target: {fileID: 7842778750022487651, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_RootOrder
@@ -89,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7842778750022487663, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Name
-      value: Chessman_A0
+      value: QMX_A0
       objectReference: {fileID: 0}
     - target: {fileID: 8261563693365026164, guid: 60e8f90eabcc33842a0df42b169c19bf, type: 3}
       propertyPath: m_Size.x
