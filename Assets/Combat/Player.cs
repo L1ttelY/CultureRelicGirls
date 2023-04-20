@@ -122,10 +122,12 @@ namespace Combat {
 			bool inChange = (targetVelocity>0)==(teamDirection==Direction.left);
 			if(targetVelocity==0) inChange=false;
 
+			if(EntityFriendly.HasTarget()) directionChangeTime=0;
 			if(!inChange) directionChangeTime=0;
 			else directionChangeTime+=Time.deltaTime;
 
 			if(directionChangeTime>=directionChangeTimeNeeded) {
+				
 				teamDirection=targetVelocity<0 ? Direction.left : Direction.right;
 				directionChangeTime=0;
 			}

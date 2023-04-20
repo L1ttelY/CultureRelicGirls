@@ -130,6 +130,14 @@ namespace Combat {
 
 		}
 
+		public static bool HasTarget() {
+			foreach(var i in friendlyList) {
+				if(!i) continue;
+				if(i.target) return true;
+			}
+			return false;
+		}
+
 		//最左侧和最右侧的角色位置 用于调整摄像机位置
 		public static float leftestX { get; private set; }
 		public static float rightestX { get; private set; }
