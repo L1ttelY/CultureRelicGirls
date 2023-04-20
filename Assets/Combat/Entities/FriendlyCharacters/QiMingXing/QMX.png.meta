@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -121,18 +121,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 340
-        width: 162
-        height: 68
+        y: 410
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d49329427ad8b0488a71e319536f851
-      internalID: -1111544450
+      spriteID: 4c46cd49db35df4409dfbb0b910d238e
+      internalID: -573350920
       vertices: []
       indices: 
       edges: []
@@ -141,19 +141,19 @@ TextureImporter:
       name: QMX_1
       rect:
         serializedVersion: 2
-        x: 162
-        y: 340
-        width: 162
-        height: 68
+        x: 194
+        y: 410
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbcc92384e50b394fb1e1cfe2e4d7254
-      internalID: 133548364
+      spriteID: fac5e1ea9945af64dbe36c1c55dcca38
+      internalID: -1779531242
       vertices: []
       indices: 
       edges: []
@@ -162,19 +162,19 @@ TextureImporter:
       name: QMX_2
       rect:
         serializedVersion: 2
-        x: 324
-        y: 340
-        width: 162
-        height: 68
+        x: 388
+        y: 410
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cb32dbb898d4db449edde3efb89493e
-      internalID: 239843460
+      spriteID: 4abf0558be41ccb4d9bce810cee3c670
+      internalID: 1862808890
       vertices: []
       indices: 
       edges: []
@@ -183,19 +183,19 @@ TextureImporter:
       name: QMX_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 340
-        width: 162
-        height: 68
+        x: 582
+        y: 410
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de87636999c1f3542a16fcb37f0ede61
-      internalID: -1351471555
+      spriteID: d870a0a22cc2c3f49a02c63ae3704e47
+      internalID: 1751361968
       vertices: []
       indices: 
       edges: []
@@ -204,19 +204,19 @@ TextureImporter:
       name: QMX_4
       rect:
         serializedVersion: 2
-        x: 648
-        y: 340
-        width: 162
-        height: 68
+        x: 776
+        y: 410
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b26d1ccd28b487d43bf6a1de2ecb79f5
-      internalID: 596992208
+      spriteID: 850d7538e85a19d4e905a5513791b0b9
+      internalID: -657428461
       vertices: []
       indices: 
       edges: []
@@ -225,19 +225,19 @@ TextureImporter:
       name: QMX_5
       rect:
         serializedVersion: 2
-        x: 810
-        y: 340
-        width: 162
-        height: 68
+        x: 970
+        y: 410
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec68e783259f7844c921bbcbbf318f19
-      internalID: 319420243
+      spriteID: 41d94070147532f419fd26add47b5f7b
+      internalID: -1857295587
       vertices: []
       indices: 
       edges: []
@@ -247,18 +247,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 272
-        width: 162
-        height: 68
+        y: 328
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56386efc987b98c46b4afb9d74f009bc
-      internalID: -1585447967
+      spriteID: 7e3d7560c6ff9664a9f2ef6d9a186569
+      internalID: 1568838548
       vertices: []
       indices: 
       edges: []
@@ -267,19 +267,19 @@ TextureImporter:
       name: QMX_7
       rect:
         serializedVersion: 2
-        x: 162
-        y: 272
-        width: 162
-        height: 68
+        x: 194
+        y: 328
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ac004f218f061f4787ac9772a7df149
-      internalID: 1819659368
+      spriteID: 4a1826c7191ebbe4eaf4a67d9aaf4196
+      internalID: 447745610
       vertices: []
       indices: 
       edges: []
@@ -288,19 +288,19 @@ TextureImporter:
       name: QMX_8
       rect:
         serializedVersion: 2
-        x: 324
-        y: 272
-        width: 162
-        height: 68
+        x: 388
+        y: 328
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbf1b99d22719a244a79fc58e2b58f3e
-      internalID: 1720464305
+      spriteID: cb445e9035d848a4897b470ae5465f88
+      internalID: 1519813649
       vertices: []
       indices: 
       edges: []
@@ -309,19 +309,19 @@ TextureImporter:
       name: QMX_9
       rect:
         serializedVersion: 2
-        x: 486
-        y: 272
-        width: 162
-        height: 68
+        x: 582
+        y: 328
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaea516f8ea7cf14e8c8fc9e1cea78db
-      internalID: -1430767799
+      spriteID: b5acf8d93c425c64bbd48d903759ab02
+      internalID: 1676528216
       vertices: []
       indices: 
       edges: []
@@ -330,19 +330,19 @@ TextureImporter:
       name: QMX_10
       rect:
         serializedVersion: 2
-        x: 648
-        y: 272
-        width: 162
-        height: 68
+        x: 776
+        y: 328
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 845b1d14de4aae74ea02d0b796fe3264
-      internalID: -169530102
+      spriteID: 3388b48eca6fab14dbdfd0c083db742b
+      internalID: -1132535710
       vertices: []
       indices: 
       edges: []
@@ -351,19 +351,19 @@ TextureImporter:
       name: QMX_11
       rect:
         serializedVersion: 2
-        x: 810
-        y: 272
-        width: 162
-        height: 68
+        x: 970
+        y: 328
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d5ae67626ac61d4794da8433c0368c7
-      internalID: 504707778
+      spriteID: c5184d2d5161e2141828f1802f5ee971
+      internalID: -764184090
       vertices: []
       indices: 
       edges: []
@@ -373,18 +373,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 204
-        width: 162
-        height: 68
+        y: 246
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc230450f5effa245b62c821869ef903
-      internalID: 1494255433
+      spriteID: 5e8e266d0a0a9f94b9502b062896adca
+      internalID: 979532572
       vertices: []
       indices: 
       edges: []
@@ -393,19 +393,19 @@ TextureImporter:
       name: QMX_13
       rect:
         serializedVersion: 2
-        x: 162
-        y: 204
-        width: 162
-        height: 68
+        x: 194
+        y: 246
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e17c4ca7b405334d88b2f1ec1837455
-      internalID: 416969413
+      spriteID: d995419d4a64fc648bcc1acd2b258ac7
+      internalID: 1471357759
       vertices: []
       indices: 
       edges: []
@@ -414,19 +414,19 @@ TextureImporter:
       name: QMX_14
       rect:
         serializedVersion: 2
-        x: 324
-        y: 204
-        width: 162
-        height: 68
+        x: 388
+        y: 246
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e6faff5641482146bbd60ebd35a5389
-      internalID: 721788528
+      spriteID: 6c66c1b21ecd8c243afb5a413a0d7dc4
+      internalID: 1385133219
       vertices: []
       indices: 
       edges: []
@@ -435,19 +435,19 @@ TextureImporter:
       name: QMX_15
       rect:
         serializedVersion: 2
-        x: 486
-        y: 204
-        width: 162
-        height: 68
+        x: 582
+        y: 246
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 439ab1e1831cb46468ba28b79deb43f6
-      internalID: -60291909
+      spriteID: 3cf228a429920154c93a10cf2f23d92e
+      internalID: 537979899
       vertices: []
       indices: 
       edges: []
@@ -456,19 +456,19 @@ TextureImporter:
       name: QMX_16
       rect:
         serializedVersion: 2
-        x: 648
-        y: 204
-        width: 162
-        height: 68
+        x: 776
+        y: 246
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3133024484f046c42aec9b007c2369c0
-      internalID: -1335344486
+      spriteID: f0660fac1317f3247b22ac20222565c1
+      internalID: 889056763
       vertices: []
       indices: 
       edges: []
@@ -477,19 +477,19 @@ TextureImporter:
       name: QMX_17
       rect:
         serializedVersion: 2
-        x: 810
-        y: 204
-        width: 162
-        height: 68
+        x: 970
+        y: 246
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7aee005ef1cd15740b7b5de0afb26cbc
-      internalID: 543267374
+      spriteID: adf0255411cddf64593f397cb6c73c16
+      internalID: 1917318113
       vertices: []
       indices: 
       edges: []
@@ -499,18 +499,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 136
-        width: 162
-        height: 68
+        y: 164
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86d420b21ee792f48b10e19e65015b21
-      internalID: 1694722847
+      spriteID: 8037096ec86bffd4fbe4453217af1d85
+      internalID: -194579234
       vertices: []
       indices: 
       edges: []
@@ -519,19 +519,19 @@ TextureImporter:
       name: QMX_19
       rect:
         serializedVersion: 2
-        x: 162
-        y: 136
-        width: 162
-        height: 68
+        x: 194
+        y: 164
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf1a502df4f120043b15be81a4a26ba7
-      internalID: 698439149
+      spriteID: 4d4c36c2f14c8e9458c83a2cfb43fcd4
+      internalID: -1243162643
       vertices: []
       indices: 
       edges: []
@@ -540,19 +540,19 @@ TextureImporter:
       name: QMX_20
       rect:
         serializedVersion: 2
-        x: 324
-        y: 136
-        width: 162
-        height: 68
+        x: 388
+        y: 164
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec0ec124a6e336949affc137a72f4deb
-      internalID: 137715451
+      spriteID: 14439f2b9145fda43bb76089bae369cd
+      internalID: -997309152
       vertices: []
       indices: 
       edges: []
@@ -561,19 +561,19 @@ TextureImporter:
       name: QMX_21
       rect:
         serializedVersion: 2
-        x: 486
-        y: 136
-        width: 162
-        height: 68
+        x: 582
+        y: 164
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39b40b4cda443f14dbadd92739ca4205
-      internalID: 1233933168
+      spriteID: 104ff63af9294dd4f99e9eb06692d9d3
+      internalID: -2132307689
       vertices: []
       indices: 
       edges: []
@@ -582,19 +582,19 @@ TextureImporter:
       name: QMX_22
       rect:
         serializedVersion: 2
-        x: 648
-        y: 136
-        width: 162
-        height: 68
+        x: 776
+        y: 164
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aca49b966745aa47be0c63204c487e6
-      internalID: -865424679
+      spriteID: 058e15b8085c5ed4aa92382d43c0d398
+      internalID: 1851721862
       vertices: []
       indices: 
       edges: []
@@ -603,19 +603,19 @@ TextureImporter:
       name: QMX_23
       rect:
         serializedVersion: 2
-        x: 810
-        y: 136
-        width: 162
-        height: 68
+        x: 970
+        y: 164
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f079e5014ef87247b9daab276c07a22
-      internalID: 1542984633
+      spriteID: 2882bbedecab4bb40bd6414a8714c48a
+      internalID: -953964772
       vertices: []
       indices: 
       edges: []
@@ -625,18 +625,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 68
-        width: 162
-        height: 68
+        y: 82
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3b2cbe540d923c4da3b5af85c0ab172
-      internalID: 878928708
+      spriteID: caf452730b4d38a4db926615c5a11d06
+      internalID: -91339919
       vertices: []
       indices: 
       edges: []
@@ -645,19 +645,19 @@ TextureImporter:
       name: QMX_25
       rect:
         serializedVersion: 2
-        x: 162
-        y: 68
-        width: 162
-        height: 68
+        x: 194
+        y: 82
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad5cca47ba9b92c4295519dd5afcc5d2
-      internalID: 1597294126
+      spriteID: 849512214964eb747a3f377ca53e3b06
+      internalID: 1739517557
       vertices: []
       indices: 
       edges: []
@@ -666,19 +666,19 @@ TextureImporter:
       name: QMX_26
       rect:
         serializedVersion: 2
-        x: 324
-        y: 68
-        width: 162
-        height: 68
+        x: 388
+        y: 82
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47d6347c73fd5a648be52fb21dc8f75b
-      internalID: -1002790638
+      spriteID: baeb65112c1361d408a7c9c22d14ec7c
+      internalID: -1969614553
       vertices: []
       indices: 
       edges: []
@@ -687,19 +687,19 @@ TextureImporter:
       name: QMX_27
       rect:
         serializedVersion: 2
-        x: 486
-        y: 68
-        width: 162
-        height: 68
+        x: 582
+        y: 82
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88b2a846dce47ba45bb0d775da76d04d
-      internalID: 1423570025
+      spriteID: 417e12dcfd7883d4fb3f60a0f6e53f65
+      internalID: -815007025
       vertices: []
       indices: 
       edges: []
@@ -708,19 +708,19 @@ TextureImporter:
       name: QMX_28
       rect:
         serializedVersion: 2
-        x: 648
-        y: 68
-        width: 162
-        height: 68
+        x: 776
+        y: 82
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4678cddfed6061843b32e653ac6b046f
-      internalID: -633962121
+      spriteID: 2e41270805eefa2479a422b39e0e540f
+      internalID: -956751016
       vertices: []
       indices: 
       edges: []
@@ -729,19 +729,19 @@ TextureImporter:
       name: QMX_29
       rect:
         serializedVersion: 2
-        x: 810
-        y: 68
-        width: 162
-        height: 68
+        x: 970
+        y: 82
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29918ae0540ddc146a4a8719998efea5
-      internalID: -1659560296
+      spriteID: bfb1617cc610ca24d883803bd2b110bc
+      internalID: 1885603295
       vertices: []
       indices: 
       edges: []
@@ -752,17 +752,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 162
-        height: 68
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 649626205c94e264a9d0da783f7a8405
-      internalID: -1397505886
+      spriteID: 785e7ae6a133e3f4f875baa2c234acd4
+      internalID: -1353754762
       vertices: []
       indices: 
       edges: []
@@ -771,19 +771,19 @@ TextureImporter:
       name: QMX_31
       rect:
         serializedVersion: 2
-        x: 162
+        x: 194
         y: 0
-        width: 162
-        height: 68
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c67f8741409107e4e89221c6143c2bc9
-      internalID: -1304794145
+      spriteID: 3a77424bf70feba4bb02fb8745295e64
+      internalID: 2064833107
       vertices: []
       indices: 
       edges: []
@@ -792,19 +792,19 @@ TextureImporter:
       name: QMX_32
       rect:
         serializedVersion: 2
-        x: 324
+        x: 388
         y: 0
-        width: 162
-        height: 68
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89ddddeaaf06d2b4ea9c674620886eb6
-      internalID: 1459550566
+      spriteID: 6f40fdc0b3481d54385e709296128962
+      internalID: -2139992077
       vertices: []
       indices: 
       edges: []
@@ -813,19 +813,19 @@ TextureImporter:
       name: QMX_33
       rect:
         serializedVersion: 2
-        x: 486
+        x: 582
         y: 0
-        width: 162
-        height: 68
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 973f141d5062ddc4ca6ad74480c485a3
-      internalID: 989529876
+      spriteID: 5deb86433ad5b1c42877eed5160ea70b
+      internalID: -1874140855
       vertices: []
       indices: 
       edges: []
@@ -834,19 +834,40 @@ TextureImporter:
       name: QMX_34
       rect:
         serializedVersion: 2
-        x: 648
+        x: 776
         y: 0
-        width: 162
-        height: 68
+        width: 194
+        height: 82
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.326, y: 0.037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77cff642d08408c49923f71c92c1e9b7
-      internalID: 1750685634
+      spriteID: 696f7047091669541981fd9457d0562d
+      internalID: -1804138226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QMX_35
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 0
+        width: 194
+        height: 82
+      alignment: 9
+      pivot: {x: 0.326, y: 0.037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1046bbb118eea2e478b106a9e753def9
+      internalID: -68231519
       vertices: []
       indices: 
       edges: []
@@ -862,41 +883,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      QMX_23: 1542984633
-      QMX_16: -1335344486
-      QMX_7: 1819659368
-      QMX_12: 1494255433
-      QMX_1: 133548364
-      QMX_32: 1459550566
-      QMX_34: 1750685634
-      QMX_19: 698439149
-      QMX_17: 543267374
-      QMX_18: 1694722847
-      QMX_22: -865424679
-      QMX_24: 878928708
-      QMX_26: -1002790638
-      QMX_2: 239843460
-      QMX_5: 319420243
-      QMX_9: -1430767799
-      QMX_8: 1720464305
-      QMX_31: -1304794145
-      QMX_10: -169530102
-      QMX_33: 989529876
-      QMX_3: -1351471555
-      QMX_14: 721788528
-      QMX_6: -1585447967
-      QMX_11: 504707778
-      QMX_20: 137715451
-      QMX_4: 596992208
-      QMX_0: -1111544450
-      QMX_28: -633962121
-      QMX_25: 1597294126
-      QMX_13: 416969413
-      QMX_30: -1397505886
-      QMX_21: 1233933168
-      QMX_15: -60291909
-      QMX_27: 1423570025
-      QMX_29: -1659560296
+      QMX_23: -953964772
+      QMX_16: 889056763
+      QMX_35: -68231519
+      QMX_7: 447745610
+      QMX_12: 979532572
+      QMX_1: -1779531242
+      QMX_32: -2139992077
+      QMX_34: -1804138226
+      QMX_19: -1243162643
+      QMX_17: 1917318113
+      QMX_18: -194579234
+      QMX_22: 1851721862
+      QMX_24: -91339919
+      QMX_26: -1969614553
+      QMX_2: 1862808890
+      QMX_5: -1857295587
+      QMX_9: 1676528216
+      QMX_8: 1519813649
+      QMX_31: 2064833107
+      QMX_10: -1132535710
+      QMX_33: -1874140855
+      QMX_3: 1751361968
+      QMX_14: 1385133219
+      QMX_6: 1568838548
+      QMX_11: -764184090
+      QMX_20: -997309152
+      QMX_4: -657428461
+      QMX_0: -573350920
+      QMX_28: -956751016
+      QMX_25: 1739517557
+      QMX_13: 1471357759
+      QMX_30: -1353754762
+      QMX_21: -2132307689
+      QMX_15: 537979899
+      QMX_27: -815007025
+      QMX_29: 1885603295
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
