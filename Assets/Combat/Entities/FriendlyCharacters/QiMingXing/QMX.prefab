@@ -41,11 +41,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[0].maxDistance
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[1].maxDistance
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<projectile>k__BackingField
@@ -57,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 2774859980595649070, guid: ee79fdb5ae964d94dac37103e8d71528, type: 3}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<projectileVelocityY>k__BackingField
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[1].<projectileVelocityY>k__BackingField
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2522598447239158626, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Sprite
