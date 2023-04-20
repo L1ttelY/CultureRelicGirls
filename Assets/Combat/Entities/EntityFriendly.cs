@@ -47,8 +47,14 @@ namespace Combat {
 			base.Update();
 			timeAfterSkill+=Time.deltaTime;
 			timeAfterAttack+=Time.deltaTime;
+
+
+			if(positionInTeam==0&&Input.GetKey(KeyCode.P)) transform.position+=Vector3.right*0.1f;
+			if(positionInTeam==2&&Input.GetKey(KeyCode.O)) transform.position-=Vector3.right*0.1f;
+
 		}
 
+		static float[] nudgeWeights = new float[3];
 		//static update
 		[RuntimeInitializeOnLoadMethod]
 		static void SubscribeStaticEvents() {
@@ -60,7 +66,6 @@ namespace Combat {
 			//计算友方单位范围
 			float newLeftest = float.MaxValue;
 			float newRightest = float.MinValue;
-			bool friendlyLeft = false;
 			float weightX = 0;
 			int friendlyCount = 0;
 
@@ -73,12 +78,11 @@ namespace Combat {
 				sortedByX[i]=a;
 				newLeftest=Mathf.Min(a.transform.position.x,newLeftest);
 				newRightest=Mathf.Max(a.transform.position.x,newRightest);
-				friendlyLeft=true;
 				friendlyCount++;
 				weightX+=a.transform.position.x;
 			}
 
-			if(!friendlyLeft) return;
+			if(friendlyCount==0) return;
 
 			weightX/=(float)friendlyCount;
 			System.Array.Sort(sortedByX,(a,b) => {
@@ -90,10 +94,34 @@ namespace Combat {
 
 			const float maxDistance = 6;
 
+			//互相凑近
 			if(newRightest-newLeftest>maxDistance) {
+				if(friendlyCount==2) {
+					float nudgeTotal = (newRightest-newLeftest)-maxDistance;
+					sortedByX[0].transform.position+=Vector3.right*(nudgeTotal/2f);
+					sortedByX[1].transform.position+=Vector3.left*(nudgeTotal/2f);
+				} else if(friendlyCount==3) {
+					float center = 0;
+					for(int i = 0;i<3;i++) center+=sortedByX[i].transform.position.x;
+					center/=3f;
+					for(int i = 0;i<3;i++) nudgeWeights[i]=center-sortedByX[i].transform.position.x;
+					float nudgeTotal = (newRightest-newLeftest)-maxDistance;
+					float weightTotal = Mathf.Abs(nudgeWeights[0])+Mathf.Abs(nudgeWeights[2]);
 
-				float nudgeTotal = (newRightest-newLeftest)-maxDistance;
-				float weightTotal =
+					for(int i = 0;i<3;i++) {
+						float nudgeAmount = nudgeTotal/weightTotal*nudgeWeights[i];
+						sortedByX[i].transform.position+=Vector3.right*nudgeAmount;
+					}
+
+				}
+
+				newLeftest=float.MaxValue;
+				newRightest=float.MinValue;
+
+				foreach(var a in friendlyList) {
+					newLeftest=Mathf.Min(a.transform.position.x,newLeftest);
+					newRightest=Mathf.Max(a.transform.position.x,newRightest);
+				}
 			}
 
 			leftestX=newLeftest;
@@ -259,9 +287,6 @@ namespace Combat {
 
 		}
 
-		protected static void UpdateGather() {
-
-		}
 
 		#region 主动技能
 

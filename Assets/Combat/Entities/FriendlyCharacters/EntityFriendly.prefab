@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1674207602}
   - component: {fileID: 7189738652749299581}
   - component: {fileID: 7653821060009075381}
+  - component: {fileID: -4425472078791212774}
   m_Layer: 0
   m_Name: EntityFriendly
   m_TagString: Untagged
@@ -200,6 +201,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386bbd8bd0d71ba49be443f75372aad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4425472078791212774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447825321245819325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df23a59015da14428739bd44c703632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <acceleration>k__BackingField: 24
+  <maxSpeed>k__BackingField: 4
+  <attackBasePower>k__BackingField: 0
+  <knockbackPower>k__BackingField: 0
+  <maxHp>k__BackingField: 1000
+  <attacks>k__BackingField: []
+  <maxPredictSpeed>k__BackingField: 0
+  <damageVfx>k__BackingField: []
+  soundAttack: {fileID: 8300000, guid: 09de206313d86fd428329ffee62e21cf, type: 3}
+  soundHit: {fileID: 8300000, guid: 5c362d35d362c7e44ac5e630f75ea571, type: 3}
+  soundDeath: {fileID: 8300000, guid: 038e34d7a70ed4845b6e9a64414d2753, type: 3}
+  powerBuff: 0
+  knockbackBuff: 0
+  cdSpeed: 0
+  speedBuff: 0
+  skillCd: 0
+  <visionRange>k__BackingField: 0
+  <attackCd>k__BackingField: 0
+  attackMethods: []
+  positionInTeam: 0
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0
