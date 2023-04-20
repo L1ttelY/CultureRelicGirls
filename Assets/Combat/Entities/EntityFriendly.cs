@@ -61,7 +61,8 @@ namespace Combat {
 			float newLeftest = float.MaxValue;
 			float newRightest = float.MinValue;
 			bool friendlyLeft = false;
-
+			float weightX = 0;
+			int friendlyCount = 0;
 
 			for(int i = 0;i<3;i++) {
 				EntityFriendly a = friendlyList[i];
@@ -73,17 +74,26 @@ namespace Combat {
 				newLeftest=Mathf.Min(a.transform.position.x,newLeftest);
 				newRightest=Mathf.Max(a.transform.position.x,newRightest);
 				friendlyLeft=true;
+				friendlyCount++;
+				weightX+=a.transform.position.x;
 			}
 
-			System.Array.Sort(sortedByX,(a,b) => { return (int)Mathf.Sign(a.transform.position.x-b.transform.position.x); });
-
-			
 			if(!friendlyLeft) return;
 
-			const float maxDistance = 6;
-			if(newRightest-newLeftest>maxDistance) {
-				float nudgeTotal = (newRightest-newLeftest)-maxDistance;
+			weightX/=(float)friendlyCount;
+			System.Array.Sort(sortedByX,(a,b) => {
+				if(a==null&&b==null) return 0;
+				if(a==null) return 1;
+				if(b==null) return -1;
+				return (int)Mathf.Sign(a.transform.position.x-b.transform.position.x);
+			});
 
+			const float maxDistance = 6;
+
+			if(newRightest-newLeftest>maxDistance) {
+
+				float nudgeTotal = (newRightest-newLeftest)-maxDistance;
+				float weightTotal =
 			}
 
 			leftestX=newLeftest;
