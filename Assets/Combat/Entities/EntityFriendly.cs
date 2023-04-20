@@ -6,6 +6,7 @@ namespace Combat {
 
 	[System.Serializable]
 	public class FriendlyAttackData {
+		[HideInInspector] public int index;
 		public float minDistance;
 		public float maxDistance;
 		public float weight;
@@ -152,7 +153,7 @@ namespace Combat {
 		}
 
 		public static EntityFriendly playerControlled;
-		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>();
+		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>(3);
 
 		const float distancePerCharacter = 0.8f;
 		const float distanceTolerence = 0.1f;
@@ -160,12 +161,17 @@ namespace Combat {
 		protected override void Start() {
 			base.Start();
 			if(positionInTeam==0) playerControlled=this;
-			while(friendlyList.Count<=positionInTeam) friendlyList.Add(null);
+			while(friendlyList.Count<3) friendlyList.Add(null);
 			friendlyList[positionInTeam]=this;
 
 			//Player.ActionSkillEvent+=Player_ActionSkillEvent;
 			Player.ChargeEvent+=Player_ChargeEvent;
 			CombatRoomController.RoomChange+=CombatRoomController_RoomChange;
+
+			//³õÊ¼»¯attackmethods
+			for(int i = 0;i<attackMethods.Count;i++) {
+				attackMethods[i].index=i;
+			}
 		}
 
 		protected override void OnDestroy() {
@@ -353,7 +359,7 @@ namespace Combat {
 			float dist = Mathf.Abs(target.transform.position.x-transform.position.x);
 			var viableAttacks = attackMethods.FindAll((FriendlyAttackData a) => { return dist<a.maxDistance&&dist>a.minDistance; });
 			if(viableAttacks.Count==0) return;
-			int attackIndex = ChooseByWeight.Work((int a) => viableAttacks[a].weight,viableAttacks.Count);
+			int attackIndex = viableAttacks[ChooseByWeight.Work((int a) => viableAttacks[a].weight,viableAttacks.Count)].index;
 
 			animator.SetTrigger("attackStart");
 			animator.SetFloat("attackType",attackIndex);
