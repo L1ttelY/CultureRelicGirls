@@ -9,7 +9,7 @@ namespace Combat {
 
 		[SerializeField] float cameraSize = 16;
 		[SerializeField] float moveSpeed = 5;
-
+		[SerializeField] bool isFilming;
 
 
 		private void Start() {
@@ -18,8 +18,12 @@ namespace Combat {
 		}
 
 		private void Update() {
-			UpdateTargetX();
-			UpdateSelfPosition();
+			if(isFilming) {
+				UpdateFilmingMode();
+			}else {
+				UpdateTargetX();
+				UpdateSelfPosition();
+			}
 		}
 
 		float targetX;
@@ -47,9 +51,10 @@ namespace Combat {
 			float xMin = EntityFriendly.rightestX;
 
 			targetX=Mathf.Clamp(targetX,xMin,xMax);
-
+			
 		}
 
+		
 		void UpdateSelfPosition() {
 			Vector3 position = transform.position;
 			Vector3 targetPosition = position;
@@ -64,6 +69,23 @@ namespace Combat {
 			position.y=CombatRoomController.currentRoom.transform.position.y+1.1f;
 			//调整摄像机上下
 			transform.position=position;
+		}
+
+		Vector3 filmingModeVelocity;
+		const float filmingModeAcceleration = 6;
+		const float filmingModeSpeed = 6;
+		void UpdateFilmingMode(){
+
+			Vector3 targetVelocity = Vector3.zero;
+			if(Input.GetKey(KeyCode.RightArrow)) targetVelocity+=Vector3.right;
+			if(Input.GetKey(KeyCode.LeftArrow)) targetVelocity+=Vector3.left;
+			if(Input.GetKey(KeyCode.UpArrow)) targetVelocity+=Vector3.up;
+			if(Input.GetKey(KeyCode.DownArrow)) targetVelocity+=Vector3.down;
+			targetVelocity*=filmingModeSpeed;
+
+			filmingModeVelocity=Vector3.MoveTowards(filmingModeVelocity,targetVelocity,Time.deltaTime*filmingModeAcceleration);
+
+			transform.position+=filmingModeVelocity*Time.deltaTime;
 		}
 
 	}

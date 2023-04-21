@@ -237,6 +237,7 @@ namespace Combat {
 
 		}
 
+		const float knockbackUnit = 0.1f;
 		protected virtual void DoKnockback(float knockback,int direction) {
 			/*
 				transform.position+=(Vector3)Direction.GetVector(direction)*knockback*0.1f;
@@ -248,7 +249,7 @@ namespace Combat {
 				animator.SetBool("inKnockback",true);
 			*/
 
-			buffSlot[typeof(BuffKnockback)].stacks+=(direction==Direction.right ? 1 : -1)*knockback;
+			buffSlot[typeof(BuffKnockback)].stacks+=(direction==Direction.right ? 1 : -1)*knockback*knockbackUnit;
 
 		}
 
