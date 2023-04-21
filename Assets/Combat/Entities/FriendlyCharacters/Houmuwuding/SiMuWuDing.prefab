@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <maxHp>k__BackingField
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -22,6 +26,10 @@ PrefabInstance:
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <visionRange>k__BackingField
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <knockbackPower>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[0].weight
@@ -41,11 +49,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[1].maxDistance
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[1].minDistance
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<projectile>k__BackingField

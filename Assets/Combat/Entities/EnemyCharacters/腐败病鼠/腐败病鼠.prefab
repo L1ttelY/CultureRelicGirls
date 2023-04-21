@@ -118,13 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <acceleration>k__BackingField: 2
-  <maxSpeed>k__BackingField: 2.5
+  <maxSpeed>k__BackingField: 0
   <attackBasePower>k__BackingField: 5
-  <attackCd>k__BackingField: 0
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 10000000
-  <projectiles>k__BackingField: []
-  <projectileVelocityY>k__BackingField: 0
+  <maxHp>k__BackingField: 1500
+  <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
@@ -136,8 +134,8 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 7
-  wakeUpDistanceBack: 4
+  wakeUpDistanceFront: 10
+  wakeUpDistanceBack: 5
   corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
   sentienceMatterReward: 0
   startRight: 0
@@ -154,18 +152,15 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
-      <weight>k__BackingField: 2
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 6
+  - <minDistance>k__BackingField: 4
+    <maxDistance>k__BackingField: 8
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
     <maxDistance>k__BackingField: 3
     <startWeight>k__BackingField: 1
     id: 0
@@ -173,12 +168,60 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 2
+    <maxDistance>k__BackingField: 7
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 3
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 3
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 2
+    <maxDistance>k__BackingField: 7
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
-  targetDistanceMin: 0.5
-  targetDistanceMax: 6
-  knockbackDefense: 0
-  poiseMax: 10
-  poiseRegen: 1
+  targetDistanceMin: 0
+  targetDistanceMax: 10
+  knockbackDefense: 1
+  poiseMax: 15
+  poiseRegen: 0.5
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
