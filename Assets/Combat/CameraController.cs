@@ -7,12 +7,13 @@ namespace Combat {
 
 		public static CameraController instance { get; private set; }
 
-		[SerializeField] float cameraSize = 16;
 		[SerializeField] float moveSpeed = 5;
 		[SerializeField] bool isFilming;
 
+		new Camera camera;
 
 		private void Start() {
+			camera=GetComponent<Camera>();
 			PlayerData.PlayerDataController.Init();
 			instance=this;
 		}
@@ -20,7 +21,7 @@ namespace Combat {
 		private void Update() {
 			if(isFilming) {
 				UpdateFilmingMode();
-			}else {
+			} else {
 				UpdateTargetX();
 				UpdateSelfPosition();
 			}
@@ -28,9 +29,8 @@ namespace Combat {
 
 		float targetX;
 
-
 		void UpdateTargetX() {
-
+			/*
 			//调整摄像机左右，越大越左，越小越右
 			const float cameraStaticOffset = 10;
 			targetX=(EntityFriendly.leftestX+EntityFriendly.rightestX)*0.5f+cameraStaticOffset;
@@ -51,10 +51,35 @@ namespace Combat {
 			float xMin = EntityFriendly.rightestX;
 
 			targetX=Mathf.Clamp(targetX,xMin,xMax);
-			
+			*/
+
+			float centerX = 0.5f*(EntityFriendly.rightestX+EntityFriendly.leftestX);
+			float fov = Camera.VerticalToHorizontalFieldOfView(camera.fieldOfView,camera.aspect);
+			float cameraRadius = Mathf.Tan(Mathf.Deg2Rad*fov*0.5f)*Mathf.Abs(transform.position.z);
+
+			float minX = EntityFriendly.rightestX-cameraRadius;
+			float maxX = EntityFriendly.leftestX+cameraRadius;
+
+
+			SortedDictionary<float,EntityBase> enemiesByDist = new SortedDictionary<float,EntityBase>();
+			foreach(var i in EntityBase.entities) {
+				if((!i)||(!(i is EntityEnemy))) continue;
+				enemiesByDist.Add(Mathf.Abs(i.transform.position.x-centerX),i);
+			}
+
+			foreach(var i in enemiesByDist){
+				float x = i.Value.transform.position.x;
+				if(x<maxX+cameraRadius&&x>minX-cameraRadius){
+					minX=Mathf.Max(minX,x-cameraRadius);
+					maxX=Mathf.Min(maxX,x+cameraRadius);
+				}
+			}
+			Debug.Log($"{minX} , {maxX}");
+
+			targetX=(minX+maxX)*0.5f;
 		}
 
-		
+
 		void UpdateSelfPosition() {
 			Vector3 position = transform.position;
 			Vector3 targetPosition = position;
@@ -74,7 +99,7 @@ namespace Combat {
 		Vector3 filmingModeVelocity;
 		const float filmingModeAcceleration = 6;
 		const float filmingModeSpeed = 6;
-		void UpdateFilmingMode(){
+		void UpdateFilmingMode() {
 
 			Vector3 targetVelocity = Vector3.zero;
 			if(Input.GetKey(KeyCode.RightArrow)) targetVelocity+=Vector3.right;
