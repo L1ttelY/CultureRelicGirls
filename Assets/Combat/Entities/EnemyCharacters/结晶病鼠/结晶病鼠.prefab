@@ -120,11 +120,9 @@ MonoBehaviour:
   <acceleration>k__BackingField: 2
   <maxSpeed>k__BackingField: 2.5
   <attackBasePower>k__BackingField: 5
-  <attackCd>k__BackingField: 0
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 10000000
-  <projectiles>k__BackingField: []
-  <projectileVelocityY>k__BackingField: 0
+  <maxHp>k__BackingField: 1000
+  <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
@@ -184,9 +182,9 @@ MonoBehaviour:
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0.5
   targetDistanceMax: 6
-  knockbackDefense: 0
+  knockbackDefense: 1
   poiseMax: 10
-  poiseRegen: 1
+  poiseRegen: 0.5
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
