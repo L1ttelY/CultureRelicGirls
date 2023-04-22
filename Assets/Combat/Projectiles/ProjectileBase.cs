@@ -72,7 +72,7 @@ namespace Combat {
 			velocity+=Vector2.down*Time.deltaTime*gravity;
 			nextPosition=(Vector2)transform.position+velocity*Time.deltaTime;
 
-			if(!noDamage&&time>0.1f){
+			if(!noDamage){
 				int cnt = collider.Cast(velocity,Utility.raycastBuffer,velocity.magnitude*Time.deltaTime);
 
 				for(int i = 0;i<cnt;i++) {
@@ -106,6 +106,10 @@ namespace Combat {
 			if(penetratePower==timePenetrated) ProjectilePool.Store(this);
 			timePenetrated++;
 
+		}
+
+		private void OnDisable() {
+			transform.position+=Vector3.down*10f;
 		}
 
 	}
