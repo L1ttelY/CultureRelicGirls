@@ -267,14 +267,12 @@ namespace Combat {
 
 			if(Mathf.Abs(position.x-moveTargetX)<0.2f) {
 				//结束移动
-				Debug.Log("ATTACK!!!");
 				StartRandomAttack();
 			}
 
 		}
 
 		public void 移动事件_EndMove() {
-			Debug.Log("AAAAA");
 			StartRandomAttack();
 		}
 

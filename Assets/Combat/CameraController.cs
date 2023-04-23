@@ -74,7 +74,6 @@ namespace Combat {
 					maxX=Mathf.Min(maxX,x+cameraRadius);
 				}
 			}
-			Debug.Log($"{minX} , {maxX}");
 
 			targetX=(minX+maxX)*0.5f;
 		}

@@ -63,6 +63,8 @@ namespace Combat {
 		[Tooltip("伤害特效 在数组中随机选取")]
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }
 
+		Transform shootPosition;
+
 		[SerializeField] protected AudioClip soundAttack;
 		[SerializeField] protected AudioClip soundHit;
 		[SerializeField] protected AudioClip soundDeath;
@@ -150,7 +152,7 @@ namespace Combat {
 
 			buffSlot=new BuffSlot();
 			buffSlot.Init(this);
-
+			shootPosition=transform.Find("shootingPosition");
 		}
 
 		protected virtual void OnDestroy() {
@@ -328,11 +330,12 @@ namespace Combat {
 
 			AudioController.PlayAudio(soundAttack,transform.position);
 
-			animator.SetTrigger("attack");
-			timeAfterAttack=0;
+			Vector3 position = transform.position;
+			if(shootPosition) position=shootPosition.transform.position;
+
 			return ProjectilePool.Create(
 				attacks[attackType].projectile,
-				transform.position,
+				position,
 				ProjectileVelocity(target.transform.position,target.velocity,attackType),
 				target,
 				this is EntityFriendly,
@@ -356,9 +359,8 @@ namespace Combat {
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*attack.travelTime;
 
 			float velocityX = (arriveX-transform.position.x)/attack.travelTime;
-			if(attack.travelTime==0) velocityX=0.01f*Direction.GetX(direction);
+			if(attack.travelTime==0) velocityX=0.1f*Direction.GetX(direction);
 			return new Vector2(velocityX,attack.projectileVelocityY);
-
 
 		}
 

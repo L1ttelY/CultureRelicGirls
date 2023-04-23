@@ -15,7 +15,7 @@ namespace Combat {
 
 			if(loaded) return;
 			loaded=true;
-
+			
 			int total = 0;
 			for(int i = 0;i<3;i++) {
 				if(EntityFriendly.friendlyList.Count>i&&EntityFriendly.friendlyList[i]) {
@@ -24,9 +24,9 @@ namespace Combat {
 				}
 			}
 			for(int i = 0;i<total;i++) avatars[i].gameObject.SetActive(true);
-
-			if(total>0) frames[total-1].SetActive(true);
-
+			
+			//if(total>0) frames[total-1].SetActive(true);
+			
 		}
 
 	}

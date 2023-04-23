@@ -151,7 +151,6 @@ namespace Combat {
 
 		public int chargeDirection { get; private set; }
 		public void ButtonClick() {
-			Debug.Log(targetVelocity);
 			if(Mathf.Abs(targetVelocity)>0.98f) {
 				if(timeAfterDash>=dashCd) {
 					chargeDirection=(int)Mathf.Sign(targetVelocity);
