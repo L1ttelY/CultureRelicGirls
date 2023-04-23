@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4302525056012089162}
   - component: {fileID: 1684290606832352834}
   m_Layer: 0
-  m_Name: "\u5E03\u888B\u8001\u9F20"
+  m_Name: "\u76F2\u9F20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032805443, y: 0.24256843}
+  m_Offset: {x: -0.33403134, y: 0.64410573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.90156746, y: 0.93243647}
+  m_Size: {x: 3.7997642, y: 1.7355112}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 2f6dada7a8cd02743ab16f62b11f53c5, type: 2}
+  m_Controller: {fileID: 22100000, guid: c150c8f406ffe4c4b85b106fee1ad7df, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,11 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <acceleration>k__BackingField: 2
-  <maxSpeed>k__BackingField: 2.5
+  <acceleration>k__BackingField: 20
+  <maxSpeed>k__BackingField: 4
   <attackBasePower>k__BackingField: 5
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 700
+  <maxHp>k__BackingField: 5000
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -142,26 +142,10 @@ MonoBehaviour:
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
-  attackChance: 1
+  attackChance: 0.5
   attacks:
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 0
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 15
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -169,32 +153,8 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 15
     <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 4
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 0.5
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 6
-    <startWeight>k__BackingField: 0.5
     id: 0
     transitionList:
     - <type>k__BackingField: 0
@@ -202,10 +162,10 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 6
-  knockbackDefense: 0.8
-  poiseMax: 8
-  poiseRegen: 0.5
+  targetDistanceMax: 15
+  knockbackDefense: 2
+  poiseMax: 20
+  poiseRegen: 1
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,11 +385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.007
+      value: -0.089
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.963
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
