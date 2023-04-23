@@ -122,8 +122,10 @@ MonoBehaviour:
   <attackBasePower>k__BackingField: 5
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 1500
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 76250ba0c1a625244ad8ce9f0134c056, type: 3}
+    <projectileVelocityY>k__BackingField: 15
+  <maxPredictSpeed>k__BackingField: 1
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
   soundAttack: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
