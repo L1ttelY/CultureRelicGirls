@@ -257,9 +257,7 @@ namespace Combat {
 		}
 
 		protected override void OnDeath() {
-			Debug.Log("!!!!!");
 			base.OnDeath();
-
 
 			FriendlyCorpseController.Create(transform,spriteRenderer.sprite);
 

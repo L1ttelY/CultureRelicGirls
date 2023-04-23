@@ -107,6 +107,9 @@ namespace Combat {
 
 		//对角色造成伤害
 		public virtual void Damage(DamageModel e) { //受到伤害
+
+			//if(this is EntityFriendly) Debug.Log(hp);
+
 			if(e.amount>0) {
 				AudioController.PlayAudio(soundHit,transform.position);
 				animator.SetTrigger("hit");
@@ -114,14 +117,17 @@ namespace Combat {
 			hp-=e.amount;
 			DoKnockback(e.knockback,e.direction);
 
-			int vfxIndex = Random.Range(0,damageVfx.Length);
-			VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
+			if(damageVfx.Length!=0) {
+				int vfxIndex = Random.Range(0,damageVfx.Length);
+				VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
+			}
 
 			DamageEvent?.Invoke(this,e);
 			lastDamage=e;
 
-			if(hp<=0) OnDeath();
-
+			if(hp<=0) {
+				OnDeath();
+			}
 		}
 
 		//恢复血量
