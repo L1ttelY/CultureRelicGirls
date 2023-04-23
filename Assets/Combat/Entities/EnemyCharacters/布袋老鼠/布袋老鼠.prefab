@@ -200,9 +200,17 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 0.5
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 2
+      <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 6
+  targetDistanceMax: 10
   knockbackDefense: 0.8
   poiseMax: 8
   poiseRegen: 0.5
