@@ -37,6 +37,7 @@ namespace Combat {
 		[SerializeField] protected float attackChance = 1;        //移动结束后进入攻击状态的概率
 		[SerializeField] protected AttackStateData[] attacks;     //包含所有攻击状态的列表
 
+		HashSet<EntityBase> targetHit = new HashSet<EntityBase>();
 
 		//播放攻击动画
 
@@ -97,6 +98,7 @@ namespace Combat {
 			//animator.SetTrigger($"attack{attackIndex}");
 			currensState=StateAttack;
 			nameHashSet=false;
+			targetHit.Clear();
 		}
 		protected virtual void StateAttack() {
 
@@ -197,6 +199,10 @@ namespace Combat {
 				RaycastHit2D hit = Utility.raycastBuffer[i];
 				EntityFriendly other = hit.collider.GetComponent<EntityFriendly>();
 				if(other) {
+
+					if(targetHit.Contains(other)) continue;
+					targetHit.Add(other);
+				
 					DamageModel damage = GetDamage();
 
 					if(other.isKnockbacked) damage.amount=0;
