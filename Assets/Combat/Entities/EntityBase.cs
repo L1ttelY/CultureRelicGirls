@@ -158,7 +158,7 @@ namespace Combat {
 
 			buffSlot=new BuffSlot();
 			buffSlot.Init(this);
-			shootPosition=transform.Find("shootingPosition");
+			shootPosition=transform.Find("shootPosition");
 		}
 
 		protected virtual void OnDestroy() {
@@ -363,8 +363,10 @@ namespace Combat {
 			AttackData attack = attacks[projectileType];
 
 			float arriveX = target.x+Mathf.Clamp(velocity.x,-maxPredictSpeed,maxPredictSpeed)*attack.travelTime;
+			float shootX = transform.position.x;
+			if(shootPosition) shootX=shootPosition.position.x;
 
-			float velocityX = (arriveX-transform.position.x)/attack.travelTime;
+			float velocityX = (arriveX-shootX)/attack.travelTime;
 			if(attack.travelTime==0) velocityX=0.1f*Direction.GetX(direction);
 			return new Vector2(velocityX,attack.projectileVelocityY);
 
