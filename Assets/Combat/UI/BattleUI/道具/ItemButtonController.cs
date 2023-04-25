@@ -97,8 +97,8 @@ namespace Combat {
 				if(pressTime>timeToStartSelect) state=States.Selecting;
 			} else pressTime=0;
 
-			image.sprite=LoadoutController.GetHotBar(chosenIndex)?.sprite;
-			image.color=(image.sprite==null) ? Color.clear : Color.white;
+			//image.sprite=LoadoutController.GetHotBar(chosenIndex)?.sprite;
+			//image.color=(image.sprite==null) ? Color.clear : Color.white;
 
 		}
 

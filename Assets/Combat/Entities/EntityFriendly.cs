@@ -320,15 +320,15 @@ namespace Combat {
 		}
 		//判断自身是否在冲刺
 		protected bool isCharging { get { return currensState==StateCharging; } }
-		protected const float chargeTime = 0.5f;
+		[SerializeField] protected float chargeTime = 0.5f;
 		protected float timeCharged;
 
 		void StartCharging() {
 			currensState=StateCharging;
 			timeCharged=0;
 		}
-		const float startChargeSpeed = 25;
-		const float endChargeSpeed = 5;
+		[SerializeField] protected float chargeStartSpeed = 25;
+		[SerializeField] protected float chargeEndSpeed = 5;
 		void StateCharging() {
 
 			animator.SetBool("isCharging",true);
@@ -337,7 +337,7 @@ namespace Combat {
 
 			Vector2 position = transform.position; //位置
 			velocity.y=0;
-			velocity.x=Mathf.Lerp(startChargeSpeed,endChargeSpeed,timeCharged/chargeTime)*Player.instance.chargeDirection;
+			velocity.x=Mathf.Lerp(chargeStartSpeed,chargeEndSpeed,timeCharged/chargeTime)*Player.instance.chargeDirection;
 
 			position.x+=velocity.x*Time.deltaTime;
 			position.y=room.transform.position.y;

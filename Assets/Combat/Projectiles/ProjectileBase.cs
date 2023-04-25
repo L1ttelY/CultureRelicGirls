@@ -72,7 +72,7 @@ namespace Combat {
 			velocity+=Vector2.down*Time.deltaTime*gravity;
 			nextPosition=(Vector2)transform.position+velocity*Time.deltaTime;
 
-			if(!noDamage){
+			if(!noDamage) {
 				int cnt = collider.Cast(velocity,Utility.raycastBuffer,velocity.magnitude*Time.deltaTime);
 
 				for(int i = 0;i<cnt;i++) {
@@ -86,9 +86,11 @@ namespace Combat {
 
 			if(doNotRotate) transform.rotation=Quaternion.identity;
 			else transform.rotation=((Angle)velocity).quaternion;
-			if(doFlip&&velocity.x<0) {
-				if(doNotRotate) transform.localScale=new Vector3(-1,1,1);
-				else transform.localScale=new Vector3(1,-1,1);
+			if(doFlip) {
+				if(velocity.x<0) {
+					if(doNotRotate) transform.localScale=new Vector3(-1,1,1);
+					else transform.localScale=new Vector3(1,-1,1);
+				} else transform.localScale=Vector3.one;
 			}
 		}
 
@@ -108,7 +110,7 @@ namespace Combat {
 
 		}
 
-		private void OnDisable() {
+		protected virtual void OnDisable(){
 			transform.position+=Vector3.down*10f;
 		}
 
