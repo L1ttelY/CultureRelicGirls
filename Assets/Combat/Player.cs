@@ -10,6 +10,8 @@ namespace Combat {
 		public static event Void ChargeEvent;
 		public static event Void ActionSkillEvent;
 
+		[SerializeField] Image manaBar;
+
 		[SerializeField] Transform leftBound;
 		[SerializeField] Transform rightBound;
 		[SerializeField] float resetSpeed = 2000;
@@ -23,6 +25,16 @@ namespace Combat {
 
 		public float targetVelocity { get; private set; }
 
+		float _mana;
+		//0~125
+		public float mana {
+			get => _mana;
+			set {
+				_mana=value;
+				_mana=Mathf.Clamp(_mana,0,125);
+			}
+		}
+
 		/// <summary>
 		/// 数值参考Direction类
 		/// </summary>
@@ -31,6 +43,9 @@ namespace Combat {
 		const float directionChangeTimeNeeded = 1;
 
 		void Start() {
+			ActionButtonCommandReceiver.OnDown+=ButtonClick;
+			ActionButtonCommandReceiver.OnUp+=ButtonUp;
+
 			if(instance) Debug.Break();
 			instance=this;
 
@@ -38,6 +53,8 @@ namespace Combat {
 			canvas=GetComponentInParent<Canvas>();
 		}
 		private void OnDestroy() {
+			ActionButtonCommandReceiver.OnDown-=ButtonClick;
+			ActionButtonCommandReceiver.OnUp-=ButtonUp;
 			instance=null;
 		}
 
@@ -45,7 +62,8 @@ namespace Combat {
 
 		void Update() {
 
-			if(timeAfterDash<dashCd) timeAfterDash+=Time.deltaTime;
+			if(mana<25) mana=Mathf.Min(25,mana+10*Time.deltaTime);
+			manaBar.fillAmount=mana/125f;
 
 			leftX=leftBound.transform.position.x;
 			rightX=rightBound.transform.position.x;
@@ -113,6 +131,11 @@ namespace Combat {
 				if(Input.GetKey(KeyCode.D)) targetVelocity+=1;
 			}
 
+			if(isBlocking) {
+				mana-=Time.deltaTime*25;
+				if(mana<=0) isBlocking=false;
+				targetVelocity=0;
+			}
 			UpdateDirectionChange();
 
 		}
@@ -127,7 +150,7 @@ namespace Combat {
 			else directionChangeTime+=Time.deltaTime;
 
 			if(directionChangeTime>=directionChangeTimeNeeded) {
-				
+
 				teamDirection=targetVelocity<0 ? Direction.left : Direction.right;
 				directionChangeTime=0;
 			}
@@ -149,15 +172,23 @@ namespace Combat {
 
 		}
 
+		public bool isBlocking { get; private set; }
 		public int chargeDirection { get; private set; }
 		public void ButtonClick() {
-			if(Mathf.Abs(targetVelocity)>0.98f) {
-				if(timeAfterDash>=dashCd) {
+			if(Mathf.Abs(targetVelocity)>0.5f) {
+				//冲刺
+				if(mana>=25) {
+					mana-=25;
 					chargeDirection=(int)Mathf.Sign(targetVelocity);
 					ChargeEvent?.Invoke();
-					timeAfterDash=0;
 				}
+			} else {
+				//格挡
+				isBlocking=true;
 			}
+		}
+		public void ButtonUp() {
+			isBlocking=false;
 		}
 
 		public void SkillClick(int id) {
@@ -165,11 +196,8 @@ namespace Combat {
 			EntityFriendly.friendlyList[id].ActionSkill();
 		}
 
-		float timeAfterDash;
-		[SerializeField] float dashCd = 10;
-
 		public float dashCdProgress {
-			get { return timeAfterDash/dashCd; }
+			get { return Mathf.Clamp01(mana/25); }
 		}
 		//public float skillCdProgress {
 		//	get { return skilledCharacter.skillCdProgress; }

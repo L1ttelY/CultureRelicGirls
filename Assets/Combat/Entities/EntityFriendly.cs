@@ -30,6 +30,8 @@ namespace Combat {
 		//主动技能CD完成比例
 		public float skillCdProgress { get { return timeAfterSkill/skillCd; } }
 
+		protected bool isBlocking;
+
 		//设置使用方式
 		//设置等级 使用的主动技能
 		//会在游戏开始时调用
@@ -53,6 +55,9 @@ namespace Combat {
 			if(positionInTeam==0&&Input.GetKey(KeyCode.P)) transform.position+=Vector3.right*0.1f;
 			if(positionInTeam==2&&Input.GetKey(KeyCode.O)) transform.position-=Vector3.right*0.1f;
 
+			bool isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+			isBlocking=Player.instance.isBlocking&&(!isAttacking);
+			animator.SetBool("isBlocking",isBlocking);
 		}
 
 		static float[] nudgeWeights = new float[3];
@@ -354,6 +359,7 @@ namespace Combat {
 
 		#region 攻击
 		protected virtual void UpdateAttack() {
+			if(isBlocking) return;
 			if(timeAfterAttack<attackCd) return;
 			if(target==null) return;
 			float dist = Mathf.Abs(target.transform.position.x-transform.position.x);
@@ -368,6 +374,11 @@ namespace Combat {
 		}
 
 		#endregion
+
+		public override void Damage(DamageModel e) {
+			if(isBlocking) e.amount/=2;
+			base.Damage(e);
+		}
 
 	}
 }
