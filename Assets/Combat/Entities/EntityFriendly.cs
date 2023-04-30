@@ -376,6 +376,7 @@ namespace Combat {
 		#endregion
 
 		public override void Damage(DamageModel e) {
+			if(Player.instance.UseParry()) return;
 			if(isBlocking) e.amount/=2;
 			base.Damage(e);
 		}

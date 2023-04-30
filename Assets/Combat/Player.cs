@@ -68,6 +68,14 @@ namespace Combat {
 			leftX=leftBound.transform.position.x;
 			rightX=rightBound.transform.position.x;
 
+			UpdateTargetVelocity();
+
+			UpdateDirectionChange();
+			UpdatePress();
+		}
+
+		void UpdateTargetVelocity() {
+
 			targetVelocity=0;
 
 			Touch? activeTouch = null;
@@ -130,14 +138,6 @@ namespace Combat {
 				if(Input.GetKey(KeyCode.A)) targetVelocity-=1;
 				if(Input.GetKey(KeyCode.D)) targetVelocity+=1;
 			}
-
-			if(isBlocking) {
-				mana-=Time.deltaTime*25;
-				if(mana<=0) isBlocking=false;
-				targetVelocity=0;
-			}
-			UpdateDirectionChange();
-
 		}
 
 		void UpdateDirectionChange() {
@@ -181,14 +181,18 @@ namespace Combat {
 					mana-=25;
 					chargeDirection=(int)Mathf.Sign(targetVelocity);
 					ChargeEvent?.Invoke();
+					lastPressDash=true;
 				}
 			} else {
 				//¸ñµ²
 				isBlocking=true;
+				lastPressDash=false;
+				unprocessedPress=true;
 			}
 		}
 		public void ButtonUp() {
 			isBlocking=false;
+			unprocessedPress=true;
 		}
 
 		public void SkillClick(int id) {
@@ -204,6 +208,56 @@ namespace Combat {
 		//}
 
 		//public EntityFriendly skilledCharacter;
+
+		bool lastPressDash;
+		bool unprocessedPress;
+		float timeAfterPress;
+
+		[SerializeField] float parryWindowStart = 0.1f;
+		[SerializeField] float parryWindowEnd = 0.2f;
+		[SerializeField] float timeInvincible = 0.3f;
+
+		public bool isParry { get; private set; }
+		public bool isInvincible { get; private set; }
+		float timeAfterInvincible;
+		public bool UseParry() {
+			if(!isParry) return false;
+			if(isInvincible) return true;
+
+			isInvincible=true;
+			mana=125;
+			timeAfterInvincible=0;
+
+			return true;
+		}
+
+		void UpdatePress() {
+
+			if(isBlocking) {
+				if(!isInvincible) mana-=Time.deltaTime*25;
+				if(mana<=0) isBlocking=false;
+				targetVelocity=0;
+			}
+
+			if(unprocessedPress) {
+				unprocessedPress=false;
+				timeAfterPress=0;
+			}
+			if(!lastPressDash) {
+				if(!isBlocking) timeAfterPress=-1;
+				else timeAfterPress+=Time.deltaTime;
+			} else timeAfterPress+=Time.deltaTime;
+
+			if(timeAfterPress>parryWindowStart&&timeAfterPress<parryWindowEnd) {
+				isParry=true;
+			} else isParry=false;
+
+			timeAfterInvincible+=Time.deltaTime;
+			if(timeAfterInvincible>timeInvincible) {
+				isInvincible=false;
+			}
+
+		}
 
 	}
 
