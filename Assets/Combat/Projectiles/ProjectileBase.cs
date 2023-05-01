@@ -11,6 +11,7 @@ namespace Combat {
 		[SerializeField] float lifeTime;
 		[SerializeField] bool doNotRotate;
 		[SerializeField] bool doFlip;
+		public float manaGain;
 
 		public bool noDamage;
 
@@ -34,7 +35,7 @@ namespace Combat {
 			animator=GetComponent<Animator>();
 		}
 
-		public virtual void Init(Vector2 position,Vector2 velocity,EntityBase target,bool friendly,DamageModel damage) {
+		public virtual void Init(Vector2 position,Vector2 velocity,EntityBase target,bool friendly,DamageModel damage,float manaGain=0) {
 
 			if(!spriteRenderer) Start();
 
@@ -43,6 +44,7 @@ namespace Combat {
 			this.target=target;
 			this.friendly=friendly;
 			this.damage=damage;
+			this.manaGain=manaGain;
 
 			nextPosition=position;
 
@@ -104,6 +106,7 @@ namespace Combat {
 
 			damage.direction=friendly ? Direction.right : Direction.left;
 			target.Damage(damage);
+			Player.instance.mana+=manaGain;
 
 			if(penetratePower==timePenetrated) ProjectilePool.Store(this);
 			timePenetrated++;

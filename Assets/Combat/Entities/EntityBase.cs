@@ -21,9 +21,15 @@ namespace Combat {
 
 	[System.Serializable]
 	public class AttackData {
+		[Tooltip("射弹种类")]
 		[field: SerializeField] public GameObject projectile { get; private set; }
+
 		[Tooltip("投射物的纵向速率 越大则横向速率越慢越难以命中 若投射物重力为0则为投射物的水平速率")]
-		[field: SerializeField] public float projectileVelocityY { get; protected set; }
+		[field: SerializeField] public float projectileVelocityY { get; private set; }
+
+		[Tooltip("击中时获得的能量值")]
+		[field: SerializeField] public float manaGain { get; private set; }
+
 		public float projectileGravity { get; private set; }
 		public float travelTime { get; private set; }
 		public void InitParams() {
@@ -345,7 +351,8 @@ namespace Combat {
 				ProjectileVelocity(target.transform.position,target.velocity,attackType),
 				target,
 				this is EntityFriendly,
-				GetDamage()
+				GetDamage(),
+				attacks[attackType].manaGain
 			);
 
 		}

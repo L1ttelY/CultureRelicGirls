@@ -9,7 +9,7 @@ namespace Combat {
 		public static Dictionary<string,Stack<ProjectileBase>> pools=new Dictionary<string, Stack<ProjectileBase>>();
 
 		//¥¥‘Ï∑…µØ
-		public static ProjectileBase Create(GameObject prefab,Vector2 position,Vector2 velocity,EntityBase target,bool friendly,DamageModel damage) {
+		public static ProjectileBase Create(GameObject prefab,Vector2 position,Vector2 velocity,EntityBase target,bool friendly,DamageModel damage,float manaGain=0) {
 			if(!pools.ContainsKey(prefab.name)) {
 				pools[prefab.name]=new Stack<ProjectileBase>();
 			}
@@ -26,7 +26,7 @@ namespace Combat {
 			}
 
 			result.gameObject.SetActive(true);
-			result.Init(position,velocity,target,friendly,damage);
+			result.Init(position,velocity,target,friendly,damage,manaGain);
 			return result;
 
 		}
