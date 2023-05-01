@@ -64,8 +64,11 @@ namespace Combat {
 			SortedDictionary<float,EntityBase> enemiesByDist = new SortedDictionary<float,EntityBase>();
 			foreach(var i in EntityBase.entities) {
 				if((!i)||(!(i is EntityEnemy))) continue;
+				if(!i.isActiveAndEnabled) continue;
 				enemiesByDist.Add(Mathf.Abs(i.transform.position.x-centerX),i);
 			}
+
+			float offset = 0;
 
 			foreach(var i in enemiesByDist){
 				float x = i.Value.transform.position.x;
@@ -76,6 +79,16 @@ namespace Combat {
 			}
 
 			targetX=(minX+maxX)*0.5f;
+
+			foreach(var i in enemiesByDist) {
+				float x = i.Value.transform.position.x;
+				if(x<targetX+cameraRadius&&x>targetX-cameraRadius) continue;
+				if(Mathf.Abs(x-targetX)>cameraRadius*2) continue;
+				offset+=2*(x-targetX)/(cameraRadius*2);
+			}
+
+			targetX=Mathf.Clamp(targetX+offset,minX,maxX);
+
 		}
 
 

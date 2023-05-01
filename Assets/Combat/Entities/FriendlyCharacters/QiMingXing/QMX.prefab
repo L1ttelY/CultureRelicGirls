@@ -56,6 +56,14 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[0].<manaGain>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[1].<manaGain>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<projectile>k__BackingField
       value: 
       objectReference: {fileID: 2774859980595649070, guid: ee79fdb5ae964d94dac37103e8d71528, type: 3}
@@ -74,7 +82,15 @@ PrefabInstance:
     - target: {fileID: 2522598447239158626, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1205351941, guid: 4482084905eb63945b26b107429d974a, type: 3}
+      objectReference: {fileID: -573350920, guid: d7841bbcb2b7ff84b82dff4ce5ae9e8d, type: 3}
+    - target: {fileID: 5394524253863258354, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.821
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394524253863258354, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.669
+      objectReference: {fileID: 0}
     - target: {fileID: 7189738652749299581, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Controller
       value: 

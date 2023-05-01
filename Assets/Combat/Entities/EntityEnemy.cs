@@ -37,6 +37,7 @@ namespace Combat {
 		[SerializeField] protected float attackChance = 1;        //移动结束后进入攻击状态的概率
 		[SerializeField] protected AttackStateData[] attacks;     //包含所有攻击状态的列表
 
+		HashSet<EntityBase> targetHit = new HashSet<EntityBase>();
 
 		//播放攻击动画
 
@@ -97,6 +98,7 @@ namespace Combat {
 			//animator.SetTrigger($"attack{attackIndex}");
 			currensState=StateAttack;
 			nameHashSet=false;
+			targetHit.Clear();
 		}
 		protected virtual void StateAttack() {
 
@@ -110,6 +112,8 @@ namespace Combat {
 			velocity=overrideSpeed*Direction.GetVector(direction);
 			overrideSpeed=0;
 			if(doingDamage) UpdateContactDamage();
+
+			animator.ResetTrigger("stagger");
 
 		}
 
@@ -178,9 +182,12 @@ namespace Combat {
 
 		protected override void FixedUpdate() {
 			base.FixedUpdate();
-			poise+=poiseRegen*Time.deltaTime;
+			timeAfterKnockback+=Time.deltaTime;
+			if(timeAfterKnockback>poiseRegenDelay) poise+=poiseRegen*Time.deltaTime;
 			if(poise>poiseMax) poise=poiseMax;
 			if(poise<=0) StartStagger();
+
+			Debug.Log(poise);
 		}
 
 		//返回是否命中敌人
@@ -197,6 +204,10 @@ namespace Combat {
 				RaycastHit2D hit = Utility.raycastBuffer[i];
 				EntityFriendly other = hit.collider.GetComponent<EntityFriendly>();
 				if(other) {
+
+					if(targetHit.Contains(other)) continue;
+					targetHit.Add(other);
+
 					DamageModel damage = GetDamage();
 
 					if(other.isKnockbacked) damage.amount=0;
@@ -286,13 +297,17 @@ namespace Combat {
 		[SerializeField] protected float poiseMax;
 		[Tooltip("韧性值恢复速率")]
 		[SerializeField] protected float poiseRegen;
+		[Tooltip("韧性值恢复冷却")]
+		[SerializeField] protected float poiseRegenDelay;
 
 		protected float poise;
 		protected float staggeredTime;
+		protected float timeAfterKnockback;
 
 		protected override void DoKnockback(float knockback,int direction) {
 			float actualKnockback = Mathf.Max(0,knockback-knockbackDefense);
 			poise-=actualKnockback;
+			timeAfterKnockback=0;
 			base.DoKnockback(knockback,direction);
 		}
 
