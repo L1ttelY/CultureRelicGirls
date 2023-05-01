@@ -186,8 +186,6 @@ namespace Combat {
 			if(timeAfterKnockback>poiseRegenDelay) poise+=poiseRegen*Time.deltaTime;
 			if(poise>poiseMax) poise=poiseMax;
 			if(poise<=0) StartStagger();
-
-			Debug.Log(poise);
 		}
 
 		//返回是否命中敌人

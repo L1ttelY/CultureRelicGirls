@@ -16,19 +16,17 @@ namespace Combat {
 
 		//技能冷却相关
 		//主动技能CD长度
-		[SerializeField] protected float skillCd;
-		//[SerializeField] protected float skill2Cd;
 		[Tooltip("视线范围")]
 		[field: SerializeField] public float visionRange { get; protected set; }
 		[Tooltip("攻击cd")]
 		[field: SerializeField] public float attackCd { get; protected set; }
 		[Tooltip("所有攻击动画对应的属性")]
 		[SerializeField] protected List<FriendlyAttackData> attackMethods;
+		[Tooltip("主动技能消耗的能量值")]
+		[field: SerializeField] public float skillCost { get; protected set; }
 
-		//protected float skillCd;
-		protected float timeAfterSkill;
 		//主动技能CD完成比例
-		public float skillCdProgress { get { return timeAfterSkill/skillCd; } }
+		public float skillCdProgress { get { return Mathf.Clamp01(Player.instance.mana/skillCost); } }
 
 		protected bool isBlocking;
 
@@ -48,7 +46,6 @@ namespace Combat {
 
 		protected override void Update() {
 			base.Update();
-			timeAfterSkill+=Time.deltaTime;
 			timeAfterAttack+=Time.deltaTime;
 
 
@@ -314,13 +311,14 @@ namespace Combat {
 			StartCharging();
 		}
 		//使用主动技能时调用
-		public virtual void ActionSkill() {
+		public virtual bool TryUseActionSkill() {
 
-			if(timeAfterSkill<skillCd) return;
+			if(Player.instance.mana<skillCost) return false;
+			Player.instance.mana-=skillCost;
 
-			timeAfterSkill=0;
 			animator.SetTrigger("attackStart");
 			animator.SetFloat("attackType",-1);
+			return true;
 
 		}
 		//判断自身是否在冲刺

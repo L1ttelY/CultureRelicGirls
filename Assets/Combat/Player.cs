@@ -197,7 +197,7 @@ namespace Combat {
 
 		public void SkillClick(int id) {
 			if(!EntityFriendly.friendlyList[id]) return;
-			EntityFriendly.friendlyList[id].ActionSkill();
+			EntityFriendly.friendlyList[id].TryUseActionSkill();
 		}
 
 		public float dashCdProgress {

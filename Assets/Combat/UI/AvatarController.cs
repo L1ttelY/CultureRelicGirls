@@ -38,6 +38,8 @@ namespace Combat {
 
 				target=EntityFriendly.friendlyList[targetIndex];
 
+				if(!target) gameObject.SetActive(false);
+
 				avatarImage.color=Color.white;
 				avatarImage.sprite=target.GetComponentInChildren<SpriteRenderer>().sprite;
 
