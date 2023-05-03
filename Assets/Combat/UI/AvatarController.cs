@@ -41,7 +41,7 @@ namespace Combat {
 				if(!target) gameObject.SetActive(false);
 
 				avatarImage.color=Color.white;
-				avatarImage.sprite=target.GetComponentInChildren<SpriteRenderer>().sprite;
+				avatarImage.sprite=target.GetComponent<EntityFriendly>().icon;
 
 			}
 

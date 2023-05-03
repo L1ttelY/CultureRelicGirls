@@ -25,7 +25,7 @@ namespace Combat {
 					gameObject.SetActive(false);
 					return;
 				}
-				iconImage.sprite=target.GetComponentInChildren<SpriteRenderer>().sprite;
+				iconImage.sprite=target.GetComponent<EntityFriendly>().icon;
 				costIndicator.sprite=costSprites[(int)((target.skillCost+1)/25)];
 			}
 

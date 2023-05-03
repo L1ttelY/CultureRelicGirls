@@ -40,7 +40,7 @@ namespace Combat {
 				
 				int useLevel = param.use.level;
 				CharacterLevelData characterLevelData = param.characterData.levels[useLevel];
-				newFriendly.InitStats(characterLevelData.hpMax,characterLevelData.power,i);
+				newFriendly.InitStats(characterLevelData,i);
 				
 			}
 		}

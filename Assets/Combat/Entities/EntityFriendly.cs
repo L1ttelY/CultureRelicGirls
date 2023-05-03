@@ -24,6 +24,7 @@ namespace Combat {
 		[SerializeField] protected List<FriendlyAttackData> attackMethods;
 		[Tooltip("主动技能消耗的能量值")]
 		[field: SerializeField] public float skillCost { get; protected set; }
+		public Sprite icon { get; protected set; }
 
 		//主动技能CD完成比例
 		public float skillCdProgress { get { return Mathf.Clamp01(Player.instance.mana/skillCost); } }
@@ -148,10 +149,11 @@ namespace Combat {
 		//在队伍中的位置
 		[SerializeField] public int positionInTeam;
 
-		public void InitStats(int hp,int power,int positionInTeam) {
-			maxHp=hp;
-			attackBasePower=power;
+		public void InitStats(CharacterLevelData data,int positionInTeam) {
+			maxHp=data.hpMax;
+			attackBasePower=data.power;
 			this.positionInTeam=positionInTeam;
+			icon=data.parent.sprite;
 		}
 
 		public static EntityFriendly playerControlled;

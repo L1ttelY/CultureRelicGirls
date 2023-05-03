@@ -13,6 +13,7 @@ public class CharacterData:ScriptableObject {
 	public static Dictionary<string,CharacterData> datas = new Dictionary<string,CharacterData>();
 	private void OnEnable() {
 		datas.Add(name,this);
+		for(int i = 0;i<levels.Length;i++) levels[i].parent=this;
 	}
 
 	[field: TextArea] [field: SerializeField] public string descriptionShort { get; private set; } //在选择人物后升级界面所展示的介绍
@@ -48,4 +49,6 @@ public struct CharacterLevelData {
 
 	public int hpMax;
 	public int power;
+
+	public CharacterData parent;
 }
