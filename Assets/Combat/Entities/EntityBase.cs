@@ -30,6 +30,8 @@ namespace Combat {
 		[Tooltip("击中时获得的能量值")]
 		[field: SerializeField] public float manaGain { get; private set; }
 
+		[Tooltip("攻击声音")]
+		[field: SerializeField] public AudioClip sound { get; private set; }
 		public float projectileGravity { get; private set; }
 		public float travelTime { get; private set; }
 		public void InitParams() {
@@ -48,6 +50,7 @@ namespace Combat {
 		protected new Collider2D collider;
 		protected SpriteRenderer spriteRenderer;
 		protected Animator animator;
+		protected EntityAdditionalFunctionBase additional;
 
 		protected CombatRoomController room;
 
@@ -71,7 +74,6 @@ namespace Combat {
 
 		Transform shootPosition;
 
-		[SerializeField] protected AudioClip soundAttack;
 		[SerializeField] protected AudioClip soundHit;
 		[SerializeField] protected AudioClip soundDeath;
 
@@ -158,6 +160,9 @@ namespace Combat {
 			collider=GetComponent<Collider2D>();
 			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
 			animator=GetComponent<Animator>();
+			additional=GetComponent<EntityAdditionalFunctionBase>();
+			if(additional==null)
+				additional=gameObject.AddComponent(typeof(EntityAdditionalFunctionBase)) as EntityAdditionalFunctionBase;
 
 			room=GetComponentInParent<CombatRoomController>();
 
@@ -340,7 +345,9 @@ namespace Combat {
 		//若要攻击 则执行这个函数判断如何攻击
 		protected virtual ProjectileBase Attack(EntityBase target,int attackType) {
 
-			AudioController.PlayAudio(soundAttack,transform.position);
+			if(additional.OverrideAttack(target,attackType)) return null;
+
+			AudioController.PlayAudio(attacks[attackType].sound,transform.position);
 
 			Vector3 position = transform.position;
 			if(shootPosition) position=shootPosition.transform.position;
