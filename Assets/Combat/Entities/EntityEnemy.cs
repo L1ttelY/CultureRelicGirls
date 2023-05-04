@@ -302,7 +302,7 @@ namespace Combat {
 		protected float staggeredTime;
 		protected float timeAfterKnockback;
 
-		protected override void DoKnockback(float knockback,int direction) {
+		public override void DoKnockback(float knockback,int direction) {
 			float actualKnockback = Mathf.Max(0,knockback-knockbackDefense);
 			poise-=actualKnockback;
 			timeAfterKnockback=0;

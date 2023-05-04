@@ -11,6 +11,7 @@ namespace Combat {
 		[SerializeField] float lifeTime;
 		[SerializeField] bool doNotRotate;
 		[SerializeField] bool doFlip;
+		[SerializeField] GameObject hitVfx;
 		public float manaGain;
 
 		public bool noDamage;
@@ -35,7 +36,7 @@ namespace Combat {
 			animator=GetComponent<Animator>();
 		}
 
-		public virtual void Init(Vector2 position,Vector2 velocity,EntityBase target,bool friendly,DamageModel damage,float manaGain=0) {
+		public virtual void Init(Vector2 position,Vector2 velocity,EntityBase target,bool friendly,DamageModel damage,float manaGain = 0) {
 
 			if(!spriteRenderer) Start();
 
@@ -104,16 +105,17 @@ namespace Combat {
 			if(hit.Contains(target)) return;
 			hit.Add(target);
 
-			damage.direction=friendly ? Direction.right : Direction.left;
+			damage.direction=velocity.x>0 ? Direction.right : Direction.left;
 			target.Damage(damage);
 			Player.instance.mana+=manaGain;
+			if(hitVfx) VfxPool.Create(hitVfx,target.transform.position,damage.direction);
 
 			if(penetratePower==timePenetrated) ProjectilePool.Store(this);
 			timePenetrated++;
 
 		}
 
-		protected virtual void OnDisable(){
+		protected virtual void OnDisable() {
 			transform.position+=Vector3.down*10f;
 		}
 

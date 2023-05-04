@@ -257,7 +257,7 @@ namespace Combat {
 		}
 
 		const float knockbackUnit = 0.1f;
-		protected virtual void DoKnockback(float knockback,int direction) {
+		public virtual void DoKnockback(float knockback,int direction) {
 			/*
 				transform.position+=(Vector3)Direction.GetVector(direction)*knockback*0.1f;
 					

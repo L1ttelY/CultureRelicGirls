@@ -24,6 +24,7 @@ namespace Combat {
 			} else {
 				UpdateTargetX();
 				UpdateSelfPosition();
+				UpdateScreenshake();
 			}
 		}
 
@@ -125,5 +126,65 @@ namespace Combat {
 			transform.position+=filmingModeVelocity*Time.deltaTime;
 		}
 
+		#region 屏幕抖动
+		//屏幕抖动及由屏幕抖动施加的offset
+		public void AddScreenShake(float intensity) {
+			if(screenShakeIntensityRaw+intensity>intensity*5) screenShakeIntensityRaw=intensity*5;
+			else screenShakeIntensityRaw+=Mathf.Abs(intensity);
+		}
+		float screenShakeIntensityRaw;
+		float screenShakeSampleY1;
+		float screenShakeSampleY2;
+		float screenShakeSampleY3;
+		float screenShakeSampleX;
+		bool screenShakeResampled;
+
+		void UpdateScreenshake() {
+			if(screenShakeIntensityRaw>0) {
+
+				float screenShakeDecreaseSpeed = 5;
+				if(screenShakeIntensityRaw>1) screenShakeDecreaseSpeed*=screenShakeIntensityRaw;
+				screenShakeIntensityRaw-=screenShakeDecreaseSpeed*Time.deltaTime;
+
+				float screenShakeIntensity = screenShakeIntensityRaw*10;
+				if(screenShakeIntensity>1) screenShakeIntensity=Mathf.Sqrt(screenShakeIntensity);
+				screenShakeIntensity*=0.1f;
+
+				screenShakeSampleX+=Time.deltaTime*100f;
+
+				//平动
+				Vector2 screenShakeVector = new Vector2(
+					Mathf.PerlinNoise(screenShakeSampleX,screenShakeSampleY1),
+					Mathf.PerlinNoise(screenShakeSampleX,screenShakeSampleY2)
+				);
+
+				screenShakeVector-=0.5f*Vector2.one;
+				screenShakeVector*=screenShakeIntensity;
+
+				transform.position+=(Vector3)screenShakeVector;
+
+				//转动
+				float screenRotate = Mathf.PerlinNoise(screenShakeSampleX,screenShakeSampleY3);
+
+				screenRotate-=0.5f;
+				screenRotate*=20;
+				screenRotate*=screenShakeIntensity;
+				transform.rotation=new Angle(screenRotate).quaternion;
+
+				screenShakeResampled=false;
+
+			} else if(!screenShakeResampled) {
+				transform.rotation=Quaternion.identity;
+				screenShakeResampled=true;
+
+				screenShakeSampleY1=Random.Range(-4000000f,4000000f);
+				screenShakeSampleY2=Random.Range(-4000000f,4000000f);
+				screenShakeSampleY3=Random.Range(-4000000f,4000000f);
+				screenShakeSampleX=Random.Range(-8000000f,0);
+
+			}
+
+		}
+		#endregion
 	}
 }

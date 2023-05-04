@@ -49,10 +49,6 @@ namespace Combat {
 			base.Update();
 			timeAfterAttack+=Time.deltaTime;
 
-
-			if(positionInTeam==0&&Input.GetKey(KeyCode.P)) transform.position+=Vector3.right*0.1f;
-			if(positionInTeam==2&&Input.GetKey(KeyCode.O)) transform.position-=Vector3.right*0.1f;
-
 			bool isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
 			isBlocking=Player.instance.isBlocking&&(!isAttacking);
 			animator.SetBool("isBlocking",isBlocking);
@@ -264,6 +260,7 @@ namespace Combat {
 			base.OnDeath();
 
 			FriendlyCorpseController.Create(transform,spriteRenderer.sprite);
+			CameraController.instance.AddScreenShake(10);
 
 			Destroy(gameObject);
 		}
@@ -376,8 +373,16 @@ namespace Combat {
 		#endregion
 
 		public override void Damage(DamageModel e) {
-			if(Player.instance.UseParry()) return;
-			if(isBlocking) e.amount/=2;
+			if(Player.instance.UseParry()) {
+				if(e.damageType!=DamageType.Ranged&&e.dealer)
+					e.dealer.DoKnockback(30,Direction.Reverse(e.direction));
+				return;
+			}
+			if(isBlocking) {
+				e.amount/=2;
+				if(e.damageType!=DamageType.Ranged&&e.dealer)
+					e.dealer.DoKnockback(8,Direction.Reverse(e.direction));
+			}
 			base.Damage(e);
 		}
 
