@@ -24,6 +24,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <skillCost>k__BackingField
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <visionRange>k__BackingField
       value: 20
       objectReference: {fileID: 0}
@@ -145,3 +149,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+--- !u!1 &9116741855547919855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+  m_PrefabInstance: {fileID: 844873759678975058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4332323787441039626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9116741855547919855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa4f4c131bb61540a47e5a697ea2fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileCount: 4
+  rangeMin: 0
+  rangeMax: 8

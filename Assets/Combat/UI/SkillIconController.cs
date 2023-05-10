@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Combat {
 
-	public class SkillIconController:MonoBehaviour {
+	public class SkillIconController:MonoBehaviour, IPointerDownHandler {
 
 		[SerializeField] int targetIndex;
 		[SerializeField] Image cooldownGray;
@@ -16,6 +17,10 @@ namespace Combat {
 
 		bool inited = false;
 		EntityFriendly target;
+
+		public void OnPointerDown(PointerEventData eventData) {
+			Player.instance.SkillClick(targetIndex);
+		}
 
 		void Update() {
 

@@ -24,6 +24,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <skillCost>k__BackingField
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <visionRange>k__BackingField
       value: 20
       objectReference: {fileID: 0}
@@ -186,3 +190,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &697467928344764344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9116741855547919855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4a759036a21df42842d6f07be2c1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 0.3

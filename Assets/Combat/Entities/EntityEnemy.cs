@@ -200,8 +200,8 @@ namespace Combat {
 			for(int i = 0;i<cnt;i++) {
 
 				RaycastHit2D hit = Utility.raycastBuffer[i];
-				EntityFriendly other = hit.collider.GetComponent<EntityFriendly>();
-				if(other) {
+				EntityBase other = hit.collider.GetComponent<EntityBase>();
+				if(other&&other.isFriendly) {
 
 					if(targetHit.Contains(other)) continue;
 					targetHit.Add(other);

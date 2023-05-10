@@ -273,7 +273,7 @@ namespace Combat {
 
 			foreach(var i in entities) {
 				if(!i.gameObject.activeInHierarchy) continue;
-				if(i is EntityFriendly) continue;
+				if(i.isFriendly) continue;
 				float dist = Mathf.Abs(transform.position.x-i.transform.position.x);
 				if(dist>visionRange) continue;
 				bool attackable = false;

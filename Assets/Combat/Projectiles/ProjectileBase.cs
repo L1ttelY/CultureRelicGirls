@@ -82,8 +82,9 @@ namespace Combat {
 
 					RaycastHit2D hit = Utility.raycastBuffer[i];
 					EntityBase other = hit.collider.GetComponent<EntityBase>();
-					if((other is EntityFriendly)==friendly) continue;
-					if(other) Hit(other);
+					if(!other) continue;
+					if(other.isFriendly==friendly) continue;
+					Hit(other);
 				}
 			}
 

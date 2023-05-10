@@ -15,8 +15,9 @@ namespace Combat {
 		}
 
 		private void EntityBase_UpdateStats(object sender) {
-			if(!(sender is EntityFriendly)) return;
-			EntityFriendly _sender = sender as EntityFriendly;
+			if(!(sender is EntityBase)) return;
+			EntityBase _sender = sender as EntityBase;
+			if(!_sender.isFriendly) return;
 			_sender.powerBuff+=0.03f;
 		}
 

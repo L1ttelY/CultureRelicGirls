@@ -253,17 +253,17 @@ MonoBehaviour:
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField: []
-  soundAttack: {fileID: 8300000, guid: 09de206313d86fd428329ffee62e21cf, type: 3}
+  <isFriendly>k__BackingField: 1
   soundHit: {fileID: 8300000, guid: 5c362d35d362c7e44ac5e630f75ea571, type: 3}
   soundDeath: {fileID: 8300000, guid: 038e34d7a70ed4845b6e9a64414d2753, type: 3}
   powerBuff: 0
   knockbackBuff: 0
   cdSpeed: 0
   speedBuff: 0
-  skillCd: 0
   <visionRange>k__BackingField: 0
   <attackCd>k__BackingField: 0
   attackMethods: []
+  <skillCost>k__BackingField: 0
   positionInTeam: 0
   chargeTime: 0.6
   chargeStartSpeed: 10

@@ -23,12 +23,12 @@ namespace Combat {
 			for(int i = 0;i<cnt;i++) {
 
 				RaycastHit2D hit = Utility.raycastBuffer[i];
-				EntityEnemy other = hit.collider.GetComponent<EntityEnemy>();
-				if(other) OnChargeHit(other,!other.isKnockbacked);
+				EntityBase other = hit.collider.GetComponent<EntityBase>();
+				if(other&&(!other.isFriendly)) OnChargeHit(other,!other.isKnockbacked);
 			}
 		}
 
-		protected virtual void OnChargeHit(EntityEnemy target,bool actualHit) {
+		protected virtual void OnChargeHit(EntityBase target,bool actualHit) {
 			DamageModel damage = GetDamage();
 
 			damage.amount=Mathf.RoundToInt(damage.amount*1.1f);

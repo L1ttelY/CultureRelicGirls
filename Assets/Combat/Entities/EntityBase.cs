@@ -31,7 +31,9 @@ namespace Combat {
 		[field: SerializeField] public float manaGain { get; private set; }
 
 		[Tooltip("攻击声音")]
-		[field: SerializeField] public AudioClip sound { get; private set; }
+		[field: SerializeField]
+		public AudioClip sound { get; private set; }
+
 		public float projectileGravity { get; private set; }
 		public float travelTime { get; private set; }
 		public void InitParams() {
@@ -71,6 +73,8 @@ namespace Combat {
 		[field: SerializeField] public float maxPredictSpeed { get; protected set; }
 		[Tooltip("伤害特效 在数组中随机选取")]
 		[field: SerializeField] public GameObject[] damageVfx { get; protected set; }
+		[Tooltip("阵营")]
+		[field: SerializeField] public bool isFriendly { get; private set; }
 
 		Transform shootPosition;
 
@@ -329,7 +333,7 @@ namespace Combat {
 
 				if(!i.gameObject.activeInHierarchy) continue;
 
-				if((i is EntityFriendly)==(this is EntityFriendly)) continue;
+				if(i.isFriendly==isFriendly) continue;
 				float x = i.transform.position.x;
 				float dist = Mathf.Abs(x-transform.position.x);
 
@@ -343,7 +347,7 @@ namespace Combat {
 		}
 
 		//若要攻击 则执行这个函数判断如何攻击
-		protected virtual ProjectileBase Attack(EntityBase target,int attackType) {
+		public virtual ProjectileBase Attack(EntityBase target,int attackType) {
 
 			if(additional.OverrideAttack(target,attackType)) return null;
 
@@ -357,7 +361,7 @@ namespace Combat {
 				position,
 				ProjectileVelocity(target.transform.position,target.velocity,attackType),
 				target,
-				this is EntityFriendly,
+				isFriendly,
 				GetDamage(),
 				attacks[attackType].manaGain
 			);
