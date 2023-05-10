@@ -12,6 +12,7 @@ namespace Combat {
 		[SerializeField] Image costIndicator;
 		[SerializeField] Sprite[] costSprites;
 		[SerializeField] Image iconImage;
+		[SerializeField] GameObject iconCanUse;
 
 		bool inited = false;
 		EntityFriendly target;
@@ -34,6 +35,7 @@ namespace Combat {
 			} else {
 				cooldownGray.fillAmount=1-target.skillCdProgress;
 			}
+			iconCanUse.SetActive(target.skillCdProgress==1);
 
 		}
 	}

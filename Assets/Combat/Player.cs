@@ -11,6 +11,7 @@ namespace Combat {
 		public static event Void ActionSkillEvent;
 
 		[SerializeField] Image manaBar;
+		[SerializeField] Image manaBarStage;
 
 		[SerializeField] Transform leftBound;
 		[SerializeField] Transform rightBound;
@@ -64,6 +65,7 @@ namespace Combat {
 
 			if(mana<25) mana=Mathf.Min(25,mana+10*Time.deltaTime);
 			manaBar.fillAmount=mana/125f;
+			manaBarStage.fillAmount=Mathf.Floor(mana/25f)*0.2f;
 
 			leftX=leftBound.transform.position.x;
 			rightX=rightBound.transform.position.x;
