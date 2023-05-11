@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Combat {
 
-	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerUpHandler,IPointerExitHandler {
+	public class ItemButtonController:MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
 
 		public enum States {
 			Unpressed,
@@ -24,6 +24,8 @@ namespace Combat {
 		}
 
 		[SerializeField] Image image;
+		[SerializeField] GameObject itemPlate;
+		[SerializeField] Text text;
 
 		public static ItemButtonController instance;
 
@@ -31,7 +33,6 @@ namespace Combat {
 		const float timeToStartSelect = 0.5f;
 
 		int chosenIndex;
-
 		public int pointerId { get; private set; }
 
 		bool IsMouseOver(List<GameObject> hover) {
@@ -92,10 +93,18 @@ namespace Combat {
 			LoadoutController.SetHotBar(0,ItemData.instances["heal"]);
 			LoadoutController.SetHotBar(1,ItemData.instances["heal 1"]);
 
+			image.sprite=LoadoutController.GetHotBar(chosenIndex).sprite;
+
 			if(state==States.Pressed) {
 				pressTime+=Time.deltaTime;
 				if(pressTime>timeToStartSelect) state=States.Selecting;
 			} else pressTime=0;
+
+			itemPlate.SetActive(state==States.Selecting);
+			if(state==States.Selecting) {
+				if(ItemSelectionIconController.selected==null||!ItemSelectionIconController.selected.boundItem) text.text="";
+				else text.text=ItemSelectionIconController.selected.boundItem.name;
+			} else text.text="";
 
 			//image.sprite=LoadoutController.GetHotBar(chosenIndex)?.sprite;
 			//image.color=(image.sprite==null) ? Color.clear : Color.white;

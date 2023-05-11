@@ -11,7 +11,7 @@ public class ItemData:ScriptableObject {
 	System.Type boundType;
 	ItemBase boundItem;
 
-	public static readonly Dictionary<string,ItemData> instances=new Dictionary<string, ItemData>();
+	public static readonly Dictionary<string,ItemData> instances = new Dictionary<string,ItemData>();
 
 	void OnEnable() {
 
@@ -23,7 +23,9 @@ public class ItemData:ScriptableObject {
 	}
 
 	public void InvokeUse() {
-		boundItem.Use();
+		try {
+			boundItem.Use();
+		} catch(System.Exception) { }
 	}
 
 	void Unload() {
