@@ -17,6 +17,7 @@ namespace Combat {
 		[SerializeField] protected bool doingDamage;
 		[SerializeField] Collider2D damageBox;
 
+		[Tooltip("瞄准的友方角色位置, 若这个单位属于友方阵营或此值不在0~2范围内则瞄准最近的角色")]
 		[SerializeField] int targetIndex;
 
 		#region 攻击目标
@@ -24,6 +25,7 @@ namespace Combat {
 		protected override void UpdateTarget() {
 			base.UpdateTarget();
 
+			if(isFriendly||targetIndex<0||targetIndex>=3) return;
 			target=null;
 			for(int i = targetIndex;i<3;i++) {
 				if(EntityFriendly.friendlyList[i]) target=EntityFriendly.friendlyList[i];
@@ -230,8 +232,9 @@ namespace Combat {
 			float sightLeft = x-(direction==Direction.right ? wakeUpDistanceBack : wakeUpDistanceFront);
 			float sightRight = x+(direction==Direction.left ? wakeUpDistanceBack : wakeUpDistanceFront);
 
-			foreach(var i in EntityFriendly.friendlyList) {
+			foreach(var i in entities) {
 				if(!i) continue;
+				if(i.isFriendly==isFriendly) continue;
 				float pos = i.transform.position.x;
 				if(pos<sightRight&&pos>sightLeft) toActive=true;
 			}
@@ -248,12 +251,17 @@ namespace Combat {
 
 		protected float targetDistance;
 
+		float moveTime;
 		protected override void StartMove() {
 			base.StartMove();
+			moveTime=0;
 			targetDistance=Random.Range(targetDistanceMin,targetDistanceMax);
 		}
 
 		protected override void StateMove() {
+
+			moveTime+=Time.deltaTime;
+			if(moveTime>2) StartMove();
 
 			Vector2 position = transform.position;
 			float moveTargetX;
