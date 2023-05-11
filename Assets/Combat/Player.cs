@@ -8,7 +8,6 @@ namespace Combat {
 	public class Player:MonoBehaviour {
 
 		public static event Void ChargeEvent;
-		public static event Void ActionSkillEvent;
 
 		[SerializeField] Image manaBar;
 		[SerializeField] Image manaBarStage;
@@ -177,9 +176,9 @@ namespace Combat {
 		public bool isBlocking { get; private set; }
 		public int chargeDirection { get; private set; }
 		public void ButtonClick() {
-			if(Mathf.Abs(targetVelocity)>0.5f) {
+			if(toDash) {
 				//³å´Ì
-				if(mana>=25) {
+				if(canDash) {
 					mana-=25;
 					chargeDirection=(int)Mathf.Sign(targetVelocity);
 					ChargeEvent?.Invoke();
@@ -196,6 +195,15 @@ namespace Combat {
 			isBlocking=false;
 			unprocessedPress=true;
 		}
+
+		public bool canDash {
+			get {
+				if(EntityFriendly.isAnyoneCharging) return false;
+				if(mana<25) return false;
+				return true;
+			}
+		}
+		public bool toDash => Mathf.Abs(targetVelocity)>0.5f;
 
 		public void SkillClick(int id) {
 			if(!EntityFriendly.friendlyList[id]) return;

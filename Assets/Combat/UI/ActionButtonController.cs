@@ -11,6 +11,11 @@ namespace Combat {
 		[SerializeField] GameObject iconBlock;
 		[SerializeField] Image dashCd;
 
+		[SerializeField] GameObject dashAvailable;
+		[SerializeField] GameObject dashing;
+		[SerializeField] GameObject blockAvailable;
+		[SerializeField] GameObject blocking;
+
 		void Start() {
 
 		}
@@ -18,25 +23,29 @@ namespace Combat {
 		float angle = 180;
 
 		void Update() {
-			
-			bool front = Mathf.Abs(Player.instance.targetVelocity)>0.5f;
+
 			float deltaAngle = 1000*Time.deltaTime;
-			if(front) {
+			if(Player.instance.toDash) {
 				if(angle>deltaAngle) angle-=deltaAngle;
 				else angle=0;
-			}else{
+			} else {
 				if(angle<180-deltaAngle) angle+=deltaAngle;
 				else angle=180;
 			}
-			
+
 			Quaternion rotation = Quaternion.Euler(angle,0,0);
 
 			transform.rotation=rotation;
-			
+
 			iconDash.SetActive(angle<90);
 			iconBlock.SetActive(angle>90);
 			dashCd.fillAmount=1-Player.instance.dashCdProgress;
-			
+
+			dashAvailable.SetActive(Player.instance.canDash);
+			dashing.SetActive(!Player.instance.canDash);
+			blockAvailable.SetActive(!Player.instance.isBlocking);
+			blocking.SetActive(Player.instance.isBlocking);
+
 		}
 	}
 

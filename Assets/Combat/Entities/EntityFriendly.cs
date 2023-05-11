@@ -321,7 +321,16 @@ namespace Combat {
 
 		}
 		//判断自身是否在冲刺
-		protected bool isCharging { get { return currensState==StateCharging; } }
+		public static bool isAnyoneCharging {
+			get {
+				foreach(var i in friendlyList) {
+					if(!i) continue;
+					if(i.isCharging) return true;
+				}
+				return false;
+			}
+		}
+		public bool isCharging { get { return currensState==StateCharging; } }
 		[SerializeField] protected float chargeTime = 0.5f;
 		protected float timeCharged;
 
