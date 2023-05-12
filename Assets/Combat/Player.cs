@@ -244,7 +244,7 @@ namespace Combat {
 		void UpdatePress() {
 
 			if(isBlocking) {
-				if(!isInvincible) mana-=Time.deltaTime*25;
+				if(!isInvincible) mana-=Time.deltaTime*75;
 				if(mana<=0) isBlocking=false;
 				targetVelocity=0;
 			}
