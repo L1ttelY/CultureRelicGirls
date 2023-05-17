@@ -9,7 +9,6 @@ namespace Combat {
 		[field: SerializeField] public int enemyId { get; private set; }
 		[SerializeField] protected float wakeUpDistanceFront;
 		[SerializeField] protected float wakeUpDistanceBack;
-		[SerializeField] Sprite corpseSprite;
 		[SerializeField] int sentienceMatterReward;
 
 		[SerializeField] bool startRight;
@@ -19,6 +18,11 @@ namespace Combat {
 
 		[Tooltip("瞄准的友方角色位置, 若这个单位属于友方阵营或此值不在0~2范围内则瞄准最近的角色")]
 		[SerializeField] int targetIndex;
+
+		[Tooltip("尸体每帧动画持续的时间")]
+		[SerializeField] float corpseTimePerFrame;
+		[Tooltip("尸体动画")]
+		[SerializeField] Sprite[] corpseAnimation;
 
 		#region 攻击目标
 
@@ -339,8 +343,8 @@ namespace Combat {
 
 		protected override void OnDeath() {
 			base.OnDeath();
-			if(corpseSprite!=null) {
-				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseSprite,transform.position,direction);
+			if(corpseAnimation!=null&&corpseAnimation.Length!=0) {
+				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseAnimation,transform.position,corpseTimePerFrame,direction);
 				newCorpse.gameObject.transform.parent=room.transform;
 				CombatController.instance.rewardSm+=sentienceMatterReward;
 				Destroy(gameObject);

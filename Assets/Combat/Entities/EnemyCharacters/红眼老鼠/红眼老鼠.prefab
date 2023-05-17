@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 2
   <maxSpeed>k__BackingField: 2.5
   <attackBasePower>k__BackingField: 5
@@ -126,10 +127,11 @@ MonoBehaviour:
   - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: b4c6d5a021a20b24c82b446a7776cec9, type: 3}
     <projectileVelocityY>k__BackingField: 8
     <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
   <maxPredictSpeed>k__BackingField: 3
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
-  soundAttack: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
+  <isFriendly>k__BackingField: 0
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
   soundDeath: {fileID: 8300000, guid: a7b8025ad86c6c541b964eb29818fbb4, type: 3}
   powerBuff: 0
@@ -139,12 +141,34 @@ MonoBehaviour:
   <enemyId>k__BackingField: 0
   wakeUpDistanceFront: 7
   wakeUpDistanceBack: 4
-  corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
+  corpseTimePerFrame: 0.1
+  corpseAnimation:
+  - {fileID: 71950027, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -1844635085, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -1862173671, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 794375493, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -1924497920, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -850676861, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -2126730191, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -956624375, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -192280057, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 859452398, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -698317246, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -1236303598, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -1904619211, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 2004546839, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 48863939, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 1929873758, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 915441946, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 262461475, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: -488080620, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 1386498704, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
+  - {fileID: 1616099149, guid: dee64258db6330c49b8fe32b48576fd5, type: 3}
   attackChance: 2
   attacks:
   - <minDistance>k__BackingField: 0
