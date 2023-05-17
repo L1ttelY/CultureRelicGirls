@@ -50,7 +50,7 @@ namespace Combat {
 
 		//component reference
 		protected new Collider2D collider;
-		protected SpriteRenderer spriteRenderer;
+		[field: SerializeField] public SpriteRenderer spriteRenderer { get; protected set; }
 		protected Animator animator;
 		protected EntityAdditionalFunctionBase additional;
 
@@ -162,7 +162,7 @@ namespace Combat {
 			positionInList=entities.AddLast(this);
 
 			collider=GetComponent<Collider2D>();
-			spriteRenderer=GetComponentInChildren<SpriteRenderer>();
+			if(spriteRenderer==null) spriteRenderer=GetComponentInChildren<SpriteRenderer>();
 			animator=GetComponent<Animator>();
 			additional=GetComponent<EntityAdditionalFunctionBase>();
 			if(additional==null)

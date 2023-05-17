@@ -46,6 +46,9 @@ namespace Combat {
 		protected CharacterUseModel use;
 
 		protected override void Update() {
+
+			if(Input.GetKey(KeyCode.X)&&positionInTeam!=0) transform.position+=Vector3.left*Time.deltaTime*10;
+
 			base.Update();
 			timeAfterAttack+=Time.deltaTime;
 
@@ -155,8 +158,8 @@ namespace Combat {
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>(3);
 
-		const float distancePerCharacter = 0.8f;
-		const float distanceTolerence = 0.1f;
+		public const float distancePerCharacter = 0.8f;
+		public const float distanceTolerence = 0.1f;
 
 		protected override void Start() {
 			base.Start();
@@ -198,6 +201,20 @@ namespace Combat {
 			ChargeStart();
 		}
 
+		public float targetFinalPosition {
+			get {
+
+				EntityFriendly first = null;
+				for(int comparisonIndex = positionInTeam-1;comparisonIndex>=0;comparisonIndex--) {
+					if(friendlyList[comparisonIndex]) first=friendlyList[comparisonIndex];
+				}
+				if(!first) return transform.position.x;
+
+				float offsetPerCharacter = distancePerCharacter*(Player.instance.teamDirection==Direction.left ? 1 : -1);
+				return first.transform.position.x+(positionInTeam-first.positionInTeam)*offsetPerCharacter;
+
+			}
+		}
 
 		protected override void StateMove() {
 			base.StateMove();
@@ -237,7 +254,7 @@ namespace Combat {
 
 				//Æð²½
 				float distance = Mathf.Abs(targetPosition-position.x);
-				if(distance<distanceTolerence) targetVelocity=0;
+				if(distance<decelerateDistance) targetVelocity=0;
 
 
 			}
@@ -338,8 +355,8 @@ namespace Combat {
 			currensState=StateCharging;
 			timeCharged=0;
 		}
-		[SerializeField] protected float chargeStartSpeed = 25;
-		[SerializeField] protected float chargeEndSpeed = 5;
+		[SerializeField] protected AnimationCurve chargeSpeedCurve;
+		[SerializeField] protected float chargeSpeedMax;
 		void StateCharging() {
 
 			animator.SetBool("isCharging",true);
@@ -348,7 +365,7 @@ namespace Combat {
 
 			Vector2 position = transform.position; //Î»ÖÃ
 			velocity.y=0;
-			velocity.x=Mathf.Lerp(chargeStartSpeed,chargeEndSpeed,timeCharged/chargeTime)*Player.instance.chargeDirection;
+			velocity.x=chargeSpeedCurve.Evaluate(timeCharged/chargeTime)*Player.instance.chargeDirection*chargeSpeedMax;
 
 			position.x+=velocity.x*Time.deltaTime;
 			position.y=room.transform.position.y;
@@ -380,6 +397,8 @@ namespace Combat {
 		}
 
 		#endregion
+
+		public static DamageModel friendlyLastDamage { get; protected set; }
 
 		public override void Damage(DamageModel e) {
 			if(Player.instance.UseParry()) {

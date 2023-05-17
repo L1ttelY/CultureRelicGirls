@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df23a59015da14428739bd44c703632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <spriteRenderer>k__BackingField: {fileID: 2522598447239158626}
   <acceleration>k__BackingField: 24
   <maxSpeed>k__BackingField: 4
   <attackBasePower>k__BackingField: 0
@@ -265,9 +266,59 @@ MonoBehaviour:
   attackMethods: []
   <skillCost>k__BackingField: 0
   positionInTeam: 0
-  chargeTime: 0.6
-  chargeStartSpeed: 10
-  chargeEndSpeed: 5
+  chargeTime: 0.8
+  chargeSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.003506666
+      value: 0.21144135
+      inSlope: -0.027583051
+      outSlope: -0.027583051
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.06777878
+      value: 0.20966853
+      inSlope: -0.00050764455
+      outSlope: -0.00050764455
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.24768789
+      value: 0.10278438
+      inSlope: 2.0008311
+      outSlope: 2.0008311
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.3667818
+      value: 1.0024203
+      inSlope: 0.0810512
+      outSlope: 0.0810512
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.11040337
+    - serializedVersion: 3
+      time: 1.0011262
+      value: 0.2197749
+      inSlope: -1.2337863
+      outSlope: -1.2337863
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  chargeSpeedMax: 25
 --- !u!1001 &723077633398494575
 PrefabInstance:
   m_ObjectHideFlags: 0
