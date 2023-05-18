@@ -63,14 +63,14 @@ namespace Combat {
 				if(target.maxHp!=previousMaxHp||target.hp!=previousHp) {
 					previousMaxHp=target.maxHp;
 					previousHp=target.hp;
-					hpText.text=previousHp+"/"+previousMaxHp;
+					hpText.text= "生命值:  "+previousHp +"/"+previousMaxHp;
 					hpImage.fillAmount=(float)previousHp/(float)previousMaxHp;
 				}
 
 				int currentPower = Mathf.RoundToInt(target.attackBasePower*target.powerBuff);
 				if(previousPower!=currentPower) {
 					previousPower=currentPower;
-					powerText.text="力量:"+currentPower;
+					powerText.text="攻击力:  "+currentPower;
 				}
 
 				float cooldownAmount = target.timeAfterAttack/target.attackCd;
