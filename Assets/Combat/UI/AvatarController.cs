@@ -8,13 +8,14 @@ namespace Combat {
 	public class AvatarController:MonoBehaviour {
 
 		[SerializeField] Image cooldownImage;
-		[SerializeField] Image cooldownBase;
 		[SerializeField] Image hpImage;
 		[SerializeField] Image hpBase;
 		[SerializeField] Image avatarImage;
 		[SerializeField] Image redCrossImage;
 		[SerializeField] Text hpText;
 		[SerializeField] Text powerText;
+		[SerializeField] Text nameText;
+		[SerializeField] Material monocrhomeMaterial;
 		[HideInInspector] public int targetIndex;
 
 		bool inited;
@@ -42,18 +43,15 @@ namespace Combat {
 
 				avatarImage.color=Color.white;
 				avatarImage.sprite=target.GetComponent<EntityFriendly>().icon;
+				nameText.text=target.levelData.parent.name;
 
 			}
 
 			if(!targetDead&&!target) {
 
 				//刚死亡
-				redCrossImage.gameObject.SetActive(true);
-				hpBase.gameObject.SetActive(false);
-				hpText.gameObject.SetActive(false);
-				powerText.gameObject.SetActive(false);
-				cooldownBase.gameObject.SetActive(false);
-
+				hpText.text=$"生命值:  0/{previousMaxHp}";
+				avatarImage.material=monocrhomeMaterial;
 				targetDead=true;
 
 			} else if(!targetDead&&target) {
@@ -63,7 +61,7 @@ namespace Combat {
 				if(target.maxHp!=previousMaxHp||target.hp!=previousHp) {
 					previousMaxHp=target.maxHp;
 					previousHp=target.hp;
-					hpText.text= "生命值:  "+previousHp +"/"+previousMaxHp;
+					hpText.text= $"生命值:  {previousHp}/{previousMaxHp}";
 					hpImage.fillAmount=(float)previousHp/(float)previousMaxHp;
 				}
 

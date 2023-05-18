@@ -5451,6 +5451,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 967585476}
     m_Modifications:
+    - target: {fileID: 2938657497568915706, guid: 8600ac427e23d5744bab220302e31fd2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2970639388324446509, guid: 8600ac427e23d5744bab220302e31fd2, type: 3}
       propertyPath: m_Name
       value: ActionVfxController
@@ -40409,5 +40413,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806760926367801975, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70973a08280d00e44b64301a14c7f493, type: 3}

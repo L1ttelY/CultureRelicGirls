@@ -11,8 +11,13 @@ namespace Combat {
 		[SerializeField] GameObject vfxParry;
 
 		[SerializeField] float friendlyAlpha;
+		[field: SerializeField] public bool isParrying { get; private set; }
+
+		public static ActionVfxController instance { get; private set; }
 
 		void Start() {
+			if(instance) Destroy(gameObject);
+			instance=this;
 			animator=GetComponent<Animator>();
 		}
 
@@ -22,7 +27,7 @@ namespace Combat {
 			animator.SetBool("isParrying",Player.instance.isInvincible);
 
 			float posX = 0;
-			Vector3 posY= Vector3.zero;
+			Vector3 posY = Vector3.zero;
 			int friendlyCount = 0;
 
 			foreach(var i in EntityFriendly.friendlyList) {
@@ -49,8 +54,8 @@ namespace Combat {
 			VfxPool.Create(vfxParry,transform.position,EntityFriendly.friendlyLastDamage.amount);
 		}
 
-		public void GatherForBlock(){
-			foreach(var i in EntityFriendly.friendlyList){
+		public void GatherForBlock() {
+			foreach(var i in EntityFriendly.friendlyList) {
 				if(!i) continue;
 				Vector3 pos = i.transform.position;
 				pos.x=i.targetFinalPosition;
