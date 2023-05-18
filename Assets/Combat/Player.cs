@@ -223,11 +223,9 @@ namespace Combat {
 		bool unprocessedPress;
 		float timeAfterPress;
 
-		[SerializeField] float parryWindowStart = 0.1f;
-		[SerializeField] float parryWindowEnd = 0.2f;
 		[SerializeField] float timeInvincible = 0.3f;
 
-		public bool isParry { get; private set; }
+		public bool isParry => ActionVfxController.instance.isParrying;
 		public bool isInvincible { get; private set; }
 		float timeAfterInvincible;
 		public bool UseParry() {
@@ -257,10 +255,6 @@ namespace Combat {
 				if(!isBlocking) timeAfterPress=-1;
 				else timeAfterPress+=Time.deltaTime;
 			} else timeAfterPress+=Time.deltaTime;
-
-			if(timeAfterPress>parryWindowStart&&timeAfterPress<parryWindowEnd) {
-				isParry=true;
-			} else isParry=false;
 
 			timeAfterInvincible+=Time.deltaTime;
 			if(timeAfterInvincible>timeInvincible) {

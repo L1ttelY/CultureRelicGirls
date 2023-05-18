@@ -148,8 +148,10 @@ namespace Combat {
 		//在队伍中的位置
 		[SerializeField] public int positionInTeam;
 
+		public CharacterLevelData levelData{ get; private set; }
 		public void InitStats(CharacterLevelData data,int positionInTeam) {
 			maxHp=data.hpMax;
+			levelData=data;
 			attackBasePower=data.power;
 			this.positionInTeam=positionInTeam;
 			icon=data.parent.sprite;
