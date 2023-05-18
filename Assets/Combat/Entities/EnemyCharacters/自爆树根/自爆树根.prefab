@@ -117,16 +117,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 4
   <maxSpeed>k__BackingField: 6
   <attackBasePower>k__BackingField: 5
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 10000000
+  <maxHp>k__BackingField: 1000
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
-  soundAttack: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
+  <isFriendly>k__BackingField: 0
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
   soundDeath: {fileID: 8300000, guid: a7b8025ad86c6c541b964eb29818fbb4, type: 3}
   powerBuff: 0
@@ -158,6 +159,7 @@ MonoBehaviour:
   knockbackDefense: 1
   poiseMax: 10
   poiseRegen: 0.5
+  poiseRegenDelay: 0
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
