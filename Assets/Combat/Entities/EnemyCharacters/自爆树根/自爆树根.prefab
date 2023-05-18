@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018446445, y: 0.5347016}
+  m_Offset: {x: 0.09232521, y: 1.2634212}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3525801, y: 1.5167027}
+  m_Size: {x: 2.1585426, y: 2.5577304}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -137,12 +137,13 @@ MonoBehaviour:
   <enemyId>k__BackingField: 0
   wakeUpDistanceFront: 7
   wakeUpDistanceBack: 4
-  corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
+  corpseTimePerFrame: 0
+  corpseAnimation: []
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 0
@@ -185,7 +186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3852622794831498748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.02, y: 0.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,11 +380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.963
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

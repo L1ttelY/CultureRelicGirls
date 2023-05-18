@@ -184,6 +184,7 @@ namespace Combat {
 			StartInactive();
 			poise=poiseMax;
 			for(int i = 0;i<attacks.Length;i++) attacks[i].id=i;
+			groundY=spriteRenderer.transform.position.y-transform.parent.position.y;
 		}
 
 		protected override void FixedUpdate() {
@@ -341,10 +342,11 @@ namespace Combat {
 
 		#endregion
 
+		protected float groundY;
 		protected override void OnDeath() {
 			base.OnDeath();
 			if(corpseAnimation!=null&&corpseAnimation.Length!=0) {
-				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseAnimation,transform.position,corpseTimePerFrame,direction);
+				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseAnimation,transform.position,corpseTimePerFrame,direction,groundY);
 				newCorpse.gameObject.transform.parent=room.transform;
 				CombatController.instance.rewardSm+=sentienceMatterReward;
 				Destroy(gameObject);
