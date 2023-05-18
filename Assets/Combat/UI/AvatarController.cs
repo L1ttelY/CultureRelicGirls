@@ -53,6 +53,7 @@ namespace Combat {
 				hpText.text=$"ÉúÃüÖµ:  0/{previousMaxHp}";
 				avatarImage.material=monocrhomeMaterial;
 				targetDead=true;
+				hpImage.fillAmount = 0;
 
 			} else if(!targetDead&&target) {
 

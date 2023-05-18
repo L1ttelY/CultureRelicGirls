@@ -4197,8 +4197,6 @@ MonoBehaviour:
   leftBound: {fileID: 8806760925472130537}
   rightBound: {fileID: 8806760925676485613}
   resetSpeed: 1000
-  parryWindowStart: 0.1
-  parryWindowEnd: 0.2
   timeInvincible: 0.3
 --- !u!1 &8806760925435716554
 GameObject:
@@ -5357,14 +5355,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Avatar1
       objectReference: {fileID: 0}
-    - target: {fileID: 6074859383250937819, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035098985555455573, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
 --- !u!114 &8806760924394911657 stripped
@@ -5596,10 +5586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Avatar2
       objectReference: {fileID: 0}
-    - target: {fileID: 7035098985555455573, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
 --- !u!114 &5150010417166223801 stripped
@@ -5712,10 +5698,6 @@ PrefabInstance:
     - target: {fileID: 4417861182489211531, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
       propertyPath: m_Name
       value: Avatar3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035098985555455573, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883c7ca81d3aed44791c492229f4efc4, type: 3}
