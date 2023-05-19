@@ -142,9 +142,18 @@ MonoBehaviour:
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
-  corpseTimePerFrame: 0
+  corpseTimePerFrame: 0.16
   corpseAnimation:
-  - {fileID: 0}
+  - {fileID: 385353366, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: -939269302, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: 1436423866, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: 1249297254, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: -1101150101, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: -546305429, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: 1394232115, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: 1273477871, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: 2000100022, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
+  - {fileID: 1462175799, guid: 4da29717220c8b74f9806ddae4ec720d, type: 3}
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 0
@@ -213,7 +222,7 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 10
+  targetDistanceMax: 15
   knockbackDefense: 0.8
   poiseMax: 8
   poiseRegen: 0.5

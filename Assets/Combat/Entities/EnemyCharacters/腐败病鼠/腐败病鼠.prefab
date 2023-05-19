@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 50
   <maxSpeed>k__BackingField: 10
   <attackBasePower>k__BackingField: 4
@@ -125,10 +126,12 @@ MonoBehaviour:
   <attacks>k__BackingField:
   - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 76250ba0c1a625244ad8ce9f0134c056, type: 3}
     <projectileVelocityY>k__BackingField: 15
+    <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
   <maxPredictSpeed>k__BackingField: 1
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
-  soundAttack: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
+  <isFriendly>k__BackingField: 0
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
   soundDeath: {fileID: 8300000, guid: a7b8025ad86c6c541b964eb29818fbb4, type: 3}
   powerBuff: 0
@@ -138,12 +141,24 @@ MonoBehaviour:
   <enemyId>k__BackingField: 0
   wakeUpDistanceFront: 10
   wakeUpDistanceBack: 5
-  corpseSprite: {fileID: 21300000, guid: 7ea32221cd1655641b036debd9e2ff73, type: 3}
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
   damageBox: {fileID: 6651246421534483}
   targetIndex: 0
+  corpseTimePerFrame: 0.16
+  corpseAnimation:
+  - {fileID: 188048459, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: -1553630936, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: -1150663169, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: 1231876563, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: 2055528120, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: -2080144900, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: -1774992783, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: -866669425, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: 2038812433, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: 1232903950, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
+  - {fileID: -2100652382, guid: f175db2f60d0d484ea24c19dd008408e, type: 3}
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 0
@@ -220,10 +235,11 @@ MonoBehaviour:
       <weight>k__BackingField: 0.1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 10
+  targetDistanceMax: 15
   knockbackDefense: 1
   poiseMax: 15
   poiseRegen: 0.5
+  poiseRegenDelay: 0
 --- !u!1 &3852622794831498748
 GameObject:
   m_ObjectHideFlags: 0
