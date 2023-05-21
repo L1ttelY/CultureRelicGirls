@@ -2790,8 +2790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bda89e64ab065d4d9999b18d3ca55b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <startX>k__BackingField: -5000
-  <endX>k__BackingField: 5000
+  <startX>k__BackingField: 16
+  <endX>k__BackingField: 29
 --- !u!1 &988599444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4028,7 +4028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3ee4c4876925d44b1d57ce27985a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherSide: {fileID: 0}
+  otherSide: {fileID: 1656602891}
 --- !u!212 &1627254507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4233,7 +4233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3ee4c4876925d44b1d57ce27985a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherSide: {fileID: 0}
+  otherSide: {fileID: 1627254504}
 --- !u!1 &1696305055
 GameObject:
   m_ObjectHideFlags: 0
