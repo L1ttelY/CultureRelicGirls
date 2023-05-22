@@ -19,7 +19,6 @@ namespace Combat {
 			int total = 0;
 			for(int i = 0;i<3;i++) {
 				if(EntityFriendly.friendlyList[i]) {
-					Debug.Log($"{total} -> {i} ; {EntityFriendly.friendlyList[i].gameObject.name}");
 					avatars[total].targetIndex=i;
 					total++;
 				}
