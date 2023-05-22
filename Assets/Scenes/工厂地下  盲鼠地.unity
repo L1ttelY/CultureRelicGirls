@@ -38765,8 +38765,8 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 179.77
-  m_PointLightOuterAngle: 180.22
+  m_PointLightInnerAngle: 178.39
+  m_PointLightOuterAngle: 178.84
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 3.5386083
   m_ShapeLightParametricSides: 5
@@ -40800,6 +40800,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -49
