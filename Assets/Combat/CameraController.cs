@@ -29,6 +29,7 @@ namespace Combat {
 		}
 
 		float targetX;
+		float cameraRadius;
 
 		void UpdateTargetX() {
 			/*
@@ -56,7 +57,7 @@ namespace Combat {
 
 			float centerX = 0.5f*(EntityFriendly.rightestX+EntityFriendly.leftestX);
 			float fov = Camera.VerticalToHorizontalFieldOfView(camera.fieldOfView,camera.aspect);
-			float cameraRadius = Mathf.Tan(Mathf.Deg2Rad*fov*0.5f)*Mathf.Abs(transform.position.z);
+			 cameraRadius = Mathf.Tan(Mathf.Deg2Rad*fov*0.5f)*Mathf.Abs(transform.position.z);
 
 			float minX = EntityFriendly.rightestX-cameraRadius;
 			float maxX = EntityFriendly.leftestX+cameraRadius;
@@ -66,14 +67,15 @@ namespace Combat {
 			foreach(var i in EntityBase.entities) {
 				if((!i)||(!(i is EntityEnemy))) continue;
 				if(!i.isActiveAndEnabled) continue;
+				if(enemiesByDist.ContainsKey(Mathf.Abs(i.transform.position.x-centerX))) continue;
 				enemiesByDist.Add(Mathf.Abs(i.transform.position.x-centerX),i);
 			}
 
 			float offset = 0;
 
-			foreach(var i in enemiesByDist){
+			foreach(var i in enemiesByDist) {
 				float x = i.Value.transform.position.x;
-				if(x<maxX+cameraRadius&&x>minX-cameraRadius){
+				if(x<maxX+cameraRadius&&x>minX-cameraRadius) {
 					minX=Mathf.Max(minX,x-cameraRadius);
 					maxX=Mathf.Min(maxX,x+cameraRadius);
 				}
@@ -102,11 +104,20 @@ namespace Combat {
 			targetPosition.x=targetX;
 			position=Vector2.MoveTowards(position,targetPosition,speed*Time.deltaTime);
 
+			position.x=Mathf.Clamp(
+				position.x,
+				CombatRoomController.currentRoom.startX+cameraRadius,
+				CombatRoomController.currentRoom.endX-cameraRadius
+			);
+
 			position.z=-4.8f;
 			//调整摄像机前后
 			position.y=CombatRoomController.currentRoom.transform.position.y+1.1f;
 			//调整摄像机上下
 			transform.position=position;
+
+
+
 		}
 
 		Vector3 filmingModeVelocity;
