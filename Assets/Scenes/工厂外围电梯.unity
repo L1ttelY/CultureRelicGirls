@@ -21986,8 +21986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <startX>k__BackingField: -1.96
   <endX>k__BackingField: 109.26
-  startTransform: {fileID: 1337364680}
-  _initialX: 0
+  startTransform: {fileID: 0}
+  _initialX: 5
 --- !u!1 &984729825
 GameObject:
   m_ObjectHideFlags: 0
@@ -49672,17 +49672,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
   "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
-  - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
+  - characterData: {fileID: 11400000, guid: 6ccd088d35116354e85898418221f12c, type: 2}
     use:
       level: 0
       actionSkillType: 0
     instance: {fileID: 0}
-  - characterData: {fileID: 11400000, guid: 6ccd088d35116354e85898418221f12c, type: 2}
+  - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
     use:
       level: 0
       actionSkillType: 1
     instance: {fileID: 0}
-  - characterData: {fileID: 0}
+  - characterData: {fileID: 11400000, guid: de62234c837898547b9ca7fa356b2ace, type: 2}
     use:
       level: 0
       actionSkillType: 0
