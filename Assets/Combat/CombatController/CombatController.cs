@@ -28,6 +28,12 @@ namespace Combat {
 			CombatRoomController roomScript = room.GetComponentInChildren<CombatRoomController>();
 			Vector3 startPosition = new Vector3(roomScript.initialX,room.position.y);
 
+			if(room&&startObject.Length>0&&room.Find(startObject)) {
+				Debug.Log(room.Find(startObject));
+				startPosition.x=room.Find(startObject).position.x;
+			} else Debug.Log("NULL");
+			startObject="";
+
 			for(int i = 0;i<3;i++) {
 
 				if(friendlyList[i].characterData==null||friendlyList[i].characterData.combatPrefab==null) continue;

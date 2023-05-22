@@ -29,8 +29,9 @@ namespace Combat {
 		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
 		public static int levelId { get; private set; }
 		public static CharmData[] charmDatas;
+		public static string startObject="";
 
-		public static void StartCombat(CharacterParameters[] friendlyDatas,string sceneName,string startRoom,float startX,CharmData[] charms) {
+		public static void StartCombat(CharacterParameters[] friendlyDatas,string sceneName,string startRoom,float startX,CharmData[] charms,string startObject="") {
 
 			for(int i = 0;i<3;i++) {
 				friendlyList[i]=friendlyDatas[i];
@@ -41,13 +42,14 @@ namespace Combat {
 			CombatController.startX=startX;
 			CombatController.startRoom=startRoom;
 			CombatController.sceneName=sceneName;
+			CombatController.startObject=startObject;
 
 			SceneManager.LoadScene(sceneName);
 
 		}
 
-		public static void StartCombat(string startRoom,string sceneName) {
-			StartCombat(friendlyList,sceneName,startRoom,startX,charmDatas);
+		public static void StartCombat(string startRoom,string sceneName,string startObject="") {
+			StartCombat(friendlyList,sceneName,startRoom,startX,charmDatas,startObject);
 		}
 
 		public static CombatController instance { get; private set; }
