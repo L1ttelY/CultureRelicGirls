@@ -63,6 +63,10 @@ namespace Combat {
 			}
 		}
 
+		public void PlayAudio(AudioClip audio){
+			AudioController.PlayAudio(audio,transform.position);
+		}
+
 	}
 
 }

@@ -14,7 +14,14 @@ namespace Combat {
 		[field: SerializeField] public float startX { get; private set; }
 		[field: SerializeField] public float endX { get; private set; }
 
-
+		[SerializeField] Transform startTransform;
+		[SerializeField] float _initialX;
+		public float initialX {
+			get {
+				if(startTransform) return startTransform.position.x;
+				return _initialX;
+			}
+		}
 
 		void Start() {
 
@@ -27,7 +34,6 @@ namespace Combat {
 			}
 
 		}
-
 
 		void Update() {
 
@@ -57,8 +63,6 @@ namespace Combat {
 			currentRoom=this;
 			OnRoomChange();
 		}
-
-
 
 	}
 

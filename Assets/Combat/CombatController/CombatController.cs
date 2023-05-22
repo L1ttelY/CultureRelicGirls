@@ -25,7 +25,8 @@ namespace Combat {
 		public void LoadAllFriendlies() {
 
 			Transform room = GameObject.Find(startRoom).transform;
-			Vector3 startPosition = new Vector3(startX,room.position.y);
+			CombatRoomController roomScript = room.GetComponentInChildren<CombatRoomController>();
+			Vector3 startPosition = new Vector3(roomScript.initialX,room.position.y);
 
 			for(int i = 0;i<3;i++) {
 
@@ -34,14 +35,14 @@ namespace Combat {
 				EntityFriendly newFriendly = Instantiate(param.characterData.combatPrefab,transform).GetComponent<EntityFriendly>();
 				newFriendly.SetUse(param.use);
 				friendlyList[i].instance=newFriendly;
-				
+
 				newFriendly.transform.position=startPosition;
 				newFriendly.transform.parent=room;
-				
+
 				int useLevel = param.use.level;
 				CharacterLevelData characterLevelData = param.characterData.levels[useLevel];
 				newFriendly.InitStats(characterLevelData,i);
-				
+
 			}
 		}
 

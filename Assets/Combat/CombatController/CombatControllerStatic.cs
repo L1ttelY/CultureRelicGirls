@@ -42,9 +42,15 @@ namespace Combat {
 			CombatController.startRoom=startRoom;
 			CombatController.sceneName=sceneName;
 
+			SceneManager.LoadScene(sceneName);
+
+		}
+
+		public static void StartCombat(string startRoom,string sceneName) {
+			StartCombat(friendlyList,sceneName,startRoom,startX,charmDatas);
 		}
 
 		public static CombatController instance { get; private set; }
-
+		
 	}
 }

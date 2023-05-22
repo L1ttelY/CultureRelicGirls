@@ -47,6 +47,8 @@ namespace Combat {
 
 		protected override void Update() {
 
+			hpList[name]=hp;
+
 			if(Input.GetKey(KeyCode.X)&&positionInTeam!=0) transform.position+=Vector3.left*Time.deltaTime*10;
 
 			base.Update();
@@ -148,7 +150,7 @@ namespace Combat {
 		//在队伍中的位置
 		[SerializeField] public int positionInTeam;
 
-		public CharacterLevelData levelData{ get; private set; }
+		public CharacterLevelData levelData { get; private set; }
 		public void InitStats(CharacterLevelData data,int positionInTeam) {
 			maxHp=data.hpMax;
 			levelData=data;
@@ -159,6 +161,8 @@ namespace Combat {
 
 		public static EntityFriendly playerControlled;
 		public static List<EntityFriendly> friendlyList = new List<EntityFriendly>(3);
+		public static readonly Dictionary<string,int> hpList = new Dictionary<string,int>();
+		public static void RecoverAllHp() => hpList.Clear();
 
 		public const float distancePerCharacter = 0.8f;
 		public const float distanceTolerence = 0.1f;
@@ -177,6 +181,8 @@ namespace Combat {
 			for(int i = 0;i<attackMethods.Count;i++) {
 				attackMethods[i].index=i;
 			}
+
+			if(hpList.ContainsKey(name)) hp=hpList[name];
 		}
 
 		protected override void OnDestroy() {
