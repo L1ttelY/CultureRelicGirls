@@ -6472,7 +6472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 178fe06d18660254e97f1af7eb891f27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.82901
+      value: 80.27
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 178fe06d18660254e97f1af7eb891f27, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7075,7 +7075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.239014
+      value: 69.35
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7473,11 +7473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.54901
+      value: 80.59
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.257
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 451f458668ff817438ab1038ec219e45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11355,6 +11355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <startX>k__BackingField: -5000
   <endX>k__BackingField: 5000
+  startTransform: {fileID: 0}
+  _initialX: 0
 --- !u!1 &982717641
 GameObject:
   m_ObjectHideFlags: 0
@@ -12568,11 +12570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.669014
+      value: 75.11
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.257
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: 84ec0aee8fb897547870ac28efa5ac66, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23668,6 +23670,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <startX>k__BackingField: 45.5
   <endX>k__BackingField: 97.2
+  startTransform: {fileID: 0}
+  _initialX: 0
 --- !u!1 &2027210152
 GameObject:
   m_ObjectHideFlags: 0

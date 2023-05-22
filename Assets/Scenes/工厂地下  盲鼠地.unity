@@ -19090,6 +19090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <startX>k__BackingField: -5000
   <endX>k__BackingField: 5000
+  startTransform: {fileID: 0}
+  _initialX: 0
 --- !u!1 &983613511
 GameObject:
   m_ObjectHideFlags: 0
@@ -38329,6 +38331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <startX>k__BackingField: 45.5
   <endX>k__BackingField: 97.2
+  startTransform: {fileID: 0}
+  _initialX: 0
 --- !u!1 &2027210152
 GameObject:
   m_ObjectHideFlags: 0
@@ -38866,6 +38870,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 975770044}
     m_Modifications:
+    - target: {fileID: 1684290606832352834, guid: df5f52b0698f6e44ca47ba53137ad210, type: 3}
+      propertyPath: <maxHp>k__BackingField
+      value: 1200
+      objectReference: {fileID: 0}
     - target: {fileID: 3264549902813579657, guid: df5f52b0698f6e44ca47ba53137ad210, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -40792,5 +40800,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -49
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
