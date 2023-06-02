@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Combat {
 
-	public class QMXAdditional:EntityAdditionalFunctionBase {
+	public class StarryNightAdditional:EntityAdditionalFunctionBase {
 
 		[SerializeField] int projectileCount;
 		[SerializeField] float rangeMin;
