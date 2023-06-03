@@ -24,6 +24,7 @@ namespace Combat {
 		[Tooltip("尸体动画")]
 		[SerializeField] Sprite[] corpseAnimation;
 
+
 		#region 攻击目标
 
 		protected override void UpdateTarget() {
@@ -119,7 +120,8 @@ namespace Combat {
 			overrideSpeed=0;
 			if(doingDamage) UpdateContactDamage();
 
-			animator.ResetTrigger("stagger");
+			//animator.ResetTrigger("stagger");
+			animator.ResetTrigger("hit");
 
 		}
 

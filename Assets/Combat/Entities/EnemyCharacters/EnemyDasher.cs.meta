@@ -3,7 +3,12 @@ guid: c863088697d0ae744b5bc30d32ca654c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - <spriteRenderer>k__BackingField: {instanceID: 0}
+  - materialHit: {fileID: 2100000, guid: 0a1f57566e324444a9c5fc5823c68380, type: 2}
+  - soundHit: {instanceID: 0}
+  - soundDeath: {instanceID: 0}
+  - damageBox: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -53,6 +53,8 @@ namespace Combat {
 		}
 
 		public static CombatController instance { get; private set; }
-		
+
+		public static bool inCombat => instance;
+
 	}
 }

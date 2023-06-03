@@ -68,6 +68,8 @@ namespace Combat {
 		public static readonly EntityFriendly[] sortedByX = new EntityFriendly[3];
 		static void StaticUpdate() { //π•ª˜æ‡¿Î£ø
 
+			if(!CombatController.inCombat) return;
+
 			//º∆À„”—∑Ωµ•Œª∑∂Œß
 			float newLeftest = float.MaxValue;
 			float newRightest = float.MinValue;

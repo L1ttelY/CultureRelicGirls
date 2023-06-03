@@ -76,6 +76,10 @@ namespace Combat {
 		[Tooltip("阵营")]
 		[field: SerializeField] public bool isFriendly { get; private set; }
 
+		[Tooltip("受伤时使用的shader")]
+		[SerializeField] Material materialHit;
+		Material materialDefault;
+
 		Transform shootPosition;
 
 		[SerializeField] protected AudioClip soundHit;
@@ -118,6 +122,7 @@ namespace Combat {
 
 
 		//对角色造成伤害
+		float timeAfterHit;
 		public virtual void Damage(DamageModel e) { //受到伤害
 
 			//if(this is EntityFriendly) Debug.Log(hp);
@@ -125,6 +130,7 @@ namespace Combat {
 			if(e.amount>0) {
 				AudioController.PlayAudio(soundHit,transform.position);
 				animator.SetTrigger("hit");
+				timeAfterHit=0;
 			}
 			hp-=e.amount;
 			DoKnockback(e.knockback,e.direction);
@@ -142,7 +148,7 @@ namespace Combat {
 			}
 		}
 
-		//恢复血量
+		//恢复血量 
 		public virtual void Heal(int amount) {
 			hp+=amount;
 			if(hp>maxHp) hp=maxHp;
@@ -157,6 +163,7 @@ namespace Combat {
 		}
 
 		protected virtual void Start() {
+
 			hp=maxHp;
 			StartMove();
 			positionInList=entities.AddLast(this);
@@ -170,10 +177,11 @@ namespace Combat {
 
 			room=GetComponentInParent<CombatRoomController>();
 
-
 			buffSlot=new BuffSlot();
 			buffSlot.Init(this);
 			shootPosition=transform.Find("shootPosition");
+
+			materialDefault=spriteRenderer.material;
 		}
 
 		protected virtual void OnDestroy() {
@@ -183,6 +191,7 @@ namespace Combat {
 		protected virtual void Update() {
 
 			if(room!=CombatRoomController.currentRoom) return;
+			timeAfterHit+=Time.deltaTime;
 
 			UpdateTarget();
 			UpdateMove();
@@ -193,6 +202,7 @@ namespace Combat {
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
 
 			buffSlot.Update();
+			UpdateMaterial();
 		}
 
 		float distanceMoved;
@@ -236,6 +246,11 @@ namespace Combat {
 
 			transform.position=position;
 
+		}
+
+		protected virtual void UpdateMaterial(){
+			if(timeAfterHit>0.01f&&timeAfterHit<0.1f) spriteRenderer.material=materialHit;
+			else spriteRenderer.material=materialDefault;
 		}
 
 		//移动相关
