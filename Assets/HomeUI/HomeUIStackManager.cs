@@ -14,19 +14,19 @@ namespace Home {
 
 		Stack<(HomeUIInstance, object)> UIStack = new Stack<(HomeUIInstance, object)>();
 		(HomeUIInstance, object) _activeUI;
-		public (HomeUIInstance,object) activeUI {
+		(HomeUIInstance, object) _defaultUI;
+		public (HomeUIInstance, object) activeUI {
 			get { return _activeUI; }
 			private set {
 				if(value!=_activeUI) {
-					if(value.Item1==null) {
-						_activeUI.Item1.gameObject.SetActive(false);
-						_activeUI=(null,null);
-					} else {
-						value.Item1.OnActivate(value.Item2);
-						_activeUI.Item1.gameObject.SetActive(false);
-						value.Item1.gameObject.SetActive(true);
-						_activeUI=value;
-					}
+
+					if(value.Item1==null) value=_defaultUI;
+
+					value.Item1.OnActivate(value.Item2);
+					_activeUI.Item1.gameObject.SetActive(false);
+					value.Item1.gameObject.SetActive(true);
+					_activeUI=value;
+
 				}
 			}
 		}
@@ -38,6 +38,10 @@ namespace Home {
 			UIStack.Push(newUI);
 			activeUI=newUI;
 
+		}
+
+		public void SetDefault((HomeUIInstance, object) defaultUI) {
+			_defaultUI=defaultUI;
 		}
 
 
