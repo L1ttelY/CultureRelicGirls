@@ -59,24 +59,21 @@ namespace Museum {
 
 			} else {
 				//摄像头由玩家控制
-				if(UIController.currentMode is EmptyMode) {
 
-					UpdateResize();
-					UpdateDrag();
-					ConstrainTransform();
+				UpdateResize();
+				UpdateDrag();
+				ConstrainTransform();
 
-					camera.orthographicSize=cameraSize;
-					transform.position=cameraPosition;
+				camera.orthographicSize=cameraSize;
+				transform.position=cameraPosition;
 
-					if(
-						Application.platform==RuntimePlatform.WindowsPlayer||
-						Application.platform==RuntimePlatform.OSXPlayer||
-						Application.platform==RuntimePlatform.WindowsEditor||
-						Application.platform==RuntimePlatform.OSXEditor
-					)
-						UpdateDesktopCamera();
-
-				}
+				if(
+					Application.platform==RuntimePlatform.WindowsPlayer||
+					Application.platform==RuntimePlatform.OSXPlayer||
+					Application.platform==RuntimePlatform.WindowsEditor||
+					Application.platform==RuntimePlatform.OSXEditor
+				)
+					UpdateDesktopCamera();
 
 			}
 		}

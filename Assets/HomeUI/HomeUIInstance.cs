@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Home{
+namespace Home {
 
-  public class HomeUIInstance:MonoBehaviour {
+	public class HomeUIInstance:MonoBehaviour {
 
-		public static Dictionary<System.Type,HomeUIInstance> instances=new Dictionary<System.Type, HomeUIInstance>();
+		public static Dictionary<string,HomeUIInstance> instances = new Dictionary<string,HomeUIInstance>();
 
 		virtual protected void Start() {
-			instances[GetType()]=this;
+			//if(instances.ContainsKey(GetType())&&instances[GetType()]) Destroy(gameObject);
+			instances[gameObject.name]=this;
+			gameObject.SetActive(false);
 		}
 
-		public virtual void OnActivate(object workingData){
-      
+		public virtual void OnActivate(object workingData) {
+			
 		}
 
-  }
+	}
 
 }
