@@ -120,14 +120,15 @@ MonoBehaviour:
   <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 20
   <maxSpeed>k__BackingField: 4
-  <attackBasePower>k__BackingField: 17
+  <attackBasePower>k__BackingField: 1
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 1200
+  <maxHp>k__BackingField: 5000
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
   <isFriendly>k__BackingField: 0
+  materialHit: {fileID: 2100000, guid: 0a1f57566e324444a9c5fc5823c68380, type: 2}
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
   soundDeath: {fileID: 8300000, guid: a7b8025ad86c6c541b964eb29818fbb4, type: 3}
   powerBuff: 0
@@ -159,10 +160,10 @@ MonoBehaviour:
   - {fileID: 1923666769, guid: 394594ec7c9dca740aeb5b0001aac5bf, type: 3}
   - {fileID: 1673268064, guid: 394594ec7c9dca740aeb5b0001aac5bf, type: 3}
   - {fileID: -1654762489, guid: 394594ec7c9dca740aeb5b0001aac5bf, type: 3}
-  attackChance: 0.5
+  attackChance: 0.8
   attacks:
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 15
+    <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -170,7 +171,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 15
+    <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -178,20 +179,202 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 15
+    <maxDistance>k__BackingField: 4
+    <startWeight>k__BackingField: 1.2
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 10
+    <maxDistance>k__BackingField: 15
+    <startWeight>k__BackingField: 2
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 6.5
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 3
     id: 0
     transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 10
+    <maxDistance>k__BackingField: 15
+    <startWeight>k__BackingField: 2
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 15
+    <startWeight>k__BackingField: 0.1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 18
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 19
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 20
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
