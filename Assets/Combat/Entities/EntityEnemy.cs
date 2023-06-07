@@ -119,6 +119,7 @@ namespace Combat {
 			velocity=overrideSpeed*Direction.GetVector(direction);
 			overrideSpeed=0;
 			if(doingDamage) UpdateContactDamage();
+			else targetHit.Clear();
 
 			//animator.ResetTrigger("stagger");
 			animator.ResetTrigger("hit");
