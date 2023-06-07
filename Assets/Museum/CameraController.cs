@@ -15,6 +15,7 @@ namespace Museum {
 		private void Start() {
 			instance=this;
 			camera=GetComponent<Camera>();
+			PlayerData.PlayerDataController.Init();
 		}
 
 		public CameraFocus focus { get; private set; }
@@ -94,8 +95,6 @@ namespace Museum {
 				if(Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow)) cameraPosition+=moveSpeed*Vector2.right*Time.deltaTime;
 
 			} else {
-
-				Debug.Log(mousePosition);
 
 				if(!draggingMouse) {
 					draggingMouse=true;
