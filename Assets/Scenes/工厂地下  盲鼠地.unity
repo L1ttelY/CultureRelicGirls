@@ -22898,6 +22898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u9F20\u738B"
       objectReference: {fileID: 0}
+    - target: {fileID: 3285920072080855564, guid: 989aa55bffaa45244a358aea5fb4a016, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989aa55bffaa45244a358aea5fb4a016, type: 3}
 --- !u!4 &1236576565 stripped
@@ -40703,7 +40707,7 @@ MonoBehaviour:
       level: 0
       actionSkillType: 0
     instance: {fileID: 0}
-  - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
+  - characterData: {fileID: 11400000, guid: aaa981a0c8cf83949a350eec16b454ce, type: 2}
     use:
       level: 0
       actionSkillType: 1

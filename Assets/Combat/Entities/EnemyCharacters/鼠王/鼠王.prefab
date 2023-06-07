@@ -362,11 +362,65 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
+  - <minDistance>k__BackingField: 5
     <maxDistance>k__BackingField: 15
-    <startWeight>k__BackingField: 0.1
+    <startWeight>k__BackingField: 1
     id: 0
     transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 1
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 2
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 3
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 4
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 5
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 6
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 7
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 8
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 9
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 10
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 11
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 12
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 13
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 14
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 15
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 16
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 17
+      <weight>k__BackingField: 1
     - <type>k__BackingField: 1
       <attackId>k__BackingField: 18
       <weight>k__BackingField: 1
@@ -375,6 +429,18 @@ MonoBehaviour:
       <weight>k__BackingField: 1
     - <type>k__BackingField: 1
       <attackId>k__BackingField: 20
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 21
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 22
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 23
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 24
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
@@ -456,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1300691747, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
+  m_Sprite: {fileID: 1608704842, guid: 1ed33c9d2c1478648a880e1cb58e3e28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
