@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 0ef5064095665034f81792edc4bd52f1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HP_Recovery_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 368
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd32b7ced48d55429cecdf1da5489cf
+      internalID: 1252658012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 368
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b76da5c401d264e86ac9fbd9051b5d
+      internalID: -1451797028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 368
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d507dc0c1a0ba4eb5b30641a9946db
+      internalID: -1650805663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 368
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d9ae320ba607945abb87eed9576409
+      internalID: 1019027404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 368
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251a055798d21b5499f1211a1e07cf03
+      internalID: 2124177191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 276
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7615c9c03e0b30489464ef16e88fc49
+      internalID: 908986773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_6
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 276
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd0207e94279b64a8599bc3d614c02a
+      internalID: 291198523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_7
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 276
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8bec731cca418643a09376a99add7b4
+      internalID: 1977727725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_8
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 276
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cc4ccd9a3c7974ca5b9815812b8994
+      internalID: 667294427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_9
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 276
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0dd4b534b230994f8f85912fda8aadb
+      internalID: 265371755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0505ede2b609a458e606d0ba39ade8
+      internalID: 438696006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_11
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 184
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c61f5f2a6cdb544fa5fc18ab8f8ad1f
+      internalID: -675725864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_12
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 184
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33de7066ce5654a44974a1f121cca479
+      internalID: -1981660611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_13
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 184
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11dc9a370c2249a49af546c0e6242125
+      internalID: -1607682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_14
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 184
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8dd69433c0f96499d9f3dbfab220b4
+      internalID: -966113868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2289cb0dcdd6174448be0b0eba27a1e4
+      internalID: 1573401865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_16
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 92
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a7c10803b94e740b46e982f70bdaf4
+      internalID: -949229628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_17
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 92
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f783ba12ceeb5ad42ba0023c21edd3ac
+      internalID: -2042198081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_18
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 92
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00cca18f8f4925e4cbc506168e213138
+      internalID: -1657632452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_19
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 92
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b79f5c317d91647b277e7b5bff5d07
+      internalID: 1588271021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36adbaff231a137458697fd43ed43bc4
+      internalID: 967745863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_21
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c718ef79336e256488ec1c218f80b6de
+      internalID: -235872441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_22
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b790c3cb235252e4da9525221c07693c
+      internalID: -247512075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HP_Recovery_23
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 184
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5, y: 0.024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9433d7a4b0dbcc34aa2ea002227c66b9
+      internalID: 30013246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      HP_Recovery_19: 1588271021
+      HP_Recovery_17: -2042198081
+      HP_Recovery_10: 438696006
+      HP_Recovery_4: 2124177191
+      HP_Recovery_23: 30013246
+      HP_Recovery_5: 908986773
+      HP_Recovery_11: -675725864
+      HP_Recovery_7: 1977727725
+      HP_Recovery_14: -966113868
+      HP_Recovery_9: 265371755
+      HP_Recovery_18: -1657632452
+      HP_Recovery_6: 291198523
+      HP_Recovery_20: 967745863
+      HP_Recovery_3: 1019027404
+      HP_Recovery_12: -1981660611
+      HP_Recovery_16: -949229628
+      HP_Recovery_0: 1252658012
+      HP_Recovery_1: -1451797028
+      HP_Recovery_2: -1650805663
+      HP_Recovery_15: 1573401865
+      HP_Recovery_8: 667294427
+      HP_Recovery_13: -1607682
+      HP_Recovery_21: -235872441
+      HP_Recovery_22: -247512075
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
