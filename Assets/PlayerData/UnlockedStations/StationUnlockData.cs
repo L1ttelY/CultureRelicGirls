@@ -17,8 +17,6 @@ namespace PlayerData {
 		public override void Load(XmlElement serialized) {
 			base.Load(serialized);
 
-			Debug.Log("STATIONS : ");
-			foreach(var i in children) Debug.Log($"{i.Key},{(i.Value as DataBool).value}");
 		}
 
 		[RuntimeInitializeOnLoadMethod]
