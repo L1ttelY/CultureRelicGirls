@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chess
+  m_Controller: {fileID: 9100000, guid: 54471998a4ef50940aba461d8c013bca, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b69eddc7ec283e24aade8031d00c174e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7ba8db801286e1c479fb010537e82cee, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2f2d2686f254d8747b37dde144d411b5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 16911a0e1965d94408eff5ec0c9cc498, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: effa5b38821c0434581b0b83daaf6e1d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7fbf6835ce34ca1429d3f46e83d9f442, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 32fed01b78eeb224c99c24b757cf4ac0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d5dea98713a0f694eb1fd78245069444, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 16414b6f30d12a144adc6e83d1e08863, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 612ccf5cb9ed25c4389a6667a55b714a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d2af0a4fb91dbfb4986eb5646849562a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 58b44c6fe5f0df84b9a62d53b68b782b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 31cb0545f580cfd40a99db59e2a493d6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e51f9d9bf26106a4192025c95fa1e394, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 244a78f17a5bb85438bd6905309e4ba7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fbd4127b431e72449a57ff4a90120ffc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 099022efa1f3c9d46b031628acfa72af, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6f2529c085554424482b3952bbc19f0b, type: 2}
