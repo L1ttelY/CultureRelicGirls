@@ -34,6 +34,7 @@ namespace Home {
 				value.Item1.gameObject.SetActive(true);
 				_activeUI=value;
 
+				Debug.Log(_activeUI.Item1);
 
 			}
 		}
@@ -55,6 +56,14 @@ namespace Home {
 		void UpdateActiveUI() {
 			if(uiStack.Count==0) activeUI=_defaultUI;
 			else activeUI=uiStack.Peek();
+		}
+
+		public bool CanPopUI() => uiStack.Count>0;
+		public bool TryPopUI(){
+			if(!CanPopUI()) return false;
+			uiStack.Pop();
+			UpdateActiveUI();
+			return true;
 		}
 
 	}

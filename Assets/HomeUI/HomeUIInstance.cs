@@ -11,11 +11,12 @@ namespace Home {
 		virtual protected void Start() {
 			//if(instances.ContainsKey(GetType())&&instances[GetType()]) Destroy(gameObject);
 			instances[gameObject.name]=this;
-			gameObject.SetActive(false);
+			if(HomeUIStackManager.instance&&this==HomeUIStackManager.instance.activeUI.Item1==this) {
+			} else gameObject.SetActive(false);
 		}
 
 		public virtual void OnActivate(object workingData) {
-			
+
 		}
 
 	}
