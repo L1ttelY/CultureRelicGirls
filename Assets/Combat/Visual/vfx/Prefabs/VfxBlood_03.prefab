@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1763441829856274811}
   - component: {fileID: 7027392681424268838}
   m_Layer: 0
-  m_Name: VfxEvilBloodPrefab
+  m_Name: VfxBlood_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: af5db20d7b8658e42882dd616227b174, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -884437739, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
-  m_Color: {r: 0.8486655, g: 1, b: 0.72237194, a: 1}
+  m_Color: {r: 0.59686863, g: 0.745283, b: 0.4750928, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1823992204, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
   - {fileID: -56247835, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
   - {fileID: 1278755578, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
   - {fileID: -884437739, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
@@ -113,4 +112,4 @@ MonoBehaviour:
   - {fileID: -1859280132, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
   - {fileID: 413964226, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
   - {fileID: -1939667565, guid: 003adbee3ebea7a4ba84f8c89e48fba2, type: 3}
-  timePerFrame: 0.03
+  timePerFrame: 0.02
