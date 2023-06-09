@@ -10,11 +10,11 @@ namespace VehicleScene {
 
 		[SerializeField] Text uiNameText;
 		[SerializeField] GameObject returnButton;
-
+		/*
 		public void OnReturnClick(){
 			HomeUIStackManager.
 		}
-
+		*/
 
 
 	}
