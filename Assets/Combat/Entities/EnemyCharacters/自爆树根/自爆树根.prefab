@@ -119,14 +119,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 4
-  <maxSpeed>k__BackingField: 6
+  <maxSpeed>k__BackingField: 4
   <attackBasePower>k__BackingField: 50
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 200
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
+  - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 0
   materialHit: {fileID: 2100000, guid: 0a1f57566e324444a9c5fc5823c68380, type: 2}
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
@@ -162,8 +162,8 @@ MonoBehaviour:
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
   targetDistanceMax: 15
-  knockbackDefense: 2
-  poiseMax: 10
+  knockbackDefense: 20
+  poiseMax: 20
   poiseRegen: 1
   poiseRegenDelay: 0
 --- !u!1 &3852622794831498748

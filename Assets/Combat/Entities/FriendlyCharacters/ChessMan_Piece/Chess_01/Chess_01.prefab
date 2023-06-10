@@ -55,7 +55,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0013999939, y: 0.77579373}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.39, y: 0}
+    pivot: {x: 0.6324951, y: -0.00000003241103}
     oldSize: {x: 0.75, y: 1.4375}
     newSize: {x: 0.75, y: 1.4375}
     adaptiveTilingThreshold: 0.5
@@ -123,11 +123,11 @@ MonoBehaviour:
   <maxSpeed>k__BackingField: 2
   <attackBasePower>k__BackingField: 5
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 50
+  <maxHp>k__BackingField: 30
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
+  - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 1
   materialHit: {fileID: 0}
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}

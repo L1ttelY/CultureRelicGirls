@@ -60,6 +60,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <damageVfx>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[0].maxDistance
       value: 2
       objectReference: {fileID: 0}
@@ -71,6 +75,10 @@ PrefabInstance:
       propertyPath: attackMethods.Array.data[1].minDistance
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <damageVfx>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1763441829856274810, guid: 8b13e7fe5b1516d4aa73e7b9ecf79606, type: 3}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: chargeSpeedCurve.m_Curve.Array.data[2].time
       value: 0.24313314

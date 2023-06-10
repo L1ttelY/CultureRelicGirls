@@ -130,7 +130,7 @@ MonoBehaviour:
     <sound>k__BackingField: {fileID: 0}
   <maxPredictSpeed>k__BackingField: 3
   <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
+  - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 0
   materialHit: {fileID: 2100000, guid: 0a1f57566e324444a9c5fc5823c68380, type: 2}
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
@@ -223,14 +223,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3852622794831498748}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.013711, z: 0}
   m_LocalScale: {x: 1, y: 1.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3264549902813579657}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8894793313059689301
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -351,6 +351,14 @@ PrefabInstance:
     - target: {fileID: 4212631063866875402, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_Name
       value: HpBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240119588855938900, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240119588855938900, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_Pivot.x
