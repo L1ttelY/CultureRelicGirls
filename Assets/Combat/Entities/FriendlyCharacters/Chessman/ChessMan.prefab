@@ -64,6 +64,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <damageVfx>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: attackMethods.Array.data[0].maxDistance
       value: 4
       objectReference: {fileID: 0}
@@ -71,6 +75,10 @@ PrefabInstance:
       propertyPath: attackMethods.Array.data[1].maxDistance
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <damageVfx>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1763441829856274810, guid: 8b13e7fe5b1516d4aa73e7b9ecf79606, type: 3}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: chargeSpeedCurve.m_Curve.Array.data[2].time
       value: 0.22799642
@@ -170,4 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783ee871d6546c744897e25e2fcedf35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSummon: {fileID: 3264549902813579658, guid: a23536eac02a128478f886e692b29616, type: 3}
+  objectToSummon: {fileID: 3264549902813579658, guid: 23b57fef2a60bea408fc961981fa23df, type: 3}

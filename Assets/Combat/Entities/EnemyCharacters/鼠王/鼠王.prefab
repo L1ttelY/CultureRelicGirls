@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264549902813579658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.252073, y: 0.3085134, z: 0}
+  m_LocalPosition: {x: 4.252073, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -123,8 +123,12 @@ MonoBehaviour:
   <attackBasePower>k__BackingField: 1
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 5000
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: f7dba361d140b104a9fe1ec2fcd38ec9, type: 3}
+    <projectileVelocityY>k__BackingField: 15
+    <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
+  <maxPredictSpeed>k__BackingField: 1
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
   <isFriendly>k__BackingField: 0
@@ -163,7 +167,7 @@ MonoBehaviour:
   attackChance: 0.8
   attacks:
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -171,7 +175,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -179,7 +183,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 4
+    <maxDistance>k__BackingField: 6
     <startWeight>k__BackingField: 1.2
     id: 0
     transitionList:
@@ -187,23 +191,23 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 10
-    <maxDistance>k__BackingField: 15
-    <startWeight>k__BackingField: 2
+  - <minDistance>k__BackingField: 12
+    <maxDistance>k__BackingField: 27
+    <startWeight>k__BackingField: 0.5
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -211,7 +215,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 3
     id: 0
     transitionList:
@@ -219,7 +223,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -227,7 +231,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -235,7 +239,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -243,39 +247,15 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 10
+  - <minDistance>k__BackingField: 7
+    <maxDistance>k__BackingField: 12
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -283,7 +263,23 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 7
+    <maxDistance>k__BackingField: 12
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 7
+    <maxDistance>k__BackingField: 12
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -291,7 +287,7 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -299,47 +295,39 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 10
-    <maxDistance>k__BackingField: 15
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 7
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 12
+    <maxDistance>k__BackingField: 17
     <startWeight>k__BackingField: 2
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
+      <weight>k__BackingField: 0
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 10
+  - <minDistance>k__BackingField: 7
+    <maxDistance>k__BackingField: 12
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -347,7 +335,15 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 7
+    <maxDistance>k__BackingField: 12
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -355,15 +351,23 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 7
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 15
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 7
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 7
+    <maxDistance>k__BackingField: 17
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -444,7 +448,7 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 15
+  targetDistanceMax: 17
   knockbackDefense: 1.3
   poiseMax: 20
   poiseRegen: 1
@@ -602,6 +606,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HpBar
       objectReference: {fileID: 0}
+    - target: {fileID: 4911103276144637103, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164742173081627207, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -640,7 +652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6625
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_LocalPosition.x
