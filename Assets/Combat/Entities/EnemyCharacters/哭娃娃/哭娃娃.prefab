@@ -137,8 +137,8 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 15
-  wakeUpDistanceBack: 10
+  wakeUpDistanceFront: 100
+  wakeUpDistanceBack: 100
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
@@ -161,10 +161,10 @@ MonoBehaviour:
   - {fileID: 1923666769, guid: 394594ec7c9dca740aeb5b0001aac5bf, type: 3}
   - {fileID: 1673268064, guid: 394594ec7c9dca740aeb5b0001aac5bf, type: 3}
   - {fileID: -1654762489, guid: 394594ec7c9dca740aeb5b0001aac5bf, type: 3}
-  attackChance: 1
+  attackChance: 10
   attacks:
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 25
+    <maxDistance>k__BackingField: 50
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
@@ -173,7 +173,7 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 15
+  targetDistanceMax: 25
   knockbackDefense: 20
   poiseMax: 2
   poiseRegen: 10
