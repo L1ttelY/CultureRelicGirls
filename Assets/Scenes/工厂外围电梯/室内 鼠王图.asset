@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   color:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: "\u5BA4\u5185 \u6697\u8272 \u7EA2\u8272"
+  m_Name: "\u5BA4\u5185 \u9F20\u738B\u56FE"
   m_EditorClassIdentifier: 
   components:
   - {fileID: -6675511992088567310}
@@ -351,10 +351,10 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.8371083, y: 0.77397406, z: 1, w: 0.017177219}
+    m_Value: {x: 0.7870644, y: 0.77671045, z: 1, w: -0.12896235}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.8049596, y: 1, z: 0.9937938, w: -0.031796504}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -385,7 +385,7 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 17
   tint:
     m_OverrideState: 1
     m_Value: -15
@@ -435,7 +435,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.100200415}
+    m_Value: {x: 0.8718445, y: 0.8728388, z: 1, w: 0.0054013333}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}

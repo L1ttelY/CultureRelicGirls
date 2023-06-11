@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fog
+  m_Name: "Fog \u5730\u4E0B\u8F66\u5E93 1"
   m_Shader: {fileID: -6465566751694194690, guid: 2e353b595b3a1054daabb07cd0f8acc6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -58,9 +58,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorOpacity_Far: 10
-    - _ColorOpacity_Near: 2.5
-    - _Divider: 3000
+    - _ColorOpacity_Far: 1
+    - _ColorOpacity_Near: 2
+    - _Divider: 40
     - _Divider_1: 30.6
     - _EnableExternalAlpha: 0
     - _brightenAmount: 1
@@ -68,8 +68,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 1, g: 1, b: 1, a: 0}
     - _Color2: {r: 1, g: 1, b: 1, a: 0}
-    - _Color_Far: {r: 1, g: 0.5250847, b: 0.1372549, a: 0}
-    - _Color_Near: {r: 0.37411046, g: 0.30768958, b: 0.4056604, a: 0}
+    - _Color_Far: {r: 0.47504452, g: 0.6037736, b: 0.51821125, a: 0}
+    - _Color_Near: {r: 0.56037736, g: 0.5848383, b: 0.6226415, a: 0}
     - _Divider: {r: 90, g: 90, b: 90, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
