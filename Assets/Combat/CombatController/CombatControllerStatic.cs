@@ -51,6 +51,9 @@ namespace Combat {
 		public static void StartCombat(string startRoom,string sceneName,string startObject="") {
 			StartCombat(friendlyList,sceneName,startRoom,startX,charmDatas,startObject);
 		}
+		public static void StartCombat(CombatEntry entry) {
+			StartCombat(entry.roomName,entry.sceneName,entry.startObjectName);
+		}
 
 		public static CombatController instance { get; private set; }
 

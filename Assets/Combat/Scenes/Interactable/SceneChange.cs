@@ -9,6 +9,16 @@ namespace Combat {
 		[SerializeField] string roomName;
 		[SerializeField] string startObject;
 
+		[SerializeField] CombatEntry targetEntry;
+
+		private void OnValidate() {
+			if(targetEntry!=null){
+				sceneName=targetEntry.sceneName;
+				roomName=targetEntry.roomName;
+				startObject=targetEntry.startObjectName;
+			}
+		}
+
 		public void OnInteract() {
 			CombatController.StartCombat(roomName,sceneName,startObject);
 		}
