@@ -50,7 +50,7 @@ namespace PlayerData {
 			}
 		}
 
-		public void AddChild(DataBase child) {
+		public virtual void AddChild(DataBase child) {
 			children.Add(child.name,child);
 		}
 	}
