@@ -15095,7 +15095,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 975770044}
-  m_RootOrder: 15
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &389222237
 SpriteRenderer:
@@ -35854,6 +35854,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1337364680}
+  - {fileID: 389222236}
   - {fileID: 67991799}
   - {fileID: 748362116}
   - {fileID: 1008842949}
@@ -35868,7 +35869,6 @@ Transform:
   - {fileID: 1338504119}
   - {fileID: 685063422}
   - {fileID: 916933025}
-  - {fileID: 389222236}
   - {fileID: 343124077}
   - {fileID: 822792175}
   - {fileID: 454078359}
