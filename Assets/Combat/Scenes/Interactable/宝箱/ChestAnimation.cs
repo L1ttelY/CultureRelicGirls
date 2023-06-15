@@ -14,7 +14,7 @@ namespace Combat {
 
 
 		private void Update() {
-			if(!started)
+			//if(!started)
 		}
 
 	}
