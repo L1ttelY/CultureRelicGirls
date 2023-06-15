@@ -123,8 +123,12 @@ MonoBehaviour:
   <attackBasePower>k__BackingField: 17
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 1200
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: a1fec7c72a8b1ff4e81e25d9f820d22f, type: 3}
+    <projectileVelocityY>k__BackingField: 8
+    <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
+  <maxPredictSpeed>k__BackingField: 3
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 0
