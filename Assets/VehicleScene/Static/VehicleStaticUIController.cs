@@ -10,11 +10,15 @@ namespace VehicleScene {
 
 		[SerializeField] Text uiNameText;
 		[SerializeField] GameObject returnButton;
-		/*
+		
 		public void OnReturnClick(){
-			HomeUIStackManager.
+			HomeUIStackManager.instance.TryPopUI();
 		}
-		*/
+
+		private void Update() {
+			uiNameText.text=HomeUIStackManager.instance.activeUI.Item1.gameObject.name;
+			returnButton.gameObject.SetActive(HomeUIStackManager.instance.CanPopUI());
+		}
 
 
 	}

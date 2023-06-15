@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Home {
 
@@ -18,6 +19,8 @@ namespace Home {
 		public virtual void OnActivate(object workingData) {
 
 		}
+
+		UnityEvent<object> onActivate;
 
 	}
 

@@ -13,6 +13,7 @@ public static class ABLoader {
 		loaded=true;
 
 		ItemData.ClearInstances();
+		StationData.ClearInstances();
 		AssetBundle ab;
 		ab=FileManager.LoadSAAB("stationdata.ab"); ab.LoadAllAssets();
 

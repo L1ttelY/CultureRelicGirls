@@ -120,8 +120,8 @@ MonoBehaviour:
   <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 0
   <maxSpeed>k__BackingField: 0
-  <attackBasePower>k__BackingField: 0
-  <knockbackPower>k__BackingField: 0.51
+  <attackBasePower>k__BackingField: 1
+  <knockbackPower>k__BackingField: 40
   <maxHp>k__BackingField: 12000
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
@@ -177,30 +177,6 @@ MonoBehaviour:
   - <minDistance>k__BackingField: 0
     <maxDistance>k__BackingField: 20
     <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 15
-    <startWeight>k__BackingField: 0
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 2
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 15
-    <startWeight>k__BackingField: 0
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 3
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 15
-    <startWeight>k__BackingField: 0
     id: 0
     transitionList:
     - <type>k__BackingField: 1
