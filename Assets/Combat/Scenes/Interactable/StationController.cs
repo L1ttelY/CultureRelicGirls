@@ -18,6 +18,7 @@ namespace Combat {
 		[SerializeField] StationData stationData;
 
 		private void OnValidate() {
+			if (Application.isPlaying) return;
 			if(stationData==null) return;
 			stationData.SetTarget(gameObject);
 		}
