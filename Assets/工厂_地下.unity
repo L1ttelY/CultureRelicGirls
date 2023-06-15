@@ -18518,7 +18518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.2, y: 1.1, z: -4.8}
+  m_LocalPosition: {x: 178, y: 1.1, z: -4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71396,10 +71396,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8806760926367801970, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8806760926367801974, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -71483,14 +71479,6 @@ PrefabInstance:
     - target: {fileID: 8806760926367801974, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -27.250244
-      objectReference: {fileID: 0}
-    - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -49.000244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
