@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1684290606832352834}
   - component: {fileID: 1367825401293441895}
   m_Layer: 0
-  m_Name: Chess_01
+  m_Name: Chess_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264549902813579658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.252073, y: 0.3085134, z: 0}
+  m_LocalPosition: {x: 4.252073, y: 0.014, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55,7 +55,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0013999939, y: 0.77579373}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6324951, y: -0.00000003241103}
+    pivot: {x: 0.39, y: 0}
     oldSize: {x: 0.75, y: 1.4375}
     newSize: {x: 0.75, y: 1.4375}
     adaptiveTilingThreshold: 0.5
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 667485b92ea80974d863433e28f4562e, type: 2}
+  m_Controller: {fileID: 22100000, guid: 35a0f5a0088a90047b7cca0f38a8d872, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
-  - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
+  - {fileID: 1763441829856274810, guid: 1d911675da0c0544eb27ecc7886e4fa7, type: 3}
   <isFriendly>k__BackingField: 1
   materialHit: {fileID: 0}
   soundHit: {fileID: 8300000, guid: 76705a8b9088b904fb3f3e2b793aa23d, type: 3}
@@ -137,8 +137,8 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 7
-  wakeUpDistanceBack: 4
+  wakeUpDistanceFront: 30
+  wakeUpDistanceBack: 30
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   targetIndex: 0
   corpseTimePerFrame: 0.16
   corpseAnimation:
-  - {fileID: 454622129, guid: a364c7c42fb3890449028622bd7cdb5c, type: 3}
+  - {fileID: -808674371, guid: a364c7c42fb3890449028622bd7cdb5c, type: 3}
   attackChance: 4
   attacks:
   - <minDistance>k__BackingField: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 15
+  targetDistanceMax: 5
   knockbackDefense: 0.8
   poiseMax: 6
   poiseRegen: 0.1
