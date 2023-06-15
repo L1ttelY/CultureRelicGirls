@@ -22,9 +22,6 @@ namespace PlayerData {
 			sentienceMatter=new DataInt("sentienceMatter",this);
 			printingMaterial=new DataInt("printingMaterial",this);
 
-			characterDatas=new CharacterData[20];
-			for(int i = 0;i<20;i++) characterDatas[i]=new CharacterData("character"+i,this);
-
 			buildingDatas=new BuildingData[30];
 			for(int i = 0;i<30;i++) buildingDatas[i]=new BuildingData("building"+i,this);
 

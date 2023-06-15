@@ -1,0 +1,93 @@
+ManifestFileVersion: 0
+CRC: 1714289798
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e2642c65e1584a2cc95dd5e451216779
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f8fe338617acd2dd7871f66dd1931325
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80977bae12a56fe4c9b24dada1348396, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 386bbd8bd0d71ba49be443f75372aad5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: caa4f4c131bb61540a47e5a697ea2fcf, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 52d363895d572e14ba1ab7d08d9ab7c0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0f9a52c1bcfa24e4a84424c0c2e6ab01, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e910479afe36a334581d70a9b7b82f85, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 783ee871d6546c744897e25e2fcedf35, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2df23a59015da14428739bd44c703632, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 221
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: AttackStateData
+- AssemblyName: Assembly-CSharp
+  ClassName: AttackStateTransistion
+- AssemblyName: Assembly-CSharp
+  ClassName: CharacterLevelData
+- AssemblyName: Assembly-CSharp
+  ClassName: Combat.AttackData
+- AssemblyName: Assembly-CSharp
+  ClassName: Combat.FriendlyAttackData
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- "Assets/Combat/Entities/FriendlyCharacters/QiMingXing/\u542F\u660E\u661F.asset"
+- "Assets/Combat/Entities/FriendlyCharacters/Guillotine/\u65AD\u5934\u53F0.asset"
+- "Assets/Combat/Entities/FriendlyCharacters/Chessman/\u8DEF\u6613\u65AF\u56FD\u9645\u8C61\u68CB.asset"
+- Assets/Combat/Entities/FriendlyCharacters/Chessman/Chesman_P_A0.overrideController
+- "Assets/Combat/Entities/FriendlyCharacters/TCY_Sword/\u5929\u4E1B\u4E91\u5251.asset"
+Dependencies: []
