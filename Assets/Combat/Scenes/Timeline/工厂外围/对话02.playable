@@ -105,21 +105,14 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 1460864421
-      script: {fileID: 0}
-      typeID: 224
-      customType: 28
-      isPPtrCurve: 0
+    genericBindings: []
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 6
+    m_StopTime: 9
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -174,7 +167,14 @@ AnimationClip:
     messageOptions: 0
   - time: 6
     functionName: PushSubtitle
-    data: "\u8FD9\u4E00\u77AC\u95F4\uFF0C\u5982\u679C\u6211\u4EEC\u80FD\u591F\u5229\u7528\u9632\u5FA1\u6216\u8005\u51B2\u523A\u63A5\u4F4F\u8FD9\u62DB\uFF0C\u602A\u7269\u5C31\u4F1A\u5931\u8861"
+    data: "\u8FD9\u4E00\u77AC\u95F4\uFF0C\u5982\u679C\u6211\u4EEC\u80FD\u591F\u5229\u7528\u201C\u9632\u5FA1\u201D\u6216\u8005\u201C\u51B2\u523A\u201D\u63A5\u4F4F\u8FD9\u62DB"
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 9
+    functionName: PushSubtitle
+    data: "\u602A\u7269\u5C31\u4F1A\u5931\u8861\uFF0C\u5E76\u4E14\u6211\u4EEC\u7684\u5468\u8EAB\u80FD\u591F\u7F20\u7ED5\u66F4\u591A\u610F\u8BC6"
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
