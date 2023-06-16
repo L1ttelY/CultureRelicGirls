@@ -9,7 +9,6 @@ public class PlayerDataSaveController:MonoBehaviour {
 	private void Start() {
 		if(instance) Destroy(gameObject);
 		instance=this;
-		DontDestroyOnLoad(gameObject);
 	}
 
 	float timeSinceSaved;
@@ -19,6 +18,10 @@ public class PlayerDataSaveController:MonoBehaviour {
 	}
 
 	private void OnApplicationQuit() {
+		PlayerData.PlayerDataController.SaveGame();
+	}
+
+	private void OnDestroy() {
 		PlayerData.PlayerDataController.SaveGame();
 	}
 

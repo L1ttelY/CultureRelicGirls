@@ -122,9 +122,13 @@ MonoBehaviour:
   <maxSpeed>k__BackingField: 4
   <attackBasePower>k__BackingField: 17
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 1200
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
+  <maxHp>k__BackingField: 2500
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: a1fec7c72a8b1ff4e81e25d9f820d22f, type: 3}
+    <projectileVelocityY>k__BackingField: 8
+    <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
+  <maxPredictSpeed>k__BackingField: 3
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 0
@@ -136,8 +140,8 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 7
-  wakeUpDistanceBack: 4
+  wakeUpDistanceFront: 8
+  wakeUpDistanceBack: 8
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
@@ -188,7 +192,31 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
     <maxDistance>k__BackingField: 6.5
-    <startWeight>k__BackingField: 3
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 6.5
+    <startWeight>k__BackingField: 2
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 2
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 5
+    <startWeight>k__BackingField: 2
     id: 0
     transitionList:
     - <type>k__BackingField: 0
@@ -196,7 +224,7 @@ MonoBehaviour:
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
-  targetDistanceMax: 15
+  targetDistanceMax: 7
   knockbackDefense: 1.3
   poiseMax: 20
   poiseRegen: 1
