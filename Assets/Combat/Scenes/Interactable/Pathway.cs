@@ -13,7 +13,7 @@ namespace Combat {
 			CombatRoomController targetRoom = otherSide.GetComponentInParent<CombatRoomController>();
 			if(targetRoom==null) return;
 
-			CombatController.startX=otherSide.transform.position.x;	
+			CombatController.startObject=otherSide.name;	
 			targetRoom.GoToRoom();
 
 			Debug.Log("!!!");

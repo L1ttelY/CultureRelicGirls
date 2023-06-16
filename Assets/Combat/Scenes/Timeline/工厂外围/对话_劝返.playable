@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: "\u5BF9\u8BDD04"
+  m_Name: "\u5BF9\u8BDD_\u529D\u8FD4"
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
@@ -160,14 +160,14 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: PushSubtitle
-    data: "\u5F80\u4E0A\u9762\u770B\uFF0C\u4F60\u53EF\u4EE5\u5B9E\u65F6\u76D1\u6D4B\u6211\u7CBE\u795E\u529B"
+    data: "\u5C3D\u5FEB\u8F6C\u8EAB\u79BB\u5F00\u5427\uFF0C\u957F\u751F\u79CD"
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 3
     functionName: PushSubtitle
-    data: "\u5F53\u6211\u653B\u51FB\u654C\u4EBA\u65F6\uFF0C\u53EF\u4EE5\u593A\u53D6\u654C\u4EBA\u7684\u7CBE\u795E\u529B"
+    data: "\u9F20\u4E4B\u738B\u671D\u4E0D\u6B22\u8FCE\u4F60\u4EEC"
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

@@ -10,6 +10,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "自定/角色数值")]
 public class CharacterData:ScriptableObject {
 
+	public static void ClearInstances() => datas.Clear();
+
 	public static Dictionary<string,CharacterData> datas = new Dictionary<string,CharacterData>();
 	private void OnEnable() {
 		datas.Add(name,this);

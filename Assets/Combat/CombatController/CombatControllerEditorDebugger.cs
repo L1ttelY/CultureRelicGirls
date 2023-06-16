@@ -19,22 +19,26 @@ namespace Combat {
 
 		[SerializeField] CharacterParameters[] 友方角色信息 = new CharacterParameters[3];
 
-		[SerializeField] CharmData[] 符文;
-
 		[SerializeField] string 起始房间;
 		[SerializeField] float 起始位置;
 
+		static bool doWork = true;
+
 		private void Start() {
-			if(!是否启用重载功能) return;
+
 #if UNITY_EDITOR
-#else
-			return;
-#endif
+			if(!是否启用重载功能) return;
+			if(!doWork) return;
+			if(LoadoutController.loadoutRoot!=null) {
+				foreach(var i in LoadoutController.teamMembers)
+					if(i.value.Length!=0) return;
+			}
+			doWork=false;
+
 
 			for(int i = 0;i<3;i++) CombatController.friendlyList[i]=友方角色信息[i];
-			CombatController.charmDatas=符文;
 			CombatController.startRoom=起始房间;
-			CombatController.startX=起始位置;
+#endif
 
 		}
 
