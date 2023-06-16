@@ -23,12 +23,18 @@ namespace VehicleScene {
 		public void Init(int index,CharacterData boundCharacter) {
 			this.index=index;
 			this.boundCharacter=boundCharacter;
-			avatarImage.sprite=boundCharacter.sprite;
+			if(boundCharacter==null) {
+				avatarImage.sprite=null;
+				avatarImage.color=Color.clear;
+			} else {
+				avatarImage.sprite=boundCharacter.sprite;
+			}
 		}
 
 		private void Update() {
 			draggable.content=boundCharacter;
-			draggable.sprite=boundCharacter.sprite;
+			if(boundCharacter)
+				draggable.sprite=boundCharacter.sprite;
 		}
 
 	}

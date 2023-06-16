@@ -23,7 +23,6 @@ namespace Combat {
 
 	public partial class CombatController:MonoBehaviour {
 
-		public static float startX;
 		public static string startRoom;
 		public static string sceneName;
 		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
@@ -31,15 +30,14 @@ namespace Combat {
 		public static CharmData[] charmDatas;
 		public static string startObject="";
 
-		public static void StartCombat(CharacterParameters[] friendlyDatas,string sceneName,string startRoom,float startX,CharmData[] charms,string startObject="") {
+		public static void StartCombat(string sceneName,string startRoom,string startObject="") {
 
 			for(int i = 0;i<3;i++) {
-				friendlyList[i]=friendlyDatas[i];
+				friendlyList[i]=new CharacterParameters();
+				if(LoadoutController.teamMembers[i].value.Length!=0)
+					friendlyList[i].characterData=CharacterData.datas[LoadoutController.teamMembers[i].value];
 			}
 
-			charmDatas=charms;
-
-			CombatController.startX=startX;
 			CombatController.startRoom=startRoom;
 			CombatController.sceneName=sceneName;
 			CombatController.startObject=startObject;
@@ -48,9 +46,6 @@ namespace Combat {
 
 		}
 
-		public static void StartCombat(string startRoom,string sceneName,string startObject="") {
-			StartCombat(friendlyList,sceneName,startRoom,startX,charmDatas,startObject);
-		}
 		public static void StartCombat(CombatEntry entry) {
 			StartCombat(entry.roomName,entry.sceneName,entry.startObjectName);
 		}

@@ -6400,6 +6400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -25281,6 +25283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -35041,6 +35045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -35987,6 +35993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -37306,6 +37314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -53774,6 +53784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -74816,6 +74828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -119066,7 +119080,7 @@ MonoBehaviour:
   sceneName: "\u8F66\u5185\u573A\u666F"
   roomName: "\u8F66\u5185\u573A\u666F"
   startObject: "\u8F66\u5185\u573A\u666FTo\u5730\u4E0B\u8F66\u5E93\u505C\u8F66\u623F"
-  targetEntry: {fileID: 11400000, guid: c09d8f43797d65340914f3a78cf44910, type: 2}
+  targetEntry: {fileID: 0}
 --- !u!114 &2074527785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119079,6 +119093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:

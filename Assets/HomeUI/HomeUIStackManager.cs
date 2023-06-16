@@ -34,8 +34,6 @@ namespace Home {
 				value.Item1.gameObject.SetActive(true);
 				_activeUI=value;
 
-				Debug.Log(_activeUI.Item1);
-
 			}
 		}
 
