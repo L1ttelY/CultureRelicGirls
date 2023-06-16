@@ -52,5 +52,5 @@ public struct CharacterLevelData {
 	public int hpMax;
 	public int power;
 
-	public CharacterData parent;
+	[HideInInspector]public CharacterData parent;
 }
