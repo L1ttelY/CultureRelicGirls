@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 441911419, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
   - {fileID: -41355496, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
   - {fileID: -1135093071, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
+  moneyDrop: 0
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 5
@@ -192,6 +193,22 @@ MonoBehaviour:
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 1
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 2
+      <weight>k__BackingField: 1
+  - <minDistance>k__BackingField: 1
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 2
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 1
     <maxDistance>k__BackingField: 10

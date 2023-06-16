@@ -136,8 +136,8 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 20
-  wakeUpDistanceBack: 20
+  wakeUpDistanceFront: 10
+  wakeUpDistanceBack: 10
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   - {fileID: 1172211433, guid: 5c7c1b22559033c4aac31f6d859ed825, type: 3}
   - {fileID: 1242182443, guid: 5c7c1b22559033c4aac31f6d859ed825, type: 3}
   - {fileID: -1552612865, guid: 5c7c1b22559033c4aac31f6d859ed825, type: 3}
+  moneyDrop: 0
   attackChance: 2
   attacks:
   - <minDistance>k__BackingField: 0
