@@ -10,10 +10,10 @@ namespace PlayerData {
 
 		public StationUnlockData(string name,DataBase parent) : base(name,parent) {
 
-			foreach(var i in children) Debug.Log(i.Key);
+			StationData.ClearInstances();
+			var ab=FileManager.LoadSAAB("stationdata.ab"); ab.LoadAllAssets();
 
 			foreach(var i in StationData.instances) {
-				Debug.Log($"{i.name} , {i.regionName} , {i.stationName}");
 				DataBool data = new DataBool(i.name,this);
 				unlockedStatus.Add(i,data);
 

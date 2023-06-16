@@ -12,12 +12,15 @@ namespace VehicleScene {
 
 		private void Start() {
 			elements=GetComponentsInChildren<ListElementController>();
-			var currentCharacter = CharacterData.datas.GetEnumerator();
-			for(int i = 0;i<elements.Length;i++) {
-				bool end = !currentCharacter.MoveNext();
-				elements[i].Init(i,end ? null : currentCharacter.Current.Value);
+			List<CharacterData> characters = new List<CharacterData>();
+			foreach(var i in CharacterData.datas) {
+				if(PlayerData.CharacterDataRoot.instance.characters[i.Value].level.value==0) continue;
+				characters.Add(i.Value);
 			}
-			
+			for(int i = 0;i<elements.Length;i++) {
+				elements[i].Init(i,(i>=characters.Count) ? null : characters[i]);
+			}
+
 		}
 
 	}

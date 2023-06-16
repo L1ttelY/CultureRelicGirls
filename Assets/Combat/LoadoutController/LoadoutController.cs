@@ -5,9 +5,9 @@ using PlayerData;
 
 public static class LoadoutController {
 
-	static DataString[] teamMembers = new DataString[3];
-	static DataString[] hotBar = new DataString[5];
-	static DataBase loadoutRoot;
+	public static DataString[] teamMembers = new DataString[3];
+	public static DataString[] hotBar = new DataString[5];
+	public static DataBase loadoutRoot;
 
 	public static CharacterData GetTeamMember(int index) {
 		if(!CharacterData.datas.ContainsKey(teamMembers[index].value)) return null;

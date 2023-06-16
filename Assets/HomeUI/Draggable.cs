@@ -8,7 +8,7 @@ namespace Home {
 	public class Draggable:MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
 		public object content;
-		public Sprite sprite;
+		[HideInInspector]public Sprite sprite;
 
 		public static Draggable dragged{ get; private set; }
 

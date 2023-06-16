@@ -200,7 +200,10 @@ namespace Combat {
 			if(sender==null) return;
 
 			transform.parent=sender.transform;
-			transform.position=new Vector3(CombatController.startX,sender.transform.position.y);
+			Transform startObject = sender.transform.Find(CombatController.startObject);
+			float startpos = 0;
+			if(startObject) startpos=startObject.transform.position.x;
+			transform.position=new Vector3(startpos,sender.transform.position.y);
 			room=sender;
 
 			Debug.Log(room.gameObject.name);
