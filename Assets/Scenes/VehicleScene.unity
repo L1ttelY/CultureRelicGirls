@@ -2247,6 +2247,7 @@ GameObject:
   - component: {fileID: 464194965}
   - component: {fileID: 464194964}
   - component: {fileID: 464194968}
+  - component: {fileID: 464194969}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2283,15 +2284,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 64
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_ReferenceResolution: {x: 1080, y: 2340}
+  m_ScreenMatchMode: 1
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
+  m_FallbackScreenDPI: 64
+  m_DefaultSpriteDPI: 64
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
 --- !u!223 &464194966
@@ -2353,6 +2354,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultUIInstance: {fileID: 1803518711}
+--- !u!114 &464194969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464194963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d780ba209bdb7c149be85faf2c768897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &490192981
 GameObject:
   m_ObjectHideFlags: 0
