@@ -24,6 +24,8 @@ namespace Combat {
 		[Tooltip("尸体动画")]
 		[SerializeField] Sprite[] corpseAnimation;
 
+		[Tooltip("死亡时掉落意识晶体的量")]
+		[SerializeField] int moneyDrop;
 
 		#region 攻击目标
 
@@ -354,6 +356,9 @@ namespace Combat {
 				CombatController.instance.rewardSm+=sentienceMatterReward;
 				Destroy(gameObject);
 			}
+
+			PlayerData.PlayerDataRoot.smCount+=moneyDrop;
+
 		}
 
 	}

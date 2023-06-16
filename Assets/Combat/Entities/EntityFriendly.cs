@@ -252,7 +252,7 @@ namespace Combat {
 
 			if(!previousEntity) {
 				targetVelocity=buffedSpeed*Player.instance.targetVelocity;
-
+				if(TimelineUtils.shouldStop) targetVelocity=0;
 			} else {
 
 				float targetPosition = previousEntity.transform.position.x;
@@ -376,6 +376,7 @@ namespace Combat {
 			Vector2 position = transform.position; //Œª÷√
 			velocity.y=0;
 			velocity.x=chargeSpeedCurve.Evaluate(timeCharged/chargeTime)*Player.instance.chargeDirection*chargeSpeedMax;
+			if(TimelineUtils.shouldStop) velocity.x=0;
 
 			position.x+=velocity.x*Time.deltaTime;
 			position.y=room.transform.position.y;
@@ -395,6 +396,7 @@ namespace Combat {
 			if(isBlocking) return;
 			if(timeAfterAttack<attackCd) return;
 			if(target==null) return;
+			if(TimelineUtils.shouldStop) return;
 			float dist = Mathf.Abs(target.transform.position.x-transform.position.x);
 			var viableAttacks = attackMethods.FindAll((FriendlyAttackData a) => { return dist<a.maxDistance&&dist>a.minDistance; });
 			if(viableAttacks.Count==0) return;
@@ -411,6 +413,8 @@ namespace Combat {
 		public static DamageModel friendlyLastDamage { get; protected set; }
 
 		public override void Damage(DamageModel e) {
+			if(TimelineUtils.shouldStop) return;
+
 			if(Player.instance.UseParry()) {
 				if(e.damageType!=DamageType.Ranged&&e.dealer)
 					e.dealer.DoKnockback(30,Direction.Reverse(e.direction));
