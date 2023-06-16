@@ -11,10 +11,12 @@ namespace Combat {
 		[Tooltip("是否将有房角色移动到指定位置")]
 		[SerializeField] bool dragPlayer;
 
+		bool _shouldStop;
+
 		[Tooltip("不要在timeline中更改, 开启dragPlayer后玩家会被拉到这个位置")]
 		[SerializeField] GameObject dragPlayerTo;
 
-		public static bool shouldStop => instance ? (instance.stopPlayer||instance.dragPlayer) : false;
+		public static bool shouldStop => instance ? instance._shouldStop : false;
 
 		public static TimelineUtils instance;
 
@@ -34,6 +36,10 @@ namespace Combat {
 					dragTarget[i].transform.position=dragPosition+Vector3.right*i;
 				}
 			}
+
+			_shouldStop=dragPlayer||stopPlayer;
+			dragPlayer=false;
+			stopPlayer=false;
 
 		}
 
