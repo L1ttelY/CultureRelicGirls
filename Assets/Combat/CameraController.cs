@@ -59,8 +59,8 @@ namespace Combat {
 			float fov = Camera.VerticalToHorizontalFieldOfView(camera.fieldOfView,camera.aspect);
 			 cameraRadius = Mathf.Tan(Mathf.Deg2Rad*fov*0.5f)*Mathf.Abs(transform.position.z);
 
-			float minX = EntityFriendly.rightestX-cameraRadius;
-			float maxX = EntityFriendly.leftestX+cameraRadius;
+			float minX = EntityFriendly.rightestX-cameraRadius*0.8f;
+			float maxX = EntityFriendly.leftestX+cameraRadius*0.8f;
 
 
 			SortedDictionary<float,EntityBase> enemiesByDist = new SortedDictionary<float,EntityBase>();
