@@ -27,11 +27,16 @@ namespace Combat {
 
 		private void Update() {
 
+			if(!activated) return;
+
 			timer+=Time.deltaTime;
-			SubtitleElement current = content[index];
-			if(timer>current.delay){
-				timer-=current.delay;
-				SubtitleController.instances[current.targetId].PushSubtitle(current.content);
+			if(index<content.Length) {
+				SubtitleElement current = content[index];
+				if(timer>current.delay) {
+					timer-=current.delay;
+					SubtitleController.instances[current.targetId].PushSubtitle(current.content);
+					index++;
+				}
 			}
 
 		}
