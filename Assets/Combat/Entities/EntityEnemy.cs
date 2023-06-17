@@ -272,12 +272,13 @@ namespace Combat {
 
 		protected override void StateMove() {
 
+			moveTime+=Time.deltaTime;
+			if(moveTime>2) StartMove();
+
 			if(isStationary) {
 				MoveStationary();
 				return;
 			}
-			moveTime+=Time.deltaTime;
-			if(moveTime>2) StartMove();
 
 			Vector2 position = transform.position;
 			float moveTargetX;
@@ -307,6 +308,10 @@ namespace Combat {
 
 		protected virtual void MoveStationary() {
 
+			animator.SetFloat("speed",1);
+			animator.SetFloat("forwardSpeed",1);
+			if(moveTime>0.5f) StartRandomAttack();
+
 		}
 
 		public void ÒÆ¶¯ÊÂ¼þ_EndMove() {
@@ -334,7 +339,7 @@ namespace Combat {
 			float actualKnockback = Mathf.Max(0,knockback-knockbackDefense);
 			poise-=actualKnockback;
 			timeAfterKnockback=0;
-			base.DoKnockback(knockback,direction);
+			base.DoKnockback(knockback-knockbackDefense,direction);
 		}
 
 		protected virtual void StartStagger() {
