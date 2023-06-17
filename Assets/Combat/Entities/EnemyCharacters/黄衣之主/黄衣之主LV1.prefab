@@ -118,13 +118,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <spriteRenderer>k__BackingField: {fileID: 0}
-  <acceleration>k__BackingField: 1
-  <maxSpeed>k__BackingField: 1.5
+  <acceleration>k__BackingField: 2
+  <maxSpeed>k__BackingField: 3
   <attackBasePower>k__BackingField: 12
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 3000
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: d5bfa3a2f4f2ece44a3c590fd4c0d628, type: 3}
+    <projectileVelocityY>k__BackingField: 8
+    <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
+  <maxPredictSpeed>k__BackingField: 3
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 0
@@ -136,8 +140,8 @@ MonoBehaviour:
   cdSpeed: 0
   speedBuff: 0
   <enemyId>k__BackingField: 0
-  wakeUpDistanceFront: 10
-  wakeUpDistanceBack: 10
+  wakeUpDistanceFront: 7
+  wakeUpDistanceBack: 7
   sentienceMatterReward: 0
   startRight: 0
   doingDamage: 0
@@ -153,6 +157,7 @@ MonoBehaviour:
   - {fileID: 66632828, guid: 6f3d6aba689092943aafe2ecef67dfcd, type: 3}
   - {fileID: -1610571098, guid: 6f3d6aba689092943aafe2ecef67dfcd, type: 3}
   - {fileID: -430443666, guid: 6f3d6aba689092943aafe2ecef67dfcd, type: 3}
+  - {fileID: 1190991453, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
   moneyDrop: 0
   attackChance: 1
   attacks:
@@ -164,18 +169,14 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
-      <weight>k__BackingField: 2
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 2
-      <weight>k__BackingField: 3
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 3
-      <weight>k__BackingField: 2
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 4
-      <weight>k__BackingField: 2
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 10
+    <startWeight>k__BackingField: 1
+    id: 0
+    transitionList:
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
     <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 1
@@ -184,29 +185,30 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
+  - <minDistance>k__BackingField: 0
+    <maxDistance>k__BackingField: 10
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
+  - <minDistance>k__BackingField: 0
     <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
-    - <type>k__BackingField: 0
+    - <type>k__BackingField: 1
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 1
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 2
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 3
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
