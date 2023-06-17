@@ -8,7 +8,10 @@ public class EventManager:MonoBehaviour {
 	static EventManager instance;
 
 	void Start() {
-		if(instance) Destroy(this);
+		if(instance) {
+			Destroy(gameObject);
+			return;
+		}
 		instance=this;
 		DontDestroyOnLoad(gameObject);
 	}
