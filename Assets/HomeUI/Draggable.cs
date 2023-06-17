@@ -5,15 +5,21 @@ using UnityEngine.EventSystems;
 
 namespace Home {
 
-	public class Draggable:MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+	public class Draggable:MonoBehaviour, IPointerDownHandler, IPointerMoveHandler, IPointerUpHandler {
 
 		public object content;
-		[HideInInspector]public Sprite sprite;
+		[HideInInspector] public Sprite sprite;
+		public PointerEventData dragData { get; private set; }
 
-		public static Draggable dragged{ get; private set; }
+		public static Draggable dragged { get; private set; }
+
+		private void OnDisable() {
+			if(dragged==this) dragged=null;
+		}
 
 		public void OnPointerDown(PointerEventData eventData) {
 			dragged=this;
+			dragData=eventData;
 		}
 		public void OnPointerUp(PointerEventData eventData) {
 			if(dragged!=this) return;
@@ -21,6 +27,9 @@ namespace Home {
 			dragged=null;
 		}
 
+		public void OnPointerMove(PointerEventData eventData) {
+			dragData=eventData;
+		}
 	}
 
 }
