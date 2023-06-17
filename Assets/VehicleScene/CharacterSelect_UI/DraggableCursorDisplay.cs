@@ -4,15 +4,17 @@ using UnityEngine;
 using Home;
 using UnityEngine.UI;
 
-namespace VehicleScene {
+namespace Home {
 
 	public class DraggableCursorDisplay:MonoBehaviour {
 
 		RectTransform parent;
+		RectTransform rectTransform;
 
 		Draggable prvDragged;
 		Image image;
 		private void Start() {
+			rectTransform=transform as RectTransform;
 			parent=transform.parent as RectTransform;
 			image=GetComponent<Image>();
 		}
@@ -31,9 +33,9 @@ namespace VehicleScene {
 						Camera.main,
 						out localPoint
 					);
-					transform.position=localPoint;
+					rectTransform.anchoredPosition=localPoint;
 				}
-				image.color=Color.white;
+				image.color=image.sprite ? Color.white : Color.clear;
 			} else {
 				image.color=Color.clear;
 			}
