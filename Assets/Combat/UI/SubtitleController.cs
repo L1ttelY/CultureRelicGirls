@@ -7,12 +7,14 @@ namespace Combat {
 
 	public class SubtitleController:MonoBehaviour {
 
-		public static SubtitleController instance;
+		[SerializeField] int id;
+
+		public static Dictionary<int,SubtitleController> instances=new Dictionary<int, SubtitleController>();
 		Text text;
 		float alpha;
 
 		private void Start() {
-			instance=this;
+			instances[id]=this;
 			text=GetComponent<Text>();
 		}
 

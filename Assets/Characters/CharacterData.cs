@@ -28,6 +28,7 @@ public class CharacterData:ScriptableObject {
 	[field: SerializeField] public float healCostPerHp { get; private set; }
 	[field: SerializeField] public float healTimPerHpInSecond { get; private set; }
 	[field: SerializeField] public Sprite sprite { get; private set; } //战斗中的精灵
+	[field: SerializeField] public Sprite portrait { get; private set; }//实物图片
 	[field: SerializeField] public Sprite picture { get; private set; }//实物图片
 
 	public CharacterLevelData[] levels;
@@ -44,11 +45,11 @@ public struct CharacterLevelData {
 	/// 升级消耗的时间
 	/// </summary>
 	public System.TimeSpan levelUpCostTime { get { return new System.TimeSpan(levelUpCostHour,levelUpCostMinute,0); } }
-	public int levelUpCostHour;
-	public int levelUpCostMinute;
-	public System.TimeSpan levelUpTimeTime { get { return new System.TimeSpan(levelUpTimeHour,levelUpTimeMinute,0); } }
-	public int levelUpTimeHour;
-	public int levelUpTimeMinute;
+	[HideInInspector] public int levelUpCostHour;
+	[HideInInspector] public int levelUpCostMinute;
+	[HideInInspector] public System.TimeSpan levelUpTimeTime { get { return new System.TimeSpan(levelUpTimeHour,levelUpTimeMinute,0); } }
+	[HideInInspector] public int levelUpTimeHour;
+	[HideInInspector] public int levelUpTimeMinute;
 
 	public int hpMax;
 	public int power;
