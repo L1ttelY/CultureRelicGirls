@@ -3205,6 +3205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -3992,6 +3994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -4362,6 +4366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -5149,6 +5155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 0}
+  interactMaterial: {fileID: 0}
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -5413,7 +5421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cec6ab206a9d93468700f069c7cd10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
+  "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 0
   "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
   - characterData: {fileID: 11400000, guid: 6ccd088d35116354e85898418221f12c, type: 2}
     use:
@@ -5430,7 +5438,6 @@ MonoBehaviour:
       level: 0
       actionSkillType: 0
     instance: {fileID: 0}
-  "\u7B26\u6587": []
   "\u8D77\u59CB\u623F\u95F4": "\u8F66\u5185\u573A\u666F"
   "\u8D77\u59CB\u4F4D\u7F6E": 0
 --- !u!114 &7294599479676857517
