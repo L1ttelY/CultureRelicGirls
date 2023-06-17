@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4302525056012089162}
   - component: {fileID: 1684290606832352834}
   m_Layer: 0
-  m_Name: "\u673A\u5668\u4EBALV1"
+  m_Name: "\u8774\u8776LV3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3264549902813579658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: e5f1524fa496b8e4cae4cbeb4c2d4a0b, type: 2}
+  m_Controller: {fileID: 22100000, guid: c55f00e51f7645044ac1ed94c5ec242f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -145,61 +145,23 @@ MonoBehaviour:
   targetIndex: 0
   corpseTimePerFrame: 0.1
   corpseAnimation:
-  - {fileID: 1459902797, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -996764365, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 2067694461, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 1513250100, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 1974311248, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 1165666641, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -449613926, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -272093128, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 441911419, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -41355496, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -1135093071, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
+  - {fileID: -1487620264, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  - {fileID: -1029411874, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  - {fileID: 694364771, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  - {fileID: -1149997945, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  - {fileID: 1841870581, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  - {fileID: -221833200, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  - {fileID: 626459935, guid: 7aea8fae02fb7214baedba40e6f0a227, type: 3}
+  moneyDrop: 0
   attackChance: 1
   attacks:
-  - <minDistance>k__BackingField: 5
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
-      <weight>k__BackingField: 2
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 1
     <maxDistance>k__BackingField: 10
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 2
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
