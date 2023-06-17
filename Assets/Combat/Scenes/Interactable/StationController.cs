@@ -16,9 +16,15 @@ namespace Combat {
 
 		[Tooltip("在此输入对应的站台, 会自动将数据写入站台信息")]
 		[SerializeField] StationData stationData;
+		PlayerData.DataBool boundFlag;
+
+		private void Start() {
+			boundFlag=PlayerData.StationUnlockData.instance.unlockedStatus[stationData];
+			//if(boundFlag.value)
+		}
 
 		private void OnValidate() {
-			if (Application.isPlaying) return;
+			if(Application.isPlaying) return;
 			if(stationData==null) return;
 			stationData.SetTarget(gameObject);
 		}
