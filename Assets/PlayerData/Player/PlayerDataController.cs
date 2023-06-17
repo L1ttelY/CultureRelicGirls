@@ -30,7 +30,7 @@ namespace PlayerData {
 
 			SerializedToMemory(serialized);
 
-			SaveGame();
+			//SaveGame();
 
 		}
 

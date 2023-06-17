@@ -57,7 +57,6 @@ namespace Combat {
 		SpriteRenderer spriteRenderer;
 		Material defaultMaterial;
 
-
 		float distanceToCharacter;
 
 		private void Start() {
