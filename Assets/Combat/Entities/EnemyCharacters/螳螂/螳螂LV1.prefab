@@ -122,7 +122,7 @@ MonoBehaviour:
   <maxSpeed>k__BackingField: 1.5
   <attackBasePower>k__BackingField: 12
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 300
+  <maxHp>k__BackingField: 100
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -145,17 +145,16 @@ MonoBehaviour:
   targetIndex: 0
   corpseTimePerFrame: 0.1
   corpseAnimation:
-  - {fileID: 1459902797, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -996764365, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 2067694461, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 1513250100, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 1974311248, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 1165666641, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -449613926, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -272093128, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: 441911419, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -41355496, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  - {fileID: -1135093071, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
+  - {fileID: -733420617, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: -847224814, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: 811238075, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: -1184429410, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: 1609235118, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: 1094270195, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: -647731474, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: -1247246768, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  - {fileID: -1247246768, guid: c7a50a0e0782d994087c33b8d66a9910, type: 3}
+  moneyDrop: 0
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 5
@@ -169,38 +168,6 @@ MonoBehaviour:
     - <type>k__BackingField: 1
       <attackId>k__BackingField: 1
       <weight>k__BackingField: 2
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 2
-      <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
   targetDistanceMax: 6
