@@ -15,13 +15,13 @@ namespace PlayerData {
 
 			foreach(var i in StationData.instances) {
 				DataBool data = new DataBool(i.name,this);
-				unlockedStatus.Add(i,data);
+				unlockedStatus.Add(i.name,data);
 
 			}
 		}
 
 		public static StationUnlockData instance;
-		public Dictionary<StationData,DataBool> unlockedStatus = new Dictionary<StationData,DataBool>();
+		public Dictionary<string,DataBool> unlockedStatus = new Dictionary<string,DataBool>();
 
 		public override void Load(XmlElement serialized) {
 			base.Load(serialized);

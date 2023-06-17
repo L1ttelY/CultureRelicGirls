@@ -9,18 +9,35 @@ namespace Combat {
 
 		public static StationData lastStationVisited;
 
-		public void OnInteract() {
-			lastStationVisited=stationData;
-			SceneManager.LoadScene("VehicleScene");
-		}
-
 		[Tooltip("在此输入对应的站台, 会自动将数据写入站台信息")]
 		[SerializeField] StationData stationData;
 		PlayerData.DataBool boundFlag;
 
+		Animator animator;
+
+		bool animationGoing;
+
+		public void OnInteract() {
+			if(boundFlag.value) {
+				lastStationVisited=stationData;
+				SceneManager.LoadScene("VehicleScene");
+			} else if(!animationGoing) {
+				animator.SetTrigger("start");
+			}
+		}
+
 		private void Start() {
-			boundFlag=PlayerData.StationUnlockData.instance.unlockedStatus[stationData];
-			//if(boundFlag.value)
+			animator=GetComponent<Animator>();
+			boundFlag=PlayerData.StationUnlockData.instance.unlockedStatus[stationData.name];
+		}
+
+		public void OnAnimationFinish() {
+			animationGoing=false;
+			boundFlag.value=true;
+		}
+
+		private void Update() {
+			animator.SetBool("unlocked",boundFlag.value);
 		}
 
 		private void OnValidate() {

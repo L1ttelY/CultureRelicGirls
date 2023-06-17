@@ -16,7 +16,7 @@ public class StationData:CombatEntry, System.IComparable<StationData> {
 	public static readonly HashSet<StationData> instances = new HashSet<StationData>();
 
 	private void OnEnable() {
-		instances.Add(this);
+		instances.Add(this);	
 	}
 
 	public int CompareTo(StationData obj) {
