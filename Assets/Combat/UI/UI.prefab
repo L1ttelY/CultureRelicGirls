@@ -873,7 +873,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u554A\u554A\u554A\u554A\u554A\u554A\u554A\u554A\u554A\u554A"
+  m_Text: 
 --- !u!114 &1853314674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88d17faf986e6d4cb3133fed3a52ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
 --- !u!95 &5324042314724152903
 Animator:
   serializedVersion: 4
@@ -2817,6 +2818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88d17faf986e6d4cb3133fed3a52ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
 --- !u!95 &4132663875027307647
 Animator:
   serializedVersion: 4

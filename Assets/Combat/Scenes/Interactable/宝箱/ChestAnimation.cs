@@ -22,7 +22,7 @@ namespace Combat {
 		public void OnInteract() {
 			if(started) return;
 			started=true;
-			SubtitleController.instance.PushSubtitle(message);
+			SubtitleController.instances[0].PushSubtitle(message);
 		}
 
 		private void Update() {
