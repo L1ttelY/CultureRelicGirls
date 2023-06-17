@@ -20,7 +20,7 @@ namespace Combat {
 		}
 
 		public void OnInteract() {
-			CombatController.StartCombat(roomName,sceneName,startObject);
+			CombatController.StartCombat(sceneName,roomName,startObject);
 		}
 	}
 

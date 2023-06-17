@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1420941, y: 1.5989276}
+  m_Offset: {x: -0.70594573, y: 5.3235054}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5057793, y: 4.147109}
+  m_Size: {x: 4.739673, y: 4.084511}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -149,33 +149,26 @@ MonoBehaviour:
   targetIndex: 0
   corpseTimePerFrame: 0.3
   corpseAnimation:
-  - {fileID: 781538328, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
-  - {fileID: -1427695944, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
-  - {fileID: 2022501862, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
-  - {fileID: -257905905, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
-  - {fileID: 1660192985, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
-  - {fileID: 1162752309, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
-  - {fileID: 439526805, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
   - {fileID: 1190991453, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
   moneyDrop: 0
   attackChance: 2
   attacks:
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 20
+    <maxDistance>k__BackingField: 5
     <startWeight>k__BackingField: 1
     id: 0
     transitionList:
+    - <type>k__BackingField: 1
+      <attackId>k__BackingField: 0
+      <weight>k__BackingField: 1
     - <type>k__BackingField: 1
       <attackId>k__BackingField: 1
       <weight>k__BackingField: 1
     - <type>k__BackingField: 1
       <attackId>k__BackingField: 2
       <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 3
-      <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 5
+    <maxDistance>k__BackingField: 10
     <startWeight>k__BackingField: 3
     id: 0
     transitionList:
@@ -183,10 +176,10 @@ MonoBehaviour:
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
     - <type>k__BackingField: 1
-      <attackId>k__BackingField: 2
+      <attackId>k__BackingField: 1
       <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 3
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   - <minDistance>k__BackingField: 0
     <maxDistance>k__BackingField: 10
@@ -200,26 +193,15 @@ MonoBehaviour:
       <attackId>k__BackingField: 1
       <weight>k__BackingField: 1
     - <type>k__BackingField: 1
-      <attackId>k__BackingField: 3
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 0
-    <maxDistance>k__BackingField: 20
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 1
-      <weight>k__BackingField: 1
-    - <type>k__BackingField: 1
       <attackId>k__BackingField: 2
+      <weight>k__BackingField: 1
+    - <type>k__BackingField: 0
+      <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
   targetDistanceMax: 0
-  knockbackDefense: 20
+  knockbackDefense: 1
   poiseMax: 20
   poiseRegen: 0.1
   poiseRegenDelay: 2

@@ -27,6 +27,8 @@ namespace Combat {
 		[Tooltip("死亡时掉落意识晶体的量")]
 		[SerializeField] int moneyDrop;
 
+		bool isStationary => maxSpeed==0;
+
 		#region 攻击目标
 
 		protected override void UpdateTarget() {
@@ -273,6 +275,11 @@ namespace Combat {
 			moveTime+=Time.deltaTime;
 			if(moveTime>2) StartMove();
 
+			if(isStationary) {
+				MoveStationary();
+				return;
+			}
+
 			Vector2 position = transform.position;
 			float moveTargetX;
 			if(targetX>position.x) {
@@ -296,6 +303,14 @@ namespace Combat {
 				//结束移动
 				StartRandomAttack();
 			}
+
+		}
+
+		protected virtual void MoveStationary() {
+
+			animator.SetFloat("speed",1);
+			animator.SetFloat("forwardSpeed",1);
+			if(moveTime>0.5f) StartRandomAttack();
 
 		}
 
@@ -324,7 +339,7 @@ namespace Combat {
 			float actualKnockback = Mathf.Max(0,knockback-knockbackDefense);
 			poise-=actualKnockback;
 			timeAfterKnockback=0;
-			base.DoKnockback(knockback,direction);
+			base.DoKnockback(knockback-knockbackDefense,direction);
 		}
 
 		protected virtual void StartStagger() {
