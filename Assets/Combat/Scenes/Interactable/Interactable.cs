@@ -41,6 +41,7 @@ namespace Combat {
 		}
 		private static void EventManager_staticUpdate() {
 			if(instances.Count==0) return;
+			if(!interactDisplayObject) return;
 			currentTarget=GetTarget();
 			if(currentTarget) interactDisplayObject.transform.position=currentTarget.transform.position+Vector3.up*2;
 			interactDisplayObject.SetActive(currentTarget);

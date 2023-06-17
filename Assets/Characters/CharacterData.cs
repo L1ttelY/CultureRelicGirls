@@ -14,6 +14,7 @@ public class CharacterData:ScriptableObject {
 
 	public static Dictionary<string,CharacterData> datas = new Dictionary<string,CharacterData>();
 	private void OnEnable() {
+		if(datas.ContainsKey(name)) return;
 		datas.Add(name,this);
 		for(int i = 0;i<levels.Length;i++) levels[i].parent=this;
 	}
@@ -52,5 +53,5 @@ public struct CharacterLevelData {
 	public int hpMax;
 	public int power;
 
-	[HideInInspector]public CharacterData parent;
+	[HideInInspector] public CharacterData parent;
 }
