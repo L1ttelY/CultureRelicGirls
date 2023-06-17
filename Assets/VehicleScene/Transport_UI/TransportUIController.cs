@@ -20,7 +20,7 @@ namespace VehicleScene {
 
 			List<StationData> activeStations = new List<StationData>();
 			foreach(var i in StationData.instances)
-				if(PlayerData.StationUnlockData.instance.unlockedStatus[i].value)
+				if(PlayerData.StationUnlockData.instance.unlockedStatus[i.name].value)
 					activeStations.Add(i);
 
 			activeStations.Sort();
