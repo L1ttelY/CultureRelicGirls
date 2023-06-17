@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264549902813579658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.252073, y: 0.265, z: 0}
+  m_LocalPosition: {x: 4.252073, y: 0.213, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09115124, y: 0.40044433}
+  m_Offset: {x: 0.62695646, y: 0.40044433}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1280842, y: 1.2481884}
+  m_Size: {x: 1.4834366, y: 1.2481884}
   m_EdgeRadius: 0
 --- !u!50 &6373357119963359557
 Rigidbody2D:
@@ -123,8 +123,12 @@ MonoBehaviour:
   <attackBasePower>k__BackingField: 12
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 300
-  <attacks>k__BackingField: []
-  <maxPredictSpeed>k__BackingField: 0
+  <attacks>k__BackingField:
+  - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 97313139ea7d2b648a4486313e04931d, type: 3}
+    <projectileVelocityY>k__BackingField: 7
+    <manaGain>k__BackingField: 0
+    <sound>k__BackingField: {fileID: 0}
+  <maxPredictSpeed>k__BackingField: 1
   <damageVfx>k__BackingField:
   - {fileID: 1763441829856274810, guid: 1a286edd05e1cd1468e6a3cf8cbd4cef, type: 3}
   <isFriendly>k__BackingField: 0
@@ -158,6 +162,7 @@ MonoBehaviour:
   - {fileID: 590168937, guid: 9552115e149a42049a47bdae36d2ec3f, type: 3}
   - {fileID: -1322010385, guid: 9552115e149a42049a47bdae36d2ec3f, type: 3}
   - {fileID: -1848957076, guid: 9552115e149a42049a47bdae36d2ec3f, type: 3}
+  - {fileID: 1190991453, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
   moneyDrop: 0
   attackChance: 1
   attacks:
@@ -187,22 +192,6 @@ MonoBehaviour:
     transitionList:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 5
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 0
-      <attackId>k__BackingField: 0
-      <weight>k__BackingField: 1
-  - <minDistance>k__BackingField: 1
-    <maxDistance>k__BackingField: 10
-    <startWeight>k__BackingField: 1
-    id: 0
-    transitionList:
-    - <type>k__BackingField: 1
-      <attackId>k__BackingField: 2
       <weight>k__BackingField: 1
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
@@ -430,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.089
+      value: 0.607
       objectReference: {fileID: 0}
     - target: {fileID: 9215415058889101140, guid: 1755083c2ead50f4d868fcfb2c6189fc, type: 3}
       propertyPath: m_AnchoredPosition.y
