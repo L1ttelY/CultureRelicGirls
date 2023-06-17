@@ -27,6 +27,8 @@ namespace Combat {
 		[Tooltip("死亡时掉落意识晶体的量")]
 		[SerializeField] int moneyDrop;
 
+		bool isStationary => maxSpeed==0;
+
 		#region 攻击目标
 
 		protected override void UpdateTarget() {
@@ -270,6 +272,10 @@ namespace Combat {
 
 		protected override void StateMove() {
 
+			if(isStationary) {
+				MoveStationary();
+				return;
+			}
 			moveTime+=Time.deltaTime;
 			if(moveTime>2) StartMove();
 
@@ -296,6 +302,10 @@ namespace Combat {
 				//结束移动
 				StartRandomAttack();
 			}
+
+		}
+
+		protected virtual void MoveStationary() {
 
 		}
 

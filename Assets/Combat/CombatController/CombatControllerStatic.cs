@@ -47,7 +47,7 @@ namespace Combat {
 		}
 
 		public static void StartCombat(CombatEntry entry) {
-			StartCombat(entry.roomName,entry.sceneName,entry.startObjectName);
+			StartCombat(entry.sceneName,entry.roomName,entry.startObjectName);
 		}
 
 		public static CombatController instance { get; private set; }
