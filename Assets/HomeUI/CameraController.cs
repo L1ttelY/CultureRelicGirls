@@ -82,7 +82,9 @@ namespace Home {
 		bool draggingMouse;
 		Vector2 originalPositionMouse;
 		void UpdateDesktopCamera() {
-			Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+			//Vector2 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+			float scale = (camera.ScreenToWorldPoint(Vector3.zero)-camera.ScreenToWorldPoint(Vector3.one)).x;
+			Vector2 mousePosition = -Input.mousePosition*scale;
 			//drag	
 
 			if(!Input.GetMouseButton(0)) {
@@ -101,6 +103,7 @@ namespace Home {
 					originalPositionMouse=mousePosition;
 				} else {
 					cameraPosition-=mousePosition-originalPositionMouse;
+					originalPositionMouse=mousePosition;
 				}
 
 			}
@@ -188,6 +191,8 @@ namespace Home {
 		}
 
 		float SoftConstrain(float current,float min,float max,float deltaMultiplier) {
+
+
 
 			if(current<min) {
 				float delta = (min-current)*deltaMultiplier;
