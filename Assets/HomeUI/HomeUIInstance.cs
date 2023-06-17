@@ -17,10 +17,10 @@ namespace Home {
 		}
 
 		public virtual void OnActivate(object workingData) {
-
+			onActivate?.Invoke(workingData);	
 		}
 
-		UnityEvent<object> onActivate;
+		[SerializeField] UnityEvent<object> onActivate;
 
 	}
 

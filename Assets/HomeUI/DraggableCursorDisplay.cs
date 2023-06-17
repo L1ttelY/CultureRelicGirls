@@ -19,6 +19,8 @@ namespace Home {
 			image=GetComponent<Image>();
 		}
 
+		Vector3 startPos;
+
 		private void Update() {
 
 			if(Draggable.dragged) {
@@ -35,7 +37,12 @@ namespace Home {
 					);
 					rectTransform.anchoredPosition=localPoint;
 				}
+
+				if(!prvDragged) startPos=transform.position;
+				if(Vector3.Distance(startPos,transform.position)<0.005f) image.sprite=null;
+
 				image.color=image.sprite ? Color.white : Color.clear;
+
 			} else {
 				image.color=Color.clear;
 			}

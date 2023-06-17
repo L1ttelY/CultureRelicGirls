@@ -7,9 +7,10 @@ using Home;
 
 namespace VehicleScene {
 
-	public class ListElementController:MonoBehaviour {
+	public class ListElementController:MonoBehaviour, IPointerClickHandler {
 
 		[SerializeField] Image avatarImage;
+		[SerializeField] HomeUIInstance displayUI;
 
 		Draggable draggable;
 
@@ -37,6 +38,10 @@ namespace VehicleScene {
 				draggable.sprite=boundCharacter.sprite;
 		}
 
+		public void OnPointerClick(PointerEventData eventData) {
+			if(boundCharacter==null) return;
+			HomeUIStackManager.instance.PushUI((displayUI,boundCharacter));
+		}
 	}
 
 }

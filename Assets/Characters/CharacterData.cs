@@ -20,8 +20,10 @@ public class CharacterData:ScriptableObject {
 	}
 
 	[field: TextArea] [field: SerializeField] public string descriptionShort { get; private set; } //在选择人物后升级界面所展示的介绍
+	[field: TextArea] [field: SerializeField] public string skillName { get; private set; } //角色的技能介绍
 	[field: TextArea] [field: SerializeField] public string skillDescription { get; private set; } //角色的技能介绍
 	[field: TextArea] [field: SerializeField] public string fullDescription { get; private set; }  //角色的背景介绍
+	[field: TextArea] [field: SerializeField] public string className { get; private set; }  //角色的职业名
 
 	[field: SerializeField] public int maxLevel { get; private set; }
 	[field: SerializeField] public GameObject combatPrefab { get; private set; }
@@ -41,10 +43,13 @@ public struct CharacterLevelData {
 	/// 升级消耗意识物质的量
 	/// </summary>
 	public int levelUpCost;
+
 	/// <summary>
 	/// 升级消耗的时间
 	/// </summary>
 	public System.TimeSpan levelUpCostTime { get { return new System.TimeSpan(levelUpCostHour,levelUpCostMinute,0); } }
+
+
 	[HideInInspector] public int levelUpCostHour;
 	[HideInInspector] public int levelUpCostMinute;
 	[HideInInspector] public System.TimeSpan levelUpTimeTime { get { return new System.TimeSpan(levelUpTimeHour,levelUpTimeMinute,0); } }
@@ -53,6 +58,6 @@ public struct CharacterLevelData {
 
 	public int hpMax;
 	public int power;
-
-	[HideInInspector] public CharacterData parent;
+	public string skillDetail;
+	public CharacterData parent;
 }
