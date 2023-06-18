@@ -31,6 +31,8 @@ namespace Combat {
 			if(!是否启用重载功能) return;
 			if(!doWork) return;
 
+			if(CombatController.startRoom.Length==0) CombatController.startRoom=起始房间;
+
 			PlayerData.PlayerDataController.Init();
 			if((!是否启用超级重载功能)&&(LoadoutController.loadoutRoot!=null)) {
 				foreach(var i in LoadoutController.teamMembers)

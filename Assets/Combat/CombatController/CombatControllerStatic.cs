@@ -23,8 +23,8 @@ namespace Combat {
 
 	public partial class CombatController:MonoBehaviour {
 
-		public static string startRoom;
-		public static string sceneName;
+		public static string startRoom = "";
+		public static string sceneName = "";
 		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
 		public static int levelId { get; private set; }
 		public static CharmData[] charmDatas = new CharmData[0];
