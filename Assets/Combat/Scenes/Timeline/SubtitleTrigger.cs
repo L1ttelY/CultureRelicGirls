@@ -25,6 +25,13 @@ namespace Combat {
 			activated=true;
 		}
 
+		public void OnInteract()
+        {
+			if (activated) return;
+			activated = true;
+
+		}
+
 		private void Update() {
 
 			if(!activated) return;
