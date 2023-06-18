@@ -32,6 +32,7 @@ namespace Combat {
 			started=true;
 			SubtitleController.instances[0].PushSubtitle(message);
 			PlayerData.Flags.instance.SetFlag(flagName);
+			interactable.enabled=false;
 		}
 
 		private void Update() {
