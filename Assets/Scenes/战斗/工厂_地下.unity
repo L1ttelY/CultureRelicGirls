@@ -6475,6 +6475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -10193,6 +10194,11 @@ PrefabInstance:
 --- !u!4 &167148376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3264549902813579657, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
+  m_PrefabInstance: {fileID: 167148375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &167148377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264549902813579658, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
   m_PrefabInstance: {fileID: 167148375}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &168082996
@@ -25766,6 +25772,7 @@ GameObject:
   - component: {fileID: 409250693}
   - component: {fileID: 409250692}
   - component: {fileID: 409250691}
+  - component: {fileID: 409250695}
   m_Layer: 0
   m_Name: "\u7535\u68AF\u95F4To\u5378\u8D27\u53E3\u901A\u9053\uFF08\u73BB\u7483\u5411\uFF09"
   m_TagString: Untagged
@@ -25798,6 +25805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -25806,6 +25814,18 @@ MonoBehaviour:
       - m_Target: {fileID: 409250691}
         m_TargetAssemblyTypeName: Combat.Pathway, Assembly-CSharp
         m_MethodName: GoThrough
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 409250695}
+        m_TargetAssemblyTypeName: Combat.FlagSetter, Assembly-CSharp
+        m_MethodName: SetFlag
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25882,6 +25902,20 @@ Transform:
   m_Father: {fileID: 1821791666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &409250695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409250690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e5629f3be1d574582fc81266ddcada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagName: "\u5173\u95ED\u9001\u6B7B"
+  autoNameFrom: {fileID: 0}
 --- !u!1 &412193364
 GameObject:
   m_ObjectHideFlags: 0
@@ -32709,6 +32743,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3264549902813579657, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
   m_PrefabInstance: {fileID: 537289049}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &537289051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264549902813579658, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
+  m_PrefabInstance: {fileID: 537289049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &542514314
 GameObject:
   m_ObjectHideFlags: 0
@@ -35575,6 +35614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -36523,6 +36563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -37812,6 +37853,7 @@ GameObject:
   - component: {fileID: 648475764}
   - component: {fileID: 648475763}
   - component: {fileID: 648475762}
+  - component: {fileID: 648475766}
   m_Layer: 0
   m_Name: "\u5668\u68B0\u91CD\u5730To\u5730\u4E0B\u8F66\u5E93\u505C\u8F66\u623F"
   m_TagString: Untagged
@@ -37844,6 +37886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -37928,6 +37971,22 @@ Transform:
   m_Father: {fileID: 860046564}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648475766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648475761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec6553c542d2684c8a781bca41143cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMobs:
+  - {fileID: 537289051}
+  - {fileID: 167148377}
+  target: {fileID: 648475763}
 --- !u!1 &649260355
 GameObject:
   m_ObjectHideFlags: 0
@@ -54335,6 +54394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -75647,6 +75707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -120412,6 +120473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 0}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -125983,7 +126045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
   "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
-  - characterData: {fileID: 11400000, guid: 6ccd088d35116354e85898418221f12c, type: 2}
+  - characterData: {fileID: 11400000, guid: cd55ded6e87c55240b0e1c482e965ce1, type: 2}
     use:
       level: 0
       actionSkillType: 0
@@ -125998,7 +126060,7 @@ MonoBehaviour:
       level: 0
       actionSkillType: 0
     instance: {fileID: 0}
-  "\u8D77\u59CB\u623F\u95F4": "\u5668\u68B0\u91CD\u5730"
+  "\u8D77\u59CB\u623F\u95F4": "\u7535\u68AF\u95F4"
   "\u8D77\u59CB\u4F4D\u7F6E": 0
 --- !u!114 &7294599479676857517
 MonoBehaviour:
@@ -126019,6 +126081,9 @@ MonoBehaviour:
   rewardPm: 0
   soundVictory: {fileID: 8300000, guid: 039cd614f83dac047a58c9e5641d3c55, type: 3}
   soundFail: {fileID: 8300000, guid: ea794964c18f28941b1bf54c520827e6, type: 3}
+  onEnd:
+    m_PersistentCalls:
+      m_Calls: []
   forceEnd: 0
 --- !u!1 &7294599480229477700
 GameObject:
@@ -126154,7 +126219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -27.250122
+      value: -27.25
       objectReference: {fileID: 0}
     - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.y
