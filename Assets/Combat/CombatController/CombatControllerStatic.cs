@@ -32,7 +32,6 @@ namespace Combat {
 
 		public static void StartCombat(string sceneName,string startRoom,string startObject = "") {
 
-
 			CombatController.startRoom=startRoom;
 			CombatController.sceneName=sceneName;
 			CombatController.startObject=startObject;

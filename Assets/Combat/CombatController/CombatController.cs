@@ -25,6 +25,9 @@ namespace Combat {
 				}
 			}
 
+			CombatControllerEditorDebugger debugger = GetComponent<CombatControllerEditorDebugger>();
+			if(debugger) debugger.TryWork();
+
 			LoadAllFriendlies();
 
 			activeCharms=new CharmBase[charmDatas.Length];
