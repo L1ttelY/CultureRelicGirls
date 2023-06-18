@@ -10,8 +10,14 @@ namespace VehicleScene {
 
 		[SerializeField] Text uiNameText;
 		[SerializeField] GameObject returnButton;
-		
-		public void OnReturnClick(){
+
+		public bool stopPop;
+		public static event EventHandler OnReturn;
+
+		public void OnReturnClick() {
+			stopPop=false;
+			OnReturn?.Invoke(this);
+			if(stopPop) return;
 			HomeUIStackManager.instance.TryPopUI();
 		}
 
