@@ -32,6 +32,8 @@ namespace PlayerData {
 
 			campaignProgression=new DataInt("campaignProgression",this);
 
+			new Flags("flags",this);
+
 			OnRootCreation?.Invoke(this);
 
 		}

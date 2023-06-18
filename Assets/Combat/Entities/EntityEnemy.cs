@@ -6,6 +6,8 @@ namespace Combat {
 
 	public class EntityEnemy:EntityBase {
 
+		public static HashSet<string> deadList;
+
 		[field: SerializeField] public int enemyId { get; private set; }
 		[SerializeField] protected float wakeUpDistanceFront;
 		[SerializeField] protected float wakeUpDistanceBack;
@@ -186,6 +188,9 @@ namespace Combat {
 		protected override float distanceToTarget => Mathf.Abs(transform.position.x-targetX);
 
 		protected override void Start() {
+
+			if(Time.timeSinceLevelLoad<0.1f) gameObject.AddComponent<DestroyStatusRecord>();
+
 			base.Start();
 			direction=startRight ? Direction.right : Direction.left;
 			StartInactive();
@@ -365,14 +370,13 @@ namespace Combat {
 		protected float groundY;
 		protected override void OnDeath() {
 			base.OnDeath();
+			PlayerData.PlayerDataRoot.smCount+=moneyDrop;
 			if(corpseAnimation!=null&&corpseAnimation.Length!=0) {
 				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseAnimation,transform.position,corpseTimePerFrame,direction,groundY);
 				newCorpse.gameObject.transform.parent=room.transform;
 				CombatController.instance.rewardSm+=sentienceMatterReward;
 				Destroy(gameObject);
 			}
-
-			PlayerData.PlayerDataRoot.smCount+=moneyDrop;
 
 		}
 

@@ -7,7 +7,7 @@ namespace Combat {
 
 		public AudioClip[] walkSounds;
 
-		CharmBase[] activeCharms;
+		CharmBase[] activeCharms = new CharmBase[0];
 
 		private void Start() {
 			if(instance) Debug.LogError("Duplicate");

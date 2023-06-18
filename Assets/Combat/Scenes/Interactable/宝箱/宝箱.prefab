@@ -112,6 +112,7 @@ MonoBehaviour:
   - {fileID: -2055316083, guid: 528fc80723f219845afce26dfd329d36, type: 3}
   timePerFrame: 0.1
   message: "<\u5305\u53A2\u6253\u5F00\u65F6\u7684\u4FE1\u606Ff>"
+  flagName: 
 --- !u!114 &5503981827137598098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
+  interactMaterial: {fileID: 2100000, guid: 50a894fd42e0a474aa99b858966614da, type: 2}
   onInteract:
     m_PersistentCalls:
       m_Calls:
