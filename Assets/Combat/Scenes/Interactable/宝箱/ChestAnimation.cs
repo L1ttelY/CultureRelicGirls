@@ -8,8 +8,10 @@ namespace Combat {
 		[SerializeField] Sprite[] spriteSequence;
 		[SerializeField] float timePerFrame;
 		[SerializeField] string message;
+		[SerializeField] string flagName;
 
 		SpriteRenderer spriteRenderer;
+		Interactable interactable;
 
 		int imageIndex;
 		bool started;
@@ -17,12 +19,19 @@ namespace Combat {
 
 		private void Start() {
 			spriteRenderer=GetComponent<SpriteRenderer>();
+			if(flagName.Length==0) flagName=Utility.GenerateNameFromGameObject(gameObject);
+			interactable=GetComponent<Interactable>();
+			if(PlayerData.Flags.instance.HasFlag(flagName)) {
+				interactable.enabled=false;
+				spriteRenderer.sprite=spriteSequence[spriteSequence.Length-1];
+			}
 		}
 
 		public void OnInteract() {
 			if(started) return;
 			started=true;
 			SubtitleController.instances[0].PushSubtitle(message);
+			PlayerData.Flags.instance.SetFlag(flagName);
 		}
 
 		private void Update() {
@@ -36,6 +45,8 @@ namespace Combat {
 			spriteRenderer.sprite=spriteSequence[imageIndex];
 
 		}
+
+
 	}
 
 }

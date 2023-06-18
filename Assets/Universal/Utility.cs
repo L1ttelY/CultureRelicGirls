@@ -14,6 +14,17 @@ public struct LoadTextEventArgs {
 
 public static class Utility {
 
+	public static string GenerateNameFromGameObject(GameObject from) {
+		System.Text.StringBuilder result = new System.Text.StringBuilder();
+		for(Transform i = from.transform;i;i=i.parent) {
+			result.Append(" -- ");
+			result.Append(i.gameObject.name);
+		}
+		result.Append(" -- ");
+		result.Append(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+		return result.ToString();
+	}
+
 	public static Rect GetWorldRect(this RectTransform rectTransform) {
 		Vector3[] corners = new Vector3[4];
 		rectTransform.GetWorldCorners(corners);
