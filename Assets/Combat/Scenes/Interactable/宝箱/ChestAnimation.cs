@@ -7,7 +7,7 @@ namespace Combat {
 
 		[SerializeField] Sprite[] spriteSequence;
 		[SerializeField] float timePerFrame;
-		[SerializeField] string message;
+		[TextArea][SerializeField] string message;
 		[SerializeField] string flagName;
 
 		SpriteRenderer spriteRenderer;
