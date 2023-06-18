@@ -15,6 +15,7 @@ namespace VehicleScene {
 		public static event EventHandler OnReturn;
 
 		private void Start() {
+			Combat.EntityFriendly.RecoverAllHp();
 			Combat.DestroyStatusRecord.ReviveAllDestroyedObjects();
 		}
 

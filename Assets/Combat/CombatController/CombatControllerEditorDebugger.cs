@@ -16,6 +16,7 @@ namespace Combat {
 		}
 
 		[SerializeField] bool 是否启用重载功能;
+		[SerializeField] bool 是否启用超级重载功能;
 
 		[SerializeField] CharacterParameters[] 友方角色信息 = new CharacterParameters[3];
 
@@ -29,7 +30,8 @@ namespace Combat {
 #if UNITY_EDITOR
 			if(!是否启用重载功能) return;
 			if(!doWork) return;
-			if(LoadoutController.loadoutRoot!=null) {
+
+			if(!是否启用超级重载功能&&LoadoutController.loadoutRoot!=null) {
 				foreach(var i in LoadoutController.teamMembers)
 					if(i.value.Length!=0) return;
 			}

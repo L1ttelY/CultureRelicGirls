@@ -16,7 +16,7 @@ namespace PlayerData {
 		}
 
 		public virtual void Load(XmlElement serialized) {
-			if(serialized==null){
+			if(serialized==null) {
 				foreach(var child in children) child.Value.Load(null);
 				return;
 			}
@@ -28,7 +28,7 @@ namespace PlayerData {
 				foreach(var child in children) {
 
 					if(serializedChild.Name==child.Key) {
-						child.Value.Load(serializedChild as XmlElement);	
+						child.Value.Load(serializedChild as XmlElement);
 						loaded[child.Key]=true;
 					}
 				}

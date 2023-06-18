@@ -15,6 +15,16 @@ namespace Combat {
 			if(instance) Debug.LogError("Duplicate");
 			instance=this;
 
+			PlayerData.PlayerDataController.Init();
+			for(int i = 0;i<3;i++) {
+				friendlyList[i]=new CharacterParameters();
+				if(LoadoutController.teamMembers[i].value.Length!=0) {
+					CharacterData targetData = CharacterData.datas[LoadoutController.teamMembers[i].value];
+					friendlyList[i].characterData=targetData;
+					friendlyList[i].use.level=PlayerData.CharacterDataRoot.instance.characters[targetData.name].level.value;
+				}
+			}
+
 			LoadAllFriendlies();
 
 			activeCharms=new CharmBase[charmDatas.Length];

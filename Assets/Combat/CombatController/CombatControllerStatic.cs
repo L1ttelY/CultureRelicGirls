@@ -27,16 +27,11 @@ namespace Combat {
 		public static string sceneName;
 		public static CharacterParameters[] friendlyList = new CharacterParameters[3];
 		public static int levelId { get; private set; }
-		public static CharmData[] charmDatas=new CharmData[0];
-		public static string startObject="";
+		public static CharmData[] charmDatas = new CharmData[0];
+		public static string startObject = "";
 
-		public static void StartCombat(string sceneName,string startRoom,string startObject="") {
+		public static void StartCombat(string sceneName,string startRoom,string startObject = "") {
 
-			for(int i = 0;i<3;i++) {
-				friendlyList[i]=new CharacterParameters();
-				if(LoadoutController.teamMembers[i].value.Length!=0)
-					friendlyList[i].characterData=CharacterData.datas[LoadoutController.teamMembers[i].value];
-			}
 
 			CombatController.startRoom=startRoom;
 			CombatController.sceneName=sceneName;
