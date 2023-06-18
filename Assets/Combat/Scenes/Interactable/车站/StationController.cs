@@ -22,7 +22,7 @@ namespace Combat {
 				lastStationVisited=stationData;
 				SceneManager.LoadScene("VehicleScene");
 			} else if(!animationGoing) {
-				animator?.SetTrigger("start");
+				if(animator) animator.SetTrigger("start");
 			}
 		}
 
@@ -37,7 +37,7 @@ namespace Combat {
 		}
 
 		private void Update() {
-			animator?.SetBool("unlocked",boundFlag.value);
+			if(animator) animator.SetBool("unlocked",boundFlag.value);
 		}
 
 		private void OnValidate() {
