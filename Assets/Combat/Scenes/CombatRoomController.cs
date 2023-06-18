@@ -35,19 +35,39 @@ namespace Combat {
 
 		}
 
+		bool prvActivate=true;
+		Dictionary<GameObject,bool> activateBeforeDeactivate = new Dictionary<GameObject,bool>();
+
 		void Update() {
 
-			for(int i = 0;i<transform.childCount;i++) {
-				GameObject go = transform.GetChild(i).gameObject;
-				EntityEnemy entity = go.GetComponent<EntityEnemy>();
-				if(entity) {
-					entity.gameObject.SetActive(isCurrentRoom);
+			if(prvActivate!=isCurrentRoom) {
 
-				} else if(!go.GetComponent<DoNotDeactivate>()) {
-					go.SetActive(isCurrentRoom);
+				if(isCurrentRoom) {
+					//全部恢复激活状态
+					for(int i = 0;i<transform.childCount;i++) {
+						GameObject go = transform.GetChild(i).gameObject;
+						if(go.GetComponent<DoNotDeactivate>()) continue;
+						if(!activateBeforeDeactivate.ContainsKey(go)) continue;
+						go.SetActive(activateBeforeDeactivate[go]);
+
+					}
+
+				} else {
+					//全部关闭
+					activateBeforeDeactivate.Clear();
+					for(int i = 0;i<transform.childCount;i++) {
+						GameObject go = transform.GetChild(i).gameObject;
+						if(go.GetComponent<DoNotDeactivate>()) continue;
+						activateBeforeDeactivate.Add(go,go.activeSelf);
+						go.SetActive(false);
+					}
+
 				}
 
 			}
+
+			prvActivate=isCurrentRoom;
+
 		}
 
 		private void OnDrawGizmos() {

@@ -311,11 +311,16 @@ namespace Combat {
 
 		}
 
+		Vector3 startPos = new Vector3(-1245123,15123,1254123);
 		protected virtual void MoveStationary() {
+
+			if(startPos==new Vector3(-1245123,15123,1254123)) startPos=transform.position;
 
 			animator.SetFloat("speed",1);
 			animator.SetFloat("forwardSpeed",1);
 			if(moveTime>0.5f) StartRandomAttack();
+
+			if(knockbackDefense>10) transform.position=startPos;
 
 		}
 
