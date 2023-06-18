@@ -33,13 +33,13 @@ MonoBehaviour:
     power: 20
     skillDetail: 
     parent: {fileID: 11400000}
-  - levelUpCost: 80
+  - levelUpCost: 40
     levelUpCostHour: 0
     levelUpCostMinute: 10
     levelUpTimeHour: 0
     levelUpTimeMinute: 20
-    hpMax: 135
-    power: 60
+    hpMax: 140
+    power: 20
     skillDetail: 
     parent: {fileID: 11400000}
   - levelUpCost: 160
@@ -47,8 +47,8 @@ MonoBehaviour:
     levelUpCostMinute: 20
     levelUpTimeHour: 0
     levelUpTimeMinute: 40
-    hpMax: 162
-    power: 32
+    hpMax: 183
+    power: 26
     skillDetail: 
     parent: {fileID: 11400000}
   - levelUpCost: 220
@@ -56,8 +56,8 @@ MonoBehaviour:
     levelUpCostMinute: 35
     levelUpTimeHour: 1
     levelUpTimeMinute: 5
-    hpMax: 202
-    power: 40
+    hpMax: 240
+    power: 34
     skillDetail: 
     parent: {fileID: 11400000}
   - levelUpCost: 300
@@ -65,8 +65,8 @@ MonoBehaviour:
     levelUpCostMinute: 0
     levelUpTimeHour: 1
     levelUpTimeMinute: 40
-    hpMax: 243
-    power: 49
+    hpMax: 314
+    power: 45
     skillDetail: 
     parent: {fileID: 11400000}
   - levelUpCost: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
     levelUpCostMinute: 0
     levelUpTimeHour: 0
     levelUpTimeMinute: 0
-    hpMax: 283
-    power: 57
+    hpMax: 420
+    power: 60
     skillDetail: 
     parent: {fileID: 11400000}
