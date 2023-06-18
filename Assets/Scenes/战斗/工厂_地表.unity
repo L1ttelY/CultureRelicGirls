@@ -19859,7 +19859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143, y: 1.1, z: -4.8}
+  m_LocalPosition: {x: 121, y: 1.1, z: -4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70846,7 +70846,7 @@ GameObject:
   - component: {fileID: 1888537527}
   - component: {fileID: 1888537526}
   m_Layer: 0
-  m_Name: "\u524D\u6709\u4E0B_Trigger "
+  m_Name: "\u534F\u8BAE_Trigger "
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70860,7 +70860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888537524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.3, y: 0.49, z: 0}
+  m_LocalPosition: {x: -25.51, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70881,8 +70881,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content:
   - targetId: 0
-    content: "\u524D\u6709\u4E0B"
+    content: "\u2588 \u534F\u8BAE\u4E00\uFF1A\u4E00\u673A\u5668\u4EBA\u4E0D\u5F97\u4F24\u5BB3\u2588
+      \u4EBA\u7C7B\uFF0C\u6216\u56E0\u4E0D\u4F5C\u4E3A\u4F7F\u25AE\u4EBA\u7C7B\u53D7\u5230\u4F24\u5BB3"
     delay: 0
+  - targetId: 0
+    content: "\u68C0\u5B9A\u901A\u8FC7\u25AE"
+    delay: 3
+  - targetId: 0
+    content: "\u534F\u8BAE\u4E8C\uFF1A\u9664\u975E\u8FDD\u80CC\u2588 \u7B2C\u4E00\u5B9A\u5F8B\uFF0C\u673A\u5668\u4EBA\u5FC5\u987B\u25AE\u670D\u4ECE\u4EBA\u7C7B\u7684\u547D\u4EE4"
+    delay: 3
+  - targetId: 0
+    content: "\u2588 \u68C0\u5B9A\u901A\u8FC7"
+    delay: 3
+  - targetId: 0
+    content: "\u534F\u8BAE\u4E09\uFF1A\u9664\u975E\u25AE\u8FDD\u80CC\u7B2C\u4E00\u53CA\u7B2C\u4E8C\u5B9A\u5F8B\uFF0C\u673A\u5668\u4EBA\u5FC5\u987B\u2588
+      \u4FDD\u62A4\u81EA\u5DF1"
+    delay: 3
+  - targetId: 0
+    content: "\u25AE\u5F00\u59CB\u6267\u884C\u25AE"
+    delay: 3
 --- !u!61 &1888537527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80158,7 +80175,7 @@ MonoBehaviour:
       level: 0
       actionSkillType: 0
     instance: {fileID: 0}
-  "\u8D77\u59CB\u623F\u95F4": "\u98CE\u6D1E\u4E4B\u8DEF2"
+  "\u8D77\u59CB\u623F\u95F4": "\u98CE\u6D1E\u4E4B\u8DEF"
   "\u8D77\u59CB\u4F4D\u7F6E": 0
 --- !u!114 &7294599479676857517
 MonoBehaviour:
