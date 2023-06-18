@@ -28,10 +28,14 @@ namespace PlayerData {
 
 		public Flags(string name,DataBase parent) : base(name,parent) {
 			instance=this;
-			string[] flags = value.Split(" ");
-			foreach(var i in flags) loadedFlags.Add(i);
 		}
 
+		public override void Load(XmlElement serialized) {
+			base.Load(serialized);
+			string[] flags = value.Split(" ");
+			if(flags==null) flags=new string[0];
+			foreach(var i in flags) loadedFlags.Add(i);
+		}
 
 	}
 
