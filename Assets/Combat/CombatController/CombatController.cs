@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Combat {
 	public partial class CombatController:MonoBehaviour {
@@ -54,10 +56,16 @@ namespace Combat {
 		[HideInInspector] public int rewardPm;
 		[SerializeField] AudioClip soundVictory;
 		[SerializeField] AudioClip soundFail;
+		[SerializeField] UnityEvent onEnd;
+		const float gameEndAnimationTime = 2;
 
 		private void FixedUpdate() {
 			UpdateEndGame();
 			foreach(var i in activeCharms) i.Update();
+		}
+
+		private void Update() {
+			if(gameEnd&&Input.GetMouseButtonDown(0)) DoEndGame();
 		}
 
 		public bool forceEnd;
@@ -73,9 +81,24 @@ namespace Combat {
 				return;
 			}
 
-			if(gameEnd) return;
-			if(endStart) endTime+=Time.deltaTime;
+			endStart=true;
+			foreach(var i in EntityFriendly.friendlyList) {
+				if(i) {
+					endStart=false;
+					break;
+				}
+			}
 
+			if(endStart) endTime+=Time.deltaTime;
+			if(endTime>gameEndAnimationTime) {
+				gameEnd=true;
+				//DoEndGame();
+			}
+		}
+
+		void DoEndGame() {
+			PlayerData.PlayerDataController.LoadGame();
+			SceneManager.LoadScene("VehicleScene");
 		}
 
 		const float activateRange = 12;
