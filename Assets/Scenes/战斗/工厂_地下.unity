@@ -10196,6 +10196,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3264549902813579657, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
   m_PrefabInstance: {fileID: 167148375}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &167148377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264549902813579658, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
+  m_PrefabInstance: {fileID: 167148375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &168082996
 GameObject:
   m_ObjectHideFlags: 0
@@ -32738,6 +32743,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3264549902813579657, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
   m_PrefabInstance: {fileID: 537289049}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &537289051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264549902813579658, guid: fbec6538fd5f399499291e7091c9e84e, type: 3}
+  m_PrefabInstance: {fileID: 537289049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &542514314
 GameObject:
   m_ObjectHideFlags: 0
@@ -37843,6 +37853,7 @@ GameObject:
   - component: {fileID: 648475764}
   - component: {fileID: 648475763}
   - component: {fileID: 648475762}
+  - component: {fileID: 648475766}
   m_Layer: 0
   m_Name: "\u5668\u68B0\u91CD\u5730To\u5730\u4E0B\u8F66\u5E93\u505C\u8F66\u623F"
   m_TagString: Untagged
@@ -37960,6 +37971,22 @@ Transform:
   m_Father: {fileID: 860046564}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648475766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648475761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec6553c542d2684c8a781bca41143cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMobs:
+  - {fileID: 537289051}
+  - {fileID: 167148377}
+  target: {fileID: 648475763}
 --- !u!1 &649260355
 GameObject:
   m_ObjectHideFlags: 0
@@ -126054,6 +126081,9 @@ MonoBehaviour:
   rewardPm: 0
   soundVictory: {fileID: 8300000, guid: 039cd614f83dac047a58c9e5641d3c55, type: 3}
   soundFail: {fileID: 8300000, guid: ea794964c18f28941b1bf54c520827e6, type: 3}
+  onEnd:
+    m_PersistentCalls:
+      m_Calls: []
   forceEnd: 0
 --- !u!1 &7294599480229477700
 GameObject:
