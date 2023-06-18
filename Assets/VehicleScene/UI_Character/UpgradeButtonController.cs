@@ -36,6 +36,7 @@ namespace VehicleScene {
 		}
 
 		private void OnEnable() {
+			image=GetComponent<Image>();
 			displayObject.SetActive(true);
 			upgradeObject.SetActive(false);
 			inUpgrade=false;

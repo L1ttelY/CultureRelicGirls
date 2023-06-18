@@ -14,6 +14,10 @@ namespace VehicleScene {
 		public bool stopPop;
 		public static event EventHandler OnReturn;
 
+		private void Start() {
+			Combat.DestroyStatusRecord.ReviveAllDestroyedObjects();
+		}
+
 		public void OnReturnClick() {
 			stopPop=false;
 			OnReturn?.Invoke(this);
