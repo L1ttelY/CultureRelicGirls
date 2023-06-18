@@ -2988,6 +2988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -6261,6 +6262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -9229,6 +9231,11 @@ PrefabInstance:
 --- !u!4 &236732217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3264549902813579657, guid: 4272bc11ff8709446bab41f2988ceb84, type: 3}
+  m_PrefabInstance: {fileID: 236732216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &236732218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264549902813579658, guid: 4272bc11ff8709446bab41f2988ceb84, type: 3}
   m_PrefabInstance: {fileID: 236732216}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &237432423
@@ -18634,6 +18641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -26652,6 +26660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -34946,6 +34955,7 @@ GameObject:
   - component: {fileID: 909714202}
   - component: {fileID: 909714201}
   - component: {fileID: 909714200}
+  - component: {fileID: 909714204}
   m_Layer: 0
   m_Name: "\u89D0\u89C1\u9EC4\u8863To\u94A5\u5319\u623F"
   m_TagString: Untagged
@@ -34978,6 +34988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -35062,6 +35073,21 @@ Transform:
   m_Father: {fileID: 1440060030}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909714204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909714199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec6553c542d2684c8a781bca41143cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMobs:
+  - {fileID: 1880080295}
+  target: {fileID: 909714201}
 --- !u!1 &914749393
 GameObject:
   m_ObjectHideFlags: 0
@@ -38793,6 +38819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -43037,6 +43064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -50038,6 +50066,7 @@ GameObject:
   - component: {fileID: 1332266552}
   - component: {fileID: 1332266551}
   - component: {fileID: 1332266550}
+  - component: {fileID: 1332266553}
   m_Layer: 0
   m_Name: "\u94A5\u5319"
   m_TagString: Untagged
@@ -50074,7 +50103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content:
   - targetId: 0
-    content: 
+    content: "\u5DF2\u83B7\u53D6\u4E09\u7EA7\u6743\u9650"
     delay: 0
 --- !u!114 &1332266551
 MonoBehaviour:
@@ -50102,6 +50131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -50131,6 +50161,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1332266553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332266548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec6553c542d2684c8a781bca41143cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMobs:
+  - {fileID: 236732218}
+  target: {fileID: 1332266552}
 --- !u!1 &1333262702
 GameObject:
   m_ObjectHideFlags: 0
@@ -61780,6 +61825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -70856,6 +70902,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db1ae90f0b5fa0247913d87de2f276fc, type: 3}
+--- !u!1 &1880080295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264549902813579658, guid: db1ae90f0b5fa0247913d87de2f276fc, type: 3}
+  m_PrefabInstance: {fileID: 1880080294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1884372927
 GameObject:
   m_ObjectHideFlags: 0
@@ -71083,6 +71134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b9ddbab00388449dcad7074966680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   interactDisplayPrefab: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
   interactMaterial: {fileID: 0}
   onInteract:
@@ -80737,7 +80789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -27.250366
+      value: -27.250488
       objectReference: {fileID: 0}
     - target: {fileID: 8876111768605370323, guid: 70973a08280d00e44b64301a14c7f493, type: 3}
       propertyPath: m_AnchoredPosition.y
