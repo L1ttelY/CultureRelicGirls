@@ -122,7 +122,7 @@ MonoBehaviour:
   <maxSpeed>k__BackingField: 1.5
   <attackBasePower>k__BackingField: 12
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 100
+  <maxHp>k__BackingField: 200
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -151,7 +151,7 @@ MonoBehaviour:
   - {fileID: -1891071850, guid: 1dc096d33d4383e47b5eb4b47ffbe775, type: 3}
   - {fileID: 2055383953, guid: 1dc096d33d4383e47b5eb4b47ffbe775, type: 3}
   - {fileID: 1902360078, guid: 1dc096d33d4383e47b5eb4b47ffbe775, type: 3}
-  moneyDrop: 0
+  moneyDrop: 20
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 0

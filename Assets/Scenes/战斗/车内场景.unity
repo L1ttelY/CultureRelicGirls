@@ -5623,6 +5623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
+  "\u662F\u5426\u542F\u7528\u8D85\u7EA7\u91CD\u8F7D\u529F\u80FD": 1
   "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
   - characterData: {fileID: 11400000, guid: 6ccd088d35116354e85898418221f12c, type: 2}
     use:
@@ -5660,6 +5661,9 @@ MonoBehaviour:
   rewardPm: 0
   soundVictory: {fileID: 8300000, guid: 039cd614f83dac047a58c9e5641d3c55, type: 3}
   soundFail: {fileID: 8300000, guid: ea794964c18f28941b1bf54c520827e6, type: 3}
+  onEnd:
+    m_PersistentCalls:
+      m_Calls: []
   forceEnd: 0
 --- !u!1 &7294599480229477700
 GameObject:

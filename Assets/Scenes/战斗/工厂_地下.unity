@@ -6826,6 +6826,34 @@ PrefabInstance:
       propertyPath: interactDisplayPrefab
       value: 
       objectReference: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 105191713}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Combat.ChestGrantMoney, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6881,6 +6909,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
   m_PrefabInstance: {fileID: 105191710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &105191712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5503981827137598101, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+  m_PrefabInstance: {fileID: 105191710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &105191713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105191712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f5a44ca551784e9c24fb4eed1cbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smCount: 300
 --- !u!1 &105249698
 GameObject:
   m_ObjectHideFlags: 0
@@ -8483,6 +8529,34 @@ PrefabInstance:
       propertyPath: interactDisplayPrefab
       value: 
       objectReference: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 133849189}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Combat.ChestGrantMoney, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8538,6 +8612,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
   m_PrefabInstance: {fileID: 133849186}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &133849188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5503981827137598101, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+  m_PrefabInstance: {fileID: 133849186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &133849189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133849188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f5a44ca551784e9c24fb4eed1cbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smCount: 200
 --- !u!1 &134145979
 GameObject:
   m_ObjectHideFlags: 0
@@ -73595,6 +73687,34 @@ PrefabInstance:
       propertyPath: interactDisplayPrefab
       value: 
       objectReference: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1268423464}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Combat.ChestGrantMoney, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -73650,6 +73770,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
   m_PrefabInstance: {fileID: 1268423461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1268423463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5503981827137598101, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+  m_PrefabInstance: {fileID: 1268423461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1268423464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268423463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f5a44ca551784e9c24fb4eed1cbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smCount: 300
 --- !u!1 &1273655224
 GameObject:
   m_ObjectHideFlags: 0
@@ -108233,6 +108371,34 @@ PrefabInstance:
       propertyPath: interactDisplayPrefab
       value: 
       objectReference: {fileID: 7684342853582854401, guid: 00e3ec8570984b34e9340eeaac2acd72, type: 3}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1873321614}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Combat.ChestGrantMoney, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503981827137598098, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -108288,6 +108454,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5503981827137598100, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
   m_PrefabInstance: {fileID: 1873321611}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1873321613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5503981827137598101, guid: 31fe3534b198cac4ca8af344699ca81d, type: 3}
+  m_PrefabInstance: {fileID: 1873321611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1873321614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873321613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142f5a44ca551784e9c24fb4eed1cbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smCount: 300
 --- !u!1 &1875349319
 GameObject:
   m_ObjectHideFlags: 0
@@ -126044,20 +126228,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u662F\u5426\u542F\u7528\u91CD\u8F7D\u529F\u80FD": 1
+  "\u662F\u5426\u542F\u7528\u8D85\u7EA7\u91CD\u8F7D\u529F\u80FD": 1
   "\u53CB\u65B9\u89D2\u8272\u4FE1\u606F":
   - characterData: {fileID: 11400000, guid: cd55ded6e87c55240b0e1c482e965ce1, type: 2}
     use:
-      level: 0
+      level: 1
       actionSkillType: 0
     instance: {fileID: 0}
   - characterData: {fileID: 11400000, guid: 3188a99eacae85745908d152070f8c24, type: 2}
     use:
-      level: 0
+      level: 1
       actionSkillType: 1
     instance: {fileID: 0}
   - characterData: {fileID: 11400000, guid: de62234c837898547b9ca7fa356b2ace, type: 2}
     use:
-      level: 0
+      level: 1
       actionSkillType: 0
     instance: {fileID: 0}
   "\u8D77\u59CB\u623F\u95F4": "\u7535\u68AF\u95F4"
