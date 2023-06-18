@@ -10,7 +10,7 @@ namespace Combat {
 		[SerializeField] CharacterData characterToGive;
 
 		public void OnInteract() {
-			var targetData = PlayerData.CharacterDataRoot.instance.characters[characterToGive];
+			var targetData = PlayerData.CharacterDataRoot.instance.characters[characterToGive.name];
 			if(targetData.level.value==0) targetData.level.value=1;
 		}
 

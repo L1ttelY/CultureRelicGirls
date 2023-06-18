@@ -32,7 +32,7 @@ public class CharacterInformationDisplay:MonoBehaviour {
 
 		if(targetCharacter) {
 
-			int currentLevel = PlayerData.CharacterDataRoot.instance.characters[targetCharacter].level.value;
+			int currentLevel = PlayerData.CharacterDataRoot.instance.characters[targetCharacter.name].level.value;
 			CharacterLevelData currentData = targetCharacter.levels[currentLevel];
 
 			Display(textName,targetCharacter.name);
