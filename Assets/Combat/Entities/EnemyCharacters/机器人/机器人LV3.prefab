@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <spriteRenderer>k__BackingField: {fileID: 0}
-  <acceleration>k__BackingField: 1
-  <maxSpeed>k__BackingField: 1.5
+  <acceleration>k__BackingField: 3
+  <maxSpeed>k__BackingField: 5
   <attackBasePower>k__BackingField: 12
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 300
+  <maxHp>k__BackingField: 500
   <attacks>k__BackingField:
   - <projectile>k__BackingField: {fileID: 2774859980595649070, guid: 97313139ea7d2b648a4486313e04931d, type: 3}
     <projectileVelocityY>k__BackingField: 7
@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: -1848957076, guid: 9552115e149a42049a47bdae36d2ec3f, type: 3}
   - {fileID: 1190991453, guid: 6d332378684d8c44183f2b2109cf26dd, type: 3}
   moneyDrop: 0
-  attackChance: 1
+  attackChance: 3
   attacks:
   - <minDistance>k__BackingField: 5
     <maxDistance>k__BackingField: 10
@@ -193,7 +193,7 @@ MonoBehaviour:
     - <type>k__BackingField: 0
       <attackId>k__BackingField: 0
       <weight>k__BackingField: 1
-  "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
+  "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 6
   targetDistanceMin: 0
   targetDistanceMax: 6
   knockbackDefense: 1
