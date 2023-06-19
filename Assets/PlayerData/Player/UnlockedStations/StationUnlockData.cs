@@ -14,8 +14,8 @@ namespace PlayerData {
 			var ab=FileManager.LoadSAAB("stationdata.ab"); ab.LoadAllAssets();
 
 			foreach(var i in StationData.instances) {
-				DataBool data = new DataBool(i.name,this);
-				unlockedStatus.Add(i.name,data);
+				DataBool data = new DataBool(i.Value.name,this);
+				unlockedStatus.Add(i.Value.name,data);
 
 			}
 		}

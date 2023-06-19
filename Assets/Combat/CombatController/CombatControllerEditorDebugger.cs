@@ -16,6 +16,7 @@ namespace Combat {
 		}
 
 		[SerializeField] bool 是否启用重载功能;
+		[SerializeField] bool 是否启用超级重载功能;
 
 		[SerializeField] CharacterParameters[] 友方角色信息 = new CharacterParameters[3];
 
@@ -24,12 +25,16 @@ namespace Combat {
 
 		static bool doWork = true;
 
-		private void Start() {
+		public void TryWork() {
 
 #if UNITY_EDITOR
 			if(!是否启用重载功能) return;
 			if(!doWork) return;
-			if(LoadoutController.loadoutRoot!=null) {
+
+			if(CombatController.startRoom.Length==0) CombatController.startRoom=起始房间;
+
+			PlayerData.PlayerDataController.Init();
+			if((!是否启用超级重载功能)&&(LoadoutController.loadoutRoot!=null)) {
 				foreach(var i in LoadoutController.teamMembers)
 					if(i.value.Length!=0) return;
 			}

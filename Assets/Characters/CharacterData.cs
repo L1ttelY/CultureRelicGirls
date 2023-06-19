@@ -14,9 +14,9 @@ public class CharacterData:ScriptableObject {
 
 	public static Dictionary<string,CharacterData> datas = new Dictionary<string,CharacterData>();
 	private void OnEnable() {
+		for(int i = 0;i<levels.Length;i++) levels[i].parent=this;
 		if(datas.ContainsKey(name)) return;
 		datas.Add(name,this);
-		for(int i = 0;i<levels.Length;i++) levels[i].parent=this;
 	}
 
 	[field: TextArea] [field: SerializeField] public string descriptionShort { get; private set; } //在选择人物后升级界面所展示的介绍

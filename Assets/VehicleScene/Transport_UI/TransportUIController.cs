@@ -20,8 +20,8 @@ namespace VehicleScene {
 
 			List<StationData> activeStations = new List<StationData>();
 			foreach(var i in StationData.instances)
-				if(PlayerData.StationUnlockData.instance.unlockedStatus[i.name].value)
-					activeStations.Add(i);
+				if(PlayerData.StationUnlockData.instance.unlockedStatus[i.Value.name].value)
+					activeStations.Add(i.Value);
 
 			activeStations.Sort();
 
@@ -63,7 +63,7 @@ namespace VehicleScene {
 
 		public void OnStationSelect(string station) {
 			StationData chosenStation = null;
-			foreach(var i in StationData.instances) if(i.stationName==station) chosenStation=i;
+			foreach(var i in StationData.instances) if(i.Value.stationName==station) chosenStation=i.Value;
 			if(!chosenStation) return;
 			targetStation=chosenStation;
 			selectedStation=station;

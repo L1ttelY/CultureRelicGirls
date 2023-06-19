@@ -36,6 +36,7 @@ namespace VehicleScene {
 		}
 
 		private void OnEnable() {
+			image=GetComponent<Image>();
 			displayObject.SetActive(true);
 			upgradeObject.SetActive(false);
 			inUpgrade=false;
@@ -46,7 +47,7 @@ namespace VehicleScene {
 
 		void UpdateUpgradeStatus() {
 			CharacterData boundCharacter = upgradeObject.GetComponent<CharacterInformationDisplay>().targetCharacter;
-			PlayerData.CharacterData boundSaveData = PlayerData.CharacterDataRoot.instance.characters[boundCharacter];
+			PlayerData.CharacterData boundSaveData = PlayerData.CharacterDataRoot.instance.characters[boundCharacter.name];
 
 			if(boundSaveData.level.value>=boundCharacter.maxLevel) {
 				costText.text="ÒÑ¾­Âú¼¶";
@@ -78,7 +79,7 @@ namespace VehicleScene {
 
 				if(canUpgrade) {
 					CharacterData boundCharacter = upgradeObject.GetComponent<CharacterInformationDisplay>().targetCharacter;
-					PlayerData.CharacterData boundSaveData = PlayerData.CharacterDataRoot.instance.characters[boundCharacter];
+					PlayerData.CharacterData boundSaveData = PlayerData.CharacterDataRoot.instance.characters[boundCharacter.name];
 
 					PlayerData.PlayerDataRoot.smCount-=boundCharacter.levels[boundSaveData.level.value].levelUpCost;
 					boundSaveData.level.value+=1;

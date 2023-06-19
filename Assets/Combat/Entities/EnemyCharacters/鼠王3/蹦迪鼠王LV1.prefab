@@ -121,7 +121,7 @@ MonoBehaviour:
   <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 0
   <maxSpeed>k__BackingField: 0
-  <attackBasePower>k__BackingField: 5
+  <attackBasePower>k__BackingField: 10
   <knockbackPower>k__BackingField: 0.51
   <maxHp>k__BackingField: 4000
   <attacks>k__BackingField:
@@ -196,7 +196,7 @@ MonoBehaviour:
   "\u653B\u51FB\u52A8\u753B\u79FB\u52A8\u901F\u5EA6": 0
   targetDistanceMin: 0
   targetDistanceMax: 0
-  knockbackDefense: 20
+  knockbackDefense: 40
   poiseMax: 20
   poiseRegen: 0.1
   poiseRegenDelay: 2

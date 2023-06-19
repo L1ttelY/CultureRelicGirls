@@ -6,6 +6,8 @@ namespace Combat {
 
 	public class EntityEnemy:EntityBase {
 
+		public static HashSet<string> deadList;
+
 		[field: SerializeField] public int enemyId { get; private set; }
 		[SerializeField] protected float wakeUpDistanceFront;
 		[SerializeField] protected float wakeUpDistanceBack;
@@ -165,7 +167,8 @@ namespace Combat {
 
 			//ÅÐ¶Ï×îÖÕÄ¿±ê
 			int targetIndex = ChooseByWeight.Work((a) => transitionBuffer[a].weight,transitionBuffer.Count);
-			AttackStateTransistion transistion = transitionBuffer[targetIndex];
+			AttackStateTransistion transistion = null;
+			if(targetIndex>=0) transistion=transitionBuffer[targetIndex];
 			/*
 			float randomFactor = Random.Range(0,weightTotal);
 			foreach(var i in transitionBuffer) {
@@ -185,7 +188,11 @@ namespace Combat {
 
 		protected override float distanceToTarget => Mathf.Abs(transform.position.x-targetX);
 
+		DestroyStatusRecord death;
 		protected override void Start() {
+
+			if(Time.timeSinceLevelLoad<0.1f) death=gameObject.AddComponent<DestroyStatusRecord>();
+
 			base.Start();
 			direction=startRight ? Direction.right : Direction.left;
 			StartInactive();
@@ -306,11 +313,17 @@ namespace Combat {
 
 		}
 
+		//Vector3 startPos = new Vector3(-1245123,15123,1254123);
 		protected virtual void MoveStationary() {
 
+			//if(startPos==new Vector3(-1245123,15123,1254123)) startPos=transform.position;
+
+			velocity=Vector2.zero;
 			animator.SetFloat("speed",1);
 			animator.SetFloat("forwardSpeed",1);
 			if(moveTime>0.5f) StartRandomAttack();
+
+			//if(knockbackDefense>10) transform.position=startPos;
 
 		}
 
@@ -339,7 +352,7 @@ namespace Combat {
 			float actualKnockback = Mathf.Max(0,knockback-knockbackDefense);
 			poise-=actualKnockback;
 			timeAfterKnockback=0;
-			base.DoKnockback(knockback-knockbackDefense,direction);
+			base.DoKnockback(actualKnockback,direction);
 		}
 
 		protected virtual void StartStagger() {
@@ -365,14 +378,14 @@ namespace Combat {
 		protected float groundY;
 		protected override void OnDeath() {
 			base.OnDeath();
+			PlayerData.PlayerDataRoot.smCount+=moneyDrop;
 			if(corpseAnimation!=null&&corpseAnimation.Length!=0) {
 				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseAnimation,transform.position,corpseTimePerFrame,direction,groundY);
 				newCorpse.gameObject.transform.parent=room.transform;
-				CombatController.instance.rewardSm+=sentienceMatterReward;
-				Destroy(gameObject);
 			}
+			if(death) death.Kill();
+			Destroy(gameObject);
 
-			PlayerData.PlayerDataRoot.smCount+=moneyDrop;
 
 		}
 

@@ -33,7 +33,15 @@ namespace Combat {
 
 			foreach(var i in uses) {
 				if(i.targetGameObject) i.targetGameObject.SetActive(flagSet==i.activeState);
-				if(i.targetScript) i.targetScript.enabled=(flagSet==i.activeState);
+				if(i.targetScript) {
+					i.targetScript.enabled=(flagSet==i.activeState);
+
+					Interactable targetInteractable = i.targetScript as Interactable;
+					if(targetInteractable!=null) {
+						targetInteractable.status=(flagSet==i.activeState) ? Interactable.InteractableStatus.Enabled : Interactable.InteractableStatus.Locked;
+					}
+
+				}
 			}
 		}
 

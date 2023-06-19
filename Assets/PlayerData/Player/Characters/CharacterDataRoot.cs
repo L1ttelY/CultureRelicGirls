@@ -8,7 +8,7 @@ namespace PlayerData {
 	public class CharacterDataRoot:DataBase {
 
 		public static CharacterDataRoot instance;
-		public Dictionary<global::CharacterData,CharacterData> characters = new Dictionary<global::CharacterData,CharacterData>();
+		public Dictionary<string,CharacterData> characters = new Dictionary<string,CharacterData>();
 
 		public CharacterDataRoot(string name,DataBase parent) : base(name,parent) {
 
@@ -16,7 +16,7 @@ namespace PlayerData {
 			FileManager.LoadSAAB("characterdata.ab").LoadAllAssets();
 
 			foreach(var i in global::CharacterData.datas) {
-				characters[i.Value]=new CharacterData(i.Key,this);
+				characters[i.Value.name]=new CharacterData(i.Key,this);
 			}
 		}
 

@@ -41,6 +41,13 @@ namespace PlayerData {
 			File.WriteAllText(SavePath,MemoryToSerialized());
 		}
 
+		static public void LoadGame() {
+			string serialized = "";
+			if(File.Exists(SavePath)) serialized=File.ReadAllText(SavePath);
+			else serialized=FileManager.ReadSA(fileName);
+			SerializedToMemory(serialized);
+		}
+
 		static void SerializedToMemory(string data) {
 			XmlDocument xml = new XmlDocument();
 			if(data.Length!=0) xml.LoadXml(data);

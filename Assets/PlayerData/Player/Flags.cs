@@ -13,13 +13,13 @@ namespace PlayerData {
 		public void SetFlag(string name) {
 			if(loadedFlags.Contains(name)) return;
 			loadedFlags.Add(name);
-			value+=$" {name}";
+			value+=$";==;{name}";
 		}
 		public void RemoveFlag(string name) {
 			if(!loadedFlags.Contains(name)) return;
 			loadedFlags.Remove(name);
 			System.Text.StringBuilder newValue = new System.Text.StringBuilder();
-			foreach(var i in loadedFlags) newValue.Append($" {i}");
+			foreach(var i in loadedFlags) newValue.Append($";==;{i}");
 			value=newValue.ToString();
 		}
 
@@ -28,10 +28,14 @@ namespace PlayerData {
 
 		public Flags(string name,DataBase parent) : base(name,parent) {
 			instance=this;
-			string[] flags = value.Split(" ");
-			foreach(var i in flags) loadedFlags.Add(i);
 		}
 
+		public override void Load(XmlElement serialized) {
+			base.Load(serialized);
+			string[] flags = value.Split(";==;");
+			if(flags==null) flags=new string[0];
+			foreach(var i in flags) loadedFlags.Add(i);
+		}
 
 	}
 

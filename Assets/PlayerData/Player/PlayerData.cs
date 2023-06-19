@@ -40,7 +40,7 @@ namespace PlayerData {
 
 		public static void LoadDocument(XmlDocument xml) {
 
-			instance=new PlayerDataRoot("playerData",null);
+			if(instance==null) instance=new PlayerDataRoot("playerData",null);
 
 			if(xml.DocumentElement==null) {
 				//Пе

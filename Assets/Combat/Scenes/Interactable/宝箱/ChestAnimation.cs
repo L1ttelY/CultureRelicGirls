@@ -7,7 +7,7 @@ namespace Combat {
 
 		[SerializeField] Sprite[] spriteSequence;
 		[SerializeField] float timePerFrame;
-		[SerializeField] string message;
+		[TextArea] [SerializeField] string message;
 		[SerializeField] string flagName;
 
 		SpriteRenderer spriteRenderer;
@@ -23,6 +23,7 @@ namespace Combat {
 			interactable=GetComponent<Interactable>();
 			if(PlayerData.Flags.instance.HasFlag(flagName)) {
 				interactable.enabled=false;
+				interactable.status=Interactable.InteractableStatus.Disabled;
 				spriteRenderer.sprite=spriteSequence[spriteSequence.Length-1];
 			}
 		}
@@ -33,6 +34,7 @@ namespace Combat {
 			SubtitleController.instances[0].PushSubtitle(message);
 			PlayerData.Flags.instance.SetFlag(flagName);
 			interactable.enabled=false;
+			interactable.status=Interactable.InteractableStatus.Disabled;
 		}
 
 		private void Update() {

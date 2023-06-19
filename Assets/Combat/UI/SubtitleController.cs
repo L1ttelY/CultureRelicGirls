@@ -8,10 +8,12 @@ namespace Combat {
 	public class SubtitleController:MonoBehaviour {
 
 		[SerializeField] int id;
+		[SerializeField] float curveLength;
+		[SerializeField] AnimationCurve alphaCurve;
 
 		public static Dictionary<int,SubtitleController> instances=new Dictionary<int, SubtitleController>();
 		Text text;
-		float alpha;
+		float timer=99999;
 
 		private void Start() {
 			instances[id]=this;
@@ -19,12 +21,15 @@ namespace Combat {
 		}
 
 		private void Update() {
-			alpha-=0.5f*Time.deltaTime;
+			timer+=Time.deltaTime;
+
+			float alpha = 0;
+			if(timer<curveLength) alpha=alphaCurve.Evaluate(timer/curveLength);
 			text.color=new Color(1,1,1,Mathf.Clamp01(alpha));
 		}
 		
 		public void PushSubtitle(string newText){
-			alpha=2;
+			timer=0;
 			text.text=newText;
 		}
 
