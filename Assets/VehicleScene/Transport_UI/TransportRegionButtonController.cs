@@ -30,8 +30,8 @@ namespace VehicleScene {
 				isUsed=true;
 			}
 
-			if(Combat.StationController.lastStationVisited)
-				isCurrentObject.SetActive(targetRegion==Combat.StationController.lastStationVisited.regionName);
+			if(Combat.StationController.lastStationVisited.Length!=0)
+				isCurrentObject.SetActive(targetRegion==Combat.StationController.lastStationVisitedData.regionName);
 			else isCurrentObject.SetActive(false);
 
 			text=GetComponentInChildren<Text>();

@@ -28,8 +28,8 @@ namespace VehicleScene {
 			gameObject.SetActive(isUsed);
 			text.text=targetStation;
 
-			if(Combat.StationController.lastStationVisited)
-				isCurrentObject.SetActive(targetStation==Combat.StationController.lastStationVisited.stationName);
+			if(Combat.StationController.lastStationVisited.Length!=0)
+				isCurrentObject.SetActive(targetStation==Combat.StationController.lastStationVisitedData.stationName);
 			else isCurrentObject.SetActive(false);
 		}
 

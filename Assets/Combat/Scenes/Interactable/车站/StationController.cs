@@ -7,7 +7,9 @@ namespace Combat {
 
 	public class StationController:MonoBehaviour {
 
-		public static StationData lastStationVisited;
+		public static string lastStationVisited = "";
+		public static StationData lastStationVisitedData =>
+			lastStationVisited.Length==0 ? null : StationData.instances[lastStationVisited];
 
 		[Tooltip("在此输入对应的站台, 会自动将数据写入站台信息")]
 		[SerializeField] StationData stationData;
@@ -19,7 +21,7 @@ namespace Combat {
 
 		public void OnInteract() {
 			if(boundFlag.value) {
-				lastStationVisited=stationData;
+				lastStationVisited=stationData.name;
 				SceneManager.LoadScene("VehicleScene");
 			} else if(!animationGoing) {
 				if(animator) animator.SetTrigger("start");

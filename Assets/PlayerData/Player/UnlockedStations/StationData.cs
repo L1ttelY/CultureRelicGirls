@@ -13,10 +13,11 @@ public class StationData:CombatEntry, System.IComparable<StationData> {
 		instances.Clear();
 	}
 
-	public static readonly HashSet<StationData> instances = new HashSet<StationData>();
+	public static readonly Dictionary<string,StationData> instances = new Dictionary<string, StationData>();
 
 	private void OnEnable() {
-		instances.Add(this);	
+		if(instances.ContainsKey(name)) return;
+		instances.Add(name,this);
 	}
 
 	public int CompareTo(StationData obj) {
@@ -25,17 +26,17 @@ public class StationData:CombatEntry, System.IComparable<StationData> {
 		return stationName.CompareTo(obj.stationName);
 	}
 
-  public static bool operator >(StationData operand1,StationData operand2) {
-    return operand1.CompareTo(operand2)>0;
-  }
-  public static bool operator <(StationData operand1,StationData operand2) {
-    return operand1.CompareTo(operand2)<0;
-  }
-  public static bool operator >=(StationData operand1,StationData operand2) {
-    return operand1.CompareTo(operand2)>=0;
-  }
-  public static bool operator <=(StationData operand1,StationData operand2) {
-    return operand1.CompareTo(operand2)<=0;
-  }
+	public static bool operator >(StationData operand1,StationData operand2) {
+		return operand1.CompareTo(operand2)>0;
+	}
+	public static bool operator <(StationData operand1,StationData operand2) {
+		return operand1.CompareTo(operand2)<0;
+	}
+	public static bool operator >=(StationData operand1,StationData operand2) {
+		return operand1.CompareTo(operand2)>=0;
+	}
+	public static bool operator <=(StationData operand1,StationData operand2) {
+		return operand1.CompareTo(operand2)<=0;
+	}
 
 }
