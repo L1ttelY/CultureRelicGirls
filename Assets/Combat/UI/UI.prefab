@@ -887,6 +887,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  curveLength: 4
+  alphaCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0028390596
+      value: -0.0000010402873
+      inSlope: 8.14697
+      outSlope: 8.14697
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1199061
+      value: 1
+      inSlope: -0.0143022705
+      outSlope: -0.0143022705
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07827667
+    - serializedVersion: 3
+      time: 0.60959226
+      value: 1
+      inSlope: 0.006334417
+      outSlope: 0.006334417
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.85828894
+      value: 0.7597227
+      inSlope: -2.0123503
+      outSlope: -2.0123503
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16202515
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.24790123
+      outSlope: -0.24790123
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29159072
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &5324042314724152903
 Animator:
   serializedVersion: 4
@@ -2990,6 +3042,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  curveLength: 4
+  alphaCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0028390596
+      value: -0.0000010402873
+      inSlope: 8.14697
+      outSlope: 8.14697
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1199061
+      value: 1
+      inSlope: -0.0143022705
+      outSlope: -0.0143022705
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07827667
+    - serializedVersion: 3
+      time: 0.60959226
+      value: 1
+      inSlope: 0.006334417
+      outSlope: 0.006334417
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.85828894
+      value: 0.7597227
+      inSlope: -2.0123503
+      outSlope: -2.0123503
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16202515
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.24790123
+      outSlope: -0.24790123
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.29159072
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &4132663875027307647
 Animator:
   serializedVersion: 4
@@ -5431,6 +5535,7 @@ GameObject:
   - component: {fileID: 7109215315509530288}
   - component: {fileID: 7602124913977805929}
   - component: {fileID: 8639308753362794912}
+  - component: {fileID: 4580580907893963992}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -5579,6 +5684,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 2a349839f8c3304479af44df56745a9c, type: 3}
+--- !u!114 &4580580907893963992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8806760926367801970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614c3a1ca03ddc04abcf1b45a358d9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagName: DefenseUnlocked
+  autoNameFrom: {fileID: 0}
+  uses:
+  - targetGameObject: {fileID: 3451757374212523706}
+    targetScript: {fileID: 0}
+    activeState: 1
 --- !u!1001 &2400732274794850424
 PrefabInstance:
   m_ObjectHideFlags: 0
