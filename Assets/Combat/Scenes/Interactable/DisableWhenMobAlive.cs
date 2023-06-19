@@ -13,12 +13,11 @@ namespace Combat {
 
 		private void FixedUpdate() {
 
-			if(!activated) {
-				activated=true;
-				foreach(var i in targetMobs) {
-					if(i) { activated=false; break; }
-				}
+			activated=true;
+			foreach(var i in targetMobs) {
+				if(i&&i.activeInHierarchy) { activated=false; break; }
 			}
+
 
 			target.enabled=activated;
 

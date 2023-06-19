@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Combat {
 
@@ -15,9 +16,10 @@ namespace Combat {
 		private void Awake() {
 			if(destroyList.Contains(Utility.GenerateNameFromGameObject(gameObject))) Destroy(gameObject);
 		}
-		private void OnDestroy() {
+		public void Kill() {
 			if(!destroyList.Contains(Utility.GenerateNameFromGameObject(gameObject)))
 				destroyList.Add(Utility.GenerateNameFromGameObject(gameObject));
+			Destroy(gameObject);
 		}
 
 	}

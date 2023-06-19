@@ -188,9 +188,10 @@ namespace Combat {
 
 		protected override float distanceToTarget => Mathf.Abs(transform.position.x-targetX);
 
+		DestroyStatusRecord death;
 		protected override void Start() {
 
-			if(Time.timeSinceLevelLoad<0.1f) gameObject.AddComponent<DestroyStatusRecord>();
+			if(Time.timeSinceLevelLoad<0.1f) death=gameObject.AddComponent<DestroyStatusRecord>();
 
 			base.Start();
 			direction=startRight ? Direction.right : Direction.left;
@@ -381,9 +382,10 @@ namespace Combat {
 			if(corpseAnimation!=null&&corpseAnimation.Length!=0) {
 				EnemyCorpse newCorpse = EnemyCorpse.Create(corpseAnimation,transform.position,corpseTimePerFrame,direction,groundY);
 				newCorpse.gameObject.transform.parent=room.transform;
-				CombatController.instance.rewardSm+=sentienceMatterReward;
-				Destroy(gameObject);
 			}
+			if(death) death.Kill();
+			Destroy(gameObject);
+
 
 		}
 

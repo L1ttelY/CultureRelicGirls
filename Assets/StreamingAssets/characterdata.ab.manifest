@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 656967266
+CRC: 1581129308
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b074cb4c3d30adc6972db3d8ad4fc2d5
+    Hash: 31453350f2fdbdbbe3d7aecb26bf2ff8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8b0584530d8926600b53391043cd7ec0
+    Hash: 423d3b421e729d69f2e2ede77e0947eb
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -48,6 +48,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: c863088697d0ae744b5bc30d32ca654c, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 5e4a759036a21df42842d6f07be2c1d0, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: e910479afe36a334581d70a9b7b82f85, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
@@ -87,6 +89,7 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - "Assets/Combat/Entities/FriendlyCharacters/QiMingXing/\u542F\u660E\u661F.asset"
 - "Assets/Combat/Entities/FriendlyCharacters/Guillotine/\u65AD\u5934\u53F0.asset"
+- "Assets/Combat/Entities/FriendlyCharacters/Houmuwuding/\u53F8\u6BCD\u620A\u9F0E.asset"
 - "Assets/Combat/Entities/FriendlyCharacters/Chessman/\u8DEF\u6613\u65AF\u56FD\u9645\u8C61\u68CB.asset"
 - Assets/Combat/Entities/FriendlyCharacters/Chessman/Chesman_P_A0.overrideController
 - "Assets/Combat/Entities/FriendlyCharacters/Starynight/\u661F\u7A7A.asset"

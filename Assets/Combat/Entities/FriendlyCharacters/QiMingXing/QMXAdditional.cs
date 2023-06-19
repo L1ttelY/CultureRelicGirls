@@ -27,7 +27,7 @@ namespace Combat {
 				if(targets.Count==0) return true;
 				for(int i=0;i<projectileCount;i++){
 					int targetIndex = Random.Range(0,targets.Count);
-					entity.Attack(targets[targetIndex],0);
+					entity.Attack(targets[targetIndex],1);
 				}
 
 				return true;
