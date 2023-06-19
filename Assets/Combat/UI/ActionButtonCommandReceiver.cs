@@ -7,6 +7,11 @@ public class ActionButtonCommandReceiver:MonoBehaviour, IPointerDownHandler, IPo
 	public void OnPointerDown(PointerEventData eventData) => isDown=true;
 	public void OnPointerExit(PointerEventData eventData) => isDown=false;
 	public void OnPointerUp(PointerEventData eventData) => isDown=false;
+
+	private void Update() {
+		if(Input.GetKey(KeyCode.Space)||Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.LeftControl)) isDown=true;
+	}
+
 	bool _isDown;
 	public bool isDown {
 		get => _isDown;
