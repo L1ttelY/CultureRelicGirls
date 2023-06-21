@@ -418,16 +418,21 @@ namespace Combat {
 		public override void Damage(DamageModel e) {
 			if(TimelineUtils.shouldStop) return;
 
-			if(Player.instance.UseParry()) {
-				if(e.damageType!=DamageType.Ranged&&e.dealer)
-					e.dealer.DoKnockback(30,Direction.Reverse(e.direction));
-				return;
+			if(e.damageType!=DamageType.HpLoss) {
+
+				if(Player.instance.UseParry()) {
+					if(e.damageType!=DamageType.Ranged&&e.dealer)
+						e.dealer.DoKnockback(30,Direction.Reverse(e.direction));
+					return;
+				}
+				if(isBlocking) {
+					e.amount/=2;
+					if(e.damageType!=DamageType.Ranged&&e.dealer)
+						e.dealer.DoKnockback(8,Direction.Reverse(e.direction));
+				}
+
 			}
-			if(isBlocking) {
-				e.amount/=2;
-				if(e.damageType!=DamageType.Ranged&&e.dealer)
-					e.dealer.DoKnockback(8,Direction.Reverse(e.direction));
-			}
+
 			base.Damage(e);
 		}
 

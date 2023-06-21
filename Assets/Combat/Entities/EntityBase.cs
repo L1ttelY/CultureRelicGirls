@@ -7,7 +7,8 @@ namespace Combat {
 	public enum DamageType {
 		Ranged,
 		Contact,
-		Slash
+		Slash,
+		HpLoss
 	}
 
 	public struct DamageModel {
@@ -124,25 +125,23 @@ namespace Combat {
 		//对角色造成伤害
 		float timeAfterHit;
 		public virtual void Damage(DamageModel e) { //受到伤害
-
-			//if(this is EntityFriendly) Debug.Log(hp);
-
-			if(e.amount>0) {
+			
+			if(e.amount>0&&e.damageType!=DamageType.HpLoss) {
 				AudioController.PlayAudio(soundHit,transform.position);
 				animator.SetTrigger("hit");
 				timeAfterHit=0;
+				if(damageVfx.Length!=0) {
+					int vfxIndex = Random.Range(0,damageVfx.Length);
+					VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
+				}
 			}
 			hp-=e.amount;
-			DoKnockback(e.knockback,e.direction);
-
-			if(damageVfx.Length!=0) {
-				int vfxIndex = Random.Range(0,damageVfx.Length);
-				VfxPool.Create(damageVfx[vfxIndex],transform.position,e.direction);
+			
+			if(e.damageType!=DamageType.HpLoss) {
+				DoKnockback(e.knockback,e.direction);
+				DamageEvent?.Invoke(this,e);
 			}
-
-			DamageEvent?.Invoke(this,e);
 			lastDamage=e;
-
 			if(hp<=0) {
 				OnDeath();
 			}

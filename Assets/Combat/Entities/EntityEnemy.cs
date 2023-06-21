@@ -222,7 +222,7 @@ namespace Combat {
 
 				RaycastHit2D hit = Utility.raycastBuffer[i];
 				EntityBase other = hit.collider.GetComponent<EntityBase>();
-				if(other&&other.isFriendly) {
+				if(other&&(other.isFriendly!=isFriendly)) {
 
 					if(targetHit.Contains(other)) continue;
 					targetHit.Add(other);
