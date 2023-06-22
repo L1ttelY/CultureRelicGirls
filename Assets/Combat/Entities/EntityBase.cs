@@ -369,11 +369,15 @@ namespace Combat {
 
 			Vector3 position = transform.position;
 			if(shootPosition) position=shootPosition.transform.position;
+			Vector2 targetVelocity = Vector2.zero;
+			if(target) targetVelocity=target.velocity;
+			Vector3 targetPosition = transform.position+Vector3.right*Random.Range(-5,5);
+			if(target) targetPosition=target.transform.position;
 
 			return ProjectilePool.Create(
 				attacks[attackType].projectile,
 				position,
-				ProjectileVelocity(target.transform.position,target.velocity,attackType),
+				ProjectileVelocity(targetPosition,targetVelocity,attackType),
 				target,
 				isFriendly,
 				GetDamage(),

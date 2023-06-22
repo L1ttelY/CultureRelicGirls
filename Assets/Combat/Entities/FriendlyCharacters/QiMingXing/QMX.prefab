@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <skillCost>k__BackingField
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <visionRange>k__BackingField
@@ -202,6 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa4f4c131bb61540a47e5a697ea2fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileCount: 4
   rangeMin: 0
   rangeMax: 8
+  targetAttackIndex: 1
