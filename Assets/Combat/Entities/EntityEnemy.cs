@@ -356,6 +356,7 @@ namespace Combat {
 		}
 
 		protected virtual void StartStagger() {
+
 			currensState=StateStagger;
 			animator.SetTrigger("stagger");
 			nameHashSet=false;
@@ -372,6 +373,7 @@ namespace Combat {
 			if(state.fullPathHash!=nameHash) StartMove();
 
 		}
+		public bool isStaggered => currensState==StateStagger;
 
 		#endregion
 
