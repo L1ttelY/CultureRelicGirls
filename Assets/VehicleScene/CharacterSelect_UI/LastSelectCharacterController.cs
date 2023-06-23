@@ -29,6 +29,7 @@ namespace VehicleScene {
 			if(lastPicked==null) return;
 			if(targetEquipSlot<0||targetEquipSlot>2) return;
 			LoadoutController.teamMembers[targetEquipSlot].value="";
+			foreach(var i in EquippedCharacterIconController.instances) i.UpdateAvatarImage();
 		}
 
 		private void OnEnable() {

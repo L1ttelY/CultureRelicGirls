@@ -9,7 +9,7 @@ namespace VehicleScene {
 
 	public class EquippedCharacterIconController:MonoBehaviour, IPointerClickHandler {
 
-		static EquippedCharacterIconController[] instances = new EquippedCharacterIconController[3];
+		public static EquippedCharacterIconController[] instances = new EquippedCharacterIconController[3];
 
 		[SerializeField] Image avatarImage;
 		[SerializeField] int targetIndex;
@@ -47,7 +47,7 @@ namespace VehicleScene {
 			targetCharacter=character.name;
 		}
 
-		void UpdateAvatarImage() {
+		public void UpdateAvatarImage() {
 			if(targetCharacter.Length==0||!CharacterData.datas.ContainsKey(targetCharacter)) {
 				avatarImage.color=Color.clear;
 				costImage.sprite=costSprites[0];
