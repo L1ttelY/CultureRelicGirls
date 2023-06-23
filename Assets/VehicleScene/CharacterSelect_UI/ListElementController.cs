@@ -10,7 +10,7 @@ namespace VehicleScene {
 	public class ListElementController:MonoBehaviour, IPointerClickHandler {
 
 		[SerializeField] Image avatarImage;
-		[SerializeField] HomeUIInstance displayUI;
+		[SerializeField] LastSelectCharacterController displayUI;
 
 		Draggable draggable;
 
@@ -40,8 +40,8 @@ namespace VehicleScene {
 
 		public void OnPointerClick(PointerEventData eventData) {
 			if(boundCharacter==null) return;
-			HomeUIStackManager.instance.PushUI((displayUI,boundCharacter));
-		}
+			displayUI.SetTarget(boundCharacter,-1);
+			}
 	}
 
 }

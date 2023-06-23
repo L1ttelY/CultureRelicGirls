@@ -15,6 +15,7 @@ namespace VehicleScene {
 		[SerializeField] int targetIndex;
 		[SerializeField] Image costImage;
 		[SerializeField] Sprite[] costSprites;
+		[SerializeField] LastSelectCharacterController display;
 
 		string targetCharacter {
 			get => LoadoutController.teamMembers[targetIndex].value;
@@ -41,7 +42,7 @@ namespace VehicleScene {
 			from.releaseResult=true;
 
 			foreach(var i in instances)
-				if(i.targetCharacter==character.name) 
+				if(i.targetCharacter==character.name)
 					i.targetCharacter="";
 			targetCharacter=character.name;
 		}
@@ -60,7 +61,8 @@ namespace VehicleScene {
 		}
 
 		public void OnPointerClick(PointerEventData eventData) {
-			targetCharacter="";
+			if(targetCharacter.Length==0) return;
+			display.SetTarget(CharacterData.datas[targetCharacter],targetIndex);
 		}
 	}
 
