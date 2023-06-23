@@ -26,6 +26,7 @@ namespace Combat {
 		[SerializeField] Image image;
 		[SerializeField] GameObject itemPlate;
 		[SerializeField] Text text;
+		[SerializeField] Text textCount;
 
 		public static ItemButtonController instance;
 
@@ -90,8 +91,8 @@ namespace Combat {
 
 		void Update() {
 
-			LoadoutController.SetHotBar(0,ItemData.instances["heal"]);
-			LoadoutController.SetHotBar(1,ItemData.instances["heal 1"]);
+			LoadoutController.SetHotBar(0,ItemData.instances["恢复全队血量"]);
+			LoadoutController.SetHotBar(1,ItemData.instances["恢复离散意识晶体"]);
 
 			image.sprite=LoadoutController.GetHotBar(chosenIndex).sprite;
 
@@ -108,6 +109,8 @@ namespace Combat {
 
 			//image.sprite=LoadoutController.GetHotBar(chosenIndex)?.sprite;
 			//image.color=(image.sprite==null) ? Color.clear : Color.white;
+
+			textCount.text=ItemData.countLeft[LoadoutController.GetHotBar(chosenIndex)].ToString();
 
 		}
 

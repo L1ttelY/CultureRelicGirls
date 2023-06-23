@@ -12,6 +12,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: vfxHeal
+      value: 
+      objectReference: {fileID: 1763441829856274810, guid: fb5149a8dbef97e4b8facac4e73e2f18, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: chargeTime
       value: 1
       objectReference: {fileID: 0}
@@ -218,3 +222,4 @@ MonoBehaviour:
   hpLossRate: 0.07
   hpRecoveryRate: 1
   manaRegenRate: 50
+  skillColor: {r: 0, g: 0, b: 0, a: 0}

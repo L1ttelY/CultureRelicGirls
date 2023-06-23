@@ -14,17 +14,24 @@ namespace Combat {
 		[SerializeField] float hpRecoveryRate;
 		[Tooltip("能量回复速率")]
 		[SerializeField] float manaRegenRate;
+		[SerializeField] Color skillColor;
 
 		float timeRemaining;
 
 		float maxMana;
 		float hpLossBuildup;
 
-		private void Start() {
+		SpriteRenderer spriteRenderer;
+
+		protected override void Start() {
+			base.Start();
 			EntityBase.DamageEvent+=EntityBase_DamageEvent;
+			spriteRenderer=entity.spriteRenderer;
+			if(skillColor==Color.clear) skillColor=Color.red;
 		}
 
 		private void EntityBase_DamageEvent(object sender,DamageModel e) {
+			if(timeRemaining<=0) return;
 			if(e.dealer==entity) {
 
 				foreach(var i in EntityFriendly.friendlyList) {
@@ -39,6 +46,8 @@ namespace Combat {
 		}
 
 		private void Update() {
+
+			spriteRenderer.color=timeRemaining>0 ? skillColor : Color.white;
 
 			//技能激活
 			timeRemaining-=Time.deltaTime;
