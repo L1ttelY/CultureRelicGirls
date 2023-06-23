@@ -6,7 +6,7 @@ namespace Combat {
 
 	public class EntityAdditionalFunctionBase:MonoBehaviour {
 		protected EntityBase entity;
-		void Start() {
+		protected virtual void Start() {
 			entity=GetComponent<EntityBase>();
 		}
 
