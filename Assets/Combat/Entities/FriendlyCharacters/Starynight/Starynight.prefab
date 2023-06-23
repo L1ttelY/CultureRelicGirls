@@ -117,11 +117,11 @@ PrefabInstance:
       objectReference: {fileID: -573350920, guid: d7841bbcb2b7ff84b82dff4ce5ae9e8d, type: 3}
     - target: {fileID: 5394524253863258354, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.821
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5394524253863258354, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.669
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 7189738652749299581, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Controller
@@ -194,6 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa4f4c131bb61540a47e5a697ea2fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileCount: 4
   rangeMin: 0
   rangeMax: 8
+  targetAttackIndex: 1
