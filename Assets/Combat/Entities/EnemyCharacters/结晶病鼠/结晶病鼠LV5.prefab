@@ -120,9 +120,9 @@ MonoBehaviour:
   <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 1
   <maxSpeed>k__BackingField: 1.5
-  <attackBasePower>k__BackingField: 12
+  <attackBasePower>k__BackingField: 25
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 300
+  <maxHp>k__BackingField: 700
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 441911419, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
   - {fileID: -41355496, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
   - {fileID: -1135093071, guid: 2ae009c83b82ac545aad519300ce20a2, type: 3}
-  moneyDrop: 0
+  moneyDrop: 1800
   attackChance: 1
   attacks:
   - <minDistance>k__BackingField: 5
