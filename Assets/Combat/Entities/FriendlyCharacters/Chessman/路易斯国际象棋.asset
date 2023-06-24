@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <descriptionShort>k__BackingField: "\u8DEF\u6613\u65AF\u56FD\u9645\u8C61\u68CB"
   <skillName>k__BackingField: "\u795E\u5149\u4E0B\u754C"
-  <skillDescription>k__BackingField: "\u6D88\u80172\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u62E5\u6709\u81EA\u5DF150%\u8840\u91CF\uFF0C60%\u653B\u51FB\u529B\u7684\u68CB\u5B50\u6765\u8FDB\u653B."
+  <skillDescription>k__BackingField: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
   <fullDescription>k__BackingField: "\u8DEF\u6613\u65AF\u56FD\u9645\u8C61\u68CB\uFF0C1831\u5E74\u9996\u6B21\u5728\u82CF\u683C\u5170\u5916\u8D6B\u5E03\u91CC\u5E95\u7FA4\u5C9B\u7684\u5218\u6613\u65AF\u5C9B\u53D1\u73B0\u768412\u4E16\u7EAA\u68CB\u5B50\u3002\n\n\u76EE\u524D\uFF0C\u5176\u5305\u62EC79\u679A\u68CB\u5B50\uFF0C14\u540D\u684C\u4E0A\u4EBA\u548C\u4E00\u4E2A\u76AE\u5E26\u6263\uFF0C\u4ECD\u6709\u56DB\u4E2A\u4E3B\u8981\u68CB\u5B50\u548C\u8BB8\u591A\u68CB\u5B50\u4ECE\u56FD\u9645\u8C61\u68CB\u4E2D\u4E22\u5931\u3002"
   <className>k__BackingField: 
   <combatPrefab>k__BackingField: {fileID: 9116741855547919855, guid: 9fa2e1c45d6326e4a8ef95f66abfa2ac, type: 3}
@@ -31,7 +31,7 @@ MonoBehaviour:
     levelUpTimeMinute: 0
     hpMax: 140
     power: 20
-    skillDetail: 
+    skillDetail: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
     parent: {fileID: 11400000}
   - levelUpCost: 1200
     levelUpCostHour: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
     levelUpTimeMinute: 20
     hpMax: 140
     power: 20
-    skillDetail: 
+    skillDetail: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
     parent: {fileID: 11400000}
   - levelUpCost: 2600
     levelUpCostHour: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     levelUpTimeMinute: 40
     hpMax: 183
     power: 26
-    skillDetail: 
+    skillDetail: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
     parent: {fileID: 11400000}
   - levelUpCost: 8400
     levelUpCostHour: 0
@@ -58,16 +58,16 @@ MonoBehaviour:
     levelUpTimeMinute: 5
     hpMax: 240
     power: 34
-    skillDetail: 
+    skillDetail: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
     parent: {fileID: 11400000}
-  - levelUpCost: 24000
+  - levelUpCost: 26000
     levelUpCostHour: 1
     levelUpCostMinute: 0
     levelUpTimeHour: 1
     levelUpTimeMinute: 40
     hpMax: 314
     power: 45
-    skillDetail: 
+    skillDetail: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
     parent: {fileID: 11400000}
   - levelUpCost: 1700
     levelUpCostHour: 0
@@ -76,5 +76,5 @@ MonoBehaviour:
     levelUpTimeMinute: 0
     hpMax: 420
     power: 60
-    skillDetail: 
+    skillDetail: "\u6D88\u80171\u683C\u80FD\u91CF\uFF0C\u53EC\u55241\u4E2A\u68CB\u5B50\u6765\u8FDB\u653B."
     parent: {fileID: 11400000}
