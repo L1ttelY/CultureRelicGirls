@@ -16,6 +16,7 @@ namespace VehicleScene {
 		[SerializeField] Image costImage;
 		[SerializeField] Sprite[] costSprites;
 		[SerializeField] LastSelectCharacterController display;
+		[SerializeField] GameObject equipButton;
 
 		string targetCharacter {
 			get => LoadoutController.teamMembers[targetIndex].value;
@@ -32,7 +33,14 @@ namespace VehicleScene {
 			releasable=GetComponent<Releasable>();
 			UpdateAvatarImage();
 		}
+		private void Update() {
+			int fromSlot = LastSelectCharacterController.instance.targetEquipSlot;
+			CharacterData newData = LastSelectCharacterController.instance.lastPicked;
 
+			if(newData&&newData.name!=targetCharacter&&fromSlot!=targetIndex)
+				equipButton.SetActive(true);
+			else equipButton.SetActive(false);
+		}
 		public void OnRelease(object content,Releasable from) {
 			CharacterData character = content as CharacterData;
 			if(!character) {
@@ -60,7 +68,22 @@ namespace VehicleScene {
 			}
 		}
 
+		public void OnEquipCurrentClick() {
+			CharacterData newData = LastSelectCharacterController.instance.lastPicked;
+
+			for(int i = 0;i<3;i++)
+				if(LoadoutController.GetTeamMember(i)==newData) {
+					LoadoutController.SetTeamMember(i,null);
+					instances[i].UpdateAvatarImage();
+				}
+
+			LoadoutController.SetTeamMember(targetIndex,newData);
+			UpdateAvatarImage();
+		}
+
+
 		public void OnPointerClick(PointerEventData eventData) {
+
 			if(targetCharacter.Length==0) return;
 			display.SetTarget(CharacterData.datas[targetCharacter],targetIndex);
 		}

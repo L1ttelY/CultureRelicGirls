@@ -8,8 +8,8 @@ namespace VehicleScene {
 
 		public static LastSelectCharacterController instance { get; private set; }
 
-		CharacterData lastPicked;
-		int targetEquipSlot;
+		public CharacterData lastPicked { get; private set; }
+		public int targetEquipSlot { get; private set; }
 
 		[SerializeField] CharacterInformationDisplay display;
 		[SerializeField] GameObject displayRoot;
@@ -23,7 +23,7 @@ namespace VehicleScene {
 
 		public void OnDetailClick() {
 			if(lastPicked==null) return;
-			Home.HomeUIStackManager.instance.PushUI((detailMode,lastPicked));
+			Home.HomeUIStackManager.instance.PushUI((detailMode, lastPicked));
 		}
 		public void OnUnequipClick() {
 			if(lastPicked==null) return;
@@ -34,6 +34,7 @@ namespace VehicleScene {
 
 		private void OnEnable() {
 			targetEquipSlot=-1;
+			instance=this;
 		}
 
 		private void Update() {
