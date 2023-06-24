@@ -1,17 +1,21 @@
 ManifestFileVersion: 0
-CRC: 4058156213
+CRC: 2855473944
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f02f1de177b0a67d80a13d2bcd441bb
+    Hash: 04692180a7837cc82580bd092be760ab
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 78ab33bcd72bb26b2a8914254fee2959
+    Hash: 5014138cfb6e63979ab1181c07cf5371
 HashAppended: 0
 ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: d342355046d16b04c97dc473c4f11013, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
@@ -19,7 +23,6 @@ Assets:
 - "Assets/PlayerData/Player/UnlockedStations/\u5408\u91D1\u5378\u8D27\u7AD9.asset"
 - "Assets/PlayerData/Player/UnlockedStations/\u5BF9\u5CD9\u5929\u68AF\u7684\u738B\u5EA7.asset"
 - "Assets/PlayerData/Player/UnlockedStations/\u9F20\u5C3C\u65AF.asset"
-- "Assets/PlayerData/Player/UnlockedStations/\u5730\u4E0B\u8F66\u5E93\u505C\u8F66\u623F.asset"
 - "Assets/PlayerData/Player/UnlockedStations/\u8F66\u5185\u573A\u666F.asset"
 - "Assets/PlayerData/Player/UnlockedStations/\u5E9F\u5F03\u5DE8\u578B\u522B\u5885.asset"
 Dependencies: []
