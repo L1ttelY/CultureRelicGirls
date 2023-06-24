@@ -8,8 +8,8 @@ namespace VehicleScene {
 
 		public static LastSelectCharacterController instance { get; private set; }
 
-		public CharacterData lastPicked { get; private set; }
-		public int targetEquipSlot { get; private set; }
+		public CharacterData lastPicked;
+		public int targetEquipSlot;
 
 		[SerializeField] CharacterInformationDisplay display;
 		[SerializeField] GameObject displayRoot;

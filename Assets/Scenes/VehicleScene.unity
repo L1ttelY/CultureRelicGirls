@@ -447,7 +447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &23292656
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3848,6 +3848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e488e60b51d2446911dae87c6be08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastPicked: {fileID: 0}
+  targetEquipSlot: 0
   display: {fileID: 1701136548}
   displayRoot: {fileID: 1701136546}
   unequipObject: {fileID: 1407320041}
@@ -5012,7 +5014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -445, y: -55}
+  m_AnchoredPosition: {x: -673, y: -57.677}
   m_SizeDelta: {x: 908.05, y: 115.3538}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &581058848

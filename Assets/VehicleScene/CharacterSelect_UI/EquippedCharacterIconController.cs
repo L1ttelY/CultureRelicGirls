@@ -71,6 +71,8 @@ namespace VehicleScene {
 		public void OnEquipCurrentClick() {
 			CharacterData newData = LastSelectCharacterController.instance.lastPicked;
 
+			LastSelectCharacterController.instance.targetEquipSlot=-1;
+
 			for(int i = 0;i<3;i++)
 				if(LoadoutController.GetTeamMember(i)==newData) {
 					LoadoutController.SetTeamMember(i,null);
