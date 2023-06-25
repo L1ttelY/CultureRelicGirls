@@ -18,7 +18,10 @@ namespace VehicleScene {
 				}
 			}
 
-			foreach(var i in targets) i.SetActive(canGo);
+			foreach(var i in targets) {
+				if(!i) continue;
+				i.SetActive(canGo);
+			}
 
 		}
 

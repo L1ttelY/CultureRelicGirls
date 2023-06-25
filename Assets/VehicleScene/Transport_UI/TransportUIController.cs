@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Home;
+using UnityEngine.UI;
 
 namespace VehicleScene {
 
 	public class TransportUIController:MonoBehaviour {
+
+		[SerializeField] Image thumbnailImage;
 
 		StationData targetStation;
 
@@ -67,6 +70,7 @@ namespace VehicleScene {
 			if(!chosenStation) return;
 			targetStation=chosenStation;
 			selectedStation=station;
+			thumbnailImage.sprite=chosenStation.thumbnail;
 		}
 
 		public void OnTravelConfirm() {

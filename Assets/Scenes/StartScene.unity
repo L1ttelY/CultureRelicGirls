@@ -1107,16 +1107,16 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40038303}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 4623a6a84c4b12c46b5ce55ae2b8aaa8, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 433dacf1574a4b540afa00bc6fb7f4fb, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
+  m_TargetCamera: {fileID: 1535372431}
   m_TargetTexture: {fileID: 8400000, guid: 1e8221598889987418dc1b684abc1340, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
+  m_RenderMode: 1
+  m_AspectRatio: 3
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -16711,7 +16711,7 @@ Canvas:
   m_GameObject: {fileID: 853103676}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1535372431}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -33968,7 +33968,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736158512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20081}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -33977,7 +33977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -139}
+  m_AnchoredPosition: {x: 0, y: -492}
   m_SizeDelta: {x: 0, y: -470.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736158514
@@ -33993,7 +33993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34001,8 +34001,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bb8cdf4f6ec952443bc2ebfb1f22c167, type: 3}
-    m_FontSize: 27
+    m_Font: {fileID: 12800000, guid: 788c8f5f11244664ebfafe34b7b844cb, type: 3}
+    m_FontSize: 63
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -34013,7 +34013,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "<\u70B9\u51FB\u5C4F\u5E55\u5F00\u59CB\u6E38\u620F>"
+  m_Text: "\xB7 \u70B9 \u51FB \u5C4F \u5E55 \u7EE7 \u7EED \xB7"
 --- !u!222 &1736158515
 CanvasRenderer:
   m_ObjectHideFlags: 0

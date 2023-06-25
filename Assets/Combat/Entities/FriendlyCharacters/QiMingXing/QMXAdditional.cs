@@ -5,10 +5,9 @@ using UnityEngine;
 namespace Combat {
 
 	public class QMXAdditional:EntityAdditionalFunctionBase {
-
-		[SerializeField] int projectileCount;
 		[SerializeField] float rangeMin;
 		[SerializeField] float rangeMax;
+		[SerializeField] int targetAttackIndex = 1;
 
 		static List<EntityBase> targets = new List<EntityBase>();
 
@@ -24,10 +23,11 @@ namespace Combat {
 					if(Mathf.Abs(i.transform.position.x-transform.position.x)>rangeMax) continue;
 					targets.Add(i);
 				}
-				if(targets.Count==0) return true;
-				for(int i=0;i<projectileCount;i++){
+				if(targets.Count==0) {
+					entity.Attack(null,targetAttackIndex);
+				} else {
 					int targetIndex = Random.Range(0,targets.Count);
-					entity.Attack(targets[targetIndex],1);
+					entity.Attack(targets[targetIndex],targetAttackIndex);
 				}
 
 				return true;

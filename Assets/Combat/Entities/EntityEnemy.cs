@@ -222,7 +222,7 @@ namespace Combat {
 
 				RaycastHit2D hit = Utility.raycastBuffer[i];
 				EntityBase other = hit.collider.GetComponent<EntityBase>();
-				if(other&&other.isFriendly) {
+				if(other&&(other.isFriendly!=isFriendly)) {
 
 					if(targetHit.Contains(other)) continue;
 					targetHit.Add(other);
@@ -356,6 +356,7 @@ namespace Combat {
 		}
 
 		protected virtual void StartStagger() {
+
 			currensState=StateStagger;
 			animator.SetTrigger("stagger");
 			nameHashSet=false;
@@ -372,6 +373,7 @@ namespace Combat {
 			if(state.fullPathHash!=nameHash) StartMove();
 
 		}
+		public bool isStaggered => currensState==StateStagger;
 
 		#endregion
 

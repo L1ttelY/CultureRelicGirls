@@ -17,6 +17,7 @@ namespace VehicleScene {
 		private void Start() {
 			Combat.EntityFriendly.RecoverAllHp();
 			Combat.DestroyStatusRecord.ReviveAllDestroyedObjects();
+			ItemData.ResetCount();
 		}
 
 		public void OnReturnClick() {
