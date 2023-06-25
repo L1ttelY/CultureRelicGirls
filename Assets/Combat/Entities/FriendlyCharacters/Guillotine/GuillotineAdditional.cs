@@ -86,14 +86,6 @@ namespace Combat {
 				}
 
 				return true;
-			} else if(attack==0) {
-				if(timeRemaining>0) entity.DoAttack(2);
-				else entity.DoAttack(4);
-				return true;
-			} else if(attack==1) {
-				if(timeRemaining>0) entity.DoAttack(3);
-				else entity.DoAttack(5);
-				return true;
 			}
 
 			return false;
