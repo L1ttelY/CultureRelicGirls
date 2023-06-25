@@ -121,9 +121,9 @@ MonoBehaviour:
   <spriteRenderer>k__BackingField: {fileID: 0}
   <acceleration>k__BackingField: 2
   <maxSpeed>k__BackingField: 2
-  <attackBasePower>k__BackingField: 5
+  <attackBasePower>k__BackingField: 20
   <knockbackPower>k__BackingField: 0.51
-  <maxHp>k__BackingField: 30
+  <maxHp>k__BackingField: 40
   <attacks>k__BackingField: []
   <maxPredictSpeed>k__BackingField: 0
   <damageVfx>k__BackingField:
@@ -147,6 +147,7 @@ MonoBehaviour:
   corpseTimePerFrame: 0.16
   corpseAnimation:
   - {fileID: 454622129, guid: a364c7c42fb3890449028622bd7cdb5c, type: 3}
+  moneyDrop: 0
   attackChance: 4
   attacks:
   - <minDistance>k__BackingField: 0
