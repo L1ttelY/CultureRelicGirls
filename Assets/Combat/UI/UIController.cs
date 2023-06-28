@@ -9,6 +9,7 @@ namespace Combat {
 	public class UIController:MonoBehaviour {
 		[SerializeField] bool hideUI;
 		[SerializeField] GameObject pauseMenu;
+		[SerializeField] GameObject endGameAnimation;
 		void Start() {
 			GetComponentInChildren<CombatRewardUIController>(true).Init();
 		}
@@ -41,6 +42,8 @@ namespace Combat {
 				pauseMenu.SetActive(false);
 				Time.timeScale=1;
 			}
+
+			if (CombatController.instance.gameEnd) endGameAnimation.SetActive(true);
 
 		}
 
