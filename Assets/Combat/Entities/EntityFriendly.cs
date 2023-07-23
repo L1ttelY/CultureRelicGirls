@@ -25,6 +25,24 @@ namespace Combat {
 		[Tooltip("主动技能消耗的能量值")]
 		[field: SerializeField] public float skillCost { get; protected set; }
 		public Sprite icon { get; protected set; }
+		[SerializeField] GameObject vfxHeal;
+		static float lastHealTime;
+
+		public override void Heal(int amount) {
+			base.Heal(amount);
+			if(Time.time>lastHealTime+0.1f){
+				lastHealTime=Time.time;
+				Vector3 pos = Vector3.zero;
+				int cnt = 0;
+				foreach(var i in friendlyList){
+					if(!i) continue;
+					pos+=i.transform.position;
+					cnt++;
+				}
+				pos/=cnt;
+				VfxPool.Create(vfxHeal,pos,Direction.right);
+			}
+		}
 
 		//主动技能CD完成比例
 		public float skillCdProgress { get { return Mathf.Clamp01(Player.instance.mana/skillCost); } }
@@ -418,16 +436,21 @@ namespace Combat {
 		public override void Damage(DamageModel e) {
 			if(TimelineUtils.shouldStop) return;
 
-			if(Player.instance.UseParry()) {
-				if(e.damageType!=DamageType.Ranged&&e.dealer)
-					e.dealer.DoKnockback(30,Direction.Reverse(e.direction));
-				return;
+			if(e.damageType!=DamageType.HpLoss) {
+
+				if(Player.instance.UseParry()) {
+					if(e.damageType!=DamageType.Ranged&&e.dealer)
+						e.dealer.DoKnockback(30,Direction.Reverse(e.direction));
+					return;
+				}
+				if(isBlocking) {
+					e.amount/=2;
+					if(e.damageType!=DamageType.Ranged&&e.dealer)
+						e.dealer.DoKnockback(8,Direction.Reverse(e.direction));
+				}
+
 			}
-			if(isBlocking) {
-				e.amount/=2;
-				if(e.damageType!=DamageType.Ranged&&e.dealer)
-					e.dealer.DoKnockback(8,Direction.Reverse(e.direction));
-			}
+
 			base.Damage(e);
 		}
 

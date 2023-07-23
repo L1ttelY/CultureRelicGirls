@@ -13,7 +13,10 @@ public static class LoadoutController {
 		if(!CharacterData.datas.ContainsKey(teamMembers[index].value)) return null;
 		return CharacterData.datas[teamMembers[index].value];
 	}
-	public static void SetTeamMember(int index,CharacterData value) => teamMembers[index].value=value.name;
+	public static void SetTeamMember(int index,CharacterData value) {
+		if(value==null) teamMembers[index].value="";
+		else teamMembers[index].value=value.name;
+	}
 	public static ItemData GetHotBar(int index) {
 		if(!ItemData.instances.ContainsKey(hotBar[index].value)) return null;
 		return ItemData.instances[hotBar[index].value];

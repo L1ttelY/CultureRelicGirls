@@ -32,6 +32,7 @@ namespace PlayerData {
 
 		public override void Load(XmlElement serialized) {
 			base.Load(serialized);
+			loadedFlags.Clear();
 			string[] flags = value.Split(";==;");
 			if(flags==null) flags=new string[0];
 			foreach(var i in flags) loadedFlags.Add(i);

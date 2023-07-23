@@ -69,7 +69,7 @@ namespace Combat {
 		[HideInInspector] public int rewardPm;
 		[SerializeField] AudioClip soundVictory;
 		[SerializeField] AudioClip soundFail;
-		[SerializeField] UnityEvent onEnd;
+		//[SerializeField] UnityEvent onEnd;
 		const float gameEndAnimationTime = 2;
 
 		private void FixedUpdate() {
@@ -84,7 +84,7 @@ namespace Combat {
 		public bool forceEnd;
 
 		int ticks;
-		bool gameEnd;
+		public bool gameEnd;
 		float endTime;
 		bool endStart;
 		const float timeToEnd = 1;

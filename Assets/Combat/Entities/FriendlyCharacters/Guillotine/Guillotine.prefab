@@ -12,6 +12,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: vfxHeal
+      value: 
+      objectReference: {fileID: 1763441829856274810, guid: fb5149a8dbef97e4b8facac4e73e2f18, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: chargeTime
       value: 1
       objectReference: {fileID: 0}
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <damageVfx>k__BackingField.Array.size
@@ -89,11 +93,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<manaGain>k__BackingField
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[1].<manaGain>k__BackingField
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[2].<manaGain>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[3].<manaGain>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[4].<manaGain>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[5].<manaGain>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<projectile>k__BackingField
@@ -102,7 +122,23 @@ PrefabInstance:
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[1].<projectile>k__BackingField
       value: 
-      objectReference: {fileID: 2774859980595649070, guid: 64c28bba392428b4b9ab21ae6314cf29, type: 3}
+      objectReference: {fileID: 2774859980595649070, guid: 32e217aa5108fe24186a0cf3e814317b, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[2].<projectile>k__BackingField
+      value: 
+      objectReference: {fileID: 2774859980595649070, guid: 32e217aa5108fe24186a0cf3e814317b, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[3].<projectile>k__BackingField
+      value: 
+      objectReference: {fileID: 2774859980595649070, guid: 32e217aa5108fe24186a0cf3e814317b, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[4].<projectile>k__BackingField
+      value: 
+      objectReference: {fileID: 2774859980595649070, guid: 295eef7baa5ec42488bc0b46efe4e1ce, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: <attacks>k__BackingField.Array.data[5].<projectile>k__BackingField
+      value: 
+      objectReference: {fileID: 2774859980595649070, guid: 295eef7baa5ec42488bc0b46efe4e1ce, type: 3}
     - target: {fileID: 1674207602, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -110,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 2522598447239158626, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1205351941, guid: 4482084905eb63945b26b107429d974a, type: 3}
+      objectReference: {fileID: 380420938, guid: 234b48450667bda458fa7d682c8040f7, type: 3}
     - target: {fileID: 7189738652749299581, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Controller
       value: 
@@ -170,7 +206,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8447825321245819325, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
   m_PrefabInstance: {fileID: 844873759678975058}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-2023376225510401604
+--- !u!114 &6011341209962005992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,7 +215,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9116741855547919855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783ee871d6546c744897e25e2fcedf35, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b947870bd79dd543b68b0359ceafaae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSummon: {fileID: 0}
+  duration: 5
+  hpLossRate: 0.07
+  hpRecoveryRate: 1
+  manaRegenRate: 50
+  skillColor: {r: 0, g: 0, b: 0, a: 0}

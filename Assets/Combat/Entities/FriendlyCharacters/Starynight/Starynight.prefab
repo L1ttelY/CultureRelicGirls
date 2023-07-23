@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
+      propertyPath: vfxHeal
+      value: 
+      objectReference: {fileID: 1763441829856274810, guid: fb5149a8dbef97e4b8facac4e73e2f18, type: 3}
+    - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: chargeTime
       value: 1
       objectReference: {fileID: 0}
@@ -33,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <skillCost>k__BackingField
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <visionRange>k__BackingField
@@ -85,11 +89,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<manaGain>k__BackingField
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[1].<manaGain>k__BackingField
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <attacks>k__BackingField.Array.data[0].<projectile>k__BackingField
@@ -117,11 +121,11 @@ PrefabInstance:
       objectReference: {fileID: -573350920, guid: d7841bbcb2b7ff84b82dff4ce5ae9e8d, type: 3}
     - target: {fileID: 5394524253863258354, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.821
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5394524253863258354, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.669
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 7189738652749299581, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: m_Controller
@@ -194,6 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa4f4c131bb61540a47e5a697ea2fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileCount: 4
   rangeMin: 0
   rangeMax: 8
+  targetAttackIndex: 1
