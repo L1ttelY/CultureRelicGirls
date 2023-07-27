@@ -19,11 +19,15 @@ public class CharacterData:ScriptableObject {
 		datas.Add(name,this);
 	}
 
-	[field: TextArea] [field: SerializeField] public string descriptionShort { get; private set; } //在选择人物后升级界面所展示的介绍
-	[field: TextArea] [field: SerializeField] public string skillName { get; private set; } //角色的技能介绍
-	[field: TextArea] [field: SerializeField] public string skillDescription { get; private set; } //角色的技能介绍
-	[field: TextArea] [field: SerializeField] public string fullDescription { get; private set; }  //角色的背景介绍
-	[field: TextArea] [field: SerializeField] public string className { get; private set; }  //角色的职业名
+	[field: TextArea][field: SerializeField] public string descriptionShort { get; private set; } //在选择人物后升级界面所展示的介绍
+	[field: TextArea][field: SerializeField] public string skillName { get; private set; } //角色的技能介绍
+	[field: TextArea][field: SerializeField] public string skillDescription { get; private set; } //角色的技能介绍
+	[field: TextArea][field: SerializeField] public string fullDescription { get; private set; }  //角色的背景介绍
+	[field: SerializeField] public string className { get; private set; }  //角色的职业名
+
+	[field: TextArea][field: SerializeField] public string relicDescr { get; private set; }  //文物介绍
+	[field: SerializeField] public Sprite relicPicture { get; private set; } //文物精灵
+
 
 	public int maxLevel => levels.Length-1;
 	[field: SerializeField] public GameObject combatPrefab { get; private set; }

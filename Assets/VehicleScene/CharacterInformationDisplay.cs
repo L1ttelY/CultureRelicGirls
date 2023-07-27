@@ -17,7 +17,9 @@ public class CharacterInformationDisplay:MonoBehaviour {
 	[SerializeField] Text textSkillDescription;
 	[SerializeField] Text textSkillDetail;
 	[SerializeField] Text textNextSkillDetail;
+	[SerializeField] Text textRelic;
 	[SerializeField] Image characterImage;
+	[SerializeField] Image relicImage;
 
 	public CharacterData targetCharacter;
 
@@ -26,6 +28,10 @@ public class CharacterInformationDisplay:MonoBehaviour {
 	void Display(Text target,string content) {
 		if(!target) return;
 		target.text=content;
+	}
+
+	private void OnEnable() {
+		Update();
 	}
 
 	private void Update() {
@@ -39,6 +45,7 @@ public class CharacterInformationDisplay:MonoBehaviour {
 			Display(textClass,targetCharacter.className);
 			Display(textSkillName,targetCharacter.skillName);
 			Display(textSkillDescription,targetCharacter.skillDescription);
+			Display(textRelic,targetCharacter.relicDescr);
 			Display(textLevel,numberList[currentLevel]);
 			Display(textHp,currentData.hpMax.ToString());
 			Display(textPower,currentData.power.ToString());
@@ -47,6 +54,10 @@ public class CharacterInformationDisplay:MonoBehaviour {
 			if(characterImage) {
 				characterImage.sprite=targetCharacter.portrait;
 				characterImage.color=Color.white;
+			}
+			if(relicImage) {
+				relicImage.sprite=targetCharacter.relicPicture;
+				relicImage.color=Color.white;
 			}
 
 			if(currentLevel<targetCharacter.levels.Length-1) {
@@ -82,6 +93,9 @@ public class CharacterInformationDisplay:MonoBehaviour {
 
 			if(characterImage) {
 				characterImage.color=Color.clear;
+			}
+			if(relicImage) {
+				relicImage.color=Color.clear;
 			}
 		}
 
