@@ -1,0 +1,427 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7515852127090577762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
+  m_Name: Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1304.5667, y: -17.099976}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -7515852127090577762}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -2172945287189873304}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -7515852127090577762}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 0}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: aba
+  Dialogue: aba
+--- !u!114 &-7051445333402722929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adabf642a00adb64f98845666fedcc5a, type: 3}
+  m_Name: Audio Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: -8}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -7051445333402722929}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -7029963791666098809}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -7051445333402722929}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: 8178971467066448224}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 8178971467066448224}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: qmx
+  Dialogue: aaaaa
+  Beep: 0
+  BeepOnVowel: 0
+  PitchShift: 0
+  MaxPitch: 0
+  BoopSoundEffect: {fileID: 0}
+  DialogueClip: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
+--- !u!114 &-7029963791666098809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f75b66cbe889d4cb63a0a491cf5a3b, type: 3}
+  m_Name: Enter Scene Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -232, y: -8}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -7029963791666098809}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -1474123079115775337}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -7029963791666098809}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -7051445333402722929}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: -7051445333402722929}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: qmx
+  Character: {fileID: 21300000, guid: 0b264604aaaa7a94e995b76f262e3b78, type: 3}
+  Flip: 0
+  EnterFromDirection: 0
+  FinalPosition: 0
+  EnterTime: 2
+--- !u!114 &-2172945287189873304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f75b66cbe889d4cb63a0a491cf5a3b, type: 3}
+  m_Name: Enter Scene Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 856, y: -8}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -2172945287189873304}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: 8178971467066448224}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -2172945287189873304}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -7515852127090577762}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: -7515852127090577762}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: aba
+  Character: {fileID: 21300000, guid: 7bee8c62a1d931e44ab6d0bb664c544a, type: 3}
+  Flip: 1
+  EnterFromDirection: 1
+  FinalPosition: 2
+  EnterTime: 2
+--- !u!114 &-1474123079115775337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28096adb5a549224d872e6b42438827f, type: 3}
+  m_Name: Start Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -590.3334, y: -12.5}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -1474123079115775337}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -1474123079115775337}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -7029963791666098809}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: -7029963791666098809}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  StoryName: New Story Graph
+  IsRoot: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ec3a53a2560434c9140ef0b6322f96, type: 3}
+  m_Name: New Story Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1474123079115775337}
+  - {fileID: -7029963791666098809}
+  - {fileID: -7051445333402722929}
+  - {fileID: 8178971467066448224}
+  - {fileID: -2172945287189873304}
+  - {fileID: -7515852127090577762}
+  StoryNames:
+  - New Story Graph
+--- !u!114 &8178971467066448224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adabf642a00adb64f98845666fedcc5a, type: 3}
+  m_Name: Audio Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 440, y: -8}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: 8178971467066448224}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -7051445333402722929}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: 8178971467066448224}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -2172945287189873304}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 0}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: qmx
+  Dialogue: bbbbbbbb
+  Beep: 1
+  BeepOnVowel: 0
+  PitchShift: 1
+  MaxPitch: 0
+  BoopSoundEffect: {fileID: 8300000, guid: d266a9a60938ba24ba2fdc49d6f87034, type: 3}
+  DialogueClip: {fileID: 0}

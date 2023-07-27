@@ -7,6 +7,7 @@ namespace Combat {
 	public class QMXAdditional:EntityAdditionalFunctionBase {
 		[SerializeField] float rangeMin;
 		[SerializeField] float rangeMax;
+		[SerializeField] float damageMultiplier = 1;
 		[SerializeField] int targetAttackIndex = 1;
 
 		static List<EntityBase> targets = new List<EntityBase>();
@@ -24,9 +25,11 @@ namespace Combat {
 					targets.Add(i);
 				}
 				if(targets.Count==0) {
+					entity.powerBuff*=damageMultiplier;
 					entity.Attack(null,targetAttackIndex);
 				} else {
 					int targetIndex = Random.Range(0,targets.Count);
+					entity.powerBuff*=damageMultiplier;
 					entity.Attack(targets[targetIndex],targetAttackIndex);
 				}
 
