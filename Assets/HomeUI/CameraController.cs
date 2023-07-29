@@ -41,7 +41,7 @@ namespace Home {
 
 
 		//用于在聚焦中保留摄像头的位置和大小
-		float cameraSize = 5;
+		float cameraSize = 2.5f;
 		Vector2 cameraPosition;
 
 		bool focusChanged;
