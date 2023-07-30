@@ -13,7 +13,7 @@ namespace Combat {
 			float deltaX = Mathf.Sign(stacks)*Time.deltaTime*speed;
 			if(stacks>0.5f) deltaX*=(stacks/0.5f);
 
-			owner.transform.position+=Vector3.right*deltaX;
+			owner.MovePosition(owner.transform.position+Vector3.right*deltaX);
 			float newStacks = stacks-deltaX;
 			if(newStacks*stacks<=0) RemoveSelf();
 			stacks=newStacks;
