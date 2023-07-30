@@ -87,7 +87,7 @@ namespace Combat {
 		[SerializeField] protected AudioClip soundDeath;
 
 		//获取当前角色正常攻击的参数
-		protected virtual DamageModel GetDamage() {
+		public virtual DamageModel GetDamage() {
 			DamageModel result = new DamageModel();
 			result.amount=Mathf.RoundToInt(attackBasePower*powerBuff);
 			result.knockback=knockbackPower*knockbackBuff;

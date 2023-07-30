@@ -7,6 +7,7 @@ namespace Combat {
 	public class TCYJAdditional:EntityAdditionalFunctionBase {
 
 		[SerializeField] GameObject projectilePrefab;
+		[SerializeField] float damageMultiplier = 1f;
 
 		public override bool OverrideAttack(EntityBase target,int attack) {
 
@@ -18,10 +19,9 @@ namespace Combat {
 					if(!e.isActiveAndEnabled) continue;
 					if(Mathf.Abs(e.transform.position.x-transform.position.x)>10) continue;
 					if(e.isStaggered) {
-						DamageModel damage = new DamageModel();
-						damage.dealer=entity;
-						damage.amount=entity.attackBasePower;
+						DamageModel damage = entity.GetDamage();
 						damage.damageType=DamageType.Slash;
+						damage.amount=(int)(damage.amount*damageMultiplier);
 						damage.direction=(e.transform.position.x-transform.position.x)>0 ? Direction.right : Direction.left;
 						ProjectilePool.Create(projectilePrefab,e.transform.position,Vector2.zero,e,entity.isFriendly,damage);
 					}
