@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <maxSpeed>k__BackingField
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4425472078791212774, guid: cbc8f0f328a7f2b4b9f55f7d507e608c, type: 3}
       propertyPath: <skillCost>k__BackingField
@@ -208,5 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeMin: 0
   rangeMax: 8
+  slowAmount: 0
+  slowTime: 0
   damageMultiplier: 1
   targetAttackIndex: 1
