@@ -29,6 +29,11 @@ namespace Home {
 		private void OnDisable() {
 			if(mouseOver==this) mouseOver=null;
 		}
+
+		private void Update() {
+			if(!Draggable.dragged) mouseOver=null;
+		}
+
 	}
 
 }
