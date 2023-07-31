@@ -33,17 +33,22 @@ namespace Combat {
 			paused=false;
 		}
 
+		bool prvPaused;
 		private void Update() {
 
-			if(paused) {
-				pauseMenu.SetActive(true);
-				Time.timeScale=0;
-			} else {
-				pauseMenu.SetActive(false);
-				Time.timeScale=1;
+			if(paused!=prvPaused) {
+				if(paused) {
+					pauseMenu.SetActive(true);
+					Time.timeScale=0;
+				} else {
+					pauseMenu.SetActive(false);
+					Time.timeScale=1;
+				}
+				prvPaused=paused;
 			}
 
-			if (CombatController.instance.gameEnd) endGameAnimation.SetActive(true);
+
+			if(CombatController.instance.gameEnd) endGameAnimation.SetActive(true);
 
 		}
 
