@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1341984813
+CRC: 1315730808
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dc4248ceede51f8beac320187ed829ff
+    Hash: 5c253e526842e49bac37868171e428a2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 39137df212b7a03b8de4f977c1d22d57
+    Hash: 350b71856b5ea422a2b5d75f683cf150
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -32,9 +32,11 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 80977bae12a56fe4c9b24dada1348396, type: 3}
 - Class: 114
@@ -55,8 +57,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: e910479afe36a334581d70a9b7b82f85, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5b947870bd79dd543b68b0359ceafaae, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 783ee871d6546c744897e25e2fcedf35, type: 3}
 - Class: 114
@@ -97,6 +97,7 @@ Assets:
 - Assets/Combat/Visual/vfx/Prefabs/VfxBlood_01.prefab
 - Assets/Shaders/Brighten2.5.mat
 - "Assets/Combat/Entities/FriendlyCharacters/Chessman/\u8DEF\u6613\u65AF\u56FD\u9645\u8C61\u68CB.asset"
+- Assets/Shaders/Brighten1.5.mat
 - Assets/Combat/Entities/FriendlyCharacters/Chessman/Chesman_P_A0.overrideController
 - Assets/Shaders/Brighten2.mat
 - "Assets/Combat/Entities/FriendlyCharacters/Starynight/\u661F\u7A7A.asset"
