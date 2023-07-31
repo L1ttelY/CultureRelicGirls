@@ -269,7 +269,7 @@ namespace Combat {
 		//ÒÆ¶¯Ïà¹Ø
 		[SerializeField] protected Vector2 velocity;
 		virtual protected void UpdateMove() {
-			transform.position+=(Vector3)velocity*Time.deltaTime;
+			transform.position+=(Vector3)velocity*2*Time.deltaTime;
 		}
 
 		public Void currensState { get; protected set; }
