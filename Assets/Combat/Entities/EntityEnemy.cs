@@ -122,7 +122,8 @@ namespace Combat {
 			}
 			if(nameHash!=state.fullPathHash) AttackEnd();
 
-			velocity=overrideSpeed*Direction.GetVector(direction);
+			velocity=overrideSpeed*0.5f*Direction.GetVector(direction);
+			transform.position+=(Vector3)velocity*Time.deltaTime;
 			overrideSpeed=0;
 			if(doingDamage) UpdateContactDamage();
 			else targetHit.Clear();

@@ -16,8 +16,6 @@ namespace Combat {
 			CombatController.startObject=otherSide.name;	
 			targetRoom.GoToRoom();
 
-			Debug.Log("!!!");
-
 		}
 
 	}

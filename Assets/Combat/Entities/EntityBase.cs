@@ -114,9 +114,11 @@ namespace Combat {
 			knockbackBuff=1;
 			cdSpeed=1;
 			speedBuff=1;
+			buffSlot.Update();
 			UpdateStats?.Invoke(this);
 
 		}
+
 
 		public DamageModel lastDamage { get; protected set; }            //最后一次受到的伤害
 		public static event System.EventHandler<DamageModel> DamageEvent;//受到伤害时触发的事件
@@ -125,7 +127,7 @@ namespace Combat {
 		//对角色造成伤害
 		float timeAfterHit;
 		public virtual void Damage(DamageModel e) { //受到伤害
-			
+
 			if(e.amount>0&&e.damageType!=DamageType.HpLoss) {
 				AudioController.PlayAudio(soundHit,transform.position);
 				animator.SetTrigger("hit");
@@ -136,7 +138,7 @@ namespace Combat {
 				}
 			}
 			hp-=e.amount;
-			
+
 			if(e.damageType!=DamageType.HpLoss) {
 				DoKnockback(e.knockback,e.direction);
 				DamageEvent?.Invoke(this,e);
@@ -162,6 +164,9 @@ namespace Combat {
 		}
 
 		protected virtual void Start() {
+
+			previousPosition=transform.position;
+			nextPosition=transform.position;
 
 			hp=maxHp;
 			StartMove();
@@ -200,13 +205,27 @@ namespace Combat {
 			animator.SetFloat("forwardSpeed",velocity.x*Direction.GetX(direction));
 			if(currensState!=StateKnockback) animator.SetBool("inKnockback",false);
 
-			buffSlot.Update();
 			UpdateMaterial();
 		}
 
+		public void MovePosition(Vector3 target) {
+			Vector3 offset = transform.position-target;
+			transform.position+=offset;
+			previousPosition+=offset;
+			nextPosition+=offset;
+		}
 		float distanceMoved;
-		protected virtual void FixedUpdate() {
+		Vector3 previousPosition;
+		Vector3 nextPosition;
+		Vector3 cumulatedMovement;
+		void FixedUpdateMove() {
+			transform.position=nextPosition;
+			previousPosition=transform.position;
+			cumulatedMovement=Vector3.zero;
+		}
 
+		protected virtual void FixedUpdate() {
+			FixedUpdateMove();
 			if(room!=CombatRoomController.currentRoom) return;
 
 			OnUpdateStats();
@@ -247,7 +266,7 @@ namespace Combat {
 
 		}
 
-		protected virtual void UpdateMaterial(){
+		protected virtual void UpdateMaterial() {
 			if(timeAfterHit>0.01f&&timeAfterHit<0.1f) spriteRenderer.material=materialHit;
 			else spriteRenderer.material=materialDefault;
 		}
@@ -255,8 +274,9 @@ namespace Combat {
 		//移动相关
 		protected Vector2 velocity;
 		virtual protected void UpdateMove() {
-			Vector2 position = transform.position;
-			position+=velocity*Time.deltaTime;
+			cumulatedMovement+=(Vector3)velocity*2*Time.deltaTime;
+			nextPosition=previousPosition+(Vector3)velocity*2*Time.fixedDeltaTime;
+			Vector3 position = previousPosition+cumulatedMovement;
 			if(position.y<room.transform.position.y) position.y=room.transform.position.y;
 			transform.position=position;
 		}
@@ -415,7 +435,7 @@ namespace Combat {
 
 		#endregion
 
-		protected BuffSlot buffSlot;
+		public BuffSlot buffSlot;
 
 		//用于判断动画状态转移
 		protected int nameHash;
