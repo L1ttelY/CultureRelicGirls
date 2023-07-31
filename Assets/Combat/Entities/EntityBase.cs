@@ -209,7 +209,7 @@ namespace Combat {
 		}
 
 		public void MovePosition(Vector3 target) {
-			Vector3 offset = transform.position-target;
+			Vector3 offset = target-transform.position;
 			transform.position+=offset;
 			previousPosition+=offset;
 			nextPosition+=offset;
