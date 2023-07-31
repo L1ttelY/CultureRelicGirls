@@ -166,8 +166,7 @@ namespace Combat {
 		protected virtual void Start() {
 
 			previousPosition=transform.position;
-			nextPosition=transform.position;
-
+			
 			hp=maxHp;
 			StartMove();
 			positionInList=entities.AddLast(this);
@@ -212,16 +211,12 @@ namespace Combat {
 			Vector3 offset = target-transform.position;
 			transform.position+=offset;
 			previousPosition+=offset;
-			nextPosition+=offset;
 		}
 		float distanceMoved;
 		Vector3 previousPosition;
-		Vector3 nextPosition;
-		Vector3 cumulatedMovement;
 		void FixedUpdateMove() {
-			transform.position=nextPosition;
+			transform.position=previousPosition+2*(Vector3)velocity*Time.deltaTime;
 			previousPosition=transform.position;
-			cumulatedMovement=Vector3.zero;
 		}
 
 		protected virtual void FixedUpdate() {
@@ -272,13 +267,9 @@ namespace Combat {
 		}
 
 		//ÒÆ¶¯Ïà¹Ø
-		protected Vector2 velocity;
+		[SerializeField] protected Vector2 velocity;
 		virtual protected void UpdateMove() {
-			cumulatedMovement+=(Vector3)velocity*2*Time.deltaTime;
-			nextPosition=previousPosition+(Vector3)velocity*2*Time.fixedDeltaTime;
-			Vector3 position = previousPosition+cumulatedMovement;
-			if(position.y<room.transform.position.y) position.y=room.transform.position.y;
-			transform.position=position;
+			transform.position+=(Vector3)velocity*2*Time.deltaTime;
 		}
 
 		public Void currensState { get; protected set; }

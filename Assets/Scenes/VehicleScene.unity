@@ -6448,7 +6448,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: QMX
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5272598756318727496, guid: c28618ffee55363489a27c7ab565b849, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c28618ffee55363489a27c7ab565b849, type: 3}
 --- !u!1 &854673527
 GameObject:
